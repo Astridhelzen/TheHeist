@@ -3,7 +3,9 @@ extends CharacterBody3D
 const SPEED = 5.0
 const ROTATION_SPEED = 2.0
 
-
+func _ready() -> void:
+	PlayerManager.player = self
+	
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cn7h3oj1bmap"]
+
+[ext_resource type="Script" uid="uid://f0yqx2xx8sk8" path="res://guard.gd" id="1_30cdx"]
+[ext_resource type="PackedScene" uid="uid://c2x6ct72g5vyd" path="res://characters/guard/Idle.fbx" id="2_ay375"]
+[ext_resource type="Animation" uid="uid://bftotjoi0m0dl" path="res://characters/guard/Attack.res" id="3_ioqu5"]
+[ext_resource type="Animation" uid="uid://diyandi2mwwn7" path="res://characters/guard/Idle.res" id="4_tuxdl"]
+[ext_resource type="Animation" uid="uid://c2yn1n1rbk5l0" path="res://characters/guard/Run.res" id="5_qgjdg"]
+[ext_resource type="Animation" uid="uid://b1pf366o7vsx8" path="res://characters/guard/Walk.res" id="6_1krou"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bh547"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c42mr"]
+_data = {
+&"Attack": ExtResource("3_ioqu5"),
+&"Idle": ExtResource("4_tuxdl"),
+&"Run": ExtResource("5_qgjdg"),
+&"Walk": ExtResource("6_1krou")
+}
+
+[node name="Guard" type="CharacterBody3D" unique_id=1780379191]
+script = ExtResource("1_30cdx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2124723915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88251543, 0)
+shape = SubResource("CapsuleShape3D_bh547")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1069790418]
+path_desired_distance = 0.4
+
+[node name="VisionRay" type="RayCast3D" parent="." unique_id=79110173]
+target_position = Vector3(0, 0, -10)
+
+[node name="Model" parent="." unique_id=1088769177 instance=ExtResource("2_ay375")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1867552703]
+root_node = NodePath("../Model")
+libraries/ = SubResource("AnimationLibrary_c42mr")
