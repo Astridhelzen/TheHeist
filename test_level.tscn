@@ -33,8 +33,9 @@ transform = Transform3D(0.8660254, 0.3535534, -0.3535534, 0.13325216, 0.5183335,
 [node name="Player" parent="." unique_id=1592885850 instance=ExtResource("1_gojnm")]
 transform = Transform3D(0.008396721, 0, 0.9999648, 0, 1, 0, -0.9999648, 0, 0.008396721, 4.0256023, 1.3185415, 4.806846)
 
-[node name="Guard" parent="." unique_id=1780379191 instance=ExtResource("2_1c2mv")]
+[node name="Guard" parent="." unique_id=1780379191 node_paths=PackedStringArray("patrol_points") instance=ExtResource("2_1c2mv")]
 transform = Transform3D(-0.9999806, 0, -0.0062261736, 0, 1, 0, 0.0062261736, 0, -0.9999806, 5.2863064, 1.075559, -4.7518396)
+patrol_points = [NodePath("../PatrolPoints/PatrolPoint1"), NodePath("../PatrolPoints/PatrolPoint2"), NodePath("../PatrolPoints/PatrolPoint3")]
 
 [node name="PatrolPoints" type="Node3D" parent="." unique_id=33507531]
 

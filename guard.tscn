@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://f0yqx2xx8sk8" path="res://guard.gd" id="1_30cdx"]
 [ext_resource type="PackedScene" uid="uid://c2x6ct72g5vyd" path="res://characters/guard/Idle.fbx" id="2_ay375"]
-[ext_resource type="Animation" uid="uid://bftotjoi0m0dl" path="res://characters/guard/Attack.res" id="3_ioqu5"]
-[ext_resource type="Animation" uid="uid://diyandi2mwwn7" path="res://characters/guard/Idle.res" id="4_tuxdl"]
-[ext_resource type="Animation" uid="uid://c2yn1n1rbk5l0" path="res://characters/guard/Run.res" id="5_qgjdg"]
-[ext_resource type="Animation" uid="uid://b1pf366o7vsx8" path="res://characters/guard/Walk.res" id="6_1krou"]
+[ext_resource type="Animation" uid="uid://djceeppjo1jpd" path="res://characters/guard/Attack.res" id="3_ioqu5"]
+[ext_resource type="Animation" uid="uid://pxebjpm3mdg7" path="res://characters/guard/Idle.res" id="4_tuxdl"]
+[ext_resource type="Animation" uid="uid://di5nvbmn1bow0" path="res://characters/guard/Run.res" id="5_qgjdg"]
+[ext_resource type="Animation" uid="uid://beh5hsu28av0q" path="res://characters/guard/Walk.res" id="6_1krou"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bh547"]
 

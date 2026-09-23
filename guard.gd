@@ -15,7 +15,7 @@ extends CharacterBody3D
 @export var patrol_wait_time: float = 3.0
 @export var update_interval: float = 0.2
 @export var look_around_angle: float = 70.0   # hur långt åt varje håll (grader)
-@export var pursue_time: float = 2.5   # hur länge den jagar utan att se dig
+@export var pursue_time: float = 1.5   # hur länge den jagar utan att se dig
 
 const VIEW_ANGLE: float = 190.0
 const SMOOTHING_FACTOR = 0.2
@@ -134,12 +134,14 @@ func _state_pursue(delta: float) -> void:
 		investigate_position = target.global_transform.origin
 		_enter_state(State.INVESTIGATE)
 		
+
+	
 func _state_attack() -> void:
-	velocity = Vector3.ZERO
-	anim.play("Attack")
-	await anim.animation_finished
-	# TODO: handle player capture
-	_enter_state(State.CHASE)
+	velocity.x = 0.0
+	velocity.z = 0.0
+	if not anim.is_playing():   # Attack-animationen är klar
+		# TODO: handle player capture
+		_enter_state(State.CHASE)
  
 func _state_return(delta: float) -> void:
 	if agent.is_navigation_finished():
@@ -153,6 +155,10 @@ func _state_return(delta: float) -> void:
 # HELPERS
 # --------------------
 func _enter_state(new_state: State) -> void:
+	# Utan patrullpunkter finns ingen runda att gå, så stå still istället
+	if new_state == State.PATROL and patrol_points.is_empty():
+		new_state = State.IDLE
+
 	# Spara var vakten var innan den började jaga/undersöka
 	if state in [State.IDLE, State.PATROL, State.RETURN] \
 			and new_state in [State.CHASE, State.INVESTIGATE]:
@@ -160,6 +166,8 @@ func _enter_state(new_state: State) -> void:
 
 	state = new_state
 	match state:
+		State.IDLE:
+			_stop_and_idle()
 		State.PATROL:
 			patrol_timer = 0
 			_go_to_next_patrol_point()
@@ -168,7 +176,11 @@ func _enter_state(new_state: State) -> void:
 			agent.set_target_position(investigate_position)
 		State.PURSUE:
 			pursue_timer = pursue_time
- 
+		State.ATTACK:
+			velocity.x = 0.0
+			velocity.z = 0.0
+			anim.play("Attack")
+
 func _update_agent_target() -> void:
 	match state:
 		State.PATROL:
