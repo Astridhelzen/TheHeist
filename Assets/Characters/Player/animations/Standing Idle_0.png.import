@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm2bmd84rs5c"
-path.s3tc="res://.godot/imported/Female_Character_female+model+3d+model_normal.jpg-fd31b1ce981be1d80214210bfa1e5b7e.s3tc.ctex"
+uid="uid://cb3uw6dxkbkbq"
+path.s3tc="res://.godot/imported/Standing Idle_0.png-2f9470565da598941838ff144a286d66.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "55820dd48e44e946296dba196b2aa24c"
+"md5": "ad93ae3ac844f2ea78ade5ba1ff4ca8f"
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Female_Character_female+model+3d+model_normal.jpg"
-dest_files=["res://.godot/imported/Female_Character_female+model+3d+model_normal.jpg-fd31b1ce981be1d80214210bfa1e5b7e.s3tc.ctex"]
+source_file="res://Assets/Characters/Player/animations/Standing Idle_0.png"
+dest_files=["res://.godot/imported/Standing Idle_0.png-2f9470565da598941838ff144a286d66.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Assets/Characters/Female_Character_female+model+3d+model_normal.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dr4tlwjx3xei1"
-path="res://.godot/imported/Walking.fbx-cc611cf296df45b063e174ad645380ed.scn"
+uid="uid://cdaqq2vc5usbj"
+path="res://.godot/imported/Attack.fbx-b36663412bd42006892ef1b7c919ba79.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/animations/Walking.fbx"
-dest_files=["res://.godot/imported/Walking.fbx-cc611cf296df45b063e174ad645380ed.scn"]
+source_file="res://Assets/Characters/Guard/Attack.fbx"
+dest_files=["res://.godot/imported/Attack.fbx-b36663412bd42006892ef1b7c919ba79.scn"]
 
 [params]
 
@@ -43,10 +43,10 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Characters/animations/Walking.res",
+"save_to_file/fallback_path": "res://Assets/Characters/Guard/Attack.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://dp2ag3eaita3i",
-"settings/loop_mode": 1,
+"save_to_file/path": "uid://c0w3fp3doupw4",
+"settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",

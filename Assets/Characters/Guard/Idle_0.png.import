@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb3uw6dxkbkbq"
-path.s3tc="res://.godot/imported/Standing Idle_0.png-2563dc9eabb4f940e89fa3587589467c.s3tc.ctex"
+uid="uid://b5230c4lyobnj"
+path.s3tc="res://.godot/imported/Idle_0.png-0f72c4137bd6af85b9b9c6285aa14818.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ad93ae3ac844f2ea78ade5ba1ff4ca8f"
+"md5": "c35295cd2c29b0777a5102cdf5c39b3b"
 }
 
 [deps]
 
-source_file="res://Assets/Characters/animations/Standing Idle_0.png"
-dest_files=["res://.godot/imported/Standing Idle_0.png-2563dc9eabb4f940e89fa3587589467c.s3tc.ctex"]
+source_file="res://Assets/Characters/Guard/Idle_0.png"
+dest_files=["res://.godot/imported/Idle_0.png-0f72c4137bd6af85b9b9c6285aa14818.s3tc.ctex"]
 
 [params]
 
