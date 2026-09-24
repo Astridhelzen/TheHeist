@@ -15,6 +15,7 @@ const ANIMATION_BLEND = 0.2
 
 
 func _ready() -> void:
+	PlayerManager.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Alla tre Mixamo-klipp spelas på den synliga karaktärens skelett.
 	var library := AnimationLibrary.new()
@@ -47,9 +48,6 @@ func _add_animation(library: AnimationLibrary, name: StringName, source: Animati
 	var animation := source.get_animation(&"mixamo_com").duplicate() as Animation
 	animation.loop_mode = Animation.LOOP_LINEAR
 	library.add_animation(name, animation)
-
-func _ready() -> void:
-	PlayerManager.player = self
 	
 func _physics_process(delta: float) -> void:
 	# Gravity
