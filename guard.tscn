@@ -36,3 +36,13 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1867552703]
 root_node = NodePath("../Model")
 libraries/ = SubResource("AnimationLibrary_c42mr")
+
+[node name="Flashlight" type="SpotLight3D" parent="." unique_id=984637611]
+transform = Transform3D(1, 0, 0, 0, 0.9820163, 0.18879601, 0, -0.18879601, 0.9820163, 0.2764032, 0.9715843, -0.6883237)
+light_color = Color(1, 0.9411765, 0.8156863, 1)
+light_energy = 8.0
+light_indirect_energy = 1.5
+light_volumetric_fog_energy = 1.5
+shadow_enabled = true
+spot_range = 6.5
+spot_angle = 30.0
