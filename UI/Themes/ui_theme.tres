@@ -1,0 +1,30 @@
+[gd_resource type="Theme" format=3 uid="uid://d082d34416lgi"]
+
+[ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="1_tmh1t"]
+[ext_resource type="FontFile" uid="uid://mv4jxsopl5im" path="res://UI/Fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf" id="2_8bj0f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yuj1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqpwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmh1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bj0f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsksk"]
+
+[resource]
+default_font = ExtResource("2_8bj0f")
+default_font_size = 16
+Button/colors/font_color = Color(0.6039216, 0.6392157, 0.6784314, 1)
+Button/colors/font_focus_color = Color(1, 0.95686275, 0.8392157, 1)
+Button/colors/font_hover_color = Color(1, 0.95686275, 0.8392157, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 0.95686275, 0.8392157, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_tmh1t")
+Button/styles/disabled = SubResource("StyleBoxEmpty_yuj1s")
+Button/styles/focus = SubResource("StyleBoxEmpty_hqpwj")
+Button/styles/hover = SubResource("StyleBoxEmpty_tmh1t")
+Button/styles/normal = SubResource("StyleBoxEmpty_8bj0f")
+Button/styles/pressed = SubResource("StyleBoxEmpty_vsksk")

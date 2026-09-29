@@ -27,9 +27,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		_rotate_camera(event.relative)
@@ -44,10 +42,10 @@ func _rotate_camera(mouse_movement: Vector2) -> void:
 	)
 
 
-func _add_animation(library: AnimationLibrary, name: StringName, source: AnimationPlayer) -> void:
+func _add_animation(library: AnimationLibrary, anim_name: StringName, source: AnimationPlayer) -> void:
 	var animation := source.get_animation(&"mixamo_com").duplicate() as Animation
 	animation.loop_mode = Animation.LOOP_LINEAR
-	library.add_animation(name, animation)
+	library.add_animation(anim_name, animation)
 	
 func _physics_process(delta: float) -> void:
 	# Gravity

@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" format=3 uid="uid://cgwfmq3x7umbe"]
+
+[ext_resource type="FontFile" uid="uid://bttmym26bugl8" path="res://UI/Fonts/Big_Shoulders/static/BigShoulders-Black.ttf" id="1_tsmry"]
+
+[resource]
+base_font = ExtResource("1_tsmry")
+spacing_glyph = 2
