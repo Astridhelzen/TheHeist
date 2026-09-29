@@ -42,10 +42,10 @@ func _rotate_camera(mouse_movement: Vector2) -> void:
 	)
 
 
-func _add_animation(library: AnimationLibrary, name: StringName, source: AnimationPlayer) -> void:
+func _add_animation(library: AnimationLibrary, anim_name: StringName, source: AnimationPlayer) -> void:
 	var animation := source.get_animation(&"mixamo_com").duplicate() as Animation
 	animation.loop_mode = Animation.LOOP_LINEAR
-	library.add_animation(name, animation)
+	library.add_animation(anim_name, animation)
 	
 func _physics_process(delta: float) -> void:
 	# Gravity
