@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var vision_ray: RayCast3D = $VisionRay
 @onready var flashlight: SpotLight3D = $Flashlight
 
+
 # --------------------
 # CONFIG
 # --------------------
@@ -19,8 +20,8 @@ extends CharacterBody3D
 @export var look_around_angle: float = 70.0   # hur långt åt varje håll (grader)
 @export var pursue_time: float = 2.5          # hur länge den jagar utan att se dig
 @export var aim_height: float = 0.8           # var på spelaren synstrålen siktar
-
-const SMOOTHING_FACTOR = 0.2
+@export var catch_time: float = 1.0          # hur länge spelaren måste vara nära
+@export var escape_margin: float = 1.2       # hur långt bort spelaren måste för att slippa
 
 # --------------------
 # STATE MACHINE
@@ -38,11 +39,16 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var update_timer := 0.0
 var look_base_yaw := 0.0
 var pursue_timer := 0.0
+const SMOOTHING_FACTOR = 0.2
+signal player_caught
+var attack_timer := 0.0
+var has_caught := false
 
 # --------------------
 # READY
 # --------------------
 func _ready() -> void:
+	add_to_group("guards")
 	target = PlayerManager.player
 	# Synstrålen blir lika lång som ficklampans ljus
 	vision_ray.target_position = Vector3(0, 0, -flashlight.spot_range)
@@ -61,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		State.INVESTIGATE: _state_investigate(delta)
 		State.CHASE:       _state_chase(delta)
 		State.PURSUE:      _state_pursue(delta)
-		State.ATTACK:      _state_attack()
+		State.ATTACK:      _state_attack(delta)
 		State.RETURN:      _state_return(delta)
 
 	_apply_gravity(delta)
@@ -139,13 +145,27 @@ func _state_pursue(delta: float) -> void:
 	if pursue_timer <= 0.0:
 		investigate_position = target.global_position
 		_enter_state(State.INVESTIGATE)
-
-func _state_attack() -> void:
+		
+func _state_attack(delta: float) -> void:
 	velocity.x = 0.0
 	velocity.z = 0.0
-	if not anim.is_playing():   # Attack-animationen är klar
-		# TODO: handle player capture
+
+	if not target:
+		_enter_state(State.RETURN)
+		return
+
+	_face_target()
+
+	# Spelaren smet undan, jaga vidare
+	var distance := global_position.distance_to(target.global_position)
+	if distance > attack_range * escape_margin:
 		_enter_state(State.CHASE)
+		return
+
+	attack_timer += delta
+	if attack_timer >= catch_time and not has_caught:
+		has_caught = true
+		player_caught.emit()
 
 func _state_return(_delta: float) -> void:
 	if agent.is_navigation_finished():
@@ -183,6 +203,7 @@ func _enter_state(new_state: State) -> void:
 		State.ATTACK:
 			velocity.x = 0.0
 			velocity.z = 0.0
+			attack_timer = 0.0
 			anim.play("Attack")
 
 func _update_agent_target() -> void:
@@ -277,6 +298,12 @@ func _is_in_flashlight() -> bool:
 
 func _player_aim_point() -> Vector3:
 	return target.global_position + Vector3.UP * aim_height
+	
+func _face_target() -> void:
+	var to_target := target.global_position - global_position
+	to_target.y = 0.0
+	if to_target.length() > 0.01:
+		look_at(global_position + to_target, Vector3.UP)
 
 # --------------------
 # SOUND

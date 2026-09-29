@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cro5agyjgt7rr"]
 
 [ext_resource type="PackedScene" uid="uid://c3slw0yg0jer6" path="res://Player/player.tscn" id="1_2sov6"]
+[ext_resource type="Script" uid="uid://b3qqag486h07e" path="res://Levels/test_level_2.gd" id="1_528df"]
 [ext_resource type="PackedScene" uid="uid://cn7h3oj1bmap" path="res://Guard/guard.tscn" id="2_hvr57"]
+[ext_resource type="FontVariation" uid="uid://cgwfmq3x7umbe" path="res://UI/Fonts/title.tres" id="4_dd3ly"]
+[ext_resource type="PackedScene" uid="uid://bfhfagbdj7vot" path="res://UI/pause_menu.tscn" id="4_n1ad0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ycpd1"]
 vertices = PackedVector3Array(6.232365, 0.4, 6.25, 6.232365, 0.4, 4, -0.51763487, 0.4, 4, -6.267635, 0.4, 6.25, -0.76763487, 0.4, 2.75, 6.232365, 0.4, 2.5, 6.232365, 0.4, -6.25, -6.267635, 0.4, -6.25)
@@ -37,6 +40,7 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 
 [node name="TestLevel" type="Node3D" unique_id=1693526699]
+script = ExtResource("1_528df")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=819647769]
 transform = Transform3D(0.8660254, 0.3535534, -0.3535534, 0.13325216, 0.5183335, 0.8447333, 0.48191684, -0.7786723, 0.40177822, 0, 8.995887, 0)
@@ -132,3 +136,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.463472, 11.328906)
 light_color = Color(0.56078434, 0.6392157, 0.8, 1)
 light_energy = 0.1
 shadow_enabled = true
+
+[node name="PauseMenu" parent="." unique_id=2000846933 instance=ExtResource("4_n1ad0")]
+
+[node name="Caught" type="CanvasLayer" parent="." unique_id=1810220772]
+unique_name_in_owner = true
+layer = 10
+
+[node name="Dim" type="ColorRect" parent="Caught" unique_id=1286722069]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02745098, 0.03529412, 0.047058824, 0.09411765)
+
+[node name="Text" type="Label" parent="Caught" unique_id=672409598]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -90.5
+offset_right = 232.0
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9137255, 0.92941177, 0.94509804, 1)
+theme_override_fonts/font = ExtResource("4_dd3ly")
+theme_override_font_sizes/font_size = 150
+text = "CAUGHT"

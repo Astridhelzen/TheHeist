@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bfhfagbdj7vot"]
+
+[ext_resource type="Theme" uid="uid://d082d34416lgi" path="res://UI/Themes/ui_theme.tres" id="1_0b5ob"]
+[ext_resource type="Script" uid="uid://dotv04q55ow1g" path="res://UI/pause_menu.gd" id="1_pqlge"]
+[ext_resource type="FontVariation" uid="uid://dhhomkgws0u4v" path="res://UI/Fonts/overline.tres" id="2_pqlge"]
+[ext_resource type="FontVariation" uid="uid://cgwfmq3x7umbe" path="res://UI/Fonts/title.tres" id="3_nben2"]
+[ext_resource type="PackedScene" uid="uid://cude8yni4oce0" path="res://UI/menu_button.tscn" id="4_xv4gp"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=2000846933]
+process_mode = 3
+layer = 7
+script = ExtResource("1_pqlge")
+
+[node name="Root" type="Control" parent="." unique_id=509194582]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0b5ob")
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=230305834]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02745098, 0.03529412, 0.047058824, 0.8)
+
+[node name="Margin" type="MarginContainer" parent="Root" unique_id=114963786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 40
+
+[node name="Layout" type="VBoxContainer" parent="Root/Margin" unique_id=1396995868]
+layout_mode = 2
+
+[node name="Overline" type="Label" parent="Root/Margin/Layout" unique_id=1500177228]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43529412, 0.47058824, 0.5137255, 1)
+theme_override_fonts/font = ExtResource("2_pqlge")
+theme_override_font_sizes/font_size = 14
+text = "THE HEIST"
+
+[node name="Title" type="Label" parent="Root/Margin/Layout" unique_id=1998210581]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9137255, 0.92941177, 0.94509804, 1)
+theme_override_fonts/font = ExtResource("3_nben2")
+theme_override_font_sizes/font_size = 110
+text = "PAUSED"
+
+[node name="Spacer" type="Control" parent="Root/Margin/Layout" unique_id=1441173907]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="MenuMargin" type="MarginContainer" parent="Root/Margin/Layout" unique_id=1172552057]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+
+[node name="Menu" type="VBoxContainer" parent="Root/Margin/Layout/MenuMargin" unique_id=424414858]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Resume" parent="Root/Margin/Layout/MenuMargin/Menu" unique_id=2010535834 instance=ExtResource("4_xv4gp")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RESUME"
+
+[node name="Settings" parent="Root/Margin/Layout/MenuMargin/Menu" unique_id=1901655965 instance=ExtResource("4_xv4gp")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="Quit" parent="Root/Margin/Layout/MenuMargin/Menu" unique_id=626615750 instance=ExtResource("4_xv4gp")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "QUIT TO MENU"

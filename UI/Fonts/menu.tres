@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" format=3 uid="uid://b651qwiplj1vj"]
+
+[ext_resource type="FontFile" uid="uid://bxjpt5n8jbpnr" path="res://UI/Fonts/Big_Shoulders/static/BigShoulders-Bold.ttf" id="1_sjfv3"]
+
+[resource]
+base_font = ExtResource("1_sjfv3")
