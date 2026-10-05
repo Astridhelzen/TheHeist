@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://0p53oshjju6y"]
+
+[ext_resource type="PackedScene" uid="uid://bge4s0ogh6us2" path="res://Assets/Bulidnings/Bank_LowPoly/BANK.blend" id="1_kyxg0"]
+[ext_resource type="PackedScene" uid="uid://c3slw0yg0jer6" path="res://player.tscn" id="2_mc20k"]
+[ext_resource type="Script" uid="uid://b58u4lfsm5vvs" path="res://bank_collision.gd" id="3_bank_collision"]
+[ext_resource type="PackedScene" path="res://code_note.tscn" id="4_code_note"]
+[ext_resource type="Shape3D" path="res://bank_collision.res" id="5_collision_preview"]
+[ext_resource type="PackedScene" path="res://vault_keypad.tscn" id="6_vault_keypad"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_51fql"]
+size = Vector3(20, 0.5, 12)
+
+[node name="Level1" type="Node3D" unique_id=488845252]
+
+[node name="CodeNote" parent="." unique_id=1161408701 instance=ExtResource("4_code_note")]
+note_path = NodePath("../BANK/CodePaper_Interactable")
+player_path = NodePath("../Player")
+
+[node name="BANK" parent="." unique_id=2103767356 instance=ExtResource("1_kyxg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5139475, -0.44740856, 0.16350305)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BANK" unique_id=1585581425]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BANK/StaticBody3D" unique_id=1872208939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12509012, 0)
+shape = SubResource("BoxShape3D_51fql")
+
+[node name="BuildingCollision" type="StaticBody3D" parent="BANK" unique_id=1078498772]
+script = ExtResource("3_bank_collision")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BANK/BuildingCollision" unique_id=428004333]
+visible = false
+shape = ExtResource("5_collision_preview")
+
+[node name="Player" parent="." unique_id=1592885850 instance=ExtResource("2_mc20k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95959926, 0, 4.3273373)
+
+[node name="VaultKeypad" parent="." unique_id=1462517387 instance=ExtResource("6_vault_keypad")]
+keypad_path = NodePath("../BANK/Vault_Keypad_Interactable")
+hinge_path = NodePath("../BANK/Vault_Door_Hinge")
+player_path = NodePath("../Player")
+code_note_path = NodePath("../CodeNote")

@@ -8,13 +8,18 @@ extends CharacterBody3D
 const ROTATION_SPEED = 2.0
 const ANIMATION_BLEND = 0.2
 
+var camera_input_enabled: bool = true
+
 @onready var animation_player: AnimationPlayer = $Standing_Idle/AnimationPlayer
 @onready var character_model: Node3D = $Standing_Idle
-@onready var camera: Camera3D = $CameraPivot/Camera3D
+@onready var camera: Camera3D = $CameraPivot/SpringArm3D/Camera3D
+@onready var camera_arm: SpringArm3D = $CameraPivot/SpringArm3D
 @onready var camera_pivot: Node3D = $CameraPivot
 
 
 func _ready() -> void:
+	# Kameran ska stoppas av omgivningen, men inte av spelarens egen kapsel.
+	camera_arm.add_excluded_object(get_rid())
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Alla tre Mixamo-klipp spelas på den synliga karaktärens skelett.
 	var library := AnimationLibrary.new()
@@ -26,6 +31,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not camera_input_enabled:
+		return
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -58,10 +65,10 @@ func _physics_process(delta: float) -> void:
 	# PILTANGENTER = VRID KAMERAN
 	# -------------------------
 
-	if Input.is_key_pressed(KEY_LEFT):
+	if camera_input_enabled and Input.is_key_pressed(KEY_LEFT):
 		camera_pivot.rotation.y += ROTATION_SPEED * delta
 
-	if Input.is_key_pressed(KEY_RIGHT):
+	if camera_input_enabled and Input.is_key_pressed(KEY_RIGHT):
 		camera_pivot.rotation.y -= ROTATION_SPEED * delta
 
 

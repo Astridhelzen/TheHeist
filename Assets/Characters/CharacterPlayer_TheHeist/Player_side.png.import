@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cign38o43elic"
-path.s3tc="res://.godot/imported/Female_Character_female+model+3d+model_basecolor.jpg-0f02391cf99e6b54ec100bcbc65d2e49.s3tc.ctex"
+uid="uid://bqsso6iqef8xe"
+path="res://.godot/imported/Player_side.png-fe3dfcd247cca1cb51e57b960fb0bd66.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "ad93ae3ac844f2ea78ade5ba1ff4ca8f"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Female_Character_female+model+3d+model_basecolor.jpg"
-dest_files=["res://.godot/imported/Female_Character_female+model+3d+model_basecolor.jpg-0f02391cf99e6b54ec100bcbc65d2e49.s3tc.ctex"]
+source_file="res://Assets/Characters/CharacterPlayer_TheHeist/Player_side.png"
+dest_files=["res://.godot/imported/Player_side.png-fe3dfcd247cca1cb51e57b960fb0bd66.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
