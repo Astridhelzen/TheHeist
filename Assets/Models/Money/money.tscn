@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c74vhqcjf5jd4"]
+
+[ext_resource type="Script" uid="uid://dh1ieuc3sfv87" path="res://Assets/Models/Money/money.gd" id="1_bsece"]
+[ext_resource type="PackedScene" uid="uid://cdl2o2ihmxtyt" path="res://Assets/Models/Money/scene.gltf" id="1_x5fk7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vmrj7"]
+radius = 0.8
+
+[node name="Money" type="Area3D" unique_id=1050703515]
+script = ExtResource("1_bsece")
+
+[node name="Model" parent="." unique_id=898992567 instance=ExtResource("1_x5fk7")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.30952114, 0, 0.36171663)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1064175131]
+shape = SubResource("SphereShape3D_vmrj7")
+
+[node name="Glow" type="OmniLight3D" parent="." unique_id=1807184170]
+light_color = Color(0.43529412, 0.8627451, 0.54901963, 1)
+light_energy = 1.5
+omni_range = 2.0
