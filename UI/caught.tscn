@@ -3,7 +3,7 @@
 [ext_resource type="FontVariation" uid="uid://cgwfmq3x7umbe" path="res://UI/Fonts/title.tres" id="1_wkmde"]
 
 [node name="Caught" type="CanvasLayer" unique_id=1563665453]
-layer = 10
+layer = 16
 
 [node name="Dim" type="ColorRect" parent="." unique_id=1485268322]
 anchors_preset = 15

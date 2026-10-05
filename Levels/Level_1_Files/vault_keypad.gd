@@ -1,6 +1,6 @@
 extends Node3D
 
-const CollisionBuilder = preload("res://bank_collision.gd")
+const CollisionBuilder = preload("res://Levels/Level_1_Files/bank_collision.gd")
 
 @export var keypad_path: NodePath
 @export var hinge_path: NodePath
@@ -151,4 +151,3 @@ func _update_panel() -> void:
 	_panel.error = _wrong_code
 	_panel.unlocked = is_unlocked
 	_panel.queue_redraw()
-
