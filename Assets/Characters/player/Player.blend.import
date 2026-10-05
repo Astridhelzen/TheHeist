@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dicyuma3smn5m"
-path="res://.godot/imported/Player.blend-6efb731b1406c8ae17f874c4c1525477.scn"
+path="res://.godot/imported/Player.blend-4b85ad9801737050c8dd2d4b6c66fedc.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/CharacterPlayer_TheHeist/Player.blend"
-dest_files=["res://.godot/imported/Player.blend-6efb731b1406c8ae17f874c4c1525477.scn"]
+source_file="res://Assets/Characters/Player/Player.blend"
+dest_files=["res://.godot/imported/Player.blend-4b85ad9801737050c8dd2d4b6c66fedc.scn"]
 
 [params]
 

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c3slw0yg0jer6"]
 
 [ext_resource type="Script" uid="uid://bu7fmwl3qmmhm" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://dgoxeeqte45y3" path="res://Assets/Characters/player/Female_Character.glb" id="2_onrkg"]
-[ext_resource type="PackedScene" uid="uid://btwiyh6bxw81e" path="res://Assets/Characters/animations/Standing_Idle.fbx" id="3_sweqy"]
-[ext_resource type="PackedScene" uid="uid://dr4tlwjx3xei1" path="res://Assets/Characters/animations/Walking.fbx" id="4_2hs0m"]
-[ext_resource type="PackedScene" uid="uid://dhywga3tyuwu" path="res://Assets/Characters/animations/Running.fbx" id="5_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://dgoxeeqte45y3" path="res://Assets/Characters/Player/Female_Character.glb" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://btwiyh6bxw81e" path="res://Assets/Characters/Animations/Standing_Idle.fbx" id="3_sweqy"]
+[ext_resource type="PackedScene" uid="uid://dr4tlwjx3xei1" path="res://Assets/Characters/Animations/Walking.fbx" id="4_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://dhywga3tyuwu" path="res://Assets/Characters/Animations/Running.fbx" id="5_1jxqw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mq8aq"]
 

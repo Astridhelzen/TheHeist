@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmjb56qutiolk"
-path.s3tc="res://.godot/imported/Player_female+model+3d+model_basecolor.jpg-a19b6d8436688e32d05af349aec61a59.s3tc.ctex"
+uid="uid://dlhxmthbfypr3"
+path.s3tc="res://.godot/imported/female+model+3d+model_rm.jpg-37b658d08f02f7ad52bf800a774068ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "ad93ae3ac844f2ea78ade5ba1ff4ca8f"
-}
 
 [deps]
 
-source_file="res://Assets/Characters/CharacterPlayer_TheHeist/Player_female+model+3d+model_basecolor.jpg"
-dest_files=["res://.godot/imported/Player_female+model+3d+model_basecolor.jpg-a19b6d8436688e32d05af349aec61a59.s3tc.ctex"]
+source_file="res://Assets/Characters/Player/textures/female+model+3d+model_rm.jpg"
+dest_files=["res://.godot/imported/female+model+3d+model_rm.jpg-37b658d08f02f7ad52bf800a774068ef.s3tc.ctex"]
 
 [params]
 

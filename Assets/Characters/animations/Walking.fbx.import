@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dr4tlwjx3xei1"
-path="res://.godot/imported/Walking.fbx-cc611cf296df45b063e174ad645380ed.scn"
+path="res://.godot/imported/Walking.fbx-90ccffb405e52f0ded4290200a941054.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/animations/Walking.fbx"
-dest_files=["res://.godot/imported/Walking.fbx-cc611cf296df45b063e174ad645380ed.scn"]
+source_file="res://Assets/Characters/Animations/Walking.fbx"
+dest_files=["res://.godot/imported/Walking.fbx-90ccffb405e52f0ded4290200a941054.scn"]
 
 [params]
 
@@ -43,7 +43,7 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Characters/animations/Walking.res",
+"save_to_file/fallback_path": "res://Assets/Characters/Animations/Walking.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://dp2ag3eaita3i",
 "settings/loop_mode": 1,

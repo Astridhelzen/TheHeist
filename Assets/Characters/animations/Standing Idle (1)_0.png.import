@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bspi6e31e66mr"
-path.s3tc="res://.godot/imported/Standing Idle (1)_0.png-0eb02fbe23b8712fdbfd9983200e62e4.s3tc.ctex"
+path.s3tc="res://.godot/imported/Standing Idle (1)_0.png-26a7650aebe921dcc3c2f227b3934d65.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Characters/animations/Standing Idle (1)_0.png"
-dest_files=["res://.godot/imported/Standing Idle (1)_0.png-0eb02fbe23b8712fdbfd9983200e62e4.s3tc.ctex"]
+source_file="res://Assets/Characters/Animations/Standing Idle (1)_0.png"
+dest_files=["res://.godot/imported/Standing Idle (1)_0.png-26a7650aebe921dcc3c2f227b3934d65.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cpqfetv6ki2kc"
-path="res://.godot/imported/Player.glb-f17f4482fce1d9b7ca03d2b42dd06566.scn"
+path="res://.godot/imported/Player.glb-6295ce9d79567763f6fc89976e32ec4f.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/CharacterPlayer_TheHeist/Player.glb"
-dest_files=["res://.godot/imported/Player.glb-f17f4482fce1d9b7ca03d2b42dd06566.scn"]
+source_file="res://Assets/Characters/Player/Player.glb"
+dest_files=["res://.godot/imported/Player.glb-6295ce9d79567763f6fc89976e32ec4f.scn"]
 
 [params]
 

@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6tiohdhafeil"
-path.s3tc="res://.godot/imported/Player_female+model+3d+model_normal.jpg-829fcf3833880b0eb05edd9c40b282af.s3tc.ctex"
+uid="uid://cg4rv8636dyno"
+path.s3tc="res://.godot/imported/female+model+3d+model_normal.jpg-a5e527deb4b158874ea3f9649670d658.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "55820dd48e44e946296dba196b2aa24c"
-}
 
 [deps]
 
-source_file="res://Assets/Characters/CharacterPlayer_TheHeist/Player_female+model+3d+model_normal.jpg"
-dest_files=["res://.godot/imported/Player_female+model+3d+model_normal.jpg-829fcf3833880b0eb05edd9c40b282af.s3tc.ctex"]
+source_file="res://Assets/Characters/Player/textures/female+model+3d+model_normal.jpg"
+dest_files=["res://.godot/imported/female+model+3d+model_normal.jpg-a5e527deb4b158874ea3f9649670d658.s3tc.ctex"]
 
 [params]
 
@@ -30,7 +27,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Assets/Characters/CharacterPlayer_TheHeist/Player_female+model+3d+model_normal.jpg"
+roughness/src_normal="res://Assets/Characters/CharacterPlayer_TheHeist/textures/female+model+3d+model_normal.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

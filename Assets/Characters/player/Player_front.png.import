@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg4rv8636dyno"
-path="res://.godot/imported/female+model+3d+model_normal.jpg-99eb6cca383de716be864cd18891d02a.ctex"
+uid="uid://dbnbv43prx25d"
+path="res://.godot/imported/Player_front.png-5918adf6e356ee4cbe113842c495db9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/CharacterPlayer_TheHeist/textures/female+model+3d+model_normal.jpg"
-dest_files=["res://.godot/imported/female+model+3d+model_normal.jpg-99eb6cca383de716be864cd18891d02a.ctex"]
+source_file="res://Assets/Characters/Player/Player_front.png"
+dest_files=["res://.godot/imported/Player_front.png-5918adf6e356ee4cbe113842c495db9d.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c7va34ygbapsy"
-path="res://.godot/imported/female_heist_hair_fixed.blend-27a389bbc393fb6a8e17fa1139b682b9.scn"
+path="res://.godot/imported/female_heist_hair_fixed.blend-029680444596a2544e6e464e3ffd6da4.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/CharacterPlayer_TheHeist/female_heist_hair_fixed.blend"
-dest_files=["res://.godot/imported/female_heist_hair_fixed.blend-27a389bbc393fb6a8e17fa1139b682b9.scn"]
+source_file="res://Assets/Characters/Player/female_heist_hair_fixed.blend"
+dest_files=["res://.godot/imported/female_heist_hair_fixed.blend-029680444596a2544e6e464e3ffd6da4.scn"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqsso6iqef8xe"
-path="res://.godot/imported/Player_side.png-fe3dfcd247cca1cb51e57b960fb0bd66.ctex"
+path="res://.godot/imported/Player_side.png-214efa0f3ce8c2b5e7a9be6ee5ae02fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/CharacterPlayer_TheHeist/Player_side.png"
-dest_files=["res://.godot/imported/Player_side.png-fe3dfcd247cca1cb51e57b960fb0bd66.ctex"]
+source_file="res://Assets/Characters/Player/Player_side.png"
+dest_files=["res://.godot/imported/Player_side.png-214efa0f3ce8c2b5e7a9be6ee5ae02fc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://btwiyh6bxw81e"
-path="res://.godot/imported/Standing_Idle.fbx-a2a4ade1f8410b505f8c94dec69d8060.scn"
+path="res://.godot/imported/Standing_Idle.fbx-0c6cc2322c2e411888d37656a943c3ec.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/animations/Standing_Idle.fbx"
-dest_files=["res://.godot/imported/Standing_Idle.fbx-a2a4ade1f8410b505f8c94dec69d8060.scn"]
+source_file="res://Assets/Characters/Animations/Standing_Idle.fbx"
+dest_files=["res://.godot/imported/Standing_Idle.fbx-0c6cc2322c2e411888d37656a943c3ec.scn"]
 
 [params]
 
@@ -43,7 +43,7 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Characters/animations/Idle.res",
+"save_to_file/fallback_path": "res://Assets/Characters/Animations/Idle.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://bojy0jsbsofd7",
 "settings/loop_mode": 1,

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhywga3tyuwu"
-path="res://.godot/imported/Running.fbx-d8ea1d1fa18f97fbcce4885451463143.scn"
+path="res://.godot/imported/Running.fbx-e400e6c9806803872a9d4c8dde50aa8f.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/animations/Running.fbx"
-dest_files=["res://.godot/imported/Running.fbx-d8ea1d1fa18f97fbcce4885451463143.scn"]
+source_file="res://Assets/Characters/Animations/Running.fbx"
+dest_files=["res://.godot/imported/Running.fbx-e400e6c9806803872a9d4c8dde50aa8f.scn"]
 
 [params]
 
@@ -43,7 +43,7 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Characters/animations/Running.res",
+"save_to_file/fallback_path": "res://Assets/Characters/Animations/Running.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://cmf6hrjq2j7fp",
 "settings/loop_mode": 1,
