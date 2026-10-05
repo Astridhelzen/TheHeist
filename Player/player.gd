@@ -19,6 +19,7 @@ var camera_input_enabled: bool = true
 
 func _ready() -> void:
 	# Kameran ska stoppas av omgivningen, men inte av spelarens egen kapsel.
+	PlayerManager.player = self
 	camera_arm.add_excluded_object(get_rid())
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Alla tre Mixamo-klipp spelas på den synliga karaktärens skelett.

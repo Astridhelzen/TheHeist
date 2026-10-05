@@ -11,14 +11,14 @@ func _ready() -> void:
 
 static func build_shape(source: Node3D, relative_to: Node3D, excluded: Node = null) -> ConcavePolygonShape3D:
 	var faces := PackedVector3Array()
-	var to_local := relative_to.global_transform.affine_inverse()
+	var world_to_local := relative_to.global_transform.affine_inverse()
 	for node in source.find_children("*", "MeshInstance3D", true, false):
 		if excluded != null and (node == excluded or excluded.is_ancestor_of(node)):
 			continue
 		var mesh_instance := node as MeshInstance3D
 		if mesh_instance.mesh == null:
 			continue
-		var mesh_transform := to_local * mesh_instance.global_transform
+		var mesh_transform := world_to_local * mesh_instance.global_transform
 		var vertices := mesh_instance.mesh.get_faces()
 		for index in range(0, vertices.size(), 3):
 			var a := mesh_transform * vertices[index]
