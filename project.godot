@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="The Heist "
+run/main_scene="uid://bvd1ffrittkko"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]

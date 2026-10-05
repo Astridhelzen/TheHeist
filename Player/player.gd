@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var walk_speed: float = 5.0
+@export var walk_speed: float = 1.7
 @export var run_speed: float = 8.0
 @export var turn_speed: float = 12.0
 @export_range(0.0005, 0.01, 0.0005) var mouse_sensitivity: float = 0.003

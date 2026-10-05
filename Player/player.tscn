@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c3slw0yg0jer6"]
 
-[ext_resource type="Script" uid="uid://bu7fmwl3qmmhm" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bu7fmwl3qmmhm" path="res://Player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://dgoxeeqte45y3" path="res://Assets/Characters/Player/Female_Character.glb" id="2_onrkg"]
-[ext_resource type="PackedScene" uid="uid://btwiyh6bxw81e" path="res://Assets/Characters/Animations/Standing_Idle.fbx" id="3_sweqy"]
-[ext_resource type="PackedScene" uid="uid://dr4tlwjx3xei1" path="res://Assets/Characters/Animations/Walking.fbx" id="4_2hs0m"]
-[ext_resource type="PackedScene" uid="uid://dhywga3tyuwu" path="res://Assets/Characters/Animations/Running.fbx" id="5_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://btwiyh6bxw81e" path="res://Assets/Characters/Player/animations/Standing_Idle.fbx" id="3_sweqy"]
+[ext_resource type="PackedScene" uid="uid://dr4tlwjx3xei1" path="res://Assets/Characters/Player/animations/Walking.fbx" id="4_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://dhywga3tyuwu" path="res://Assets/Characters/Player/animations/Running.fbx" id="5_1jxqw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mq8aq"]
 
@@ -15,22 +15,20 @@ radius = 0.2
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=832219818]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9579296, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_mq8aq")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=496798404]
-position = Vector3(0, 1.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
-rotation = Vector3(-0.427606, 0, 0)
-spring_length = 2.57
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=780884014]
+transform = Transform3D(1, 0, 0, 0, 0.90996116, 0.41469353, 0, -0.41469353, 0.90996116, 0, 0, 0)
 shape = SubResource("SphereShape3D_camera")
+spring_length = 2.57
 margin = 0.08
-collision_mask = 1
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1792303577]
-position = Vector3(0, 0, 2.57)
-near = 0.05
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.57)
 current = true
 
 [node name="Female_Character" parent="." unique_id=1384767004 instance=ExtResource("2_onrkg")]
@@ -40,7 +38,7 @@ visible = false
 [node name="Standing_Idle" parent="." unique_id=83431073 instance=ExtResource("3_sweqy")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Standing_Idle" index="0" unique_id=1931624341]
+[node name="Skeleton3D" parent="Standing_Idle" index="0" unique_id=12604232]
 bones/0/position = Vector3(0.047398195, 0.90733516, -0.00531088)
 bones/0/rotation = Quaternion(-0.0059258235, -0.040607996, -0.020997582, 0.99893695)
 bones/1/rotation = Quaternion(-0.040240563, 0.0053552273, 0.011110711, 0.9991139)
