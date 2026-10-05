@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cude8yni4oce0"]
+
+[ext_resource type="Script" uid="uid://o1o78p3r3iih" path="res://UI/menu_button.gd" id="1_3uicj"]
+
+[node name="NewHeist" type="Button" unique_id=2010535834]
+text = "NEW HEIST"
+alignment = 0
+script = ExtResource("1_3uicj")
+
+[node name="Arrow" type="Label" parent="." unique_id=9383836]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 7.0
+offset_right = 8.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.9490196, 0.827451, 0.5411765, 1)
+theme_override_font_sizes/font_size = 18
+text = "▶"
