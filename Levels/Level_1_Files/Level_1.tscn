@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" path="res://Levels/Level_1_Files/vault_keypad.tscn" id="6_rgrhp"]
 [ext_resource type="PackedScene" uid="uid://bfhfagbdj7vot" path="res://UI/pause_menu.tscn" id="7_iyk75"]
 [ext_resource type="PackedScene" uid="uid://bxqos7s3bjrpk" path="res://UI/caught.tscn" id="9_26n06"]
+[ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://alarm_lighting.tscn" id="9_384e4"]
+[ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://exit.tscn" id="10_w7qpx"]
 [ext_resource type="PackedScene" uid="uid://dfjeu8qtcaar8" path="res://UI/heist_complete.tscn" id="11_wjvmx"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vmrj7"]
@@ -68,6 +70,12 @@ script = ExtResource("3_bl2ct")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/BANK/BuildingCollision" unique_id=428004333]
 visible = false
 shape = ExtResource("4_q0uin")
+
+[node name="AlarmLighting" parent="." unique_id=1933706552 instance=ExtResource("9_384e4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.89006, 0)
+
+[node name="Exit" parent="." unique_id=1221361618 instance=ExtResource("10_w7qpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2471495, 0.98381233, 9.50241)
 
 [node name="PauseMenu" parent="." unique_id=2000846933 instance=ExtResource("7_iyk75")]
 

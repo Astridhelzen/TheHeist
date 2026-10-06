@@ -22,6 +22,8 @@ extends CharacterBody3D
 @export var aim_height: float = 0.8           # var på spelaren synstrålen siktar
 @export var catch_time: float = 1.0          # hur länge spelaren måste vara nära
 @export var escape_margin: float = 1.2       # hur långt bort spelaren måste för att slippa
+@export var alarm_duration: float = 10.0   # hur länge vakten vet var spelaren är
+
 
 # --------------------
 # STATE MACHINE
@@ -43,6 +45,7 @@ const SMOOTHING_FACTOR = 0.2
 signal player_caught
 var attack_timer := 0.0
 var has_caught := false
+var alarm_timer := 0.0
 
 # --------------------
 # READY
@@ -54,11 +57,15 @@ func _ready() -> void:
 	vision_ray.target_position = Vector3(0, 0, -flashlight.spot_range)
 	# _enter_state byter själv till IDLE om det inte finns patrullpunkter
 	_enter_state(State.PATROL)
+	_connect_loot.call_deferred()
+
 
 # --------------------
 # MAIN LOOP
 # --------------------
 func _physics_process(delta: float) -> void:
+	if alarm_timer > 0.0:
+		alarm_timer -= delta
 	_update_path(delta)
 
 	match state:
@@ -123,7 +130,7 @@ func _state_chase(_delta: float) -> void:
 
 	if global_position.distance_to(target.global_position) < attack_range:
 		_enter_state(State.ATTACK)
-	elif not _can_see_player():
+	elif not _can_see_player() and alarm_timer <= 0.0:
 		_enter_state(State.PURSUE)
 
 func _state_pursue(delta: float) -> void:
@@ -304,6 +311,16 @@ func _face_target() -> void:
 	to_target.y = 0.0
 	if to_target.length() > 0.01:
 		look_at(global_position + to_target, Vector3.UP)
+		
+func _connect_loot() -> void:
+	for loot in get_tree().get_nodes_in_group("loot"):
+		loot.taken.connect(alert)
+
+func alert() -> void:
+	if not target:
+		target = PlayerManager.player
+	alarm_timer = alarm_duration
+	_enter_state(State.CHASE)
 
 # --------------------
 # SOUND

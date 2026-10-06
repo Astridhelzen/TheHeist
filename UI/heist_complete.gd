@@ -6,11 +6,11 @@ const MAIN_MENU := "res://UI/main_menu.tscn"
 
 func _ready() -> void:
 	visible = false
-	_connect_loot.call_deferred()
+	_connect_exits.call_deferred()
 
-func _connect_loot() -> void:
-	for loot in get_tree().get_nodes_in_group("loot"):
-		loot.taken.connect(show_win)
+func _connect_exits() -> void:
+	for door in get_tree().get_nodes_in_group("exits"):
+		door.escaped.connect(show_win)
 
 func show_win() -> void:
 	if visible or get_tree().paused:
