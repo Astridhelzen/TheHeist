@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c3slw0yg0jer6"]
 
 [ext_resource type="Script" uid="uid://bu7fmwl3qmmhm" path="res://Player/player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://dgoxeeqte45y3" path="res://Assets/Characters/Player/Female_Character.glb" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://btwiyh6bxw81e" path="res://Assets/Characters/Player/animations/Standing_Idle.fbx" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://dr4tlwjx3xei1" path="res://Assets/Characters/Player/animations/Walking.fbx" id="4_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://dhywga3tyuwu" path="res://Assets/Characters/Player/animations/Running.fbx" id="5_1jxqw"]
@@ -30,10 +29,6 @@ margin = 0.08
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1792303577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.57)
 current = true
-
-[node name="Female_Character" parent="." unique_id=1384767004 instance=ExtResource("2_onrkg")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-visible = false
 
 [node name="Standing_Idle" parent="." unique_id=83431073 instance=ExtResource("3_sweqy")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

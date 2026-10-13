@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://0p53oshjju6y"]
 
-[ext_resource type="PackedScene" path="res://Levels/Level_1_Files/code_note.tscn" id="1_tymuv"]
+[ext_resource type="PackedScene" path="res://Levels/Level_1_Files/access_card.tscn" id="1_tymuv"]
 [ext_resource type="PackedScene" uid="uid://bge4s0ogh6us2" path="res://Assets/Bulidnings/Bank_LowPoly/BANK.blend" id="2_wtxyn"]
 [ext_resource type="Script" uid="uid://b58u4lfsm5vvs" path="res://Levels/Level_1_Files/bank_collision.gd" id="3_bl2ct"]
 [ext_resource type="Shape3D" path="res://Levels/Level_1_Files/bank_collision.res" id="4_q0uin"]
 [ext_resource type="PackedScene" uid="uid://c74vhqcjf5jd4" path="res://Assets/Models/Money/money.tscn" id="5_hckac"]
 [ext_resource type="PackedScene" uid="uid://c3slw0yg0jer6" path="res://Player/player.tscn" id="5_mf06b"]
 [ext_resource type="PackedScene" uid="uid://cn7h3oj1bmap" path="res://Guard/guard.tscn" id="6_4ekfm"]
-[ext_resource type="PackedScene" path="res://Levels/Level_1_Files/vault_keypad.tscn" id="6_rgrhp"]
 [ext_resource type="PackedScene" uid="uid://bfhfagbdj7vot" path="res://UI/pause_menu.tscn" id="7_iyk75"]
 [ext_resource type="PackedScene" uid="uid://bxqos7s3bjrpk" path="res://UI/caught.tscn" id="9_26n06"]
 [ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://alarm_lighting.tscn" id="9_384e4"]
@@ -24,9 +23,9 @@ size = Vector3(20, 0.5, 12)
 
 [node name="Level1" type="Node3D" unique_id=488845252]
 
-[node name="CodeNote" parent="." unique_id=1161408701 instance=ExtResource("1_tymuv")]
-note_path = NodePath("../NavigationRegion3D/BANK/CodePaper_Interactable")
+[node name="AccessCard" parent="." instance=ExtResource("1_tymuv")]
 player_path = NodePath("../Player")
+bank_path = NodePath("../NavigationRegion3D/BANK")
 
 [node name="Player" parent="." unique_id=1592885850 instance=ExtResource("5_mf06b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95959926, 0, 4.3273373)
@@ -34,12 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95959926, 0, 4.3273373)
 [node name="Guard" parent="." unique_id=1780379191 node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_4ekfm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.485465, 0, 2.3672814)
 patrol_points = [NodePath("../PatrolPoints/PatrolPoint2"), NodePath("../PatrolPoints/PatrolPoint1")]
-
-[node name="VaultKeypad" parent="." unique_id=1462517387 instance=ExtResource("6_rgrhp")]
-keypad_path = NodePath("../NavigationRegion3D/BANK/Vault_Keypad_Interactable")
-hinge_path = NodePath("../NavigationRegion3D/BANK/Vault_Door_Hinge")
-player_path = NodePath("../Player")
-code_note_path = NodePath("../CodeNote")
 
 [node name="Money" parent="." unique_id=1050703515 instance=ExtResource("5_hckac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.072502, 0.6418705, -3.688919)

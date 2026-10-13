@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7ryxeomrc75"
+uid="uid://b1c6mslfcuc4v"
 path.s3tc="res://.godot/imported/Female_Character_female+model+3d+model_rm.jpg-8ee539d8f865173c04d09fd838a92a25.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "96636daa21110863636c072d6a66bb19"
 }
 
 [deps]
