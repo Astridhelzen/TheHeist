@@ -6,6 +6,8 @@
 [ext_resource type="Animation" uid="uid://d3o1sssmtnnn5" path="res://Assets/Characters/Guard/Idle.res" id="3_ioqu5"]
 [ext_resource type="Animation" uid="uid://bg1jprql7bj3q" path="res://Assets/Characters/Guard/Run.res" id="4_tuxdl"]
 [ext_resource type="Animation" uid="uid://bxfnl4ms57460" path="res://Assets/Characters/Guard/Walk.res" id="5_qgjdg"]
+[ext_resource type="AudioStream" uid="uid://cqhxbpvuofa6m" path="res://Assets/Sounds/walking_sound.mp3" id="7_m4rwt"]
+[ext_resource type="Script" uid="uid://c2brn836ro6xl" path="res://Player/footsteps.gd" id="8_aka8x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bh547"]
 
@@ -46,3 +48,18 @@ spot_angle = 30.0
 
 [node name="Model" parent="." unique_id=810889770 instance=ExtResource("2_30cdx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="." unique_id=862721784]
+stream = ExtResource("7_m4rwt")
+attenuation_model = 1
+unit_size = 4.0
+max_distance = 20.0
+
+[node name="Footsteps" type="Node" parent="." unique_id=893946358 node_paths=PackedStringArray("animation_player", "audio")]
+script = ExtResource("8_aka8x")
+animation_player = NodePath("../AnimationPlayer")
+audio = NodePath("../FootstepSound")
+step_times = {
+"Run": [0.363, 0.852],
+"Walk": [0.348, 0.871]
+}

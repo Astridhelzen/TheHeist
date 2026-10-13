@@ -4,14 +4,17 @@ extends Node3D
 ## The ring on the ground shows how far the noise reaches and turns orange/red when a guard is close.
 
 @export_group("Speeds")
-## Slower than this counts as silent (standing still / sneaking).
+## Slower than this counts as standing still (no noise at all).
+@export var still_threshold: float = 0.1
+## Slower than this counts as sneaking. Set it between the player's sneak and walk speed.
 @export var walk_threshold: float = 1.3
 ## Faster than this counts as running. Set it between the player's walk and run speed.
-@export var run_threshold: float = 4.5
+@export var run_threshold: float = 3
 
 @export_group("Hearing range")
-@export var walk_radius: float = 4.0
-@export var run_radius: float = 9.0
+@export var sneak_radius: float = 0.5
+@export var walk_radius: float = 2.0
+@export var run_radius: float = 4.0
 ## How far outside the ring a guard can be before the ring starts warning.
 @export var warning_margin: float = 2.0
 
@@ -39,13 +42,15 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var speed := Vector2(body.velocity.x, body.velocity.z).length()
 
-	if not body.is_on_floor() or speed < walk_threshold:
-		# Silent: standing still, sneaking or in the air
+	if not body.is_on_floor() or speed < still_threshold:
+		# Silent: standing still or in the air
 		current_radius = 0.0
-	elif speed >= run_threshold:
-		current_radius = run_radius
-	else:
+	elif speed < walk_threshold:
+		current_radius = sneak_radius
+	elif speed < run_threshold:
 		current_radius = walk_radius
+	else:
+		current_radius = run_radius
 
 	_update_ring(delta)
 
@@ -71,7 +76,7 @@ func _update_ring(delta: float) -> void:
 	if not ring:
 		return
 
-	# Smooth transition between walk, run and silent radius
+	# Smooth transition between sneak, walk, run and silent radius
 	_shown_radius = lerpf(_shown_radius, current_radius, 1.0 - exp(-10.0 * delta))
 	_pulse = move_toward(_pulse, 0.0, delta * 3.0)
 

@@ -32,6 +32,7 @@ func _ready() -> void:
 	_add_animation(library, &"sneaking", $Sneaking/AnimationPlayer)
 	animation_player.add_animation_library(&"movement", library)
 	animation_player.play(&"movement/idle")
+	$AudioListener3D.make_current()
 
 
 func _unhandled_input(event: InputEvent) -> void:
