@@ -1,14 +1,30 @@
 [gd_scene format=3 uid="uid://c3slw0yg0jer6"]
 
 [ext_resource type="Script" uid="uid://bu7fmwl3qmmhm" path="res://Player/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://ch6ssfuw78fe1" path="res://Assets/Characters/Player/animations/Sneaking.fbx" id="3_k53q1"]
 [ext_resource type="PackedScene" uid="uid://btwiyh6bxw81e" path="res://Assets/Characters/Player/animations/Standing_Idle.fbx" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://dr4tlwjx3xei1" path="res://Assets/Characters/Player/animations/Walking.fbx" id="4_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://dhywga3tyuwu" path="res://Assets/Characters/Player/animations/Running.fbx" id="5_1jxqw"]
+[ext_resource type="Script" uid="uid://dxo6pu58rsadg" path="res://Player/noise_emitter.gd" id="6_fhl08"]
+[ext_resource type="Shader" uid="uid://cwkrnnr67tunn" path="res://Player/noise_ring.gdshader" id="7_vtle1"]
+[ext_resource type="AudioStream" uid="uid://cqhxbpvuofa6m" path="res://Assets/Sounds/walking_sound.mp3" id="8_od3ui"]
+[ext_resource type="Script" uid="uid://c2brn836ro6xl" path="res://Player/footsteps.gd" id="9_00tjw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mq8aq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_camera"]
 radius = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vtle1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_od3ui"]
+render_priority = 0
+shader = ExtResource("7_vtle1")
+shader_parameter/safe_color = Color(1, 1, 1, 0.35)
+shader_parameter/warn_color = Color(1, 0.6, 0.1, 0.6)
+shader_parameter/danger_color = Color(1, 0.15, 0.1, 0.85)
+shader_parameter/thickness = 0.05
+shader_parameter/fill_strength = 0.08
 
 [node name="Player" type="CharacterBody3D" unique_id=1592885850]
 script = ExtResource("1_4flbx")
@@ -107,11 +123,31 @@ bones/62/rotation = Quaternion(0.4011789, 0.06615121, -0.08585694, 0.90956473)
 bones/63/position = Vector3(-2.8573172e-11, 0.16608395, -4.821493e-10)
 bones/63/rotation = Quaternion(0.4275971, 0.016883321, -0.0062742853, 0.90379006)
 
+[node name="Sneaking" parent="." unique_id=1524081318 instance=ExtResource("3_k53q1")]
+visible = false
+
 [node name="Walking" parent="." unique_id=75616587 instance=ExtResource("4_2hs0m")]
 visible = false
 
 [node name="Running" parent="." unique_id=1151620254 instance=ExtResource("5_1jxqw")]
 visible = false
+
+[node name="NoiseEmitter" type="Node3D" parent="." unique_id=1473872468 node_paths=PackedStringArray("footsteps", "ring")]
+script = ExtResource("6_fhl08")
+footsteps = NodePath("../Footsteps")
+ring = NodePath("../NoiseRing")
+
+[node name="NoiseRing" type="MeshInstance3D" parent="." unique_id=661559526]
+mesh = SubResource("PlaneMesh_vtle1")
+surface_material_override/0 = SubResource("ShaderMaterial_od3ui")
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="." unique_id=32473079]
+stream = ExtResource("8_od3ui")
+
+[node name="Footsteps" type="Node" parent="." unique_id=110770638 node_paths=PackedStringArray("animation_player", "audio")]
+script = ExtResource("9_00tjw")
+animation_player = NodePath("../Standing_Idle/AnimationPlayer")
+audio = NodePath("../FootstepSound")
 
 [editable path="Standing_Idle"]
 [editable path="Running"]
