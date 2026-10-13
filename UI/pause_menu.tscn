@@ -8,7 +8,7 @@
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=2000846933]
 process_mode = 3
-layer = 7
+layer = 15
 script = ExtResource("1_pqlge")
 
 [node name="Root" type="Control" parent="." unique_id=509194582]

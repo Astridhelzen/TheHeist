@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bxqos7s3bjrpk"]
 
+[ext_resource type="Script" uid="uid://bn6isnlnc2i18" path="res://UI/caught.gd" id="1_0u630"]
 [ext_resource type="FontVariation" uid="uid://cgwfmq3x7umbe" path="res://UI/Fonts/title.tres" id="1_wkmde"]
 
 [node name="Caught" type="CanvasLayer" unique_id=1563665453]
-layer = 10
+layer = 16
+script = ExtResource("1_0u630")
 
 [node name="Dim" type="ColorRect" parent="." unique_id=1485268322]
 anchors_preset = 15

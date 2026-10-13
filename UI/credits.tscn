@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dl48ttx64qgmo"]
+
+[ext_resource type="Script" uid="uid://lcxxf65nu1qv" path="res://UI/credits.gd" id="1_ftffn"]
+[ext_resource type="Theme" uid="uid://d082d34416lgi" path="res://UI/Themes/ui_theme.tres" id="1_kk2ga"]
+[ext_resource type="FontVariation" uid="uid://dhhomkgws0u4v" path="res://UI/Fonts/overline.tres" id="2_2g780"]
+[ext_resource type="FontVariation" uid="uid://cgwfmq3x7umbe" path="res://UI/Fonts/title.tres" id="3_ftffn"]
+[ext_resource type="PackedScene" uid="uid://cude8yni4oce0" path="res://UI/menu_button.tscn" id="4_2g780"]
+
+[node name="Credits" type="Control" unique_id=1709607239]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ftffn")
+
+[node name="Root" type="Control" parent="." unique_id=132457841]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kk2ga")
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=1993654228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02745098, 0.03529412, 0.047058824, 0.8)
+
+[node name="Margin" type="MarginContainer" parent="Root" unique_id=1787067818]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 40
+
+[node name="Layout" type="VBoxContainer" parent="Root/Margin" unique_id=244858686]
+layout_mode = 2
+
+[node name="Overline" type="Label" parent="Root/Margin/Layout" unique_id=748165862]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43529412, 0.47058824, 0.5137255, 1)
+theme_override_fonts/font = ExtResource("2_2g780")
+theme_override_font_sizes/font_size = 14
+text = "THE HEIST"
+
+[node name="Title" type="Label" parent="Root/Margin/Layout" unique_id=1876225608]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9137255, 0.92941177, 0.94509804, 1)
+theme_override_fonts/font = ExtResource("3_ftffn")
+theme_override_font_sizes/font_size = 110
+text = "CREDITS"
+
+[node name="Spacer" type="Control" parent="Root/Margin/Layout" unique_id=1417387656]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="CreditContainer" type="VBoxContainer" parent="Root/Margin/Layout" unique_id=616247092]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/Margin/Layout/CreditContainer" unique_id=2110817223]
+layout_mode = 2
+text = "\"Money\" by Dakta.Grower.Nzl, licensed under CC BY 4.0 (sketchfab.com)"
+
+[node name="Spacer2" type="Control" parent="Root/Margin/Layout" unique_id=91066912]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
+[node name="MainMenu" parent="Root/Margin/Layout" unique_id=2010535834 instance=ExtResource("4_2g780")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BACK TO MENU"

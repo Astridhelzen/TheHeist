@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b065iq3wagl1m"]
+
+[ext_resource type="Script" uid="uid://dp70vjhfxvaqg" path="res://alarm_lighting.gd" id="1_n2y2y"]
+
+[node name="AlarmLighting" type="Node3D" unique_id=1933706552]
+script = ExtResource("1_n2y2y")
+
+[node name="Light" type="DirectionalLight3D" parent="." unique_id=138213948]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0)
+light_color = Color(1, 0.8509804, 0.8235294, 1)
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=799134228]
+layer = 4
+
+[node name="RedFlash" type="ColorRect" parent="Overlay" unique_id=12158304]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.9372549, 0.35686275, 0.35686275, 0)

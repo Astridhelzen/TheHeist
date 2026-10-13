@@ -1,0 +1,64 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://r7j7yygd0lka" path="res://Levels/Level_1_Files/vault_keypad.gd" id="1"]
+[ext_resource type="Script" uid="uid://qaunew1nvhlx" path="res://Levels/Level_1_Files/vault_keypad_panel.gd" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="Gold"]
+shading_mode = 0
+albedo_color = Color(1, 0.79, 0.22, 1)
+emission_enabled = true
+emission = Color(1, 0.62, 0.08, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereMesh" id="Diamond"]
+material = SubResource("Gold")
+radius = 0.18
+height = 0.42
+radial_segments = 4
+rings = 1
+
+[node name="VaultKeypad" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Marker" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("Diamond")
+
+[node name="Glow" type="OmniLight3D" parent="Marker"]
+light_color = Color(1, 0.78, 0.22, 1)
+light_energy = 1.2
+omni_range = 1.4
+shadow_enabled = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 11
+
+[node name="Overlay" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Backdrop" type="ColorRect" parent="CanvasLayer/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.018, 0.02, 0.72)
+
+[node name="Keypad" type="Control" parent="CanvasLayer/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2")
+

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cn7h3oj1bmap" path="res://Guard/guard.tscn" id="2_wv4le"]
 [ext_resource type="PackedScene" uid="uid://bfhfagbdj7vot" path="res://UI/pause_menu.tscn" id="3_aw26p"]
 [ext_resource type="PackedScene" uid="uid://bxqos7s3bjrpk" path="res://UI/caught.tscn" id="4_4qsmn"]
-[ext_resource type="Script" uid="uid://bn6isnlnc2i18" path="res://UI/caught.gd" id="5_aaa2t"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ycpd1"]
 vertices = PackedVector3Array(6.232365, 0.4, 6.25, 6.232365, 0.4, 4, -0.51763487, 0.4, 4, -6.267635, 0.4, 6.25, -0.76763487, 0.4, 2.75, 6.232365, 0.4, 2.5, 6.232365, 0.4, -6.25, -6.267635, 0.4, -6.25)
@@ -139,5 +138,3 @@ shadow_enabled = true
 [node name="PauseMenu" parent="." unique_id=2000846933 instance=ExtResource("3_aw26p")]
 
 [node name="Caught" parent="." unique_id=1563665453 instance=ExtResource("4_4qsmn")]
-unique_name_in_owner = true
-script = ExtResource("5_aaa2t")
