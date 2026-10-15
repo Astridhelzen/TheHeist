@@ -1,12 +1,10 @@
 extends AudioStreamPlayer
 ## Put this on an AudioStreamPlayer in the level.
-## Starts the alarm when the loot is taken and keeps it going for as long as
-## the guards are in alarm mode (their alarm_duration), then fades it out.
+## Starts the alarm when the loot is taken and keeps it going, just like the
+## alarm lights, until the level ends. Call stop_alarm() to fade it out.
 
-## How long the fade-out at the end takes (seconds).
+## How long the fade-out takes (seconds) when stop_alarm() is called.
 @export var fade_time: float = 1.5
-## Used only if no guard is found to read alarm_duration from.
-@export var fallback_duration: float = 10.0
 
 var _active := false
 var _start_volume := 0.0
@@ -31,23 +29,14 @@ func start_alarm() -> void:
 	volume_db = _start_volume
 	play()
 
-	# Same length as the guards' alarm mode
-	var duration := fallback_duration
-	var guard := get_tree().get_first_node_in_group("guards")
-	if guard:
-		duration = guard.alarm_duration
-
-	await get_tree().create_timer(maxf(duration - fade_time, 0.0), false).timeout
-	stop_alarm()
-
 
 func stop_alarm() -> void:
 	if not _active:
 		return
+	_active = false
 	var tween := create_tween()
 	tween.tween_property(self, "volume_db", -40.0, fade_time)
 	await tween.finished
-	_active = false
 	stop()
 	volume_db = _start_volume
 
