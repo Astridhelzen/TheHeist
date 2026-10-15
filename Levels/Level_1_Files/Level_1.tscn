@@ -93,3 +93,5 @@ win_sound = ExtResource("18_0h55w")
 [node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=1336620955]
 stream = ExtResource("19_7sl2o")
 script = ExtResource("20_bevuv")
+
+[editable path="Exit"]
