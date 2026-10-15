@@ -29,6 +29,8 @@ margin = 0.08
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1792303577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.57)
 current = true
+near = 0.15
+far = 250.0
 
 [node name="Standing_Idle" parent="." unique_id=83431073 instance=ExtResource("3_sweqy")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

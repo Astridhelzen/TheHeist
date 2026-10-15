@@ -18,6 +18,9 @@ var camera_input_enabled: bool = true
 
 
 func _ready() -> void:
+	floor_snap_length = 0.35
+	floor_constant_speed = true
+	floor_stop_on_slope = true
 	# Kameran ska stoppas av omgivningen, men inte av spelarens egen kapsel.
 	PlayerManager.player = self
 	camera_arm.add_excluded_object(get_rid())

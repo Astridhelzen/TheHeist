@@ -1,0 +1,33 @@
+[gd_scene format=3]
+
+[sub_resource type="ConvexPolygonShape3D" id="Left"]
+points = PackedVector3Array(-11, 5.8, -32.5, -11, 6.025, -32.5, -11, 9.8, -38.5, -11, 10.025, -38.5, -7, 5.8, -32.5, -7, 6.025, -32.5, -7, 9.8, -38.5, -7, 10.025, -38.5)
+
+[sub_resource type="BoxShape3D" id="LeftLanding"]
+size = Vector3(4, 0.2, 0.7)
+
+[sub_resource type="ConvexPolygonShape3D" id="Right"]
+points = PackedVector3Array(2.4, 5.8, -32.5, 2.4, 6.025, -32.5, 2.4, 9.8, -38.5, 2.4, 10.025, -38.5, 6.4, 5.8, -32.5, 6.4, 6.025, -32.5, 6.4, 9.8, -38.5, 6.4, 10.025, -38.5)
+
+[sub_resource type="BoxShape3D" id="RightLanding"]
+size = Vector3(4, 0.2, 0.7)
+
+[node name="UpperStairRamps" type="Node3D"]
+
+[node name="Left" type="StaticBody3D" parent="."]
+
+[node name="Ramp" type="CollisionShape3D" parent="Left"]
+shape = SubResource("Left")
+
+[node name="Landing" type="CollisionShape3D" parent="Left"]
+position = Vector3(-9.0, 9.925, -38.85)
+shape = SubResource("LeftLanding")
+
+[node name="Right" type="StaticBody3D" parent="."]
+
+[node name="Ramp" type="CollisionShape3D" parent="Right"]
+shape = SubResource("Right")
+
+[node name="Landing" type="CollisionShape3D" parent="Right"]
+position = Vector3(4.4, 9.925, -38.85)
+shape = SubResource("RightLanding")

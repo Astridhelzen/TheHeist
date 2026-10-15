@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://db6k0tilc6tle"]
+
+[ext_resource type="PackedScene" uid="uid://cn66k5s8fhxf7" path="res://Levels/Level_2/Assets/Bank_Level2.blend" id="1_bank"]
+[ext_resource type="PackedScene" path="res://Levels/Level_2/BasementVault.tscn" id="2_basement"]
+[ext_resource type="PackedScene" uid="uid://c3slw0yg0jer6" path="res://Player/player.tscn" id="3_s8dg4"]
+[ext_resource type="PackedScene" path="res://Levels/Level_2/StairRamps.tscn" id="4_stairs"]
+[ext_resource type="PackedScene" path="res://Levels/Level_2/CloakroomCardTable.tscn" id="5_card_table"]
+[ext_resource type="PackedScene" uid="uid://c74vhqcjf5jd4" path="res://Assets/Models/Money/money.tscn" id="6_money"]
+[ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://exit.tscn" id="7_exit"]
+[ext_resource type="PackedScene" uid="uid://dfjeu8qtcaar8" path="res://UI/heist_complete.tscn" id="8_complete"]
+[ext_resource type="PackedScene" path="res://Levels/Level_2/BankExterior.tscn" id="9_exterior"]
+[ext_resource type="PackedScene" uid="uid://cn7h3oj1bmap" path="res://Guard/guard.tscn" id="10_guard"]
+[ext_resource type="NavigationMesh" path="res://Levels/Level_2/GuardNavigation.tres" id="11_nav"]
+[ext_resource type="PackedScene" uid="uid://bxqos7s3bjrpk" path="res://UI/caught.tscn" id="12_caught"]
+[ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://alarm_lighting.tscn" id="13_alarm"]
+
+[ext_resource type="Script" path="res://Levels/Level_2/level2_rendering.gd" id="14_rendering"]
+
+[node name="Level2" type="Node3D" unique_id=1306728427]
+script = ExtResource("14_rendering")
+
+[node name="Bank" parent="." unique_id=1056285823 instance=ExtResource("1_bank")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07299805, 0.5347786, -0.23951721)
+
+[node name="BasementVault" parent="." unique_id=685878478 instance=ExtResource("2_basement")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.285, 1.3880231, -41.421547)
+
+[node name="VaultMoney" parent="BasementVault" unique_id=43519765 instance=ExtResource("6_money")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011736, 1.17, -17.906353)
+
+[node name="Player" parent="." unique_id=1592885850 instance=ExtResource("3_s8dg4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.934248, 6.821719, 21.6)
+
+[node name="UpperStairRamps" parent="." unique_id=1006890989 instance=ExtResource("4_stairs")]
+
+[node name="CloakroomCardTable" parent="." unique_id=72752433 instance=ExtResource("5_card_table")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 6.3882875, 18.054283)
+
+[node name="BankExit" parent="." unique_id=715095059 instance=ExtResource("7_exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 7, 31)
+
+[node name="ExitSign" type="Label3D" parent="." unique_id=72195006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 8.4, 31)
+pixel_size = 0.008
+billboard = 1
+modulate = Color(0.4, 1, 0.65, 1)
+text = "ESCAPE"
+font_size = 64
+
+[node name="HeistComplete" parent="." unique_id=1419619530 instance=ExtResource("8_complete")]
+
+[node name="BankExterior" parent="." unique_id=608148303 instance=ExtResource("9_exterior")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0957737, 0.667366, 0)
+
+[node name="GuardNavigation" type="NavigationRegion3D" parent="." unique_id=1082307918]
+navigation_mesh = ExtResource("11_nav")
+
+[node name="PatrolPoints" type="Node3D" parent="." unique_id=257916955]
+
+[node name="HallSouth" type="Marker3D" parent="PatrolPoints" unique_id=1262246189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6.6, 15)
+
+[node name="HallNorth" type="Marker3D" parent="PatrolPoints" unique_id=598917290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6.6, -15)
+
+[node name="WestSouth" type="Marker3D" parent="PatrolPoints" unique_id=1807978159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6.6, 15)
+
+[node name="WestNorth" type="Marker3D" parent="PatrolPoints" unique_id=100843812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6.6, -15)
+
+[node name="StairWest" type="Marker3D" parent="PatrolPoints" unique_id=729697816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 6.6, -29)
+
+[node name="StairEast" type="Marker3D" parent="PatrolPoints" unique_id=1775637947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.6, -29)
+
+[node name="Guard" parent="." unique_id=2014795400 node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_guard")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6.65, 15)
+patrol_points = [NodePath("../PatrolPoints/HallSouth"), NodePath("../PatrolPoints/HallNorth")]
+
+[node name="Caught" parent="." unique_id=1124289801 instance=ExtResource("12_caught")]
+
+[node name="GuardWest" parent="." unique_id=542868760 node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_guard")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6.65, -15)
+patrol_points = [NodePath("../PatrolPoints/WestNorth"), NodePath("../PatrolPoints/WestSouth")]
+patrol_wait_time = 2.5
+
+[node name="GuardStairs" parent="." unique_id=536679095 node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_guard")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 6.65, -29)
+patrol_points = [NodePath("../PatrolPoints/StairWest"), NodePath("../PatrolPoints/StairEast")]
+patrol_wait_time = 2.0
+
+[node name="AlarmLighting" parent="." unique_id=120169043 node_paths=PackedStringArray("world_environment") instance=ExtResource("13_alarm")]
+world_environment = NodePath("../BankExterior/WorldEnvironment")
