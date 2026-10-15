@@ -20,15 +20,36 @@ extends CharacterBody3D
 @export var look_around_angle: float = 70.0   # hur långt åt varje håll (grader)
 @export var pursue_time: float = 2.5          # hur länge den jagar utan att se dig
 @export var aim_height: float = 0.8           # var på spelaren synstrålen siktar
-@export var catch_time: float = 1.0          # hur länge spelaren måste vara nära
+@export var catch_time: float = 0.4          # hur länge spelaren måste vara nära
 @export var escape_margin: float = 1.2       # hur långt bort spelaren måste för att slippa
-@export var alarm_duration: float = 10.0   # hur länge vakten vet var spelaren är
+
+@export_group("Ficklampa")
+## Färgen ficklampan får när spelaren står i ljuset.
+@export var spotted_color: Color = Color(1.0, 0.15, 0.1)
+## Hur snabbt färgen skiftar (högre = snabbare).
+@export var color_fade_speed: float = 8.0
+
+@export_group("Hörsel")
+## Hur länge vakten stannar och tittar mot ett ljud (sekunder).
+@export var hear_turn_time: float = 0.8
+## Hur snabbt vakten vänder sig mot ljudet (högre = snabbare).
+@export var hear_turn_speed: float = 8.0
+## Tittar vakten redan ungefär ditåt (inom så här många grader) vänder den sig inte igen.
+@export var hear_turn_min_angle: float = 30.0
+
+@export_group("När lamporna tänds")
+## Synfält åt varje håll från där vakten tittar (grader). 180 = ser runt om sig.
+@export var lit_view_angle: float = 75.0
+## Hur långt vakten ser när banken är upplyst (meter).
+@export var lit_view_range: float = 20.0
+## Springer till valvet när larmet går (men vet inte var spelaren är).
+@export var rush_to_vault_on_alarm: bool = true
 
 
 # --------------------
 # STATE MACHINE
 # --------------------
-enum State { IDLE, PATROL, INVESTIGATE, CHASE, PURSUE, ATTACK, RETURN }
+enum State { IDLE, PATROL, INVESTIGATE, CHASE, PURSUE, ATTACK, RETURN, RUSH }
 var state: State = State.IDLE
 
 var patrol_index := 0
@@ -45,7 +66,10 @@ const SMOOTHING_FACTOR = 0.2
 signal player_caught
 var attack_timer := 0.0
 var has_caught := false
-var alarm_timer := 0.0
+var lights_on := false
+var _normal_light_color: Color
+var _hear_turn_timer := 0.0
+var _heard_position: Vector3
 
 # --------------------
 # READY
@@ -55,6 +79,8 @@ func _ready() -> void:
 	target = PlayerManager.player
 	# Synstrålen blir lika lång som ficklampans ljus
 	vision_ray.target_position = Vector3(0, 0, -flashlight.spot_range)
+	# Kom ihåg ficklampans vanliga färg
+	_normal_light_color = flashlight.light_color
 	# _enter_state byter själv till IDLE om det inte finns patrullpunkter
 	_enter_state(State.PATROL)
 	_connect_loot.call_deferred()
@@ -64,21 +90,29 @@ func _ready() -> void:
 # MAIN LOOP
 # --------------------
 func _physics_process(delta: float) -> void:
-	if alarm_timer > 0.0:
-		alarm_timer -= delta
 	_update_path(delta)
 
-	match state:
-		State.IDLE:        _state_idle()
-		State.PATROL:      _state_patrol(delta)
-		State.INVESTIGATE: _state_investigate(delta)
-		State.CHASE:       _state_chase(delta)
-		State.PURSUE:      _state_pursue(delta)
-		State.ATTACK:      _state_attack(delta)
-		State.RETURN:      _state_return(delta)
+	if _hear_turn_timer > 0.0 and state not in [State.CHASE, State.PURSUE, State.ATTACK]:
+		# Har hört något: stanna och vänd dig mot ljudet först
+		_hear_turn_timer -= delta
+		_turn_towards_sound(delta)
+		if _can_see_player():
+			_hear_turn_timer = 0.0
+			_enter_state(State.CHASE)
+	else:
+		match state:
+			State.IDLE:        _state_idle()
+			State.PATROL:      _state_patrol(delta)
+			State.INVESTIGATE: _state_investigate(delta)
+			State.CHASE:       _state_chase(delta)
+			State.PURSUE:      _state_pursue(delta)
+			State.ATTACK:      _state_attack(delta)
+			State.RETURN:      _state_return(delta)
+			State.RUSH:        _state_rush(delta)
 
 	_apply_gravity(delta)
 	move_and_slide()
+	_update_flashlight_color(delta)
 
 # --------------------
 # STATE HANDLERS
@@ -121,6 +155,19 @@ func _state_investigate(delta: float) -> void:
 	if _can_see_player():
 		_enter_state(State.CHASE)
 
+## Larmet har gått: spring till valvet. Kortaste vägen räknas ut av
+## NavigationAgent3D, som använder A* över navmeshen.
+func _state_rush(_delta: float) -> void:
+	if _can_see_player():
+		_enter_state(State.CHASE)
+		return
+
+	if agent.is_navigation_finished():
+		# Framme vid valvet: titta runt där, sedan tillbaka till rundan
+		_enter_state(State.INVESTIGATE)
+	else:
+		_walk_to(agent.get_next_path_position(), speed_run)
+
 func _state_chase(_delta: float) -> void:
 	if not target:
 		_enter_state(State.RETURN)
@@ -130,7 +177,7 @@ func _state_chase(_delta: float) -> void:
 
 	if global_position.distance_to(target.global_position) < attack_range:
 		_enter_state(State.ATTACK)
-	elif not _can_see_player() and alarm_timer <= 0.0:
+	elif not _can_see_player():
 		_enter_state(State.PURSUE)
 
 func _state_pursue(delta: float) -> void:
@@ -192,7 +239,7 @@ func _enter_state(new_state: State) -> void:
 
 	# Spara var vakten var innan den började jaga/undersöka
 	if state in [State.IDLE, State.PATROL, State.RETURN] \
-			and new_state in [State.CHASE, State.INVESTIGATE]:
+			and new_state in [State.CHASE, State.INVESTIGATE, State.RUSH]:
 		return_position = global_position
 
 	state = new_state
@@ -207,6 +254,10 @@ func _enter_state(new_state: State) -> void:
 			agent.set_target_position(investigate_position)
 		State.PURSUE:
 			pursue_timer = pursue_time
+		State.RUSH:
+			agent.set_target_position(investigate_position)
+		State.CHASE:
+			_hear_turn_timer = 0.0
 		State.ATTACK:
 			velocity.x = 0.0
 			velocity.z = 0.0
@@ -218,7 +269,7 @@ func _update_agent_target() -> void:
 		State.PATROL:
 			if patrol_points.size() > 0:
 				agent.set_target_position(patrol_points[patrol_index].global_position)
-		State.INVESTIGATE:
+		State.INVESTIGATE, State.RUSH:
 			agent.set_target_position(investigate_position)
 		State.CHASE, State.PURSUE:
 			if target:
@@ -276,12 +327,17 @@ func _apply_gravity(delta: float) -> void:
 		velocity.y = 0.0
 
 # --------------------
-# VISION (ficklampan)
+# VISION
 # --------------------
 func _can_see_player() -> bool:
-	if not target or not _is_in_flashlight():
+	if not target:
 		return false
 
+	# Mörkt: bara i ficklampans kon. Upplyst: hela synfältet också.
+	var in_sight := _is_in_flashlight() or (lights_on and _is_in_lit_view())
+	return in_sight and _has_line_of_sight()
+
+func _has_line_of_sight() -> bool:
 	var aim_point := _player_aim_point()
 	if vision_ray.global_position.is_equal_approx(aim_point):
 		return false
@@ -290,6 +346,12 @@ func _can_see_player() -> bool:
 	vision_ray.look_at(aim_point, Vector3.UP)
 	vision_ray.force_raycast_update()
 	return vision_ray.is_colliding() and vision_ray.get_collider() == target
+
+## Ficklampan blir röd när spelaren står i ljuset (och ingen vägg är i vägen).
+func _update_flashlight_color(delta: float) -> void:
+	var in_beam := target != null and _is_in_flashlight() and _has_line_of_sight()
+	var wanted := spotted_color if in_beam else _normal_light_color
+	flashlight.light_color = flashlight.light_color.lerp(wanted, 1.0 - exp(-color_fade_speed * delta))
 
 func _is_in_flashlight() -> bool:
 	var to_player := _player_aim_point() - flashlight.global_position
@@ -303,6 +365,19 @@ func _is_in_flashlight() -> bool:
 	var angle := rad_to_deg(forward.angle_to(to_player))
 	return angle <= flashlight.spot_angle
 
+func _is_in_lit_view() -> bool:
+	var to_player := _player_aim_point() - vision_ray.global_position
+
+	# För långt bort?
+	if to_player.length() > lit_view_range:
+		return false
+
+	# Utanför synfältet? Räknat från hållet vakten själv tittar åt.
+	to_player.y = 0.0
+	var forward := -global_transform.basis.z
+	forward.y = 0.0
+	return rad_to_deg(forward.angle_to(to_player)) <= lit_view_angle
+
 func _player_aim_point() -> Vector3:
 	return target.global_position + Vector3.UP * aim_height
 	
@@ -314,18 +389,60 @@ func _face_target() -> void:
 		
 func _connect_loot() -> void:
 	for loot in get_tree().get_nodes_in_group("loot"):
-		loot.taken.connect(alert)
+		loot.taken.connect(alert.bind(loot.global_position))
 
-func alert() -> void:
+## Larmet har gått och lamporna tänds. Vakten ser bättre, men vet inte var spelaren är.
+func alert(loot_position: Vector3 = Vector3.INF) -> void:
 	if not target:
 		target = PlayerManager.player
-	alarm_timer = alarm_duration
-	_enter_state(State.CHASE)
+	lights_on = true
+	# Synstrålen måste nå lika långt som det nya synfältet
+	vision_ray.target_position = Vector3(0, 0, -maxf(lit_view_range, flashlight.spot_range))
+
+	# Spring till valvet, om vakten inte redan jagar någon
+	if rush_to_vault_on_alarm and loot_position.is_finite() \
+			and state not in [State.CHASE, State.PURSUE, State.ATTACK]:
+		investigate_position = loot_position
+		_enter_state(State.RUSH)
 
 # --------------------
 # SOUND
 # --------------------
 func hear_noise(pos: Vector3) -> void:
-	if state not in [State.CHASE, State.PURSUE, State.ATTACK]:
+	# Under en jakt bryr sig vakten inte om ljud
+	if state in [State.CHASE, State.PURSUE, State.ATTACK]:
+		return
+
+	# Vänd dig alltid mot ljudet, om du inte redan tittar ditåt.
+	# Ser vakten spelaren när den vänt sig blir det CHASE.
+	if _angle_to(pos) > hear_turn_min_angle:
+		_heard_position = pos
+		_hear_turn_timer = hear_turn_time
+
+	# Gå sedan och kolla ljudet, men inte om vakten är på väg till valvet
+	if state != State.RUSH:
 		investigate_position = pos
 		_enter_state(State.INVESTIGATE)
+
+func _turn_towards_sound(delta: float) -> void:
+	velocity.x = 0.0
+	velocity.z = 0.0
+	anim.play("Idle")
+
+	var dir := _heard_position - global_position
+	dir.y = 0.0
+	if dir.length() < 0.01:
+		return
+	# Vakten tittar längs -Z, så vinkeln räknas därifrån
+	var target_yaw := atan2(-dir.x, -dir.z)
+	rotation.y = lerp_angle(rotation.y, target_yaw, 1.0 - exp(-hear_turn_speed * delta))
+
+## Hur många grader vakten behöver vrida sig för att titta mot pos.
+func _angle_to(pos: Vector3) -> float:
+	var to_pos := pos - global_position
+	to_pos.y = 0.0
+	var forward := -global_transform.basis.z
+	forward.y = 0.0
+	if to_pos.length() < 0.01:
+		return 0.0
+	return rad_to_deg(forward.angle_to(to_pos))

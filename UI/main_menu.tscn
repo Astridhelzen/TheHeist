@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b1uwnpwcj5m13" path="res://UI/main_menu.gd" id="2_f40uw"]
 [ext_resource type="FontVariation" uid="uid://cgwfmq3x7umbe" path="res://UI/Fonts/title.tres" id="3_f40uw"]
 [ext_resource type="PackedScene" uid="uid://cude8yni4oce0" path="res://UI/menu_button.tscn" id="4_4cwpn"]
+[ext_resource type="AudioStream" uid="uid://b3kdhq1ef16bg" path="res://Assets/Sounds/MenuMusic.mp3" id="6_8ctay"]
 
 [node name="MainMenu" type="Control" unique_id=1395902361]
 layout_mode = 3
@@ -75,3 +76,8 @@ text = "CREDITS"
 [node name="Quit" parent="Menu" unique_id=12576265 instance=ExtResource("4_4cwpn")]
 layout_mode = 2
 text = "QUIT"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1810813403]
+stream = ExtResource("6_8ctay")
+volume_db = -17.0
+autoplay = true

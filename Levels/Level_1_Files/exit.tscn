@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bk0hmfk8wlawf"]
 
-[ext_resource type="Script" uid="uid://b2k1yqt4r05a4" path="res://exit.gd" id="1_24kvk"]
+[ext_resource type="Script" uid="uid://b2k1yqt4r05a4" path="res://Levels/Level_1_Files/exit.gd" id="1_24kvk"]
 [ext_resource type="FontVariation" uid="uid://dhhomkgws0u4v" path="res://UI/Fonts/overline.tres" id="2_mlcv5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmrj7"]

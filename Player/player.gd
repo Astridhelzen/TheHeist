@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@export var sneak_speed: float = 1
 @export var walk_speed: float = 1.7
 @export var run_speed: float = 8.0
 @export var turn_speed: float = 12.0
@@ -9,6 +10,7 @@ const ROTATION_SPEED = 2.0
 const ANIMATION_BLEND = 0.2
 
 var camera_input_enabled: bool = true
+var is_sneaking: bool = false
 
 @onready var animation_player: AnimationPlayer = $Standing_Idle/AnimationPlayer
 @onready var character_model: Node3D = $Standing_Idle
@@ -22,13 +24,15 @@ func _ready() -> void:
 	PlayerManager.player = self
 	camera_arm.add_excluded_object(get_rid())
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	# Alla tre Mixamo-klipp spelas på den synliga karaktärens skelett.
+	# Alla Mixamo-klipp spelas på den synliga karaktärens skelett.
 	var library := AnimationLibrary.new()
 	_add_animation(library, &"idle", animation_player)
 	_add_animation(library, &"walking", $Walking/AnimationPlayer)
 	_add_animation(library, &"running", $Running/AnimationPlayer)
+	_add_animation(library, &"sneaking", $Sneaking/AnimationPlayer)
 	animation_player.add_animation_library(&"movement", library)
 	animation_player.play(&"movement/idle")
+	$AudioListener3D.make_current()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -55,7 +59,8 @@ func _add_animation(library: AnimationLibrary, anim_name: StringName, source: An
 	var animation := source.get_animation(&"mixamo_com").duplicate() as Animation
 	animation.loop_mode = Animation.LOOP_LINEAR
 	library.add_animation(anim_name, animation)
-	
+
+
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
@@ -106,10 +111,19 @@ func _physics_process(delta: float) -> void:
 	# FLYTTA SPELAREN
 	# -------------------------
 
+	# Shift = springa, Ctrl eller C = smyga. Håller man båda vinner springet.
 	var is_moving := move_direction != Vector3.ZERO
-	var is_running := is_moving and Input.is_key_pressed(KEY_SPACE)
-	var speed := run_speed if is_running else walk_speed
+	var is_running := is_moving and Input.is_key_pressed(KEY_SHIFT)
+	is_sneaking = is_moving and not is_running \
+			and (Input.is_key_pressed(KEY_CTRL) or Input.is_key_pressed(KEY_C))
+
+	var speed := walk_speed
 	var next_animation: StringName = &"movement/idle"
+
+	if is_running:
+		speed = run_speed
+	elif is_sneaking:
+		speed = sneak_speed
 
 	if is_moving:
 		move_direction = move_direction.normalized()
@@ -121,7 +135,13 @@ func _physics_process(delta: float) -> void:
 
 		velocity.x = move_direction.x * speed
 		velocity.z = move_direction.z * speed
-		next_animation = &"movement/running" if is_running else &"movement/walking"
+
+		if is_running:
+			next_animation = &"movement/running"
+		elif is_sneaking:
+			next_animation = &"movement/sneaking"
+		else:
+			next_animation = &"movement/walking"
 	else:
 		velocity.x = 0
 		velocity.z = 0
