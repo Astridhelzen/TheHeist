@@ -2,6 +2,8 @@ extends Area3D
 
 signal escaped
 
+@export var hint_text := "GET TO EXIT"
+
 @onready var hint: CanvasLayer = $Hint
 
 var active := false
@@ -9,6 +11,8 @@ var active := false
 func _ready() -> void:
 	add_to_group("exits")
 	hint.visible = false
+
+	$Hint/HintLabel.text = hint_text
 	body_entered.connect(_on_body_entered)
 	_connect_loot.call_deferred()
 

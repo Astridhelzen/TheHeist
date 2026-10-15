@@ -48,6 +48,7 @@ text = "ESCAPE"
 font_size = 64
 
 [node name="HeistComplete" parent="." unique_id=1419619530 instance=ExtResource("8_complete")]
+level_number = 2
 
 [node name="BankExterior" parent="." unique_id=608148303 instance=ExtResource("9_exterior")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0957737, 0.667366, 0)

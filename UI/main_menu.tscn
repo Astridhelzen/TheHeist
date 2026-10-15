@@ -1,83 +1,18 @@
 [gd_scene format=3 uid="uid://bvd1ffrittkko"]
 
-[ext_resource type="Theme" uid="uid://d082d34416lgi" path="res://UI/Themes/ui_theme.tres" id="1_d8nwk"]
-[ext_resource type="FontVariation" uid="uid://dhhomkgws0u4v" path="res://UI/Fonts/overline.tres" id="2_4cwpn"]
-[ext_resource type="Script" uid="uid://b1uwnpwcj5m13" path="res://UI/main_menu.gd" id="2_f40uw"]
-[ext_resource type="FontVariation" uid="uid://cgwfmq3x7umbe" path="res://UI/Fonts/title.tres" id="3_f40uw"]
-[ext_resource type="PackedScene" uid="uid://cude8yni4oce0" path="res://UI/menu_button.tscn" id="4_4cwpn"]
-[ext_resource type="AudioStream" uid="uid://b3kdhq1ef16bg" path="res://Assets/Sounds/MenuMusic.mp3" id="6_8ctay"]
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1"]
+[ext_resource type="AudioStream" path="res://Assets/Sounds/MenuMusic.mp3" id="2"]
 
-[node name="MainMenu" type="Control" unique_id=1395902361]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_d8nwk")
-script = ExtResource("2_f40uw")
+script = ExtResource("1")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1701035488]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.02745098, 0.03529412, 0.047058824, 1)
-
-[node name="TitleBox" type="VBoxContainer" parent="." unique_id=1899631094]
-layout_mode = 1
-offset_left = 110.0
-offset_top = 70.0
-offset_right = 150.0
-offset_bottom = 110.0
-theme_override_constants/separation = 4
-
-[node name="StealthGame" type="Label" parent="TitleBox" unique_id=1353208155]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.43529412, 0.47058824, 0.5137255, 1)
-theme_override_fonts/font = ExtResource("2_4cwpn")
-theme_override_font_sizes/font_size = 14
-text = "A STEALTH GAME"
-
-[node name="TheHeist" type="Label" parent="TitleBox" unique_id=1055409657]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9137255, 0.92941177, 0.94509804, 1)
-theme_override_fonts/font = ExtResource("3_f40uw")
-theme_override_font_sizes/font_size = 128
-text = "THE HEIST"
-
-[node name="InTheDark" type="Label" parent="TitleBox" unique_id=1533651239]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.54509807, 0.5764706, 0.6156863, 1)
-text = "Stay in the dark."
-
-[node name="Menu" type="VBoxContainer" parent="." unique_id=1550184924]
-layout_mode = 1
-offset_left = 142.0
-offset_top = 350.0
-offset_right = 263.0
-offset_bottom = 473.0
-theme_override_constants/separation = 10
-
-[node name="NewHeist" parent="Menu" unique_id=2010535834 instance=ExtResource("4_4cwpn")]
-layout_mode = 2
-
-[node name="Settings" parent="Menu" unique_id=2145261258 instance=ExtResource("4_4cwpn")]
-layout_mode = 2
-text = "SETTINGS"
-
-[node name="Credits" parent="Menu" unique_id=1233398342 instance=ExtResource("4_4cwpn")]
-layout_mode = 2
-text = "CREDITS"
-
-[node name="Quit" parent="Menu" unique_id=12576265 instance=ExtResource("4_4cwpn")]
-layout_mode = 2
-text = "QUIT"
-
-[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1810813403]
-stream = ExtResource("6_8ctay")
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
 volume_db = -17.0
 autoplay = true

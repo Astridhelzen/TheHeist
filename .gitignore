@@ -20,3 +20,7 @@ mono_crash.*.json
 "*.blend1" 
 "*.blend1" 
 *.blend1
+.godot/
+.godot_backup/
+.godot/
+.godot_backup/
