@@ -1,53 +1,41 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://sh4lieabjetu"]
 
-[ext_resource type="Script" path="res://Levels/Level_1_Files/access_card.gd" id="1"]
-[ext_resource type="Script" path="res://Levels/Level_1_Files/access_card_visual.gd" id="2"]
-[ext_resource type="Script" path="res://Levels/Level_1_Files/access_card_hud.gd" id="3"]
+[ext_resource type="Script" uid="uid://cxy0mnpe3kyoj" path="res://Levels/Level_1_Files/access_card.gd" id="1"]
+[ext_resource type="Script" uid="uid://cwnvmhirnuse8" path="res://Levels/Level_1_Files/access_card_visual.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://drggy6ulaylhl" path="res://Levels/Level_1_Files/HUD.tscn" id="3_j5sbk"]
 
-[node name="AccessCard" type="Node3D"]
+[node name="AccessCard" type="Node3D" unique_id=378591071]
 script = ExtResource("1")
 
-[node name="Card" type="Node3D" parent="."]
-position = Vector3(-7.78, 0.592, -2.30)
-rotation = Vector3(0, -0.22, 0)
+[node name="Card" type="Node3D" parent="." unique_id=418413477]
+transform = Transform3D(0.97589743, 0, -0.21822962, 0, 1, 0, 0.21822962, 0, 0.97589743, -7.78, 0.592, -2.3)
 script = ExtResource("2")
 
-[node name="Reader" type="Node3D" parent="."]
-position = Vector3(9.193948, 1.04, -2.01)
+[node name="Reader" type="Node3D" parent="." unique_id=449158404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.193948, 1.04, -2.01)
 script = ExtResource("2")
 reader = true
 
-[node name="Marker" type="Label3D" parent="."]
-position = Vector3(-7.78, 1.02, -2.30)
-text = "ACCESS CARD"
-font_size = 28
+[node name="Marker" type="Label3D" parent="." unique_id=756493622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78, 1.02, -2.3)
 pixel_size = 0.003
 billboard = 1
 modulate = Color(0.45, 1, 0.85, 1)
+text = "ACCESS CARD"
+font_size = 28
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 10
+[node name="CanvasLayer" parent="." unique_id=976352041 instance=ExtResource("3_j5sbk")]
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("3")
-
-[node name="DeskGlow" type="OmniLight3D" parent="."]
-position = Vector3(-7.78, 0.94, -2.30)
+[node name="DeskGlow" type="OmniLight3D" parent="." unique_id=1365717987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78, 0.94, -2.3)
 light_color = Color(0.68, 0.9, 1, 1)
 light_energy = 0.65
-omni_range = 1.8
 shadow_enabled = true
+omni_range = 1.8
 
-[node name="ReaderGlow" type="OmniLight3D" parent="."]
-position = Vector3(9.19, 1.14, -1.65)
+[node name="ReaderGlow" type="OmniLight3D" parent="." unique_id=316737442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19, 1.14, -1.65)
 light_color = Color(0.3, 0.85, 0.75, 1)
 light_energy = 0.5
-omni_range = 1.1
 shadow_enabled = true
+omni_range = 1.1
