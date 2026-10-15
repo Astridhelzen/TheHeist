@@ -6,6 +6,12 @@
 [ext_resource type="Animation" uid="uid://d3o1sssmtnnn5" path="res://Assets/Characters/Guard/Idle.res" id="3_ioqu5"]
 [ext_resource type="Animation" uid="uid://bg1jprql7bj3q" path="res://Assets/Characters/Guard/Run.res" id="4_tuxdl"]
 [ext_resource type="Animation" uid="uid://bxfnl4ms57460" path="res://Assets/Characters/Guard/Walk.res" id="5_qgjdg"]
+[ext_resource type="AudioStream" uid="uid://c1qfcjthnkr4n" path="res://Assets/Sounds/footstep_wood_001.ogg" id="7_drwav"]
+[ext_resource type="Script" uid="uid://c2brn836ro6xl" path="res://Player/footsteps.gd" id="8_aka8x"]
+[ext_resource type="AudioStream" uid="uid://ccko3f0udyfal" path="res://Assets/Sounds/footstep_wood_004.ogg" id="8_jli06"]
+[ext_resource type="AudioStream" uid="uid://b1t2ftgrqmt23" path="res://Assets/Sounds/footstep_wood_000.ogg" id="9_8hpjk"]
+[ext_resource type="AudioStream" uid="uid://cd5ogacq08mwg" path="res://Assets/Sounds/footstep_wood_002.ogg" id="10_o3y3x"]
+[ext_resource type="AudioStream" uid="uid://mx0qgaa25bf1" path="res://Assets/Sounds/footstep_wood_003.ogg" id="11_bnmw1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bh547"]
 
@@ -16,6 +22,14 @@ _data = {
 &"Run": ExtResource("4_tuxdl"),
 &"Walk": ExtResource("5_qgjdg")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_aka8x"]
+streams_count = 5
+stream_0/stream = ExtResource("7_drwav")
+stream_1/stream = ExtResource("8_jli06")
+stream_2/stream = ExtResource("9_8hpjk")
+stream_3/stream = ExtResource("10_o3y3x")
+stream_4/stream = ExtResource("11_bnmw1")
 
 [node name="Guard" type="CharacterBody3D" unique_id=1780379191]
 script = ExtResource("1_30cdx")
@@ -46,3 +60,19 @@ spot_angle = 30.0
 
 [node name="Model" parent="." unique_id=810889770 instance=ExtResource("2_30cdx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="." unique_id=862721784]
+stream = SubResource("AudioStreamRandomizer_aka8x")
+attenuation_model = 1
+unit_size = 4.0
+pitch_scale = 0.87
+max_distance = 20.0
+
+[node name="Footsteps" type="Node" parent="." unique_id=893946358 node_paths=PackedStringArray("animation_player", "audio")]
+script = ExtResource("8_aka8x")
+animation_player = NodePath("../AnimationPlayer")
+audio = NodePath("../FootstepSound")
+step_times = {
+"Run": [0.3, 0.79],
+"Walk": [0.31, 0.823]
+}

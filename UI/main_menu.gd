@@ -7,6 +7,7 @@ extends Control
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	new_heist.grab_focus()
+	Sfx.stop_all()
 	$Menu/NewHeist.pressed.connect(_on_new_heist)
 	$Menu/Settings.pressed.connect(_on_settings)
 	$Menu/Credits.pressed.connect(_on_credits)

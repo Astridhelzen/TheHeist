@@ -69,12 +69,39 @@ layout_mode = 2
 [node name="CreditContainer" type="VBoxContainer" parent="Root/Margin/Layout" unique_id=616247092]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Root/Margin/Layout/CreditContainer" unique_id=2110817223]
+[node name="MoneyModel" type="Label" parent="Root/Margin/Layout/CreditContainer" unique_id=2110817223]
 layout_mode = 2
 text = "\"Money\" by Dakta.Grower.Nzl, licensed under CC BY 4.0 (sketchfab.com)"
 
+[node name="Spacer2" type="Control" parent="Root/Margin/Layout/CreditContainer" unique_id=2142122550]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="MenuMusic" type="Label" parent="Root/Margin/Layout/CreditContainer" unique_id=1175651933]
+layout_mode = 2
+text = "Menu Music:
+Music track: Heist by Zambolino
+Source: https://freetouse.com/music
+Free Background Music for Videos"
+
+[node name="Spacer3" type="Control" parent="Root/Margin/Layout/CreditContainer" unique_id=1738257068]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="GameMusic" type="Label" parent="Root/Margin/Layout/CreditContainer" unique_id=689669557]
+layout_mode = 2
+text = "Game music:
+Music track: Case File Open by Zolvi
+Source: https://freetouse.com/music
+Music for Videos (Free Download)
+Free Background Music for Videos"
+
+[node name="Spacer4" type="Control" parent="Root/Margin/Layout/CreditContainer" unique_id=1915610490]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
 [node name="Spacer2" type="Control" parent="Root/Margin/Layout" unique_id=91066912]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="MainMenu" parent="Root/Margin/Layout" unique_id=2010535834 instance=ExtResource("4_2g780")]

@@ -2,6 +2,8 @@ extends Area3D
 
 signal taken
 
+@export var pickup_sound: AudioStream
+
 @onready var model: Node3D = $Model
 
 var is_taken := false
@@ -21,5 +23,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body == PlayerManager.player and not is_taken:
 		is_taken = true
+		# Sfx spelar klart ljudet även fast pengarna tas bort direkt
+		Sfx.play(pickup_sound)
 		taken.emit()
 		queue_free()
