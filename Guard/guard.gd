@@ -20,7 +20,7 @@ extends CharacterBody3D
 @export var look_around_angle: float = 70.0   # hur långt åt varje håll (grader)
 @export var pursue_time: float = 2.5          # hur länge den jagar utan att se dig
 @export var aim_height: float = 0.8           # var på spelaren synstrålen siktar
-@export var catch_time: float = 1.0          # hur länge spelaren måste vara nära
+@export var catch_time: float = 0.5         # hur länge spelaren måste vara nära
 @export var escape_margin: float = 1.2       # hur långt bort spelaren måste för att slippa
 @export var alarm_duration: float = 10.0   # hur länge vakten vet var spelaren är
 

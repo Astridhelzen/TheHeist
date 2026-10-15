@@ -3,6 +3,7 @@ extends CanvasLayer
 const MAIN_MENU := "res://UI/main_menu.tscn"
 
 @export var show_time := 3.0
+@export var win_sound: AudioStream
 
 func _ready() -> void:
 	visible = false
@@ -16,6 +17,7 @@ func show_win() -> void:
 	if visible or get_tree().paused:
 		return
 	visible = true
+	Sfx.play(win_sound)
 	get_tree().paused = true
 
 	await get_tree().create_timer(show_time, true).timeout

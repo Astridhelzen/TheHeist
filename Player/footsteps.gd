@@ -12,13 +12,14 @@ signal step
 @export var audio: AudioStreamPlayer3D
 ## Animation name -> list of step times (0.0–1.0). Animations not listed are silent.
 @export var step_times: Dictionary = {
-	&"movement/sneaking": [0.32, 0.8],
-	&"movement/walking": [0.367, 0.902],
-	&"movement/running": [0.377, 0.951],
+	&"movement/sneaking": [0.253, 0.733],
+	&"movement/walking": [0.331, 0.786],
+	&"movement/running": [0.343, 0.843],
 }
 ## Animation name -> volume change in dB. Negative = quieter. Not listed = normal volume.
 @export var volume_offsets: Dictionary = {
 	&"movement/sneaking": -14.0,
+	&"movement/running": +14.0,
 }
 ## Random pitch variation so the steps don't sound identical.
 @export var pitch_variation: float = 0.1

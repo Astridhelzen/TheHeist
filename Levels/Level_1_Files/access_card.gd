@@ -5,6 +5,10 @@ const CollisionBuilder = preload("res://Levels/Level_1_Files/bank_collision.gd")
 @export var bank_path: NodePath
 @export var interaction_distance := 1.65
 @export var open_angle := -100.0
+@export_group("Sounds")
+@export var pickup_sound: AudioStream
+@export var scan_sound: AudioStream
+@export var vault_open_sound: AudioStream
 var has_card := false
 var is_unlocked := false
 var _busy := false
@@ -81,6 +85,7 @@ func _pick_up() -> void:
  _busy = true
  _marker.hide()
  _notify("Access card collected")
+ Sfx.play(pickup_sound)
  var tween := create_tween().set_parallel(true)
  tween.tween_property(_card, "position:y", _card.position.y + 0.32, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
  tween.tween_property(_card, "rotation:y", _card.rotation.y + PI * 0.6, 0.3)
@@ -94,6 +99,7 @@ func _unlock() -> void:
  is_unlocked = true
  _busy = true
  _notify("Access granted — opening vault")
+ Sfx.play(scan_sound)
  # Brief scan animation at the reader; the card remains in inventory.
  _card.show()
  _card.scale = Vector3.ONE
@@ -102,6 +108,8 @@ func _unlock() -> void:
  var tween := create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
  tween.tween_property(_card, "position:y", _card.position.y + 0.13, 0.35)
  tween.tween_callback(_card.hide)
+ # The door starts swinging here, so the vault sound starts with it
+ tween.tween_callback(func(): Sfx.play(vault_open_sound))
  tween.tween_property(_hinge, "rotation:y", deg_to_rad(open_angle), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
  tween.tween_callback(func(): _busy = false)
 

@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://0p53oshjju6y"]
 
 [ext_resource type="PackedScene" path="res://Levels/Level_1_Files/access_card.tscn" id="1_tymuv"]
+[ext_resource type="AudioStream" uid="uid://byiylxtmrdmj1" path="res://Assets/Sounds/pick_up_access_card.ogg" id="2_e8tst"]
 [ext_resource type="PackedScene" uid="uid://bge4s0ogh6us2" path="res://Assets/Bulidnings/Bank_LowPoly/BANK.blend" id="2_wtxyn"]
+[ext_resource type="AudioStream" uid="uid://dnj5t0dhak7k" path="res://Assets/Sounds/scan_access_card.ogg" id="3_0h55w"]
 [ext_resource type="Script" uid="uid://b58u4lfsm5vvs" path="res://Levels/Level_1_Files/bank_collision.gd" id="3_bl2ct"]
+[ext_resource type="AudioStream" uid="uid://kx2qi0ydn5md" path="res://Assets/Sounds/vault_opens.mp3" id="4_14k1m"]
 [ext_resource type="Shape3D" path="res://Levels/Level_1_Files/bank_collision.res" id="4_q0uin"]
 [ext_resource type="PackedScene" uid="uid://c74vhqcjf5jd4" path="res://Assets/Models/Money/money.tscn" id="5_hckac"]
 [ext_resource type="PackedScene" uid="uid://c3slw0yg0jer6" path="res://Player/player.tscn" id="5_mf06b"]
 [ext_resource type="PackedScene" uid="uid://cn7h3oj1bmap" path="res://Guard/guard.tscn" id="6_4ekfm"]
 [ext_resource type="PackedScene" uid="uid://bfhfagbdj7vot" path="res://UI/pause_menu.tscn" id="7_iyk75"]
 [ext_resource type="PackedScene" uid="uid://bxqos7s3bjrpk" path="res://UI/caught.tscn" id="9_26n06"]
-[ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://alarm_lighting.tscn" id="9_384e4"]
-[ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://exit.tscn" id="10_w7qpx"]
+[ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://Levels/Level_1_Files/alarm_lighting.tscn" id="9_384e4"]
+[ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://Levels/Level_1_Files/exit.tscn" id="10_w7qpx"]
 [ext_resource type="PackedScene" uid="uid://dfjeu8qtcaar8" path="res://UI/heist_complete.tscn" id="11_wjvmx"]
+[ext_resource type="AudioStream" uid="uid://dloiteadljyu5" path="res://Assets/Sounds/catched_police_siren.mp3" id="15_7sl2o"]
+[ext_resource type="AudioStream" uid="uid://bciqj7qb0p2ti" path="res://Assets/Sounds/ka_ching.mp3" id="17_bevuv"]
+[ext_resource type="AudioStream" uid="uid://buluiwhhqs54" path="res://Assets/Sounds/win_coins.mp3" id="18_0h55w"]
+[ext_resource type="AudioStream" uid="uid://kgvmcp4uvo4x" path="res://Assets/Sounds/security_alarm.mp3" id="19_7sl2o"]
+[ext_resource type="Script" uid="uid://ddf15g2k7p7o8" path="res://Levels/Level_1_Files/alarm_sound.gd" id="20_bevuv"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vmrj7"]
 vertices = PackedVector3Array(-98.98605, -0.48740858, -5.0864944, -10.236053, -0.48740858, -4.8364944, -10.236053, -0.48740858, -6.3364944, -8.486053, -0.48740858, -6.5864944, -8.736053, -0.48740858, -99.336494, -98.98605, -0.48740858, -99.336494, 9.513947, -0.48740858, -6.5864944, 9.763947, -0.48740858, -99.336494, 11.013947, -0.48740858, -6.5864944, 11.263947, -0.48740858, -4.8364944, 100.01395, -0.48740858, -5.0864944, 100.01395, -0.48740858, -99.336494, -9.236053, 4.0125914, -5.5864944, -9.236053, 4.2625914, 5.9135056, 10.263947, 4.2625914, 5.9135056, 10.263947, 4.0125914, -5.5864944, -98.98605, -0.48740858, 5.4135056, -10.236053, -0.48740858, 5.1635056, 11.263947, -0.48740858, 5.1635056, 100.01395, -0.48740858, 5.4135056, -6.4860535, 0.012591422, -4.3364944, -5.9860535, 0.012591422, -3.5864944, -5.9860535, 0.012591422, -4.8364944, -8.486053, 0.012591422, -3.5864944, -7.9860535, 0.012591422, -3.5864944, -7.7360535, 0.012591422, -4.3364944, -8.486053, 0.012591422, -4.8364944, -4.7360535, 0.012591422, -3.3364944, -4.2360535, 0.012591422, -3.3364944, -3.9860535, 0.012591422, -4.0864944, -4.7360535, 0.012591422, -4.8364944, 0.013946533, 0.012591422, -0.33649445, -1.2360535, 0.012591422, -0.33649445, -4.2360535, 0.012591422, 1.1635056, -5.2360535, 0.012591422, 5.1635056, -1.2360535, 0.012591422, 5.1635056, 1.7639465, 0.012591422, 3.6635056, 0.013946533, 0.012591422, -4.0864944, 0.26394653, 0.012591422, -3.3364944, 1.0139465, 0.012591422, -3.0864944, 4.5139465, 0.012591422, -4.8364944, -2.7360535, 0.012591422, -4.0864944, -2.4860535, 0.012591422, -3.3364944, -1.4860535, 0.012591422, -3.3364944, -1.2360535, 0.012591422, -4.0864944, 1.2639465, 0.012591422, 0.66350555, -3.9860535, 0.012591422, -0.33649445, -4.2360535, 0.012591422, -0.086494446, -2.7360535, 0.012591422, -0.33649445, 1.0139465, 0.012591422, -1.5864944, 0.26394653, 0.012591422, -1.3364944, 1.0139465, 0.012591422, -1.0864944, -1.4860535, 0.012591422, -1.3364944, -2.4860535, 0.012591422, -1.3364944, 2.7639465, 0.012591422, 3.4135056, 4.5139465, 0.012591422, 1.6635056, 4.5139465, 0.012591422, 0.66350555, 1.7639465, 0.012591422, -2.3364944, 1.7639465, 0.012591422, 5.9135056, 4.5139465, 0.012591422, -2.3364944, -5.2360535, 0.012591422, 2.1635056, 7.0139465, 0.012591422, 0.66350555, 6.0139465, 0.012591422, -0.086494446, 6.0139465, 0.012591422, 1.9135056, 8.013947, 0.012591422, -2.8364944, 9.513947, 0.012591422, -3.0864944, 9.513947, 0.012591422, -4.5864944, 6.0139465, 0.012591422, -4.5864944, 6.0139465, 0.012591422, -3.0864944, 3.2639465, 0.012591422, 3.6635056, 4.7639465, 0.012591422, 2.1635056, 9.513947, 0.012591422, 5.1635056, 9.513947, 0.012591422, 4.6635056, 5.7639465, 0.012591422, 4.9135056, 3.2639465, 0.012591422, 5.1635056, 5.5139465, 0.012591422, 3.4135056, 7.5139465, 0.012591422, -2.0864944, 8.013947, 0.012591422, -1.8364944, 8.263947, 0.012591422, 0.41350555, 9.513947, 0.012591422, 3.4135056, 8.263947, 0.012591422, -0.83649445, 9.513947, 0.012591422, -1.3364944, -4.4860535, 0.012591422, -0.58649445, -4.2360535, 0.012591422, -1.3364944, -5.9860535, 0.012591422, -0.33649445, -6.4860535, 0.012591422, -0.58649445, -7.7360535, 0.012591422, -0.58649445, -5.9860535, 0.012591422, 1.9135056, -5.7360535, 0.012591422, -0.83649445, -6.2360535, 0.012591422, -1.3364944, -7.9860535, 0.012591422, -1.3364944, -8.486053, 0.012591422, -1.3364944, -8.486053, 0.012591422, 5.1635056, -10.236053, -0.48740858, 6.6635056, -8.486053, -0.48740858, 6.9135056, -98.98605, -0.48740858, 99.663506, -8.736053, -0.48740858, 99.663506, 11.013947, -0.48740858, 6.9135056, 9.763947, -0.48740858, 99.663506, 100.01395, -0.48740858, 99.663506, 9.513947, -0.48740858, 6.9135056, -2.9860535, -0.48740858, 7.6635056, -3.2360535, -0.48740858, 6.9135056, -1.9860535, -0.48740858, 99.663506, -1.9860535, -0.48740858, 7.6635056, 2.2639465, -0.48740858, 7.6635056, 2.0139465, -0.48740858, 6.9135056, -0.98605347, -0.48740858, 6.9135056, -1.2360535, -0.48740858, 7.6635056, 3.2639465, -0.48740858, 99.663506, 3.2639465, -0.48740858, 7.6635056, 4.2639465, -0.48740858, 6.9135056, 4.0139465, -0.48740858, 7.6635056)
@@ -23,9 +31,12 @@ size = Vector3(20, 0.5, 12)
 
 [node name="Level1" type="Node3D" unique_id=488845252]
 
-[node name="AccessCard" parent="." instance=ExtResource("1_tymuv")]
+[node name="AccessCard" parent="." unique_id=62530214 instance=ExtResource("1_tymuv")]
 player_path = NodePath("../Player")
 bank_path = NodePath("../NavigationRegion3D/BANK")
+pickup_sound = ExtResource("2_e8tst")
+scan_sound = ExtResource("3_0h55w")
+vault_open_sound = ExtResource("4_14k1m")
 
 [node name="Player" parent="." unique_id=1592885850 instance=ExtResource("5_mf06b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95959926, 0, 4.3273373)
@@ -36,6 +47,7 @@ patrol_points = [NodePath("../PatrolPoints/PatrolPoint2"), NodePath("../PatrolPo
 
 [node name="Money" parent="." unique_id=1050703515 instance=ExtResource("5_hckac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.072502, 0.6418705, -3.688919)
+pickup_sound = ExtResource("17_bevuv")
 
 [node name="PatrolPoints" type="Node3D" parent="." unique_id=101242792]
 
@@ -73,5 +85,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2471495, 0.98381233, 9.5024
 [node name="PauseMenu" parent="." unique_id=2000846933 instance=ExtResource("7_iyk75")]
 
 [node name="Caught" parent="." unique_id=1563665453 instance=ExtResource("9_26n06")]
+lose_sound = ExtResource("15_7sl2o")
 
 [node name="HeistComplete" parent="." unique_id=11929283 instance=ExtResource("11_wjvmx")]
+win_sound = ExtResource("18_0h55w")
+
+[node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=1336620955]
+stream = ExtResource("19_7sl2o")
+script = ExtResource("20_bevuv")
