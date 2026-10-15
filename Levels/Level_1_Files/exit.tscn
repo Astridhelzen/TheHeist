@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bk0hmfk8wlawf"]
 
 [ext_resource type="Script" uid="uid://b2k1yqt4r05a4" path="res://Levels/Level_1_Files/exit.gd" id="1_24kvk"]
-[ext_resource type="FontVariation" uid="uid://dhhomkgws0u4v" path="res://UI/Fonts/overline.tres" id="2_mlcv5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmrj7"]
 
@@ -11,16 +10,3 @@ script = ExtResource("1_24kvk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1166015851]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_vmrj7")
-
-[node name="Hint" type="CanvasLayer" parent="." unique_id=467426660]
-layer = 5
-
-[node name="HintLabel" type="Label" parent="Hint" unique_id=461255661]
-offset_left = 40.0
-offset_top = 32.0
-offset_right = 133.0
-offset_bottom = 55.0
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("2_mlcv5")
-theme_override_font_sizes/font_size = 32
-text = "GET TO EXIT"

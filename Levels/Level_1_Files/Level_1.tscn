@@ -114,3 +114,4 @@ billboard = 1
 modulate = Color(0.4, 1, 0.65, 1)
 text = "ESCAPE"
 font_size = 64
+[editable path="Exit"]

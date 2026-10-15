@@ -22,10 +22,11 @@ func _connect_loot() -> void:
 
 func _activate() -> void:
 	active = true
-	hint.visible = true
+	# Visas i samma HUD som accesskortets instruktioner
+	get_tree().call_group("hud", "notify", "The alarm went off! Get out!")
+	get_tree().call_group("hud", "set_objective", "Get to the exit")
 
 func _on_body_entered(body: Node3D) -> void:
 	if active and body == PlayerManager.player:
 		active = false
-		hint.visible = false
 		escaped.emit()
