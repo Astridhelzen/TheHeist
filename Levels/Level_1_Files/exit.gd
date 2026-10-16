@@ -2,17 +2,12 @@ extends Area3D
 
 signal escaped
 
-@export var hint_text := "GET TO EXIT"
-
-@onready var hint: CanvasLayer = $Hint
+@export var hint_text := "Get to the car"
 
 var active := false
 
 func _ready() -> void:
 	add_to_group("exits")
-	hint.visible = false
-
-	$Hint/HintLabel.text = hint_text
 	body_entered.connect(_on_body_entered)
 	_connect_loot.call_deferred()
 
@@ -24,7 +19,7 @@ func _activate() -> void:
 	active = true
 	# Visas i samma HUD som accesskortets instruktioner
 	get_tree().call_group("hud", "notify", "The alarm went off! Get out!")
-	get_tree().call_group("hud", "set_objective", "Get to the exit")
+	get_tree().call_group("hud", "set_objective", hint_text)
 
 func _on_body_entered(body: Node3D) -> void:
 	if active and body == PlayerManager.player:

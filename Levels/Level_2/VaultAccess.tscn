@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Levels/Level_2/vault_access.gd" id="1"]
 [ext_resource type="Script" path="res://Levels/Level_1_Files/access_card_visual.gd" id="2"]
-[ext_resource type="Script" path="res://Levels/Level_1_Files/access_card_hud.gd" id="3"]
+[ext_resource type="PackedScene" path="res://Levels/Level_1_Files/HUD.tscn" id="3"]
 
 [node name="AccessCard" type="Node3D"]
 script = ExtResource("1")
@@ -27,18 +27,7 @@ pixel_size = 0.003
 billboard = 1
 modulate = Color(0.45, 1, 0.85, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 10
-
-[node name="HUD" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("3")
+[node name="CanvasLayer" parent="." instance=ExtResource("3")]
 
 [node name="DeskGlow" type="OmniLight3D" parent="."]
 position = Vector3(-21.715, 6.51, 59.42)

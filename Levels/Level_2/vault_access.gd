@@ -8,7 +8,6 @@ const CollisionBuilder = preload("res://Levels/Level_1_Files/bank_collision.gd")
 var has_card := false
 var is_unlocked := false
 var _busy := false
-var _notice_time := 0.0
 var _elapsed := 0.0
 var _door_body: AnimatableBody3D
 @onready var _player: CharacterBody3D = get_node(player_path)
@@ -35,9 +34,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
  _elapsed += delta
- _notice_time = maxf(0, _notice_time - delta)
- if _notice_time == 0:
-  _hud.notice = ""
  _marker.position = _card.position + Vector3(0, 0.39 + sin(_elapsed * 2.4) * 0.035, 0)
  _marker.visible = not has_card
  _hud.has_card = has_card
@@ -82,6 +78,7 @@ func _pick_up() -> void:
  _busy = true
  _marker.hide()
  _notify("Access card collected")
+ _hud.set_objective("Open the vault")
  var tween := create_tween().set_parallel(true)
  tween.tween_property(_card, "position:y", _card.position.y + 0.32, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
  tween.tween_property(_card, "rotation:y", _card.rotation.y + PI * 0.6, 0.3)
@@ -95,6 +92,7 @@ func _unlock() -> void:
  is_unlocked = true
  _busy = true
  _notify("Access granted — opening vault")
+ _hud.set_objective("Grab the money")
  # Brief scan animation at the reader; the card remains in inventory.
  _card.show()
  _card.scale = Vector3.ONE
@@ -107,5 +105,4 @@ func _unlock() -> void:
  tween.tween_callback(func(): _busy = false)
 
 func _notify(message: String) -> void:
- _hud.notice = message
- _notice_time = 3.0
+ _hud.notify(message)
