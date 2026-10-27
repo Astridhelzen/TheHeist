@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+const Progress = preload("res://Managers/level_progress.gd")
+@export var level_number: int = 0
+
 const MAIN_MENU := "res://UI/main_menu.tscn"
 
 @export var show_time := 3.0
@@ -16,6 +19,7 @@ func _connect_exits() -> void:
 func show_win() -> void:
 	if visible or get_tree().paused:
 		return
+	Progress.complete_level(level_number)
 	visible = true
 	Sfx.play(win_sound)
 	get_tree().paused = true

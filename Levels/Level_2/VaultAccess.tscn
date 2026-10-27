@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Levels/Level_2/vault_access.gd" id="1"]
+[ext_resource type="Script" path="res://Levels/Level_1_Files/access_card_visual.gd" id="2"]
+[ext_resource type="PackedScene" path="res://Levels/Level_1_Files/HUD.tscn" id="3"]
+
+[node name="AccessCard" type="Node3D"]
+script = ExtResource("1")
+player_path = NodePath("../../Player")
+bank_path = NodePath("..")
+
+[node name="Card" type="Node3D" parent="."]
+position = Vector3(-21.715, 6.02, 59.42)
+rotation = Vector3(0, -0.22, 0)
+script = ExtResource("2")
+
+[node name="Reader" type="Node3D" parent="."]
+position = Vector3(2.55, 1.35, -11.65)
+script = ExtResource("2")
+reader = true
+
+[node name="Marker" type="Label3D" parent="."]
+position = Vector3(-21.715, 6.41, 59.42)
+text = "ACCESS CARD"
+font_size = 28
+pixel_size = 0.003
+billboard = 1
+modulate = Color(0.45, 1, 0.85, 1)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3")]
+
+[node name="DeskGlow" type="OmniLight3D" parent="."]
+position = Vector3(-21.715, 6.51, 59.42)
+light_color = Color(0.68, 0.9, 1, 1)
+light_energy = 0.65
+omni_range = 1.8
+shadow_enabled = true
+
+[node name="ReaderGlow" type="OmniLight3D" parent="."]
+position = Vector3(2.55, 1.5, -11.3)
+light_color = Color(0.3, 0.85, 0.75, 1)
+light_energy = 0.5
+omni_range = 1.1
+shadow_enabled = true

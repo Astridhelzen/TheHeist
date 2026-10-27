@@ -17,9 +17,15 @@ var is_sneaking: bool = false
 @onready var camera: Camera3D = $CameraPivot/SpringArm3D/Camera3D
 @onready var camera_arm: SpringArm3D = $CameraPivot/SpringArm3D
 @onready var camera_pivot: Node3D = $CameraPivot
+@onready var body_collision: CollisionShape3D = $CollisionShape3D
+var _model_rest_height := 0.0
 
 
 func _ready() -> void:
+	_model_rest_height = character_model.position.y
+	floor_snap_length = 0.35
+	floor_constant_speed = true
+	floor_stop_on_slope = true
 	# Kameran ska stoppas av omgivningen, men inte av spelarens egen kapsel.
 	PlayerManager.player = self
 	camera_arm.add_excluded_object(get_rid())
@@ -65,6 +71,8 @@ func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		velocity.y = 0.0
 
 	# -------------------------
 	# PILTANGENTER = VRID KAMERAN
@@ -147,7 +155,26 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0
 
 	move_and_slide()
+	if not is_on_floor() and velocity.y <= 0.0:
+		apply_floor_snap()
+	_update_slope_visuals(delta)
 
 	# Byt bara när tillståndet ändras så att klippet inte startar om varje bildruta.
 	if animation_player.current_animation != next_animation:
 		animation_player.play(next_animation, ANIMATION_BLEND)
+
+
+func _update_slope_visuals(delta: float) -> void:
+	# A capsule touches a ramp uphill from its centre. Its bottom therefore
+	# floats above the surface directly below the character's feet. Compensate
+	# visually without moving the collision body or tilting the camera.
+	var offset := 0.0
+	if is_on_floor() and body_collision.shape is CapsuleShape3D:
+		var normal_up := get_floor_normal().dot(up_direction)
+		if normal_up > 0.0:
+			var capsule := body_collision.shape as CapsuleShape3D
+			offset = clampf(capsule.radius * (1.0 / normal_up - 1.0), 0.0, 0.25)
+	character_model.position.y = lerpf(
+		character_model.position.y, _model_rest_height - offset,
+		1.0 - exp(-18.0 * delta)
+	)
