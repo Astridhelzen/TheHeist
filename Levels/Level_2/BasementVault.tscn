@@ -1008,11 +1008,10 @@ size = Vector3(1.6, 0.035, 0.3)
 material = SubResource("Light")
 
 [sub_resource type="ConvexPolygonShape3D" id="StairRamp"]
-points = PackedVector3Array(-3.75, -0.2, -0.45, -3.75, 0.015, -0.45, -3.75, 4.8, 7.2, -3.75, 5.115, 7.2, 3.75, -0.2, -0.45, 3.75, 0.015, -0.45, 3.75, 4.8, 7.2, 3.75, 5.115, 7.2)
-
-[sub_resource type="BoxShape3D" id="StairTopLanding"]
-size = Vector3(7.5, 0.2, 1.1)
-
+points = PackedVector3Array(-3.75, -0.08, 0.221547, -3.75, 0.127, 0.221547, -3.75, 4.94, 8.22, -3.75, 5.147, 8.22, 3.75, -0.08, 0.221547, 3.75, 0.127, 0.221547, 3.75, 4.94, 8.22, 3.75, 5.147, 8.22)
+[sub_resource type="NavigationMesh" id="VaultDoorwayNavigation"]
+vertices = PackedVector3Array(-2.3149985, 0.211977, -10.978453, 2.1850015, 0.211977, -10.978453, 0.8, 0.211977, -11.478453, -0.8, 0.211977, -11.478453, 0.8, 0.211977, -12.578453, -0.8, 0.211977, -12.578453, 3.6850015, 0.211977, -13.078453, -3.514999, 0.211977, -13.078453)
+polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7)]
 [node name="BasementVault" type="Node3D"]
 [node name="LandingFloor" type="MeshInstance3D" parent="."]
 position = Vector3(0, -0.15, -2)
@@ -2108,10 +2107,12 @@ pixel_size = 0.006
 [node name="Arrival" type="Marker3D" parent="."]
 position = Vector3(0, 0.1, -1.5)
 
+[node name="AccessCard" parent="." instance=ExtResource("2_access")]
+
+[node name="VaultDoorwayNavigation" type="NavigationRegion3D" parent="."]
+enabled = false
+navigation_mesh = SubResource("VaultDoorwayNavigation")
+
 [node name="StairCollision" type="StaticBody3D" parent="."]
 [node name="Shape" type="CollisionShape3D" parent="StairCollision"]
 shape = SubResource("StairRamp")
-[node name="TopLanding" type="CollisionShape3D" parent="StairCollision"]
-position = Vector3(0, 5.015, 7.75)
-shape = SubResource("StairTopLanding")
-[node name="AccessCard" parent="." instance=ExtResource("2_access")]

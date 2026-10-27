@@ -5,6 +5,10 @@ const CollisionBuilder = preload("res://Levels/Level_1_Files/bank_collision.gd")
 @export var bank_path: NodePath
 @export var interaction_distance := 1.65
 @export var open_angle := 100.0
+@export_group("Sounds")
+@export var pickup_sound: AudioStream = preload("res://Assets/Sounds/pick_up_access_card.ogg")
+@export var scan_sound: AudioStream = preload("res://Assets/Sounds/scan_access_card.ogg")
+@export var vault_open_sound: AudioStream = preload("res://Assets/Sounds/vault_opens.mp3")
 var has_card := false
 var is_unlocked := false
 var _busy := false
@@ -79,6 +83,7 @@ func _pick_up() -> void:
  _marker.hide()
  _notify("Access card collected")
  _hud.set_objective("Open the vault")
+ Sfx.play(pickup_sound)
  var tween := create_tween().set_parallel(true)
  tween.tween_property(_card, "position:y", _card.position.y + 0.32, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
  tween.tween_property(_card, "rotation:y", _card.rotation.y + PI * 0.6, 0.3)
@@ -93,6 +98,7 @@ func _unlock() -> void:
  _busy = true
  _notify("Access granted — opening vault")
  _hud.set_objective("Grab the money")
+ Sfx.play(scan_sound)
  # Brief scan animation at the reader; the card remains in inventory.
  _card.show()
  _card.scale = Vector3.ONE
@@ -101,8 +107,14 @@ func _unlock() -> void:
  var tween := create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
  tween.tween_property(_card, "position:y", _card.position.y + 0.13, 0.35)
  tween.tween_callback(_card.hide)
+ tween.tween_callback(func(): Sfx.play(vault_open_sound))
  tween.tween_property(_hinge, "rotation:y", deg_to_rad(open_angle), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
- tween.tween_callback(func(): _busy = false)
+ tween.tween_callback(func():
+  # The baked mesh has separate islands on either side of the closed door.
+  # Only make the doorway traversable after its physical opening finishes.
+  _bank.get_node("VaultDoorwayNavigation").enabled = true
+  _busy = false
+ )
 
 func _notify(message: String) -> void:
  _hud.notify(message)
