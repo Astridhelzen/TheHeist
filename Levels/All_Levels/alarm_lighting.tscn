@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b065iq3wagl1m"]
 
-[ext_resource type="Script" uid="uid://dp70vjhfxvaqg" path="res://Levels/Level_1_Files/alarm_lighting.gd" id="1_n2y2y"]
+[ext_resource type="Script" uid="uid://dp70vjhfxvaqg" path="res://Levels/All_Levels/alarm_lighting.gd" id="1_n2y2y"]
 
 [node name="AlarmLighting" type="Node3D" unique_id=1933706552]
 script = ExtResource("1_n2y2y")

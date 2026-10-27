@@ -1,7 +1,7 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://r7j7yygd0lka" path="res://Levels/Level_1_Files/vault_keypad.gd" id="1"]
-[ext_resource type="Script" uid="uid://qaunew1nvhlx" path="res://Levels/Level_1_Files/vault_keypad_panel.gd" id="2"]
+[ext_resource type="Script" uid="uid://r7j7yygd0lka" path="res://Levels/Level_1/vault_keypad.gd" id="1"]
+[ext_resource type="Script" uid="uid://qaunew1nvhlx" path="res://Levels/Level_1/vault_keypad_panel.gd" id="2"]
 
 [sub_resource type="StandardMaterial3D" id="Gold"]
 shading_mode = 0

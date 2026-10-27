@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://sh4lieabjetu"]
 
-[ext_resource type="Script" uid="uid://cxy0mnpe3kyoj" path="res://Levels/Level_1_Files/access_card.gd" id="1"]
-[ext_resource type="Script" uid="uid://cwnvmhirnuse8" path="res://Levels/Level_1_Files/access_card_visual.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://drggy6ulaylhl" path="res://Levels/Level_1_Files/HUD.tscn" id="3_j5sbk"]
+[ext_resource type="Script" uid="uid://cxy0mnpe3kyoj" path="res://Levels/All_Levels/access_card.gd" id="1"]
+[ext_resource type="Script" uid="uid://cwnvmhirnuse8" path="res://Levels/All_Levels/access_card_visual.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://drggy6ulaylhl" path="res://Levels/All_Levels/HUD.tscn" id="3_j5sbk"]
 
 [node name="AccessCard" type="Node3D" unique_id=378591071]
 script = ExtResource("1")

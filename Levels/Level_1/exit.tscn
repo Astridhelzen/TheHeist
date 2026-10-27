@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bk0hmfk8wlawf"]
 
-[ext_resource type="Script" uid="uid://b2k1yqt4r05a4" path="res://Levels/Level_1_Files/exit.gd" id="1_24kvk"]
+[ext_resource type="Script" uid="uid://b2k1yqt4r05a4" path="res://Levels/Level_1/exit.gd" id="1_24kvk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmrj7"]
 
