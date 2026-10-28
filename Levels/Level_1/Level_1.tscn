@@ -105,6 +105,7 @@ level_number = 1
 next_level = "uid://db6k0tilc6tle"
 win_sound = ExtResource("18_0h55w")
 level_number = 1
+medal_scores = Array[int]([1000, 1600, 2300])
 
 [node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=1336620955]
 stream = ExtResource("19_7sl2o")
