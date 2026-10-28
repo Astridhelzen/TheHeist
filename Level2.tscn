@@ -6,19 +6,22 @@
 [ext_resource type="PackedScene" path="res://Levels/Level_2/StairRamps.tscn" id="4_stairs"]
 [ext_resource type="PackedScene" path="res://Levels/Level_2/CloakroomCardTable.tscn" id="5_card_table"]
 [ext_resource type="PackedScene" uid="uid://c74vhqcjf5jd4" path="res://Assets/Models/Money/money.tscn" id="6_money"]
-[ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://Levels/Level_1_Files/exit.tscn" id="7_exit"]
+[ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://Levels/Level_1/exit.tscn" id="7_exit"]
 [ext_resource type="PackedScene" uid="uid://dfjeu8qtcaar8" path="res://UI/heist_complete.tscn" id="8_complete"]
 [ext_resource type="PackedScene" path="res://Levels/Level_2/BankExterior.tscn" id="9_exterior"]
 [ext_resource type="PackedScene" uid="uid://cn7h3oj1bmap" path="res://Guard/guard.tscn" id="10_guard"]
 [ext_resource type="NavigationMesh" path="res://Levels/Level_2/GuardNavigation.tres" id="11_nav"]
 [ext_resource type="PackedScene" uid="uid://bxqos7s3bjrpk" path="res://UI/caught.tscn" id="12_caught"]
-[ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://Levels/Level_1_Files/alarm_lighting.tscn" id="13_alarm"]
+[ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://Levels/All_Levels/alarm_lighting.tscn" id="13_alarm"]
 [ext_resource type="Script" uid="uid://d06uhspygay34" path="res://Levels/Level_2/level2_rendering.gd" id="14_rendering"]
 [ext_resource type="AudioStream" uid="uid://kgvmcp4uvo4x" path="res://Assets/Sounds/security_alarm.mp3" id="15_alarm_sound"]
-[ext_resource type="Script" uid="uid://ddf15g2k7p7o8" path="res://Levels/Level_1_Files/alarm_sound.gd" id="16_alarm_script"]
+[ext_resource type="Script" uid="uid://ddf15g2k7p7o8" path="res://Levels/All_Levels/alarm_sound.gd" id="16_alarm_script"]
 [ext_resource type="AudioStream" uid="uid://bciqj7qb0p2ti" path="res://Assets/Sounds/ka_ching.mp3" id="17_money_sound"]
+[ext_resource type="PackedScene" uid="uid://bfhfagbdj7vot" path="res://UI/pause_menu.tscn" id="18_0rx21"]
 [ext_resource type="AudioStream" uid="uid://buluiwhhqs54" path="res://Assets/Sounds/win_coins.mp3" id="18_win_sound"]
 [ext_resource type="AudioStream" uid="uid://dloiteadljyu5" path="res://Assets/Sounds/catched_police_siren.mp3" id="19_lose_sound"]
+[ext_resource type="PackedScene" uid="uid://dmcigrmxode8h" path="res://Levels/All_Levels/coin.tscn" id="20_e3avg"]
+[ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="200_font"]
 
 [node name="Level2" type="Node3D" unique_id=1306728427]
 script = ExtResource("14_rendering")
@@ -34,26 +37,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011736, 1.17, -17.906353)
 pickup_sound = ExtResource("17_money_sound")
 
 [node name="Player" parent="." unique_id=1592885850 instance=ExtResource("3_s8dg4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.934248, 6.821719, 21.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.856869, 6.821719, 30.105095)
 
 [node name="UpperStairRamps" parent="." unique_id=1006890989 instance=ExtResource("4_stairs")]
 
 [node name="CloakroomCardTable" parent="." unique_id=72752433 instance=ExtResource("5_card_table")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 6.3882875, 18.054283)
 
-[node name="BankExit" parent="." unique_id=715095059 instance=ExtResource("7_exit")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 7, 31)
+[node name="BankExit" parent="." unique_id=715095059 node_paths=PackedStringArray("exit_sign") instance=ExtResource("7_exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9, 7.6, 31)
+exit_sign = NodePath("../ExitSign")
+zone_size = Vector3(3.6, 3, 5.6)
 
 [node name="ExitSign" type="Label3D" parent="." unique_id=72195006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 8.4, 31)
-pixel_size = 0.008
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9, 9.2, 31)
+pixel_size = 0.005
 billboard = 1
-modulate = Color(0.4, 1, 0.65, 1)
+modulate = Color(0.8980392, 0.6901961, 0.2901961, 1)
+outline_modulate = Color(0.035, 0.04, 0.05, 0.9)
 text = "ESCAPE"
-font_size = 64
-
-[node name="HeistComplete" parent="." unique_id=1419619530 instance=ExtResource("8_complete")]
-win_sound = ExtResource("18_win_sound")
+font = ExtResource("200_font")
+font_size = 96
+outline_size = 24
 
 [node name="BankExterior" parent="." unique_id=608148303 instance=ExtResource("9_exterior")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0957737, 0.667366, 0)
@@ -85,9 +90,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.6, -29)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6.65, 15)
 patrol_points = [NodePath("../PatrolPoints/HallSouth"), NodePath("../PatrolPoints/HallNorth")]
 
-[node name="Caught" parent="." unique_id=1124289801 instance=ExtResource("12_caught")]
-lose_sound = ExtResource("19_lose_sound")
-
 [node name="GuardWest" parent="." unique_id=542868760 node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_guard")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6.65, -15)
 patrol_points = [NodePath("../PatrolPoints/WestNorth"), NodePath("../PatrolPoints/WestSouth")]
@@ -101,6 +103,117 @@ patrol_wait_time = 2.0
 [node name="AlarmLighting" parent="." unique_id=120169043 node_paths=PackedStringArray("world_environment") instance=ExtResource("13_alarm")]
 world_environment = NodePath("../BankExterior/WorldEnvironment")
 
-[node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=1329164841]
+[node name="HeistComplete" parent="." unique_id=1419619530 instance=ExtResource("8_complete")]
+next_level = null
+win_sound = ExtResource("18_win_sound")
+points_per_coin = null
+max_time_bonus = null
+par_time = null
+slow_time = null
+medal_scores = null
+medal_pause = null
+skippable = null
+tick_volume_db = null
+level_number = 2
+
+[node name="Caught" parent="." unique_id=1124289801 instance=ExtResource("12_caught")]
+lose_sound = ExtResource("19_lose_sound")
+level_number = 2
+
+[node name="PauseMenu" parent="." unique_id=2000846933 instance=ExtResource("18_0rx21")]
+
+[node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=1235990189]
 stream = ExtResource("15_alarm_sound")
 script = ExtResource("16_alarm_script")
+
+[node name="Coins" type="Node" parent="." unique_id=1589356758]
+
+[node name="Coin" parent="Coins" unique_id=442464435 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, 9.755638, 6.570954, 21.801418)
+
+[node name="Coin2" parent="Coins" unique_id=2036954422 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, 5.8040724, 6.570954, 21.801418)
+
+[node name="Coin4" parent="Coins" unique_id=955494891 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, 3.064618, 6.570954, 24.363852)
+
+[node name="Coin3" parent="Coins" unique_id=825091543 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, 0.87214565, 6.570954, 26.1016)
+
+[node name="Coin5" parent="Coins" unique_id=1205039192 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -2.2563057, 6.570954, 26.1016)
+
+[node name="Coin6" parent="Coins" unique_id=466665190 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -6.1078978, 6.570954, 26.1016)
+
+[node name="Coin8" parent="Coins" unique_id=1775551281 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -9.617399, 6.570954, 26.1016)
+
+[node name="Coin9" parent="Coins" unique_id=232820510 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.433676, 6.570954, 26.1016)
+
+[node name="Coin15" parent="Coins" unique_id=1814394606 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.23819, 6.570954, 8.33564)
+
+[node name="Coin17" parent="Coins" unique_id=158736117 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.23819, 6.570954, 14.129872)
+
+[node name="Coin16" parent="Coins" unique_id=855601645 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.221825, 6.570954, 2.5702472)
+
+[node name="Coin18" parent="Coins" unique_id=1149343444 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.221825, 6.570954, -0.34281492)
+
+[node name="Coin19" parent="Coins" unique_id=646383674 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.221825, 6.570954, -3.2477586)
+
+[node name="Coin20" parent="Coins" unique_id=347217086 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.221825, 6.570954, -6.1636515)
+
+[node name="Coin21" parent="Coins" unique_id=989241164 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.221825, 6.570954, -9.003242)
+
+[node name="Coin22" parent="Coins" unique_id=1376649139 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -13.221825, 6.570954, -17.332748)
+
+[node name="Coin23" parent="Coins" unique_id=2100636460 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -7.518393, 6.570954, -17.332748)
+
+[node name="Coin24" parent="Coins" unique_id=796651220 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -5.3559537, 6.570954, -20.540104)
+
+[node name="Coin25" parent="Coins" unique_id=2019849571 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -2.3780155, 6.570954, -24.663233)
+
+[node name="Coin26" parent="Coins" unique_id=1538695360 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -2.3780155, 6.570954, -27.897861)
+
+[node name="Coin27" parent="Coins" unique_id=502013255 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -2.3780155, 6.570954, -30.619041)
+
+[node name="Coin28" parent="Coins" unique_id=318637603 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -4.7053447, 6.570954, -30.619041)
+
+[node name="Coin30" parent="Coins" unique_id=1709270056 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -4.7053447, 5.7267184, -35.259888)
+
+[node name="Coin31" parent="Coins" unique_id=1832183514 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -4.7053447, 4.3442764, -37.49104)
+
+[node name="Coin32" parent="Coins" unique_id=74998430 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -4.7053447, 2.6188998, -40.141026)
+
+[node name="Coin33" parent="Coins" unique_id=1357407619 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -2.6225882, 2.0444946, -42.35146)
+
+[node name="Coin29" parent="Coins" unique_id=1187652152 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, 0.08592844, 6.570954, -30.619041)
+
+[node name="Coin10" parent="Coins" unique_id=1683409675 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -17.484009, 6.570954, 28.45713)
+
+[node name="Coin11" parent="Coins" unique_id=1346002392 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -20.95411, 6.570954, 30.34519)
+
+[node name="Coin12" parent="Coins" unique_id=1291344996 instance=ExtResource("20_e3avg")]
+transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -23.163567, 6.570954, 24.779316)

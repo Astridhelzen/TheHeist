@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drggy6ulaylhl"]
 
-[ext_resource type="Script" uid="uid://bl38183chihqx" path="res://Levels/Level_1_Files/hud.gd" id="1_mot1k"]
+[ext_resource type="Script" uid="uid://bl38183chihqx" path="res://Levels/All_Levels/hud.gd" id="1_mot1k"]
 [ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="2_tqw75"]
 [ext_resource type="FontVariation" uid="uid://dhhomkgws0u4v" path="res://UI/Fonts/overline.tres" id="3_bhjk1"]
 

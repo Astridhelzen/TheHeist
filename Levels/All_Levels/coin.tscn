@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dmcigrmxode8h"]
+
+[ext_resource type="Script" uid="uid://copgh0q11p7gc" path="res://Levels/All_Levels/coin.gd" id="1_coin"]
+[ext_resource type="AudioStream" uid="uid://bixeysy5m85jr" path="res://Assets/Sounds/coin_collected.ogg" id="2_76tpa"]
+
+[sub_resource type="StandardMaterial3D" id="Material_gold"]
+albedo_color = Color(1, 0.76, 0.25, 1)
+metallic = 0.85
+roughness = 0.3
+emission_enabled = true
+emission = Color(0.9, 0.62, 0.15, 1)
+emission_energy_multiplier = 0.6
+
+[sub_resource type="CylinderMesh" id="Mesh_coin"]
+material = SubResource("Material_gold")
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.04
+radial_segments = 24
+rings = 1
+
+[sub_resource type="SphereShape3D" id="Shape_coin"]
+radius = 0.4
+
+[node name="Coin" type="Area3D" unique_id=442464435]
+collision_layer = 0
+script = ExtResource("1_coin")
+pickup_sound = ExtResource("2_76tpa")
+
+[node name="Model" type="Node3D" parent="." unique_id=425102759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Model" unique_id=62493169]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("Mesh_coin")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2072076799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("Shape_coin")
