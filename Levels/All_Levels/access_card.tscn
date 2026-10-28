@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cxy0mnpe3kyoj" path="res://Levels/All_Levels/access_card.gd" id="1"]
 [ext_resource type="Script" uid="uid://cwnvmhirnuse8" path="res://Levels/All_Levels/access_card_visual.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://drggy6ulaylhl" path="res://Levels/All_Levels/HUD.tscn" id="3_j5sbk"]
+[ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="4_font"]
 
 [node name="AccessCard" type="Node3D" unique_id=378591071]
 script = ExtResource("1")
@@ -17,12 +18,15 @@ script = ExtResource("2")
 reader = true
 
 [node name="Marker" type="Label3D" parent="." unique_id=756493622]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78, 1.02, -2.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78, 1.37, -2.3)
 pixel_size = 0.003
 billboard = 1
 modulate = Color(0.8980392, 0.6901961, 0.2901961, 1)
+outline_modulate = Color(0.035, 0.04, 0.05, 0.9)
 text = "ACCESS CARD"
-font_size = 45
+font = ExtResource("4_font")
+font_size = 64
+outline_size = 20
 
 [node name="CanvasLayer" parent="." unique_id=976352041 instance=ExtResource("3_j5sbk")]
 

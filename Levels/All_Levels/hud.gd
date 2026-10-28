@@ -163,7 +163,7 @@ func _draw_coins(width: float) -> void:
  var center := rect.position + Vector2(rect.size.x - 40, rect.size.y / 2)
  draw_circle(center, 9.0 * grow, ACCENT)
  draw_circle(center, 5.0 * grow, BG.lerp(ACCENT, 0.45))
- var text := "%d / %d" % [coins_collected, coins_total]
+ var text := "%d" % [coins_collected]
  var size_px := int(24 * grow)
  var text_width := _big().get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, size_px).x
  var color := ACCENT if coins_collected == coins_total else TEXT

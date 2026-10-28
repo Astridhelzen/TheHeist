@@ -39,7 +39,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
  _elapsed += delta
- _marker.position = Vector3(-7.78, 1.02 + sin(_elapsed * 2.4) * 0.035, -2.30)
+ # The label stands still above the floating card
+ _marker.position = _card.position + Vector3(0, 0.78, 0)
  _marker.visible = not has_card
  _hud.has_card = has_card
  _hud.unlocked = is_unlocked
