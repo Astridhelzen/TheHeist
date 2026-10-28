@@ -110,9 +110,9 @@ func _unlock() -> void:
  tween.tween_callback(func(): Sfx.play(vault_open_sound))
  tween.tween_property(_hinge, "rotation:y", deg_to_rad(open_angle), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
  tween.tween_callback(func():
-  # The baked mesh has separate islands on either side of the closed door.
-  # Only make the doorway traversable after its physical opening finishes.
-  _bank.get_node("VaultDoorwayNavigation").enabled = true
+  # Both meshes include the entrance and street. Swap only once the physical
+  # door is open so the vault route also matches the current collision layout.
+  _bank.get_parent().get_node("GuardNavigation").navigation_mesh = preload("res://Levels/Level_2/GuardNavigationOpenVault.tres")
   _busy = false
  )
 
