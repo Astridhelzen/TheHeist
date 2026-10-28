@@ -1,6 +1,6 @@
 extends Node3D
 
-const CollisionBuilder = preload("res://Levels/Level_1_Files/bank_collision.gd")
+const CollisionBuilder = preload("res://Levels/Level_1/bank_collision.gd")
 
 @export var keypad_path: NodePath
 @export var hinge_path: NodePath

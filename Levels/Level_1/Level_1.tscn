@@ -95,10 +95,12 @@ hint_text = "GET TO THE CAR"
 
 [node name="Caught" parent="." unique_id=1563665453 instance=ExtResource("9_26n06")]
 lose_sound = ExtResource("15_7sl2o")
+level_number = 1
 
 [node name="HeistComplete" parent="." unique_id=11929283 instance=ExtResource("11_wjvmx")]
-level_number = 1
+next_level = "uid://db6k0tilc6tle"
 win_sound = ExtResource("18_0h55w")
+level_number = 1
 
 [node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=1336620955]
 stream = ExtResource("19_7sl2o")
