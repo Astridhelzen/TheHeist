@@ -21,6 +21,10 @@ const Progress = preload("res://Managers/level_progress.gd")
 @export var slow_time: float = 300.0
 ## The score needed for coin 1, 2 and 3.
 @export var medal_scores: Array[int] = [600, 1100, 1500]
+## How long the counting stops when a gold coin fills in, so you see each one.
+@export var medal_pause: float = 0.6
+## Let the player skip the counting with Space ("PRESS SPACE TO SKIP" is shown).
+@export var skippable: bool = true
 
 @export_group("Sounds")
 ## The clink while the points count. Empty = Assets/Sounds/coin_collected.ogg
@@ -40,6 +44,8 @@ var _next_medal := 0
 var _counting := false
 var _skipping := false
 var _last_tick_ms := 0
+var _medal_just_filled := false
+var _skip_hint: Label
 
 var _medals: Array[Medal] = []
 var _medal_labels: Array[Label] = []
@@ -175,6 +181,8 @@ func _add_row_points(grid: GridContainer) -> Label:
 # --------------------
 func _count_up() -> void:
 	_counting = true
+	if skippable:
+		_add_skip_hint()
 	await _pause(0.7)
 
 	# Coins: one clink per coin, a little higher each time
@@ -190,6 +198,10 @@ func _count_up() -> void:
 		_pop(_coins_points)
 		play_sound(tick_sound, 1.0 + i * 0.06, tick_volume_db)
 		await _pause(step)
+		# A gold coin filled in: hold for a moment so the player sees it
+		if _medal_just_filled:
+			_medal_just_filled = false
+			await _pause(medal_pause)
 
 	# Time: the bonus runs up fast and slows down at the end
 	await _pause(0.35)
@@ -202,6 +214,12 @@ func _count_up() -> void:
 				.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		while tween.is_running() and not _skipping:
 			await get_tree().process_frame
+			if _medal_just_filled and tween.is_running():
+				# Stop the count for a moment while the gold coin pops
+				_medal_just_filled = false
+				tween.pause()
+				await _pause(medal_pause)
+				tween.play()
 		tween.kill()
 
 	_finish()
@@ -231,6 +249,10 @@ func _add_score(amount: float) -> void:
 			and int(round(_score)) >= medal_scores[_next_medal]:
 		_fill_medal(_next_medal, not _skipping)
 		_next_medal += 1
+		# One gold coin at a time while counting. The next one fills on the next step.
+		if not _skipping and _counting:
+			_medal_just_filled = true
+			break
 
 
 func _fill_medal(index: int, with_sound: bool) -> void:
@@ -251,11 +273,12 @@ func _finish() -> void:
 	_show_row(1)
 	_coins_points.text = "+%d" % coin_points
 	_time_points.text = "+%d" % time_points
+	_counting = false
+	_hide_skip_hint()
 	var had_medals := _next_medal
 	_add_score(total_score - _score)
 	if _skipping and _next_medal > had_medals:
 		play_sound(medal_sound, 1.0 + (_next_medal - 1) * 0.12)
-	_counting = false
 
 	await wait(0.45)
 	create_tween().tween_property(buttons, "modulate:a", 1.0, 0.25)
@@ -287,13 +310,43 @@ func _set_buttons_enabled(enabled: bool) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	# Any key or click while counting skips to the end
-	if not _counting or _skipping:
+	# Only Space skips. Other keys (W, Shift...) are ignored: the player is
+	# usually still holding them when running through the exit.
+	if not skippable or not _counting or _skipping:
 		return
-	if (event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton) \
-			and event.is_pressed():
+	if event is InputEventKey and event.pressed and not event.echo \
+			and event.physical_keycode == KEY_SPACE:
 		_skipping = true
+		_hide_skip_hint()
 		get_viewport().set_input_as_handled()
+
+
+func _add_skip_hint() -> void:
+	_skip_hint = Label.new()
+	_skip_hint.text = "PRESS SPACE TO SKIP"
+	_skip_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_skip_hint.add_theme_font_override("font", OVERLINE_FONT)
+	_skip_hint.add_theme_font_size_override("font_size", 13)
+	_skip_hint.add_theme_color_override("font_color", MUTED)
+	_skip_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Bottom centre of the screen, below where the buttons appear
+	_skip_hint.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
+	_skip_hint.offset_left = -300
+	_skip_hint.offset_right = 300
+	_skip_hint.offset_top = -48
+	_skip_hint.offset_bottom = -24
+	root.add_child(_skip_hint)
+	# Slow blink, so it is noticed but doesn't steal attention
+	_skip_hint.modulate.a = 0.0
+	var blink := _skip_hint.create_tween().set_loops()
+	blink.tween_property(_skip_hint, "modulate:a", 1.0, 0.7)
+	blink.tween_property(_skip_hint, "modulate:a", 0.35, 0.7)
+
+
+func _hide_skip_hint() -> void:
+	if _skip_hint:
+		_skip_hint.queue_free()
+		_skip_hint = null
 
 
 # --------------------
