@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c74vhqcjf5jd4" path="res://Assets/Models/Money/money.tscn" id="6_money"]
 [ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://Levels/Level_1/exit.tscn" id="7_exit"]
 [ext_resource type="PackedScene" uid="uid://dfjeu8qtcaar8" path="res://UI/heist_complete.tscn" id="8_complete"]
-[ext_resource type="PackedScene" path="res://Levels/Level_2/BankExterior.tscn" id="9_exterior"]
+[ext_resource type="PackedScene" uid="uid://dyu67eb1f1ahs" path="res://Levels/Level_2/BankExterior.tscn" id="9_exterior"]
 [ext_resource type="PackedScene" uid="uid://cn7h3oj1bmap" path="res://Guard/guard.tscn" id="10_guard"]
 [ext_resource type="NavigationMesh" path="res://Levels/Level_2/GuardNavigation.tres" id="11_nav"]
 [ext_resource type="PackedScene" uid="uid://bxqos7s3bjrpk" path="res://UI/caught.tscn" id="12_caught"]
@@ -22,6 +22,25 @@
 [ext_resource type="AudioStream" uid="uid://dloiteadljyu5" path="res://Assets/Sounds/catched_police_siren.mp3" id="19_lose_sound"]
 [ext_resource type="PackedScene" uid="uid://dmcigrmxode8h" path="res://Levels/All_Levels/coin.tscn" id="20_e3avg"]
 [ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="200_font"]
+
+[sub_resource type="StandardMaterial3D" id="EntranceLampMetal"]
+albedo_color = Color(0.08, 0.085, 0.09, 1)
+metallic = 0.7
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="EntranceLampBody"]
+material = SubResource("EntranceLampMetal")
+size = Vector3(0.5, 0.14, 0.32)
+
+[sub_resource type="StandardMaterial3D" id="EntranceLampGlass"]
+albedo_color = Color(1, 0.86, 0.62, 1)
+emission_enabled = true
+emission = Color(1, 0.78, 0.45, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="EntranceLampBulb"]
+material = SubResource("EntranceLampGlass")
+size = Vector3(0.38, 0.05, 0.22)
 
 [node name="Level2" type="Node3D" unique_id=1306728427]
 script = ExtResource("14_rendering")
@@ -51,7 +70,6 @@ zone_size = Vector3(3.6, 3, 5.6)
 
 [node name="ExitSign" type="Label3D" parent="." unique_id=72195006]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9, 9.2, 31)
-pixel_size = 0.005
 billboard = 1
 modulate = Color(0.8980392, 0.6901961, 0.2901961, 1)
 outline_modulate = Color(0.035, 0.04, 0.05, 0.9)
@@ -217,3 +235,22 @@ transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0,
 
 [node name="Coin12" parent="Coins" unique_id=1291344996 instance=ExtResource("20_e3avg")]
 transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -23.163567, 6.570954, 24.779316)
+
+[node name="EntranceLamp" type="Node3D" parent="." unique_id=1298819950]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 21.45, 9.5, 21.36)
+
+[node name="Body" type="MeshInstance3D" parent="EntranceLamp" unique_id=905560909]
+mesh = SubResource("EntranceLampBody")
+
+[node name="Bulb" type="MeshInstance3D" parent="EntranceLamp" unique_id=1473171194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08, 0)
+cast_shadow = 0
+mesh = SubResource("EntranceLampBulb")
+
+[node name="EntranceLight" type="OmniLight3D" parent="." unique_id=35057536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.05, 9.15, 21.36)
+light_color = Color(1, 0.76, 0.48, 1)
+light_energy = 1.8
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 1.4
