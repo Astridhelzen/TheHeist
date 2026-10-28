@@ -104,6 +104,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 6.6, -29)
 [node name="StairEast" type="Marker3D" parent="PatrolPoints" unique_id=1775637947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.6, -29)
 
+[node name="UpstairEast" type="Marker3D" parent="PatrolPoints" unique_id=1093704692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.715395, 10.891955, -42.37819)
+
+[node name="UpstairWest" type="Marker3D" parent="PatrolPoints" unique_id=1357951050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.787497, 10.891955, -42.37819)
+
 [node name="Guard" parent="." unique_id=2014795400 node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_guard")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6.65, 15)
 patrol_points = [NodePath("../PatrolPoints/HallSouth"), NodePath("../PatrolPoints/HallNorth")]
@@ -117,6 +123,10 @@ patrol_wait_time = 2.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 6.65, -29)
 patrol_points = [NodePath("../PatrolPoints/StairWest"), NodePath("../PatrolPoints/StairEast")]
 patrol_wait_time = 2.0
+
+[node name="GuardUpstairs" parent="." unique_id=1780379191 node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_guard")]
+transform = Transform3D(-0.99038106, 0, -0.13836685, 0, 1, 0, 0.13836685, 0, -0.99038106, 4.1503496, 11.769785, -42.18399)
+patrol_points = [NodePath("../PatrolPoints/UpstairEast"), NodePath("../PatrolPoints/UpstairWest")]
 
 [node name="AlarmLighting" parent="." unique_id=120169043 node_paths=PackedStringArray("world_environment") instance=ExtResource("13_alarm")]
 world_environment = NodePath("../BankExterior/WorldEnvironment")
@@ -213,13 +223,13 @@ transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0,
 transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -4.7053447, 6.570954, -30.619041)
 
 [node name="Coin30" parent="Coins" unique_id=1709270056 instance=ExtResource("20_e3avg")]
-transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -4.7053447, 5.7267184, -35.259888)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.09292, 10.870952, -43.01481)
 
-[node name="Coin31" parent="Coins" unique_id=1832183514 instance=ExtResource("20_e3avg")]
-transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -4.7053447, 4.3442764, -37.49104)
+[node name="Coin31" parent="Coins" unique_id=52756142 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0846586, 10.870952, -43.01481)
 
-[node name="Coin32" parent="Coins" unique_id=74998430 instance=ExtResource("20_e3avg")]
-transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -4.7053447, 2.6188998, -40.141026)
+[node name="Coin32" parent="Coins" unique_id=428670317 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.821438, 10.870952, -43.01481)
 
 [node name="Coin33" parent="Coins" unique_id=1357407619 instance=ExtResource("20_e3avg")]
 transform = Transform3D(0.9882264, 0.1529985, 0, -0.1529985, 0.9882264, 0, 0, 0, 1, -2.6225882, 2.0444946, -42.35146)
@@ -254,3 +264,24 @@ light_energy = 1.8
 shadow_enabled = true
 omni_range = 6.0
 omni_attenuation = 1.4
+
+[node name="BankFillLight" type="OmniLight3D" parent="." unique_id=1047333462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8334358, 22.747974, 22.32671)
+light_color = Color(0.6666667, 0.72156864, 0.8509804, 1)
+light_energy = 0.3
+omni_range = 20.0
+omni_attenuation = 0.3
+
+[node name="BankFillLight2" type="OmniLight3D" parent="." unique_id=2039015943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8334358, 22.747974, -3.68647)
+light_color = Color(0.6666667, 0.72156864, 0.8509804, 1)
+light_energy = 0.3
+omni_range = 20.0
+omni_attenuation = 0.3
+
+[node name="BankFillLight3" type="OmniLight3D" parent="." unique_id=141457605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8334358, 22.747974, -38.298393)
+light_color = Color(0.6666667, 0.72156864, 0.8509804, 1)
+light_energy = 0.3
+omni_range = 20.0
+omni_attenuation = 0.3
