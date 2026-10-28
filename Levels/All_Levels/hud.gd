@@ -4,6 +4,7 @@ extends Control
 ## - short messages, e.g. the intro tips (top centre)
 ## - interaction prompts like "[E] Pick up access card" (bottom centre)
 ## - the coin counter (under the objective)
+## - the level timer (top left)
 ## Other scripts find it through the group "hud", e.g.:
 ##     get_tree().call_group("hud", "set_objective", "Get to the exit")
 ## The style matches the main menu: dark flat panels, amber accents,
@@ -14,6 +15,11 @@ extends Control
  "Hold Shift to run",
  "Hold Ctrl to sneak",
 ]
+## Start the timer as soon as the level loads. Turn off if something else
+## (e.g. an intro) should start it with start_timer().
+@export var timer_starts_on_ready := true
+## On: "01:23:45". Off: "01:23".
+@export var show_hundredths := true
 ## How long each message is shown (seconds).
 @export var notice_time := 4.0
 @export_group("Fonts")
@@ -39,6 +45,10 @@ var _notice_left := 0.0
 var coins_collected := 0
 var coins_total := 0
 var _coin_pop := 0.0
+## Seconds played in this level. Read by e.g. the score screen.
+## Stops by itself while the game is paused.
+var elapsed_time := 0.0
+var timer_running := false
 
 func _ready() -> void:
  add_to_group("hud")
@@ -47,10 +57,15 @@ func _ready() -> void:
  _queue.append_array(intro_messages)
  # Count the coins once every node in the level has run _ready
  _count_coins.call_deferred()
+ timer_running = timer_starts_on_ready
+ # Stop the clock the moment the player escapes
+ _connect_exits.call_deferred()
 
 func _process(delta: float) -> void:
  _notice_left -= delta
  _coin_pop = maxf(_coin_pop - delta * 4.0, 0.0)
+ if timer_running:
+  elapsed_time += delta
  if _notice_left <= 0.0:
   if _queue.is_empty():
    notice = ""
@@ -76,12 +91,33 @@ func add_coin() -> void:
 func _count_coins() -> void:
  coins_total = coins_collected + get_tree().get_nodes_in_group("coins").size()
 
+func start_timer() -> void:
+ timer_running = true
+
+func stop_timer() -> void:
+ timer_running = false
+
+func _connect_exits() -> void:
+ for door in get_tree().get_nodes_in_group("exits"):
+  door.escaped.connect(stop_timer)
+
+## 83.456 seconds -> "01:23:45", or "01:23" with with_hundredths = false
+@warning_ignore("integer_division")
+static func format_time(seconds: float, with_hundredths := true) -> String:
+ var hundredths := int(seconds * 100.0)
+ var minutes := hundredths / 6000
+ var secs := (hundredths / 100) % 60
+ if not with_hundredths:
+  return "%02d:%02d" % [minutes, secs]
+ return "%02d:%02d:%02d" % [minutes, secs, hundredths % 100]
+
 func _draw() -> void:
  var s := minf(size.x / 1280.0, size.y / 720.0)
  draw_set_transform(Vector2.ZERO, 0, Vector2.ONE * s)
  var width := size.x / s
  var height := size.y / s
  _draw_objective(width)
+ _draw_timer()
  if coins_total > 0:
   _draw_coins(width)
  if not notice.is_empty():
@@ -106,6 +142,15 @@ func _draw_objective(width: float) -> void:
   draw_rect(card, ACCENT)
  else:
   draw_rect(card, MUTED, false, 1.5)
+
+func _draw_timer() -> void:
+ # Same kind of box as the objective, but in the top left corner
+ var rect := Rect2(26, 26, 200, 76)
+ _panel(rect)
+ draw_rect(Rect2(rect.position, Vector2(3, rect.size.y)), ACCENT)
+ _draw_spaced("TIME", rect.position + Vector2(22, 26), 13, MUTED, _small(), 2.5)
+ # "01:23:45", all in the same grey and size
+ _draw_text(format_time(elapsed_time, show_hundredths), rect.position + Vector2(22, 60), 28, MUTED, _big())
 
 func _draw_coins(width: float) -> void:
  # Small box under the objective: a coin icon and "3 / 10"

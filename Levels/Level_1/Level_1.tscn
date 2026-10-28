@@ -123,9 +123,6 @@ transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14
 [node name="Coin7" parent="Coins" unique_id=917269088 instance=ExtResource("23_t73ms")]
 transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.4967626, -0.32249856, 3.1068788)
 
-[node name="Coin8" parent="Coins" unique_id=1354798508 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.4967626, -0.32249856, 3.1068788)
-
 [node name="Coin2" parent="Coins" unique_id=929438558 instance=ExtResource("23_t73ms")]
 transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -3.888228, -0.32249856, 3.1068788)
 

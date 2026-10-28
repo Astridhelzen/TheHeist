@@ -11,7 +11,7 @@ class LockIcon extends Control:
   draw_circle(Vector2(24,40),4,Color("10151b"))
   draw_rect(Rect2(22,40,4,10),Color("10151b"))
 
-@export_file("*.tscn") var first_level: String = "res://Levels/Level_1_Files/Level_1.tscn"
+@export_file("*.tscn") var first_level: String = "res://Levels/Level_1/Level_1.tscn"
 @export_file("*.tscn") var second_level: String = "res://Level2.tscn"
 @export_file("*.tscn") var credits: String = "res://UI/credits.tscn"
 const Progress = preload("res://Managers/level_progress.gd")
