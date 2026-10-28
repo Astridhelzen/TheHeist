@@ -111,7 +111,10 @@ func _unlock() -> void:
  # The door starts swinging here, so the vault sound starts with it
  tween.tween_callback(func(): Sfx.play(vault_open_sound))
  tween.tween_property(_hinge, "rotation:y", deg_to_rad(open_angle), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
- tween.tween_callback(func(): _busy = false)
+ tween.tween_callback(func():
+  _bank.get_parent().navigation_mesh = preload("res://Levels/Level_1/GuardNavigationOpenVault.tres")
+  _busy = false
+ )
 
 func _notify(message: String) -> void:
  _hud.notify(message)

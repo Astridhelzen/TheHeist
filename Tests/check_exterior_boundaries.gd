@@ -2,7 +2,7 @@ extends SceneTree
 var failures:=0
 func _initialize(): call_deferred("run")
 func run():
- for path in ["res://Levels/Level_1_Files/Level_1.tscn","res://Level2.tscn"]:
+ for path in ["res://Levels/Level_1/Level_1.tscn","res://Level2.tscn"]:
   var level=load(path).instantiate()
   root.add_child(level)
   for guard in get_nodes_in_group("guards"): guard.set_physics_process(false)

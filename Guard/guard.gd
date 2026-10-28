@@ -75,6 +75,9 @@ var _heard_position: Vector3
 # READY
 # --------------------
 func _ready() -> void:
+	floor_snap_length = 0.35
+	floor_constant_speed = true
+	floor_stop_on_slope = true
 	add_to_group("guards")
 	target = PlayerManager.player
 	# Synstrålen blir lika lång som ficklampans ljus
@@ -111,7 +114,7 @@ func _physics_process(delta: float) -> void:
 			State.RUSH:        _state_rush(delta)
 
 	_apply_gravity(delta)
-	move_and_slide()
+	preload("res://Movement/ground_motion.gd").move(self, delta)
 	_update_flashlight_color(delta)
 
 # --------------------

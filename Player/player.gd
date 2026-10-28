@@ -184,9 +184,7 @@ func _physics_process(delta: float) -> void:
 		if is_sneaking:
 			next_animation = &"movement/crouch_idle"
 
-	move_and_slide()
-	if not is_on_floor() and velocity.y <= 0.0:
-		apply_floor_snap()
+	preload("res://Movement/ground_motion.gd").move(self, delta)
 	_update_slope_visuals(delta)
 
 	# Byt bara när tillståndet ändras så att klippet inte startar om varje bildruta.
