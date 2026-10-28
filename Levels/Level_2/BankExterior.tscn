@@ -1,925 +1,927 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dyu67eb1f1ahs"]
 
-[ext_resource type="Script" path="res://Levels/exterior_boundaries.gd" id="edge_barriers"]
-
-[sub_resource type="StandardMaterial3D" id="Paving"]
-albedo_color = Color(0.46,0.48,0.49, 1)
-roughness = 0.88
+[ext_resource type="Script" uid="uid://cd7ddp127yylh" path="res://Levels/exterior_boundaries.gd" id="edge_barriers"]
 
 [sub_resource type="StandardMaterial3D" id="Road"]
-albedo_color = Color(0.10,0.12,0.15, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Stone"]
-albedo_color = Color(0.52,0.40,0.28, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Roof"]
-albedo_color = Color(0.17,0.20,0.24, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Blue"]
-albedo_color = Color(0.25,0.36,0.43, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Brick"]
-albedo_color = Color(0.45,0.25,0.19, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Cream"]
-albedo_color = Color(0.64,0.58,0.44, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Glass"]
-albedo_color = Color(0.18,0.31,0.38, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="White"]
-albedo_color = Color(0.8,0.79,0.69, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Green"]
-albedo_color = Color(0.19,0.33,0.17, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Trunk"]
-albedo_color = Color(0.24,0.15,0.09, 1)
-roughness = 0.88
-
-[sub_resource type="StandardMaterial3D" id="Steel"]
-albedo_color = Color(0.1,0.12,0.13, 1)
+albedo_color = Color(0.1, 0.12, 0.15, 1)
 roughness = 0.88
 
 [sub_resource type="BoxMesh" id="M1"]
-size = Vector3(43.704, 0.5, 100)
 material = SubResource("Road")
+size = Vector3(43.704, 0.5, 100)
 
 [sub_resource type="BoxShape3D" id="S1"]
 size = Vector3(43.704, 0.5, 100)
 
+[sub_resource type="StandardMaterial3D" id="Paving"]
+albedo_color = Color(0.46, 0.48, 0.49, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M2"]
-size = Vector3(5.704, 0.3, 100)
 material = SubResource("Paving")
+size = Vector3(5.704, 0.3, 100)
 
 [sub_resource type="BoxShape3D" id="S2"]
 size = Vector3(5.704, 0.3, 100)
 
 [sub_resource type="BoxMesh" id="M3"]
-size = Vector3(8, 0.3, 100)
 material = SubResource("Paving")
+size = Vector3(8, 0.3, 100)
 
 [sub_resource type="BoxShape3D" id="S3"]
 size = Vector3(8, 0.3, 100)
 
 [sub_resource type="BoxMesh" id="M4"]
-size = Vector3(0.6, 0.08, 2.65)
 material = SubResource("Paving")
+size = Vector3(0.6, 0.08, 2.65)
 
 [sub_resource type="BoxShape3D" id="S4"]
 size = Vector3(0.6, 0.08, 2.65)
 
 [sub_resource type="BoxMesh" id="M5"]
-size = Vector3(5.1, 0.3, 62.3)
 material = SubResource("Paving")
+size = Vector3(5.1, 0.3, 62.3)
 
 [sub_resource type="BoxShape3D" id="S5"]
 size = Vector3(5.1, 0.3, 62.3)
 
 [sub_resource type="BoxMesh" id="M6"]
-size = Vector3(5.1, 0.3, 20)
 material = SubResource("Paving")
+size = Vector3(5.1, 0.3, 20)
 
 [sub_resource type="BoxShape3D" id="S6"]
 size = Vector3(5.1, 0.3, 20)
 
+[sub_resource type="StandardMaterial3D" id="White"]
+albedo_color = Color(0.8, 0.79, 0.69, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M7"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M8"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M9"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M10"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M11"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M12"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M13"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M14"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M15"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M16"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M17"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M18"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M19"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M20"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M21"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
 
 [sub_resource type="BoxMesh" id="M22"]
-size = Vector3(0.14, 0.015, 2.7)
 material = SubResource("White")
+size = Vector3(0.14, 0.015, 2.7)
+
+[sub_resource type="StandardMaterial3D" id="Brick"]
+albedo_color = Color(0.45, 0.25, 0.19, 1)
+roughness = 0.88
 
 [sub_resource type="BoxMesh" id="M23"]
-size = Vector3(12, 13, 15)
 material = SubResource("Brick")
+size = Vector3(12, 13, 15)
 
 [sub_resource type="BoxShape3D" id="S23"]
 size = Vector3(12, 13, 15)
 
+[sub_resource type="StandardMaterial3D" id="Roof"]
+albedo_color = Color(0.17, 0.2, 0.24, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M24"]
-size = Vector3(12.5, 0.35, 15.5)
 material = SubResource("Roof")
+size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxShape3D" id="S24"]
 size = Vector3(12.5, 0.35, 15.5)
 
+[sub_resource type="StandardMaterial3D" id="Stone"]
+albedo_color = Color(0.52, 0.4, 0.28, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M25"]
-size = Vector3(0.25, 1.1, 15)
 material = SubResource("Stone")
+size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxShape3D" id="S25"]
 size = Vector3(0.25, 1.1, 15)
 
+[sub_resource type="StandardMaterial3D" id="Glass"]
+albedo_color = Color(0.18, 0.31, 0.38, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M26"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M27"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M28"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M29"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M30"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M31"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M32"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M33"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M34"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M35"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M36"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M37"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M38"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M39"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M40"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M41"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M42"]
-size = Vector3(0.15, 2.6, 1.4)
 material = SubResource("Roof")
+size = Vector3(0.15, 2.6, 1.4)
 
 [sub_resource type="BoxShape3D" id="S42"]
 size = Vector3(0.15, 2.6, 1.4)
 
+[sub_resource type="StandardMaterial3D" id="Cream"]
+albedo_color = Color(0.64, 0.58, 0.44, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M43"]
-size = Vector3(12, 18, 15)
 material = SubResource("Cream")
+size = Vector3(12, 18, 15)
 
 [sub_resource type="BoxShape3D" id="S43"]
 size = Vector3(12, 18, 15)
 
 [sub_resource type="BoxMesh" id="M44"]
-size = Vector3(12.5, 0.35, 15.5)
 material = SubResource("Roof")
+size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxShape3D" id="S44"]
 size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxMesh" id="M45"]
-size = Vector3(0.25, 1.1, 15)
 material = SubResource("Stone")
+size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxShape3D" id="S45"]
 size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxMesh" id="M46"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M47"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M48"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M49"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M50"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M51"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M52"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M53"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M54"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M55"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M56"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M57"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M58"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M59"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M60"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M61"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M62"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M63"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M64"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M65"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M66"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M67"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M68"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M69"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M70"]
-size = Vector3(0.15, 2.6, 1.4)
 material = SubResource("Roof")
+size = Vector3(0.15, 2.6, 1.4)
 
 [sub_resource type="BoxShape3D" id="S70"]
 size = Vector3(0.15, 2.6, 1.4)
 
+[sub_resource type="StandardMaterial3D" id="Blue"]
+albedo_color = Color(0.25, 0.36, 0.43, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M71"]
-size = Vector3(12, 11, 15)
 material = SubResource("Blue")
+size = Vector3(12, 11, 15)
 
 [sub_resource type="BoxShape3D" id="S71"]
 size = Vector3(12, 11, 15)
 
 [sub_resource type="BoxMesh" id="M72"]
-size = Vector3(12.5, 0.35, 15.5)
 material = SubResource("Roof")
+size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxShape3D" id="S72"]
 size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxMesh" id="M73"]
-size = Vector3(0.25, 1.1, 15)
 material = SubResource("Stone")
+size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxShape3D" id="S73"]
 size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxMesh" id="M74"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M75"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M76"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M77"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M78"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M79"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M80"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M81"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M82"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M83"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M84"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M85"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M86"]
-size = Vector3(0.15, 2.6, 1.4)
 material = SubResource("Roof")
+size = Vector3(0.15, 2.6, 1.4)
 
 [sub_resource type="BoxShape3D" id="S86"]
 size = Vector3(0.15, 2.6, 1.4)
 
 [sub_resource type="BoxMesh" id="M87"]
-size = Vector3(12, 16, 15)
 material = SubResource("Brick")
+size = Vector3(12, 16, 15)
 
 [sub_resource type="BoxShape3D" id="S87"]
 size = Vector3(12, 16, 15)
 
 [sub_resource type="BoxMesh" id="M88"]
-size = Vector3(12.5, 0.35, 15.5)
 material = SubResource("Roof")
+size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxShape3D" id="S88"]
 size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxMesh" id="M89"]
-size = Vector3(0.25, 1.1, 15)
 material = SubResource("Stone")
+size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxShape3D" id="S89"]
 size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxMesh" id="M90"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M91"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M92"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M93"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M94"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M95"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M96"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M97"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M98"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M99"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M100"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M101"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M102"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M103"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M104"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M105"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M106"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M107"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M108"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M109"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M110"]
-size = Vector3(0.15, 2.6, 1.4)
 material = SubResource("Roof")
+size = Vector3(0.15, 2.6, 1.4)
 
 [sub_resource type="BoxShape3D" id="S110"]
 size = Vector3(0.15, 2.6, 1.4)
 
 [sub_resource type="BoxMesh" id="M111"]
-size = Vector3(12, 12, 15)
 material = SubResource("Cream")
+size = Vector3(12, 12, 15)
 
 [sub_resource type="BoxShape3D" id="S111"]
 size = Vector3(12, 12, 15)
 
 [sub_resource type="BoxMesh" id="M112"]
-size = Vector3(12.5, 0.35, 15.5)
 material = SubResource("Roof")
+size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxShape3D" id="S112"]
 size = Vector3(12.5, 0.35, 15.5)
 
 [sub_resource type="BoxMesh" id="M113"]
-size = Vector3(0.25, 1.1, 15)
 material = SubResource("Stone")
+size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxShape3D" id="S113"]
 size = Vector3(0.25, 1.1, 15)
 
 [sub_resource type="BoxMesh" id="M114"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M115"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M116"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M117"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M118"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M119"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M120"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M121"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M122"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M123"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M124"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M125"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M126"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M127"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M128"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M129"]
-size = Vector3(0.04, 1.5, 1.7)
 material = SubResource("Glass")
+size = Vector3(0.04, 1.5, 1.7)
 
 [sub_resource type="BoxMesh" id="M130"]
-size = Vector3(0.15, 2.6, 1.4)
 material = SubResource("Roof")
+size = Vector3(0.15, 2.6, 1.4)
 
 [sub_resource type="BoxShape3D" id="S130"]
 size = Vector3(0.15, 2.6, 1.4)
 
 [sub_resource type="BoxMesh" id="M131"]
-size = Vector3(1.8, 0.4, 1.8)
 material = SubResource("Stone")
+size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxShape3D" id="S131"]
 size = Vector3(1.8, 0.4, 1.8)
 
+[sub_resource type="StandardMaterial3D" id="Trunk"]
+albedo_color = Color(0.24, 0.15, 0.09, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M132"]
-size = Vector3(0.28, 2.5, 0.28)
 material = SubResource("Trunk")
+size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxShape3D" id="S132"]
 size = Vector3(0.28, 2.5, 0.28)
 
+[sub_resource type="StandardMaterial3D" id="Green"]
+albedo_color = Color(0.19, 0.33, 0.17, 1)
+roughness = 0.88
+
 [sub_resource type="BoxMesh" id="M133"]
-size = Vector3(2.5, 2.4, 2.3)
 material = SubResource("Green")
+size = Vector3(2.5, 2.4, 2.3)
+
+[sub_resource type="StandardMaterial3D" id="Steel"]
+albedo_color = Color(0.1, 0.12, 0.13, 1)
+roughness = 0.88
 
 [sub_resource type="BoxMesh" id="M134"]
-size = Vector3(0.12, 4.2, 0.12)
 material = SubResource("Steel")
+size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxShape3D" id="S134"]
 size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxMesh" id="M135"]
-size = Vector3(0.6, 0.2, 0.6)
 material = SubResource("White")
+size = Vector3(0.6, 0.2, 0.6)
 
 [sub_resource type="BoxMesh" id="M136"]
-size = Vector3(1.8, 0.4, 1.8)
 material = SubResource("Stone")
+size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxShape3D" id="S136"]
 size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxMesh" id="M137"]
-size = Vector3(0.28, 2.5, 0.28)
 material = SubResource("Trunk")
+size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxShape3D" id="S137"]
 size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxMesh" id="M138"]
-size = Vector3(2.5, 2.4, 2.3)
 material = SubResource("Green")
+size = Vector3(2.5, 2.4, 2.3)
 
 [sub_resource type="BoxMesh" id="M139"]
-size = Vector3(0.12, 4.2, 0.12)
 material = SubResource("Steel")
+size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxShape3D" id="S139"]
 size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxMesh" id="M140"]
-size = Vector3(0.6, 0.2, 0.6)
 material = SubResource("White")
+size = Vector3(0.6, 0.2, 0.6)
 
 [sub_resource type="BoxMesh" id="M141"]
-size = Vector3(1.8, 0.4, 1.8)
 material = SubResource("Stone")
+size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxShape3D" id="S141"]
 size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxMesh" id="M142"]
-size = Vector3(0.28, 2.5, 0.28)
 material = SubResource("Trunk")
+size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxShape3D" id="S142"]
 size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxMesh" id="M143"]
-size = Vector3(2.5, 2.4, 2.3)
 material = SubResource("Green")
+size = Vector3(2.5, 2.4, 2.3)
 
 [sub_resource type="BoxMesh" id="M144"]
-size = Vector3(0.12, 4.2, 0.12)
 material = SubResource("Steel")
+size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxShape3D" id="S144"]
 size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxMesh" id="M145"]
-size = Vector3(0.6, 0.2, 0.6)
 material = SubResource("White")
+size = Vector3(0.6, 0.2, 0.6)
 
 [sub_resource type="BoxMesh" id="M146"]
-size = Vector3(1.8, 0.4, 1.8)
 material = SubResource("Stone")
+size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxShape3D" id="S146"]
 size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxMesh" id="M147"]
-size = Vector3(0.28, 2.5, 0.28)
 material = SubResource("Trunk")
+size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxShape3D" id="S147"]
 size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxMesh" id="M148"]
-size = Vector3(2.5, 2.4, 2.3)
 material = SubResource("Green")
+size = Vector3(2.5, 2.4, 2.3)
 
 [sub_resource type="BoxMesh" id="M149"]
-size = Vector3(0.12, 4.2, 0.12)
 material = SubResource("Steel")
+size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxShape3D" id="S149"]
 size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxMesh" id="M150"]
-size = Vector3(0.6, 0.2, 0.6)
 material = SubResource("White")
+size = Vector3(0.6, 0.2, 0.6)
 
 [sub_resource type="BoxMesh" id="M151"]
-size = Vector3(1.8, 0.4, 1.8)
 material = SubResource("Stone")
+size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxShape3D" id="S151"]
 size = Vector3(1.8, 0.4, 1.8)
 
 [sub_resource type="BoxMesh" id="M152"]
-size = Vector3(0.28, 2.5, 0.28)
 material = SubResource("Trunk")
+size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxShape3D" id="S152"]
 size = Vector3(0.28, 2.5, 0.28)
 
 [sub_resource type="BoxMesh" id="M153"]
-size = Vector3(2.5, 2.4, 2.3)
 material = SubResource("Green")
+size = Vector3(2.5, 2.4, 2.3)
 
 [sub_resource type="BoxMesh" id="M154"]
-size = Vector3(0.12, 4.2, 0.12)
 material = SubResource("Steel")
+size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxShape3D" id="S154"]
 size = Vector3(0.12, 4.2, 0.12)
 
 [sub_resource type="BoxMesh" id="M155"]
-size = Vector3(0.6, 0.2, 0.6)
 material = SubResource("White")
+size = Vector3(0.6, 0.2, 0.6)
 
 [sub_resource type="BoxMesh" id="M156"]
-size = Vector3(0.7, 0.13, 2.3)
 material = SubResource("Trunk")
+size = Vector3(0.7, 0.13, 2.3)
 
 [sub_resource type="BoxShape3D" id="S156"]
 size = Vector3(0.7, 0.13, 2.3)
 
 [sub_resource type="BoxMesh" id="M157"]
-size = Vector3(0.12, 0.9, 2.3)
 material = SubResource("Trunk")
+size = Vector3(0.12, 0.9, 2.3)
 
 [sub_resource type="BoxShape3D" id="S157"]
 size = Vector3(0.12, 0.9, 2.3)
 
 [sub_resource type="BoxMesh" id="M158"]
-size = Vector3(0.5, 0.5, 0.09)
 material = SubResource("Steel")
+size = Vector3(0.5, 0.5, 0.09)
 
 [sub_resource type="BoxShape3D" id="S158"]
 size = Vector3(0.5, 0.5, 0.09)
 
 [sub_resource type="BoxMesh" id="M159"]
-size = Vector3(0.5, 0.5, 0.09)
 material = SubResource("Steel")
+size = Vector3(0.5, 0.5, 0.09)
 
 [sub_resource type="BoxShape3D" id="S159"]
 size = Vector3(0.5, 0.5, 0.09)
 
 [sub_resource type="BoxMesh" id="M160"]
-size = Vector3(0.7, 0.13, 2.3)
 material = SubResource("Trunk")
+size = Vector3(0.7, 0.13, 2.3)
 
 [sub_resource type="BoxShape3D" id="S160"]
 size = Vector3(0.7, 0.13, 2.3)
 
 [sub_resource type="BoxMesh" id="M161"]
-size = Vector3(0.12, 0.9, 2.3)
 material = SubResource("Trunk")
+size = Vector3(0.12, 0.9, 2.3)
 
 [sub_resource type="BoxShape3D" id="S161"]
 size = Vector3(0.12, 0.9, 2.3)
 
 [sub_resource type="BoxMesh" id="M162"]
-size = Vector3(0.5, 0.5, 0.09)
 material = SubResource("Steel")
+size = Vector3(0.5, 0.5, 0.09)
 
 [sub_resource type="BoxShape3D" id="S162"]
 size = Vector3(0.5, 0.5, 0.09)
 
 [sub_resource type="BoxMesh" id="M163"]
-size = Vector3(0.5, 0.5, 0.09)
 material = SubResource("Steel")
+size = Vector3(0.5, 0.5, 0.09)
 
 [sub_resource type="BoxShape3D" id="S163"]
 size = Vector3(0.5, 0.5, 0.09)
 
 [sub_resource type="BoxMesh" id="M164"]
-size = Vector3(2, 0.8, 4)
 material = SubResource("Blue")
+size = Vector3(2, 0.8, 4)
 
 [sub_resource type="BoxShape3D" id="S164"]
 size = Vector3(2, 0.8, 4)
 
 [sub_resource type="BoxMesh" id="M165"]
-size = Vector3(1.8, 0.65, 2.2)
 material = SubResource("Glass")
+size = Vector3(1.8, 0.65, 2.2)
 
 [sub_resource type="BoxShape3D" id="S165"]
 size = Vector3(1.8, 0.65, 2.2)
 
 [sub_resource type="BoxMesh" id="M166"]
-size = Vector3(0.2, 0.65, 0.65)
 material = SubResource("Steel")
+size = Vector3(0.2, 0.65, 0.65)
 
 [sub_resource type="BoxShape3D" id="S166"]
 size = Vector3(0.2, 0.65, 0.65)
 
 [sub_resource type="BoxMesh" id="M167"]
-size = Vector3(0.2, 0.65, 0.65)
 material = SubResource("Steel")
+size = Vector3(0.2, 0.65, 0.65)
 
 [sub_resource type="BoxShape3D" id="S167"]
 size = Vector3(0.2, 0.65, 0.65)
 
 [sub_resource type="BoxMesh" id="M168"]
-size = Vector3(0.2, 0.65, 0.65)
 material = SubResource("Steel")
+size = Vector3(0.2, 0.65, 0.65)
 
 [sub_resource type="BoxShape3D" id="S168"]
 size = Vector3(0.2, 0.65, 0.65)
 
 [sub_resource type="BoxMesh" id="M169"]
-size = Vector3(0.2, 0.65, 0.65)
 material = SubResource("Steel")
+size = Vector3(0.2, 0.65, 0.65)
 
 [sub_resource type="BoxShape3D" id="S169"]
 size = Vector3(0.2, 0.65, 0.65)
 
 [sub_resource type="BoxMesh" id="M170"]
-size = Vector3(46, 10, 2)
 material = SubResource("Brick")
+size = Vector3(46, 10, 2)
 
 [sub_resource type="BoxShape3D" id="S170"]
 size = Vector3(46, 10, 2)
 
 [sub_resource type="BoxMesh" id="M171"]
-size = Vector3(46, 10, 2)
 material = SubResource("Cream")
+size = Vector3(46, 10, 2)
 
 [sub_resource type="BoxShape3D" id="S171"]
 size = Vector3(46, 10, 2)
 
 [sub_resource type="BoxMesh" id="M172"]
-size = Vector3(1, 8, 100)
 material = SubResource("Stone")
+size = Vector3(1, 8, 100)
 
 [sub_resource type="BoxShape3D" id="S172"]
 size = Vector3(1, 8, 100)
 
-[sub_resource type="ProceduralSkyMaterial" id="SkyMaterial"]
-sky_top_color = Color(0.22, 0.38, 0.57, 1)
-sky_horizon_color = Color(0.73, 0.79, 0.82, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7t4dy"]
+sky_top_color = Color(0.039215688, 0.05882353, 0.10980392, 1)
+sky_horizon_color = Color(0.101960786, 0.13333334, 0.2, 1)
+ground_bottom_color = Color(0.019607844, 0.02745098, 0.043137256, 1)
+ground_horizon_color = Color(0.101960786, 0.13333334, 0.2, 1)
 
 [sub_resource type="Sky" id="Sky"]
-sky_material = SubResource("SkyMaterial")
+sky_material = SubResource("ProceduralSkyMaterial_7t4dy")
 
-[sub_resource type="Environment" id="Environment"]
+[sub_resource type="Environment" id="Environment_wt280"]
 background_mode = 2
 sky = SubResource("Sky")
 ambient_light_source = 3
@@ -927,884 +929,1069 @@ ambient_light_color = Color(0.7, 0.77, 0.85, 1)
 ambient_light_energy = 0.3
 tonemap_mode = 2
 
-[node name="BankExterior" type="Node3D"]
-[node name="StreetGround" type="MeshInstance3D" parent="."]
-position = Vector3(45.148, 5.65, 5)
+[sub_resource type="StandardMaterial3D" id="LampBulbMaterial"]
+albedo_color = Color(1, 0.86, 0.62, 1)
+emission_enabled = true
+emission = Color(1, 0.78, 0.45, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="LampBulbMesh"]
+material = SubResource("LampBulbMaterial")
+size = Vector3(0.44, 0.06, 0.44)
+
+[node name="BankExterior" type="Node3D" unique_id=1935550148]
+
+[node name="StreetGround" type="MeshInstance3D" parent="." unique_id=2106422060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.148, 5.65, 5)
 mesh = SubResource("M1")
 
-[node name="Body" type="StaticBody3D" parent="StreetGround"]
-[node name="Shape" type="CollisionShape3D" parent="StreetGround/Body"]
+[node name="Body" type="StaticBody3D" parent="StreetGround" unique_id=1316507187]
+
+[node name="Shape" type="CollisionShape3D" parent="StreetGround/Body" unique_id=1047949212]
 shape = SubResource("S1")
-[node name="BankPavement" type="MeshInstance3D" parent="."]
-position = Vector3(26.148, 5.85, 5)
+
+[node name="BankPavement" type="MeshInstance3D" parent="." unique_id=549338414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.148, 5.85, 5)
 mesh = SubResource("M2")
 
-[node name="Body" type="StaticBody3D" parent="BankPavement"]
-[node name="Shape" type="CollisionShape3D" parent="BankPavement/Body"]
+[node name="Body" type="StaticBody3D" parent="BankPavement" unique_id=1693824100]
+
+[node name="Shape" type="CollisionShape3D" parent="BankPavement/Body" unique_id=1193936292]
 shape = SubResource("S2")
-[node name="FarPavement" type="MeshInstance3D" parent="."]
-position = Vector3(43, 5.85, 5)
+
+[node name="FarPavement" type="MeshInstance3D" parent="." unique_id=1025828754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 5.85, 5)
 mesh = SubResource("M3")
 
-[node name="Body" type="StaticBody3D" parent="FarPavement"]
-[node name="Shape" type="CollisionShape3D" parent="FarPavement/Body"]
+[node name="Body" type="StaticBody3D" parent="FarPavement" unique_id=1372992165]
+
+[node name="Shape" type="CollisionShape3D" parent="FarPavement/Body" unique_id=798830127]
 shape = SubResource("S3")
-[node name="EntryThreshold" type="MeshInstance3D" parent="."]
-position = Vector3(23.17, 5.8274, 21.36)
+
+[node name="EntryThreshold" type="MeshInstance3D" parent="." unique_id=1263176862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.17, 5.8274, 21.36)
 mesh = SubResource("M4")
 
-[node name="Body" type="StaticBody3D" parent="EntryThreshold"]
-[node name="Shape" type="CollisionShape3D" parent="EntryThreshold/Body"]
+[node name="Body" type="StaticBody3D" parent="EntryThreshold" unique_id=1822479321]
+
+[node name="Shape" type="CollisionShape3D" parent="EntryThreshold/Body" unique_id=1076409447]
 shape = SubResource("S4")
-[node name="NorthBankPavement" type="MeshInstance3D" parent="."]
-position = Vector3(20.746, 5.85, -13.85)
+
+[node name="NorthBankPavement" type="MeshInstance3D" parent="." unique_id=1943715272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.746, 5.85, -13.85)
 mesh = SubResource("M5")
 
-[node name="Body" type="StaticBody3D" parent="NorthBankPavement"]
-[node name="Shape" type="CollisionShape3D" parent="NorthBankPavement/Body"]
+[node name="Body" type="StaticBody3D" parent="NorthBankPavement" unique_id=1028714957]
+
+[node name="Shape" type="CollisionShape3D" parent="NorthBankPavement/Body" unique_id=1781727938]
 shape = SubResource("S5")
-[node name="SouthBankPavement" type="MeshInstance3D" parent="."]
-position = Vector3(20.746, 5.85, 45)
+
+[node name="SouthBankPavement" type="MeshInstance3D" parent="." unique_id=1490621935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.746, 5.85, 45)
 mesh = SubResource("M6")
 
-[node name="Body" type="StaticBody3D" parent="SouthBankPavement"]
-[node name="Shape" type="CollisionShape3D" parent="SouthBankPavement/Body"]
+[node name="Body" type="StaticBody3D" parent="SouthBankPavement" unique_id=1999513236]
+
+[node name="Shape" type="CollisionShape3D" parent="SouthBankPavement/Body" unique_id=735367314]
 shape = SubResource("S6")
-[node name="RoadMark-42" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, -42)
+
+[node name="RoadMark-42" type="MeshInstance3D" parent="." unique_id=329780087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, -42)
 mesh = SubResource("M7")
 
-[node name="RoadMark-36" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, -36)
+[node name="RoadMark-36" type="MeshInstance3D" parent="." unique_id=964896727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, -36)
 mesh = SubResource("M8")
 
-[node name="RoadMark-30" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, -30)
+[node name="RoadMark-30" type="MeshInstance3D" parent="." unique_id=788342635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, -30)
 mesh = SubResource("M9")
 
-[node name="RoadMark-24" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, -24)
+[node name="RoadMark-24" type="MeshInstance3D" parent="." unique_id=1427661496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, -24)
 mesh = SubResource("M10")
 
-[node name="RoadMark-18" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, -18)
+[node name="RoadMark-18" type="MeshInstance3D" parent="." unique_id=508883992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, -18)
 mesh = SubResource("M11")
 
-[node name="RoadMark-12" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, -12)
+[node name="RoadMark-12" type="MeshInstance3D" parent="." unique_id=245098447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, -12)
 mesh = SubResource("M12")
 
-[node name="RoadMark-6" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, -6)
+[node name="RoadMark-6" type="MeshInstance3D" parent="." unique_id=1681111582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, -6)
 mesh = SubResource("M13")
 
-[node name="RoadMark0" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 0)
+[node name="RoadMark0" type="MeshInstance3D" parent="." unique_id=560256141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 0)
 mesh = SubResource("M14")
 
-[node name="RoadMark6" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 6)
+[node name="RoadMark6" type="MeshInstance3D" parent="." unique_id=912287021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 6)
 mesh = SubResource("M15")
 
-[node name="RoadMark12" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 12)
+[node name="RoadMark12" type="MeshInstance3D" parent="." unique_id=323787042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 12)
 mesh = SubResource("M16")
 
-[node name="RoadMark18" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 18)
+[node name="RoadMark18" type="MeshInstance3D" parent="." unique_id=1419918017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 18)
 mesh = SubResource("M17")
 
-[node name="RoadMark24" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 24)
+[node name="RoadMark24" type="MeshInstance3D" parent="." unique_id=486234943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 24)
 mesh = SubResource("M18")
 
-[node name="RoadMark30" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 30)
+[node name="RoadMark30" type="MeshInstance3D" parent="." unique_id=222077295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 30)
 mesh = SubResource("M19")
 
-[node name="RoadMark36" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 36)
+[node name="RoadMark36" type="MeshInstance3D" parent="." unique_id=623369946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 36)
 mesh = SubResource("M20")
 
-[node name="RoadMark42" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 42)
+[node name="RoadMark42" type="MeshInstance3D" parent="." unique_id=1388658657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 42)
 mesh = SubResource("M21")
 
-[node name="RoadMark48" type="MeshInstance3D" parent="."]
-position = Vector3(34, 5.91, 48)
+[node name="RoadMark48" type="MeshInstance3D" parent="." unique_id=482413164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5.91, 48)
 mesh = SubResource("M22")
 
-[node name="Building0" type="MeshInstance3D" parent="."]
-position = Vector3(53, 12.5, -34)
+[node name="Building0" type="MeshInstance3D" parent="." unique_id=1877422163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 12.5, -34)
 mesh = SubResource("M23")
 
-[node name="Body" type="StaticBody3D" parent="Building0"]
-[node name="Shape" type="CollisionShape3D" parent="Building0/Body"]
+[node name="Body" type="StaticBody3D" parent="Building0" unique_id=160121737]
+
+[node name="Shape" type="CollisionShape3D" parent="Building0/Body" unique_id=1391705011]
 shape = SubResource("S23")
-[node name="Roof0" type="MeshInstance3D" parent="."]
-position = Vector3(53, 19, -34)
+
+[node name="Roof0" type="MeshInstance3D" parent="." unique_id=1628909313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 19, -34)
 mesh = SubResource("M24")
 
-[node name="Body" type="StaticBody3D" parent="Roof0"]
-[node name="Shape" type="CollisionShape3D" parent="Roof0/Body"]
+[node name="Body" type="StaticBody3D" parent="Roof0" unique_id=437641804]
+
+[node name="Shape" type="CollisionShape3D" parent="Roof0/Body" unique_id=917887327]
 shape = SubResource("S24")
-[node name="Plinth0" type="MeshInstance3D" parent="."]
-position = Vector3(46.9, 6.55, -34)
+
+[node name="Plinth0" type="MeshInstance3D" parent="." unique_id=1791008021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.9, 6.55, -34)
 mesh = SubResource("M25")
 
-[node name="Body" type="StaticBody3D" parent="Plinth0"]
-[node name="Shape" type="CollisionShape3D" parent="Plinth0/Body"]
+[node name="Body" type="StaticBody3D" parent="Plinth0" unique_id=1879052063]
+
+[node name="Shape" type="CollisionShape3D" parent="Plinth0/Body" unique_id=340112222]
 shape = SubResource("S25")
-[node name="Window0_0_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -39.2)
+
+[node name="Window0_0_0" type="MeshInstance3D" parent="." unique_id=2054563348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -39.2)
 mesh = SubResource("M26")
 
-[node name="Window0_0_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -35.7)
+[node name="Window0_0_1" type="MeshInstance3D" parent="." unique_id=1542933157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -35.7)
 mesh = SubResource("M27")
 
-[node name="Window0_0_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -32.2)
+[node name="Window0_0_2" type="MeshInstance3D" parent="." unique_id=2053188835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -32.2)
 mesh = SubResource("M28")
 
-[node name="Window0_0_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -28.700000000000003)
+[node name="Window0_0_3" type="MeshInstance3D" parent="." unique_id=1539427889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -28.7)
 mesh = SubResource("M29")
 
-[node name="Window0_1_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -39.2)
+[node name="Window0_1_0" type="MeshInstance3D" parent="." unique_id=1691515065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -39.2)
 mesh = SubResource("M30")
 
-[node name="Window0_1_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -35.7)
+[node name="Window0_1_1" type="MeshInstance3D" parent="." unique_id=427114564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -35.7)
 mesh = SubResource("M31")
 
-[node name="Window0_1_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -32.2)
+[node name="Window0_1_2" type="MeshInstance3D" parent="." unique_id=1990646600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -32.2)
 mesh = SubResource("M32")
 
-[node name="Window0_1_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -28.700000000000003)
+[node name="Window0_1_3" type="MeshInstance3D" parent="." unique_id=576194735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -28.7)
 mesh = SubResource("M33")
 
-[node name="Window0_2_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -39.2)
+[node name="Window0_2_0" type="MeshInstance3D" parent="." unique_id=301835940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -39.2)
 mesh = SubResource("M34")
 
-[node name="Window0_2_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -35.7)
+[node name="Window0_2_1" type="MeshInstance3D" parent="." unique_id=1557795697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -35.7)
 mesh = SubResource("M35")
 
-[node name="Window0_2_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -32.2)
+[node name="Window0_2_2" type="MeshInstance3D" parent="." unique_id=1304374747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -32.2)
 mesh = SubResource("M36")
 
-[node name="Window0_2_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -28.700000000000003)
+[node name="Window0_2_3" type="MeshInstance3D" parent="." unique_id=967251101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -28.7)
 mesh = SubResource("M37")
 
-[node name="Window0_3_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, -39.2)
+[node name="Window0_3_0" type="MeshInstance3D" parent="." unique_id=953968263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, -39.2)
 mesh = SubResource("M38")
 
-[node name="Window0_3_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, -35.7)
+[node name="Window0_3_1" type="MeshInstance3D" parent="." unique_id=1005071150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, -35.7)
 mesh = SubResource("M39")
 
-[node name="Window0_3_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, -32.2)
+[node name="Window0_3_2" type="MeshInstance3D" parent="." unique_id=1252582902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, -32.2)
 mesh = SubResource("M40")
 
-[node name="Window0_3_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, -28.700000000000003)
+[node name="Window0_3_3" type="MeshInstance3D" parent="." unique_id=2084268792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, -28.7)
 mesh = SubResource("M41")
 
-[node name="HouseDoor0" type="MeshInstance3D" parent="."]
-position = Vector3(46.8, 7.3, -34)
+[node name="HouseDoor0" type="MeshInstance3D" parent="." unique_id=1235252141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8, 7.3, -34)
 mesh = SubResource("M42")
 
-[node name="Body" type="StaticBody3D" parent="HouseDoor0"]
-[node name="Shape" type="CollisionShape3D" parent="HouseDoor0/Body"]
+[node name="Body" type="StaticBody3D" parent="HouseDoor0" unique_id=577385831]
+
+[node name="Shape" type="CollisionShape3D" parent="HouseDoor0/Body" unique_id=1719557481]
 shape = SubResource("S42")
-[node name="Building1" type="MeshInstance3D" parent="."]
-position = Vector3(53, 15.0, -16)
+
+[node name="Building1" type="MeshInstance3D" parent="." unique_id=182447349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 15, -16)
 mesh = SubResource("M43")
 
-[node name="Body" type="StaticBody3D" parent="Building1"]
-[node name="Shape" type="CollisionShape3D" parent="Building1/Body"]
+[node name="Body" type="StaticBody3D" parent="Building1" unique_id=804206668]
+
+[node name="Shape" type="CollisionShape3D" parent="Building1/Body" unique_id=219115799]
 shape = SubResource("S43")
-[node name="Roof1" type="MeshInstance3D" parent="."]
-position = Vector3(53, 24, -16)
+
+[node name="Roof1" type="MeshInstance3D" parent="." unique_id=452497109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 24, -16)
 mesh = SubResource("M44")
 
-[node name="Body" type="StaticBody3D" parent="Roof1"]
-[node name="Shape" type="CollisionShape3D" parent="Roof1/Body"]
+[node name="Body" type="StaticBody3D" parent="Roof1" unique_id=1684245750]
+
+[node name="Shape" type="CollisionShape3D" parent="Roof1/Body" unique_id=1391681285]
 shape = SubResource("S44")
-[node name="Plinth1" type="MeshInstance3D" parent="."]
-position = Vector3(46.9, 6.55, -16)
+
+[node name="Plinth1" type="MeshInstance3D" parent="." unique_id=974081021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.9, 6.55, -16)
 mesh = SubResource("M45")
 
-[node name="Body" type="StaticBody3D" parent="Plinth1"]
-[node name="Shape" type="CollisionShape3D" parent="Plinth1/Body"]
+[node name="Body" type="StaticBody3D" parent="Plinth1" unique_id=627636354]
+
+[node name="Shape" type="CollisionShape3D" parent="Plinth1/Body" unique_id=380538357]
 shape = SubResource("S45")
-[node name="Window1_0_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -21.2)
+
+[node name="Window1_0_0" type="MeshInstance3D" parent="." unique_id=730170299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -21.2)
 mesh = SubResource("M46")
 
-[node name="Window1_0_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -17.7)
+[node name="Window1_0_1" type="MeshInstance3D" parent="." unique_id=245930100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -17.7)
 mesh = SubResource("M47")
 
-[node name="Window1_0_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -14.2)
+[node name="Window1_0_2" type="MeshInstance3D" parent="." unique_id=410157651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -14.2)
 mesh = SubResource("M48")
 
-[node name="Window1_0_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -10.7)
+[node name="Window1_0_3" type="MeshInstance3D" parent="." unique_id=284271612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -10.7)
 mesh = SubResource("M49")
 
-[node name="Window1_1_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -21.2)
+[node name="Window1_1_0" type="MeshInstance3D" parent="." unique_id=1652879269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -21.2)
 mesh = SubResource("M50")
 
-[node name="Window1_1_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -17.7)
+[node name="Window1_1_1" type="MeshInstance3D" parent="." unique_id=1249258952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -17.7)
 mesh = SubResource("M51")
 
-[node name="Window1_1_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -14.2)
+[node name="Window1_1_2" type="MeshInstance3D" parent="." unique_id=244991930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -14.2)
 mesh = SubResource("M52")
 
-[node name="Window1_1_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -10.7)
+[node name="Window1_1_3" type="MeshInstance3D" parent="." unique_id=1307240803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -10.7)
 mesh = SubResource("M53")
 
-[node name="Window1_2_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -21.2)
+[node name="Window1_2_0" type="MeshInstance3D" parent="." unique_id=1492134089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -21.2)
 mesh = SubResource("M54")
 
-[node name="Window1_2_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -17.7)
+[node name="Window1_2_1" type="MeshInstance3D" parent="." unique_id=2077034164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -17.7)
 mesh = SubResource("M55")
 
-[node name="Window1_2_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -14.2)
+[node name="Window1_2_2" type="MeshInstance3D" parent="." unique_id=1566778888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -14.2)
 mesh = SubResource("M56")
 
-[node name="Window1_2_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -10.7)
+[node name="Window1_2_3" type="MeshInstance3D" parent="." unique_id=759224742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -10.7)
 mesh = SubResource("M57")
 
-[node name="Window1_3_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, -21.2)
+[node name="Window1_3_0" type="MeshInstance3D" parent="." unique_id=1326931158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, -21.2)
 mesh = SubResource("M58")
 
-[node name="Window1_3_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, -17.7)
+[node name="Window1_3_1" type="MeshInstance3D" parent="." unique_id=1180474794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, -17.7)
 mesh = SubResource("M59")
 
-[node name="Window1_3_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, -14.2)
+[node name="Window1_3_2" type="MeshInstance3D" parent="." unique_id=687224119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, -14.2)
 mesh = SubResource("M60")
 
-[node name="Window1_3_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, -10.7)
+[node name="Window1_3_3" type="MeshInstance3D" parent="." unique_id=302994562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, -10.7)
 mesh = SubResource("M61")
 
-[node name="Window1_4_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 20, -21.2)
+[node name="Window1_4_0" type="MeshInstance3D" parent="." unique_id=414818435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 20, -21.2)
 mesh = SubResource("M62")
 
-[node name="Window1_4_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 20, -17.7)
+[node name="Window1_4_1" type="MeshInstance3D" parent="." unique_id=337071298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 20, -17.7)
 mesh = SubResource("M63")
 
-[node name="Window1_4_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 20, -14.2)
+[node name="Window1_4_2" type="MeshInstance3D" parent="." unique_id=2122283242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 20, -14.2)
 mesh = SubResource("M64")
 
-[node name="Window1_4_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 20, -10.7)
+[node name="Window1_4_3" type="MeshInstance3D" parent="." unique_id=1673399952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 20, -10.7)
 mesh = SubResource("M65")
 
-[node name="Window1_5_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 23, -21.2)
+[node name="Window1_5_0" type="MeshInstance3D" parent="." unique_id=401144041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 23, -21.2)
 mesh = SubResource("M66")
 
-[node name="Window1_5_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 23, -17.7)
+[node name="Window1_5_1" type="MeshInstance3D" parent="." unique_id=1090394136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 23, -17.7)
 mesh = SubResource("M67")
 
-[node name="Window1_5_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 23, -14.2)
+[node name="Window1_5_2" type="MeshInstance3D" parent="." unique_id=1836527500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 23, -14.2)
 mesh = SubResource("M68")
 
-[node name="Window1_5_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 23, -10.7)
+[node name="Window1_5_3" type="MeshInstance3D" parent="." unique_id=772680834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 23, -10.7)
 mesh = SubResource("M69")
 
-[node name="HouseDoor1" type="MeshInstance3D" parent="."]
-position = Vector3(46.8, 7.3, -16)
+[node name="HouseDoor1" type="MeshInstance3D" parent="." unique_id=1475451757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8, 7.3, -16)
 mesh = SubResource("M70")
 
-[node name="Body" type="StaticBody3D" parent="HouseDoor1"]
-[node name="Shape" type="CollisionShape3D" parent="HouseDoor1/Body"]
+[node name="Body" type="StaticBody3D" parent="HouseDoor1" unique_id=1384625954]
+
+[node name="Shape" type="CollisionShape3D" parent="HouseDoor1/Body" unique_id=1334331927]
 shape = SubResource("S70")
-[node name="Building2" type="MeshInstance3D" parent="."]
-position = Vector3(53, 11.5, 3)
+
+[node name="Building2" type="MeshInstance3D" parent="." unique_id=572664018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 11.5, 3)
 mesh = SubResource("M71")
 
-[node name="Body" type="StaticBody3D" parent="Building2"]
-[node name="Shape" type="CollisionShape3D" parent="Building2/Body"]
+[node name="Body" type="StaticBody3D" parent="Building2" unique_id=1673773454]
+
+[node name="Shape" type="CollisionShape3D" parent="Building2/Body" unique_id=508606381]
 shape = SubResource("S71")
-[node name="Roof2" type="MeshInstance3D" parent="."]
-position = Vector3(53, 17, 3)
+
+[node name="Roof2" type="MeshInstance3D" parent="." unique_id=1791722667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 17, 3)
 mesh = SubResource("M72")
 
-[node name="Body" type="StaticBody3D" parent="Roof2"]
-[node name="Shape" type="CollisionShape3D" parent="Roof2/Body"]
+[node name="Body" type="StaticBody3D" parent="Roof2" unique_id=2069046839]
+
+[node name="Shape" type="CollisionShape3D" parent="Roof2/Body" unique_id=1299772960]
 shape = SubResource("S72")
-[node name="Plinth2" type="MeshInstance3D" parent="."]
-position = Vector3(46.9, 6.55, 3)
+
+[node name="Plinth2" type="MeshInstance3D" parent="." unique_id=551067068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.9, 6.55, 3)
 mesh = SubResource("M73")
 
-[node name="Body" type="StaticBody3D" parent="Plinth2"]
-[node name="Shape" type="CollisionShape3D" parent="Plinth2/Body"]
+[node name="Body" type="StaticBody3D" parent="Plinth2" unique_id=296409115]
+
+[node name="Shape" type="CollisionShape3D" parent="Plinth2/Body" unique_id=1786766711]
 shape = SubResource("S73")
-[node name="Window2_0_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, -2.2)
+
+[node name="Window2_0_0" type="MeshInstance3D" parent="." unique_id=1007333774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, -2.2)
 mesh = SubResource("M74")
 
-[node name="Window2_0_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 1.2999999999999998)
+[node name="Window2_0_1" type="MeshInstance3D" parent="." unique_id=175299042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 1.3)
 mesh = SubResource("M75")
 
-[node name="Window2_0_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 4.8)
+[node name="Window2_0_2" type="MeshInstance3D" parent="." unique_id=168633133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 4.8)
 mesh = SubResource("M76")
 
-[node name="Window2_0_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 8.3)
+[node name="Window2_0_3" type="MeshInstance3D" parent="." unique_id=1702033124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 8.3)
 mesh = SubResource("M77")
 
-[node name="Window2_1_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, -2.2)
+[node name="Window2_1_0" type="MeshInstance3D" parent="." unique_id=558296311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, -2.2)
 mesh = SubResource("M78")
 
-[node name="Window2_1_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 1.2999999999999998)
+[node name="Window2_1_1" type="MeshInstance3D" parent="." unique_id=1100582571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 1.3)
 mesh = SubResource("M79")
 
-[node name="Window2_1_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 4.8)
+[node name="Window2_1_2" type="MeshInstance3D" parent="." unique_id=39901508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 4.8)
 mesh = SubResource("M80")
 
-[node name="Window2_1_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 8.3)
+[node name="Window2_1_3" type="MeshInstance3D" parent="." unique_id=314601013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 8.3)
 mesh = SubResource("M81")
 
-[node name="Window2_2_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, -2.2)
+[node name="Window2_2_0" type="MeshInstance3D" parent="." unique_id=1332474765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, -2.2)
 mesh = SubResource("M82")
 
-[node name="Window2_2_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 1.2999999999999998)
+[node name="Window2_2_1" type="MeshInstance3D" parent="." unique_id=937819659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 1.3)
 mesh = SubResource("M83")
 
-[node name="Window2_2_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 4.8)
+[node name="Window2_2_2" type="MeshInstance3D" parent="." unique_id=1162071117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 4.8)
 mesh = SubResource("M84")
 
-[node name="Window2_2_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 8.3)
+[node name="Window2_2_3" type="MeshInstance3D" parent="." unique_id=1910192692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 8.3)
 mesh = SubResource("M85")
 
-[node name="HouseDoor2" type="MeshInstance3D" parent="."]
-position = Vector3(46.8, 7.3, 3)
+[node name="HouseDoor2" type="MeshInstance3D" parent="." unique_id=491730057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8, 7.3, 3)
 mesh = SubResource("M86")
 
-[node name="Body" type="StaticBody3D" parent="HouseDoor2"]
-[node name="Shape" type="CollisionShape3D" parent="HouseDoor2/Body"]
+[node name="Body" type="StaticBody3D" parent="HouseDoor2" unique_id=1475210623]
+
+[node name="Shape" type="CollisionShape3D" parent="HouseDoor2/Body" unique_id=1985867515]
 shape = SubResource("S86")
-[node name="Building3" type="MeshInstance3D" parent="."]
-position = Vector3(53, 14.0, 23)
+
+[node name="Building3" type="MeshInstance3D" parent="." unique_id=856263249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 14, 23)
 mesh = SubResource("M87")
 
-[node name="Body" type="StaticBody3D" parent="Building3"]
-[node name="Shape" type="CollisionShape3D" parent="Building3/Body"]
+[node name="Body" type="StaticBody3D" parent="Building3" unique_id=1772492146]
+
+[node name="Shape" type="CollisionShape3D" parent="Building3/Body" unique_id=1324444103]
 shape = SubResource("S87")
-[node name="Roof3" type="MeshInstance3D" parent="."]
-position = Vector3(53, 22, 23)
+
+[node name="Roof3" type="MeshInstance3D" parent="." unique_id=1907423692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 22, 23)
 mesh = SubResource("M88")
 
-[node name="Body" type="StaticBody3D" parent="Roof3"]
-[node name="Shape" type="CollisionShape3D" parent="Roof3/Body"]
+[node name="Body" type="StaticBody3D" parent="Roof3" unique_id=1947052465]
+
+[node name="Shape" type="CollisionShape3D" parent="Roof3/Body" unique_id=2062487934]
 shape = SubResource("S88")
-[node name="Plinth3" type="MeshInstance3D" parent="."]
-position = Vector3(46.9, 6.55, 23)
+
+[node name="Plinth3" type="MeshInstance3D" parent="." unique_id=1696851974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.9, 6.55, 23)
 mesh = SubResource("M89")
 
-[node name="Body" type="StaticBody3D" parent="Plinth3"]
-[node name="Shape" type="CollisionShape3D" parent="Plinth3/Body"]
+[node name="Body" type="StaticBody3D" parent="Plinth3" unique_id=1176302177]
+
+[node name="Shape" type="CollisionShape3D" parent="Plinth3/Body" unique_id=483246855]
 shape = SubResource("S89")
-[node name="Window3_0_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 17.8)
+
+[node name="Window3_0_0" type="MeshInstance3D" parent="." unique_id=472714158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 17.8)
 mesh = SubResource("M90")
 
-[node name="Window3_0_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 21.3)
+[node name="Window3_0_1" type="MeshInstance3D" parent="." unique_id=1259348829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 21.3)
 mesh = SubResource("M91")
 
-[node name="Window3_0_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 24.8)
+[node name="Window3_0_2" type="MeshInstance3D" parent="." unique_id=1974434242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 24.8)
 mesh = SubResource("M92")
 
-[node name="Window3_0_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 28.3)
+[node name="Window3_0_3" type="MeshInstance3D" parent="." unique_id=1110346623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 28.3)
 mesh = SubResource("M93")
 
-[node name="Window3_1_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 17.8)
+[node name="Window3_1_0" type="MeshInstance3D" parent="." unique_id=574226898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 17.8)
 mesh = SubResource("M94")
 
-[node name="Window3_1_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 21.3)
+[node name="Window3_1_1" type="MeshInstance3D" parent="." unique_id=952308458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 21.3)
 mesh = SubResource("M95")
 
-[node name="Window3_1_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 24.8)
+[node name="Window3_1_2" type="MeshInstance3D" parent="." unique_id=832835575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 24.8)
 mesh = SubResource("M96")
 
-[node name="Window3_1_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 28.3)
+[node name="Window3_1_3" type="MeshInstance3D" parent="." unique_id=286155052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 28.3)
 mesh = SubResource("M97")
 
-[node name="Window3_2_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 17.8)
+[node name="Window3_2_0" type="MeshInstance3D" parent="." unique_id=1762523060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 17.8)
 mesh = SubResource("M98")
 
-[node name="Window3_2_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 21.3)
+[node name="Window3_2_1" type="MeshInstance3D" parent="." unique_id=511813788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 21.3)
 mesh = SubResource("M99")
 
-[node name="Window3_2_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 24.8)
+[node name="Window3_2_2" type="MeshInstance3D" parent="." unique_id=1120632557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 24.8)
 mesh = SubResource("M100")
 
-[node name="Window3_2_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 28.3)
+[node name="Window3_2_3" type="MeshInstance3D" parent="." unique_id=2011347760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 28.3)
 mesh = SubResource("M101")
 
-[node name="Window3_3_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, 17.8)
+[node name="Window3_3_0" type="MeshInstance3D" parent="." unique_id=172110026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, 17.8)
 mesh = SubResource("M102")
 
-[node name="Window3_3_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, 21.3)
+[node name="Window3_3_1" type="MeshInstance3D" parent="." unique_id=1142184455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, 21.3)
 mesh = SubResource("M103")
 
-[node name="Window3_3_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, 24.8)
+[node name="Window3_3_2" type="MeshInstance3D" parent="." unique_id=38246765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, 24.8)
 mesh = SubResource("M104")
 
-[node name="Window3_3_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, 28.3)
+[node name="Window3_3_3" type="MeshInstance3D" parent="." unique_id=1294705080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, 28.3)
 mesh = SubResource("M105")
 
-[node name="Window3_4_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 20, 17.8)
+[node name="Window3_4_0" type="MeshInstance3D" parent="." unique_id=195042908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 20, 17.8)
 mesh = SubResource("M106")
 
-[node name="Window3_4_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 20, 21.3)
+[node name="Window3_4_1" type="MeshInstance3D" parent="." unique_id=740665688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 20, 21.3)
 mesh = SubResource("M107")
 
-[node name="Window3_4_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 20, 24.8)
+[node name="Window3_4_2" type="MeshInstance3D" parent="." unique_id=1450540677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 20, 24.8)
 mesh = SubResource("M108")
 
-[node name="Window3_4_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 20, 28.3)
+[node name="Window3_4_3" type="MeshInstance3D" parent="." unique_id=108277427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 20, 28.3)
 mesh = SubResource("M109")
 
-[node name="HouseDoor3" type="MeshInstance3D" parent="."]
-position = Vector3(46.8, 7.3, 23)
+[node name="HouseDoor3" type="MeshInstance3D" parent="." unique_id=1505332935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8, 7.3, 23)
 mesh = SubResource("M110")
 
-[node name="Body" type="StaticBody3D" parent="HouseDoor3"]
-[node name="Shape" type="CollisionShape3D" parent="HouseDoor3/Body"]
+[node name="Body" type="StaticBody3D" parent="HouseDoor3" unique_id=1164381101]
+
+[node name="Shape" type="CollisionShape3D" parent="HouseDoor3/Body" unique_id=489121403]
 shape = SubResource("S110")
-[node name="Building4" type="MeshInstance3D" parent="."]
-position = Vector3(53, 12.0, 43)
+
+[node name="Building4" type="MeshInstance3D" parent="." unique_id=396551792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 12, 43)
 mesh = SubResource("M111")
 
-[node name="Body" type="StaticBody3D" parent="Building4"]
-[node name="Shape" type="CollisionShape3D" parent="Building4/Body"]
+[node name="Body" type="StaticBody3D" parent="Building4" unique_id=738661552]
+
+[node name="Shape" type="CollisionShape3D" parent="Building4/Body" unique_id=205084014]
 shape = SubResource("S111")
-[node name="Roof4" type="MeshInstance3D" parent="."]
-position = Vector3(53, 18, 43)
+
+[node name="Roof4" type="MeshInstance3D" parent="." unique_id=1158859909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 18, 43)
 mesh = SubResource("M112")
 
-[node name="Body" type="StaticBody3D" parent="Roof4"]
-[node name="Shape" type="CollisionShape3D" parent="Roof4/Body"]
+[node name="Body" type="StaticBody3D" parent="Roof4" unique_id=62734919]
+
+[node name="Shape" type="CollisionShape3D" parent="Roof4/Body" unique_id=1926013706]
 shape = SubResource("S112")
-[node name="Plinth4" type="MeshInstance3D" parent="."]
-position = Vector3(46.9, 6.55, 43)
+
+[node name="Plinth4" type="MeshInstance3D" parent="." unique_id=1132202439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.9, 6.55, 43)
 mesh = SubResource("M113")
 
-[node name="Body" type="StaticBody3D" parent="Plinth4"]
-[node name="Shape" type="CollisionShape3D" parent="Plinth4/Body"]
+[node name="Body" type="StaticBody3D" parent="Plinth4" unique_id=471524171]
+
+[node name="Shape" type="CollisionShape3D" parent="Plinth4/Body" unique_id=899401436]
 shape = SubResource("S113")
-[node name="Window4_0_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 37.8)
+
+[node name="Window4_0_0" type="MeshInstance3D" parent="." unique_id=286835007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 37.8)
 mesh = SubResource("M114")
 
-[node name="Window4_0_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 41.3)
+[node name="Window4_0_1" type="MeshInstance3D" parent="." unique_id=1924891247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 41.3)
 mesh = SubResource("M115")
 
-[node name="Window4_0_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 44.8)
+[node name="Window4_0_2" type="MeshInstance3D" parent="." unique_id=1675239062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 44.8)
 mesh = SubResource("M116")
 
-[node name="Window4_0_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 8, 48.3)
+[node name="Window4_0_3" type="MeshInstance3D" parent="." unique_id=1982659438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 8, 48.3)
 mesh = SubResource("M117")
 
-[node name="Window4_1_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 37.8)
+[node name="Window4_1_0" type="MeshInstance3D" parent="." unique_id=534226721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 37.8)
 mesh = SubResource("M118")
 
-[node name="Window4_1_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 41.3)
+[node name="Window4_1_1" type="MeshInstance3D" parent="." unique_id=735373813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 41.3)
 mesh = SubResource("M119")
 
-[node name="Window4_1_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 44.8)
+[node name="Window4_1_2" type="MeshInstance3D" parent="." unique_id=1644581315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 44.8)
 mesh = SubResource("M120")
 
-[node name="Window4_1_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 11, 48.3)
+[node name="Window4_1_3" type="MeshInstance3D" parent="." unique_id=1507467859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 11, 48.3)
 mesh = SubResource("M121")
 
-[node name="Window4_2_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 37.8)
+[node name="Window4_2_0" type="MeshInstance3D" parent="." unique_id=1568989553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 37.8)
 mesh = SubResource("M122")
 
-[node name="Window4_2_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 41.3)
+[node name="Window4_2_1" type="MeshInstance3D" parent="." unique_id=1239402245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 41.3)
 mesh = SubResource("M123")
 
-[node name="Window4_2_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 44.8)
+[node name="Window4_2_2" type="MeshInstance3D" parent="." unique_id=1699266655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 44.8)
 mesh = SubResource("M124")
 
-[node name="Window4_2_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 14, 48.3)
+[node name="Window4_2_3" type="MeshInstance3D" parent="." unique_id=646997685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 14, 48.3)
 mesh = SubResource("M125")
 
-[node name="Window4_3_0" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, 37.8)
+[node name="Window4_3_0" type="MeshInstance3D" parent="." unique_id=53030223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, 37.8)
 mesh = SubResource("M126")
 
-[node name="Window4_3_1" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, 41.3)
+[node name="Window4_3_1" type="MeshInstance3D" parent="." unique_id=572291163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, 41.3)
 mesh = SubResource("M127")
 
-[node name="Window4_3_2" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, 44.8)
+[node name="Window4_3_2" type="MeshInstance3D" parent="." unique_id=1594512412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, 44.8)
 mesh = SubResource("M128")
 
-[node name="Window4_3_3" type="MeshInstance3D" parent="."]
-position = Vector3(46.94, 17, 48.3)
+[node name="Window4_3_3" type="MeshInstance3D" parent="." unique_id=736129555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.94, 17, 48.3)
 mesh = SubResource("M129")
 
-[node name="HouseDoor4" type="MeshInstance3D" parent="."]
-position = Vector3(46.8, 7.3, 43)
+[node name="HouseDoor4" type="MeshInstance3D" parent="." unique_id=1334255583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8, 7.3, 43)
 mesh = SubResource("M130")
 
-[node name="Body" type="StaticBody3D" parent="HouseDoor4"]
-[node name="Shape" type="CollisionShape3D" parent="HouseDoor4/Body"]
+[node name="Body" type="StaticBody3D" parent="HouseDoor4" unique_id=1167029511]
+
+[node name="Shape" type="CollisionShape3D" parent="HouseDoor4/Body" unique_id=1778970943]
 shape = SubResource("S130")
-[node name="Planter0" type="MeshInstance3D" parent="."]
-position = Vector3(26, 6.2, -35)
+
+[node name="Planter0" type="MeshInstance3D" parent="." unique_id=1488456221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 6.2, -35)
 mesh = SubResource("M131")
 
-[node name="Body" type="StaticBody3D" parent="Planter0"]
-[node name="Shape" type="CollisionShape3D" parent="Planter0/Body"]
+[node name="Body" type="StaticBody3D" parent="Planter0" unique_id=219528334]
+
+[node name="Shape" type="CollisionShape3D" parent="Planter0/Body" unique_id=1167686542]
 shape = SubResource("S131")
-[node name="TreeTrunk0" type="MeshInstance3D" parent="."]
-position = Vector3(26, 7.45, -35)
+
+[node name="TreeTrunk0" type="MeshInstance3D" parent="." unique_id=189378625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 7.45, -35)
 mesh = SubResource("M132")
 
-[node name="Body" type="StaticBody3D" parent="TreeTrunk0"]
-[node name="Shape" type="CollisionShape3D" parent="TreeTrunk0/Body"]
+[node name="Body" type="StaticBody3D" parent="TreeTrunk0" unique_id=403057048]
+
+[node name="Shape" type="CollisionShape3D" parent="TreeTrunk0/Body" unique_id=331587828]
 shape = SubResource("S132")
-[node name="TreeCrown0" type="MeshInstance3D" parent="."]
-position = Vector3(26, 9.2, -35)
+
+[node name="TreeCrown0" type="MeshInstance3D" parent="." unique_id=1524519623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 9.2, -35)
 mesh = SubResource("M133")
 
-[node name="LampPost0" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 8.1, -32)
+[node name="LampPost0" type="MeshInstance3D" parent="." unique_id=1579896161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 8.1, -32)
 mesh = SubResource("M134")
 
-[node name="Body" type="StaticBody3D" parent="LampPost0"]
-[node name="Shape" type="CollisionShape3D" parent="LampPost0/Body"]
+[node name="Body" type="StaticBody3D" parent="LampPost0" unique_id=744900025]
+
+[node name="Shape" type="CollisionShape3D" parent="LampPost0/Body" unique_id=1416604410]
 shape = SubResource("S134")
-[node name="LampHead0" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 10.25, -32)
+
+[node name="LampHead0" type="MeshInstance3D" parent="." unique_id=59171869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.25, -32)
 mesh = SubResource("M135")
 
-[node name="Planter1" type="MeshInstance3D" parent="."]
-position = Vector3(26, 6.2, -17)
+[node name="Planter1" type="MeshInstance3D" parent="." unique_id=1644179708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 6.2, -17)
 mesh = SubResource("M136")
 
-[node name="Body" type="StaticBody3D" parent="Planter1"]
-[node name="Shape" type="CollisionShape3D" parent="Planter1/Body"]
+[node name="Body" type="StaticBody3D" parent="Planter1" unique_id=1788479723]
+
+[node name="Shape" type="CollisionShape3D" parent="Planter1/Body" unique_id=1179942514]
 shape = SubResource("S136")
-[node name="TreeTrunk1" type="MeshInstance3D" parent="."]
-position = Vector3(26, 7.45, -17)
+
+[node name="TreeTrunk1" type="MeshInstance3D" parent="." unique_id=1773528630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 7.45, -17)
 mesh = SubResource("M137")
 
-[node name="Body" type="StaticBody3D" parent="TreeTrunk1"]
-[node name="Shape" type="CollisionShape3D" parent="TreeTrunk1/Body"]
+[node name="Body" type="StaticBody3D" parent="TreeTrunk1" unique_id=751446357]
+
+[node name="Shape" type="CollisionShape3D" parent="TreeTrunk1/Body" unique_id=1118008837]
 shape = SubResource("S137")
-[node name="TreeCrown1" type="MeshInstance3D" parent="."]
-position = Vector3(26, 9.2, -17)
+
+[node name="TreeCrown1" type="MeshInstance3D" parent="." unique_id=1793698431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 9.2, -17)
 mesh = SubResource("M138")
 
-[node name="LampPost1" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 8.1, -14)
+[node name="LampPost1" type="MeshInstance3D" parent="." unique_id=132911285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 8.1, -14)
 mesh = SubResource("M139")
 
-[node name="Body" type="StaticBody3D" parent="LampPost1"]
-[node name="Shape" type="CollisionShape3D" parent="LampPost1/Body"]
+[node name="Body" type="StaticBody3D" parent="LampPost1" unique_id=2118149318]
+
+[node name="Shape" type="CollisionShape3D" parent="LampPost1/Body" unique_id=113875847]
 shape = SubResource("S139")
-[node name="LampHead1" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 10.25, -14)
+
+[node name="LampHead1" type="MeshInstance3D" parent="." unique_id=1437817514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.25, -14)
 mesh = SubResource("M140")
 
-[node name="Planter2" type="MeshInstance3D" parent="."]
-position = Vector3(26, 6.2, 1)
+[node name="Planter2" type="MeshInstance3D" parent="." unique_id=1224212779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 6.2, 1)
 mesh = SubResource("M141")
 
-[node name="Body" type="StaticBody3D" parent="Planter2"]
-[node name="Shape" type="CollisionShape3D" parent="Planter2/Body"]
+[node name="Body" type="StaticBody3D" parent="Planter2" unique_id=768960577]
+
+[node name="Shape" type="CollisionShape3D" parent="Planter2/Body" unique_id=551703481]
 shape = SubResource("S141")
-[node name="TreeTrunk2" type="MeshInstance3D" parent="."]
-position = Vector3(26, 7.45, 1)
+
+[node name="TreeTrunk2" type="MeshInstance3D" parent="." unique_id=2142723468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 7.45, 1)
 mesh = SubResource("M142")
 
-[node name="Body" type="StaticBody3D" parent="TreeTrunk2"]
-[node name="Shape" type="CollisionShape3D" parent="TreeTrunk2/Body"]
+[node name="Body" type="StaticBody3D" parent="TreeTrunk2" unique_id=809749506]
+
+[node name="Shape" type="CollisionShape3D" parent="TreeTrunk2/Body" unique_id=654215494]
 shape = SubResource("S142")
-[node name="TreeCrown2" type="MeshInstance3D" parent="."]
-position = Vector3(26, 9.2, 1)
+
+[node name="TreeCrown2" type="MeshInstance3D" parent="." unique_id=1053003981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 9.2, 1)
 mesh = SubResource("M143")
 
-[node name="LampPost2" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 8.1, 4)
+[node name="LampPost2" type="MeshInstance3D" parent="." unique_id=1142389857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 8.1, 4)
 mesh = SubResource("M144")
 
-[node name="Body" type="StaticBody3D" parent="LampPost2"]
-[node name="Shape" type="CollisionShape3D" parent="LampPost2/Body"]
+[node name="Body" type="StaticBody3D" parent="LampPost2" unique_id=466133091]
+
+[node name="Shape" type="CollisionShape3D" parent="LampPost2/Body" unique_id=839123799]
 shape = SubResource("S144")
-[node name="LampHead2" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 10.25, 4)
+
+[node name="LampHead2" type="MeshInstance3D" parent="." unique_id=342694526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.25, 4)
 mesh = SubResource("M145")
 
-[node name="Planter3" type="MeshInstance3D" parent="."]
-position = Vector3(26, 6.2, 33)
+[node name="Planter3" type="MeshInstance3D" parent="." unique_id=687482420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 6.2, 33)
 mesh = SubResource("M146")
 
-[node name="Body" type="StaticBody3D" parent="Planter3"]
-[node name="Shape" type="CollisionShape3D" parent="Planter3/Body"]
+[node name="Body" type="StaticBody3D" parent="Planter3" unique_id=1799022393]
+
+[node name="Shape" type="CollisionShape3D" parent="Planter3/Body" unique_id=799554953]
 shape = SubResource("S146")
-[node name="TreeTrunk3" type="MeshInstance3D" parent="."]
-position = Vector3(26, 7.45, 33)
+
+[node name="TreeTrunk3" type="MeshInstance3D" parent="." unique_id=2136121333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 7.45, 33)
 mesh = SubResource("M147")
 
-[node name="Body" type="StaticBody3D" parent="TreeTrunk3"]
-[node name="Shape" type="CollisionShape3D" parent="TreeTrunk3/Body"]
+[node name="Body" type="StaticBody3D" parent="TreeTrunk3" unique_id=536774755]
+
+[node name="Shape" type="CollisionShape3D" parent="TreeTrunk3/Body" unique_id=455594705]
 shape = SubResource("S147")
-[node name="TreeCrown3" type="MeshInstance3D" parent="."]
-position = Vector3(26, 9.2, 33)
+
+[node name="TreeCrown3" type="MeshInstance3D" parent="." unique_id=1478305510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 9.2, 33)
 mesh = SubResource("M148")
 
-[node name="LampPost3" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 8.1, 36)
+[node name="LampPost3" type="MeshInstance3D" parent="." unique_id=3163867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 8.1, 36)
 mesh = SubResource("M149")
 
-[node name="Body" type="StaticBody3D" parent="LampPost3"]
-[node name="Shape" type="CollisionShape3D" parent="LampPost3/Body"]
+[node name="Body" type="StaticBody3D" parent="LampPost3" unique_id=959670737]
+
+[node name="Shape" type="CollisionShape3D" parent="LampPost3/Body" unique_id=187250280]
 shape = SubResource("S149")
-[node name="LampHead3" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 10.25, 36)
+
+[node name="LampHead3" type="MeshInstance3D" parent="." unique_id=153989522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.25, 36)
 mesh = SubResource("M150")
 
-[node name="Planter4" type="MeshInstance3D" parent="."]
-position = Vector3(26, 6.2, 48)
+[node name="Planter4" type="MeshInstance3D" parent="." unique_id=1700201681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 6.2, 48)
 mesh = SubResource("M151")
 
-[node name="Body" type="StaticBody3D" parent="Planter4"]
-[node name="Shape" type="CollisionShape3D" parent="Planter4/Body"]
+[node name="Body" type="StaticBody3D" parent="Planter4" unique_id=1712332391]
+
+[node name="Shape" type="CollisionShape3D" parent="Planter4/Body" unique_id=833315619]
 shape = SubResource("S151")
-[node name="TreeTrunk4" type="MeshInstance3D" parent="."]
-position = Vector3(26, 7.45, 48)
+
+[node name="TreeTrunk4" type="MeshInstance3D" parent="." unique_id=963594903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 7.45, 48)
 mesh = SubResource("M152")
 
-[node name="Body" type="StaticBody3D" parent="TreeTrunk4"]
-[node name="Shape" type="CollisionShape3D" parent="TreeTrunk4/Body"]
+[node name="Body" type="StaticBody3D" parent="TreeTrunk4" unique_id=1102185912]
+
+[node name="Shape" type="CollisionShape3D" parent="TreeTrunk4/Body" unique_id=1197542758]
 shape = SubResource("S152")
-[node name="TreeCrown4" type="MeshInstance3D" parent="."]
-position = Vector3(26, 9.2, 48)
+
+[node name="TreeCrown4" type="MeshInstance3D" parent="." unique_id=1795227026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 9.2, 48)
 mesh = SubResource("M153")
 
-[node name="LampPost4" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 8.1, 51)
+[node name="LampPost4" type="MeshInstance3D" parent="." unique_id=1939534987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 8.1, 51)
 mesh = SubResource("M154")
 
-[node name="Body" type="StaticBody3D" parent="LampPost4"]
-[node name="Shape" type="CollisionShape3D" parent="LampPost4/Body"]
+[node name="Body" type="StaticBody3D" parent="LampPost4" unique_id=528666456]
+
+[node name="Shape" type="CollisionShape3D" parent="LampPost4/Body" unique_id=684682654]
 shape = SubResource("S154")
-[node name="LampHead4" type="MeshInstance3D" parent="."]
-position = Vector3(28.3, 10.25, 51)
+
+[node name="LampHead4" type="MeshInstance3D" parent="." unique_id=2057465943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.25, 51)
 mesh = SubResource("M155")
 
-[node name="BenchSeat0" type="MeshInstance3D" parent="."]
-position = Vector3(24, 6.5, -8)
+[node name="BenchSeat0" type="MeshInstance3D" parent="." unique_id=390908606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 6.5, -8)
 mesh = SubResource("M156")
 
-[node name="Body" type="StaticBody3D" parent="BenchSeat0"]
-[node name="Shape" type="CollisionShape3D" parent="BenchSeat0/Body"]
+[node name="Body" type="StaticBody3D" parent="BenchSeat0" unique_id=1462174406]
+
+[node name="Shape" type="CollisionShape3D" parent="BenchSeat0/Body" unique_id=383908885]
 shape = SubResource("S156")
-[node name="BenchBack0" type="MeshInstance3D" parent="."]
-position = Vector3(23.65, 7, -8)
+
+[node name="BenchBack0" type="MeshInstance3D" parent="." unique_id=838370051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.65, 7, -8)
 mesh = SubResource("M157")
 
-[node name="Body" type="StaticBody3D" parent="BenchBack0"]
-[node name="Shape" type="CollisionShape3D" parent="BenchBack0/Body"]
+[node name="Body" type="StaticBody3D" parent="BenchBack0" unique_id=1555017667]
+
+[node name="Shape" type="CollisionShape3D" parent="BenchBack0/Body" unique_id=114028145]
 shape = SubResource("S157")
-[node name="BenchLeg0_-0.8" type="MeshInstance3D" parent="."]
-position = Vector3(24, 6.25, -8.8)
+
+[node name="BenchLeg0_-0.8" type="MeshInstance3D" parent="." unique_id=1331984739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 6.25, -8.8)
 mesh = SubResource("M158")
 
-[node name="Body" type="StaticBody3D" parent="BenchLeg0_-0.8"]
-[node name="Shape" type="CollisionShape3D" parent="BenchLeg0_-0.8/Body"]
+[node name="Body" type="StaticBody3D" parent="BenchLeg0_-0.8" unique_id=2121882669]
+
+[node name="Shape" type="CollisionShape3D" parent="BenchLeg0_-0.8/Body" unique_id=1803618827]
 shape = SubResource("S158")
-[node name="BenchLeg0_0.8" type="MeshInstance3D" parent="."]
-position = Vector3(24, 6.25, -7.2)
+
+[node name="BenchLeg0_0.8" type="MeshInstance3D" parent="." unique_id=72470859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 6.25, -7.2)
 mesh = SubResource("M159")
 
-[node name="Body" type="StaticBody3D" parent="BenchLeg0_0.8"]
-[node name="Shape" type="CollisionShape3D" parent="BenchLeg0_0.8/Body"]
+[node name="Body" type="StaticBody3D" parent="BenchLeg0_0.8" unique_id=1064136658]
+
+[node name="Shape" type="CollisionShape3D" parent="BenchLeg0_0.8/Body" unique_id=10155908]
 shape = SubResource("S159")
-[node name="BenchSeat1" type="MeshInstance3D" parent="."]
-position = Vector3(24, 6.5, 39)
+
+[node name="BenchSeat1" type="MeshInstance3D" parent="." unique_id=1194513432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 6.5, 39)
 mesh = SubResource("M160")
 
-[node name="Body" type="StaticBody3D" parent="BenchSeat1"]
-[node name="Shape" type="CollisionShape3D" parent="BenchSeat1/Body"]
+[node name="Body" type="StaticBody3D" parent="BenchSeat1" unique_id=1286644802]
+
+[node name="Shape" type="CollisionShape3D" parent="BenchSeat1/Body" unique_id=228526416]
 shape = SubResource("S160")
-[node name="BenchBack1" type="MeshInstance3D" parent="."]
-position = Vector3(23.65, 7, 39)
+
+[node name="BenchBack1" type="MeshInstance3D" parent="." unique_id=1180240056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.65, 7, 39)
 mesh = SubResource("M161")
 
-[node name="Body" type="StaticBody3D" parent="BenchBack1"]
-[node name="Shape" type="CollisionShape3D" parent="BenchBack1/Body"]
+[node name="Body" type="StaticBody3D" parent="BenchBack1" unique_id=627184431]
+
+[node name="Shape" type="CollisionShape3D" parent="BenchBack1/Body" unique_id=49610005]
 shape = SubResource("S161")
-[node name="BenchLeg1_-0.8" type="MeshInstance3D" parent="."]
-position = Vector3(24, 6.25, 38.2)
+
+[node name="BenchLeg1_-0.8" type="MeshInstance3D" parent="." unique_id=1139089082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 6.25, 38.2)
 mesh = SubResource("M162")
 
-[node name="Body" type="StaticBody3D" parent="BenchLeg1_-0.8"]
-[node name="Shape" type="CollisionShape3D" parent="BenchLeg1_-0.8/Body"]
+[node name="Body" type="StaticBody3D" parent="BenchLeg1_-0.8" unique_id=1958253996]
+
+[node name="Shape" type="CollisionShape3D" parent="BenchLeg1_-0.8/Body" unique_id=441251863]
 shape = SubResource("S162")
-[node name="BenchLeg1_0.8" type="MeshInstance3D" parent="."]
-position = Vector3(24, 6.25, 39.8)
+
+[node name="BenchLeg1_0.8" type="MeshInstance3D" parent="." unique_id=1012753581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 6.25, 39.8)
 mesh = SubResource("M163")
 
-[node name="Body" type="StaticBody3D" parent="BenchLeg1_0.8"]
-[node name="Shape" type="CollisionShape3D" parent="BenchLeg1_0.8/Body"]
+[node name="Body" type="StaticBody3D" parent="BenchLeg1_0.8" unique_id=1846225311]
+
+[node name="Shape" type="CollisionShape3D" parent="BenchLeg1_0.8/Body" unique_id=2036773184]
 shape = SubResource("S163")
-[node name="GetawayBody" type="MeshInstance3D" parent="."]
-position = Vector3(31, 6.6, 31)
+
+[node name="GetawayBody" type="MeshInstance3D" parent="." unique_id=695921491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 6.6, 31)
 mesh = SubResource("M164")
 
-[node name="Body" type="StaticBody3D" parent="GetawayBody"]
-[node name="Shape" type="CollisionShape3D" parent="GetawayBody/Body"]
+[node name="Body" type="StaticBody3D" parent="GetawayBody" unique_id=1758935154]
+
+[node name="Shape" type="CollisionShape3D" parent="GetawayBody/Body" unique_id=515318052]
 shape = SubResource("S164")
-[node name="GetawayCabin" type="MeshInstance3D" parent="."]
-position = Vector3(31, 7.25, 31)
+
+[node name="GetawayCabin" type="MeshInstance3D" parent="." unique_id=1278152531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 7.25, 31)
 mesh = SubResource("M165")
 
-[node name="Body" type="StaticBody3D" parent="GetawayCabin"]
-[node name="Shape" type="CollisionShape3D" parent="GetawayCabin/Body"]
+[node name="Body" type="StaticBody3D" parent="GetawayCabin" unique_id=37230583]
+
+[node name="Shape" type="CollisionShape3D" parent="GetawayCabin/Body" unique_id=557781657]
 shape = SubResource("S165")
-[node name="Wheel29.9829.7" type="MeshInstance3D" parent="."]
-position = Vector3(29.98, 6.35, 29.7)
+
+[node name="Wheel29.9829.7" type="MeshInstance3D" parent="." unique_id=943871436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.98, 6.35, 29.7)
 mesh = SubResource("M166")
 
-[node name="Body" type="StaticBody3D" parent="Wheel29.9829.7"]
-[node name="Shape" type="CollisionShape3D" parent="Wheel29.9829.7/Body"]
+[node name="Body" type="StaticBody3D" parent="Wheel29.9829.7" unique_id=650670308]
+
+[node name="Shape" type="CollisionShape3D" parent="Wheel29.9829.7/Body" unique_id=585357243]
 shape = SubResource("S166")
-[node name="Wheel29.9832.3" type="MeshInstance3D" parent="."]
-position = Vector3(29.98, 6.35, 32.3)
+
+[node name="Wheel29.9832.3" type="MeshInstance3D" parent="." unique_id=151492625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.98, 6.35, 32.3)
 mesh = SubResource("M167")
 
-[node name="Body" type="StaticBody3D" parent="Wheel29.9832.3"]
-[node name="Shape" type="CollisionShape3D" parent="Wheel29.9832.3/Body"]
+[node name="Body" type="StaticBody3D" parent="Wheel29.9832.3" unique_id=1373130685]
+
+[node name="Shape" type="CollisionShape3D" parent="Wheel29.9832.3/Body" unique_id=1074910295]
 shape = SubResource("S167")
-[node name="Wheel32.0229.7" type="MeshInstance3D" parent="."]
-position = Vector3(32.02, 6.35, 29.7)
+
+[node name="Wheel32.0229.7" type="MeshInstance3D" parent="." unique_id=1624840900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.02, 6.35, 29.7)
 mesh = SubResource("M168")
 
-[node name="Body" type="StaticBody3D" parent="Wheel32.0229.7"]
-[node name="Shape" type="CollisionShape3D" parent="Wheel32.0229.7/Body"]
+[node name="Body" type="StaticBody3D" parent="Wheel32.0229.7" unique_id=1611090306]
+
+[node name="Shape" type="CollisionShape3D" parent="Wheel32.0229.7/Body" unique_id=932200911]
 shape = SubResource("S168")
-[node name="Wheel32.0232.3" type="MeshInstance3D" parent="."]
-position = Vector3(32.02, 6.35, 32.3)
+
+[node name="Wheel32.0232.3" type="MeshInstance3D" parent="." unique_id=2083252808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.02, 6.35, 32.3)
 mesh = SubResource("M169")
 
-[node name="Body" type="StaticBody3D" parent="Wheel32.0232.3"]
-[node name="Shape" type="CollisionShape3D" parent="Wheel32.0232.3/Body"]
+[node name="Body" type="StaticBody3D" parent="Wheel32.0232.3" unique_id=1419139753]
+
+[node name="Shape" type="CollisionShape3D" parent="Wheel32.0232.3/Body" unique_id=597877533]
 shape = SubResource("S169")
-[node name="NorthBlock" type="MeshInstance3D" parent="."]
-position = Vector3(44, 11, -46)
+
+[node name="NorthBlock" type="MeshInstance3D" parent="." unique_id=510419333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 11, -46)
 mesh = SubResource("M170")
 
-[node name="Body" type="StaticBody3D" parent="NorthBlock"]
-[node name="Shape" type="CollisionShape3D" parent="NorthBlock/Body"]
+[node name="Body" type="StaticBody3D" parent="NorthBlock" unique_id=1578342459]
+
+[node name="Shape" type="CollisionShape3D" parent="NorthBlock/Body" unique_id=364536322]
 shape = SubResource("S170")
-[node name="SouthBlock" type="MeshInstance3D" parent="."]
-position = Vector3(44, 11, 56)
+
+[node name="SouthBlock" type="MeshInstance3D" parent="." unique_id=1891936971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 11, 56)
 mesh = SubResource("M171")
 
-[node name="Body" type="StaticBody3D" parent="SouthBlock"]
-[node name="Shape" type="CollisionShape3D" parent="SouthBlock/Body"]
+[node name="Body" type="StaticBody3D" parent="SouthBlock" unique_id=643059004]
+
+[node name="Shape" type="CollisionShape3D" parent="SouthBlock/Body" unique_id=626163571]
 shape = SubResource("S171")
-[node name="EastBoundary" type="MeshInstance3D" parent="."]
-position = Vector3(66, 10, 5)
+
+[node name="EastBoundary" type="MeshInstance3D" parent="." unique_id=625731327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 10, 5)
 mesh = SubResource("M172")
 
-[node name="Body" type="StaticBody3D" parent="EastBoundary"]
-[node name="Shape" type="CollisionShape3D" parent="EastBoundary/Body"]
+[node name="Body" type="StaticBody3D" parent="EastBoundary" unique_id=905389572]
+
+[node name="Shape" type="CollisionShape3D" parent="EastBoundary/Body" unique_id=331511968]
 shape = SubResource("S172")
-[node name="Daylight" type="DirectionalLight3D" parent="."]
-rotation_degrees = Vector3(-48, -30, 0)
-light_color = Color(1, 0.91, 0.79, 1)
+
+[node name="MoonLight" type="DirectionalLight3D" parent="." unique_id=673111097]
+transform = Transform3D(0.8660254, 0.25, -0.4330127, 0, 0.8660254, 0.5, 0.5, -0.4330127, 0.75, 0, 0, 0)
+light_color = Color(0.54901963, 0.6509804, 0.9019608, 1)
 light_energy = 0.65
 shadow_enabled = true
-directional_shadow_max_distance = 100
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1295533832]
+environment = SubResource("Environment_wt280")
 
-
-[node name="EdgeBarriers" type="StaticBody3D" parent="."]
+[node name="EdgeBarriers" type="StaticBody3D" parent="." unique_id=2020202841]
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("edge_barriers")
 west_edge = 18.196
 entrance_start = 17.3
 entrance_end = 35.0
+
+[node name="LampBulb0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.13, -32)
+cast_shadow = 0
+mesh = SubResource("LampBulbMesh")
+
+[node name="LampLight0" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 9.9, -32)
+light_color = Color(1, 0.76, 0.48, 1)
+light_energy = 3.5
+omni_range = 11.0
+omni_attenuation = 1.0
+
+[node name="LampBulb1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.13, -14)
+cast_shadow = 0
+mesh = SubResource("LampBulbMesh")
+
+[node name="LampLight1" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 9.9, -14)
+light_color = Color(1, 0.76, 0.48, 1)
+light_energy = 3.5
+omni_range = 11.0
+omni_attenuation = 1.0
+
+[node name="LampBulb2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.13, 4)
+cast_shadow = 0
+mesh = SubResource("LampBulbMesh")
+
+[node name="LampLight2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 9.9, 4)
+light_color = Color(1, 0.76, 0.48, 1)
+light_energy = 3.5
+omni_range = 11.0
+omni_attenuation = 1.0
+
+[node name="LampBulb3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.13, 36)
+cast_shadow = 0
+mesh = SubResource("LampBulbMesh")
+
+[node name="LampLight3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 9.9, 36)
+light_color = Color(1, 0.76, 0.48, 1)
+light_energy = 3.5
+omni_range = 11.0
+omni_attenuation = 1.0
+
+[node name="LampBulb4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 10.13, 51)
+cast_shadow = 0
+mesh = SubResource("LampBulbMesh")
+
+[node name="LampLight4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 9.9, 51)
+light_color = Color(1, 0.76, 0.48, 1)
+light_energy = 3.5
+omni_range = 11.0
+omni_attenuation = 1.0
