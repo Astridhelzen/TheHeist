@@ -167,6 +167,17 @@ func main_menu() -> void:
 func _leave() -> void:
 	# Stops the siren / alarm sounds that Sfx is still playing
 	Sfx.stop_all()
+	# Stop every sound in the level (alarm, music, footsteps) BEFORE unpausing.
+	# Otherwise the paused alarm starts again and keeps howling while the next
+	# level loads, which can take a few seconds.
+	var level := get_tree().current_scene
+	if level:
+		for sound in level.find_children("*", "AudioStreamPlayer", true, false):
+			sound.stop()
+		for sound in level.find_children("*", "AudioStreamPlayer3D", true, false):
+			sound.stop()
+		for sound in level.find_children("*", "AudioStreamPlayer2D", true, false):
+			sound.stop()
 	get_tree().paused = false
 
 

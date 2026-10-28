@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dmcigrmxode8h" path="res://Levels/All_Levels/coin.tscn" id="23_t73ms"]
 [ext_resource type="NavigationMesh" path="res://Levels/Level_1/GuardNavigation.tres" id="99_updated_nav"]
 [ext_resource type="PackedScene" path="res://Levels/Level_1/BankExterior.tscn" id="100_exterior"]
+[ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="200_font"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_51fql"]
 size = Vector3(20, 0.5, 12)
@@ -88,9 +89,11 @@ shape = SubResource("BoxShape_teller_wall")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.89006, 0)
 world_environment = NodePath("../BankExterior/WorldEnvironment")
 
-[node name="Exit" parent="." unique_id=1221361618 instance=ExtResource("10_w7qpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.886052, 0.60759145, 11.167503)
+[node name="Exit" parent="." unique_id=1221361618 node_paths=PackedStringArray("exit_sign") instance=ExtResource("10_w7qpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.886052, 0.8, 13.87)
 hint_text = "GET TO THE CAR"
+exit_sign = NodePath("../BankExterior/ExitSign")
+zone_size = Vector3(5.6, 3, 3.6)
 
 [node name="PauseMenu" parent="." unique_id=2000846933 instance=ExtResource("7_iyk75")]
 
@@ -111,12 +114,15 @@ script = ExtResource("20_bevuv")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.113947, -6.3924084, -17.132498)
 
 [node name="ExitSign" type="Label3D" parent="BankExterior" unique_id=1968387277]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 8.4, 31)
-pixel_size = 0.008
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 8.9, 31)
+pixel_size = 0.005
 billboard = 1
-modulate = Color(0.4, 1, 0.65, 1)
+modulate = Color(0.8980392, 0.6901961, 0.2901961, 1)
+outline_modulate = Color(0.035, 0.04, 0.05, 0.9)
 text = "ESCAPE"
-font_size = 64
+font = ExtResource("200_font")
+font_size = 96
+outline_size = 24
 
 [node name="Coins" type="Node" parent="." unique_id=1978939289]
 

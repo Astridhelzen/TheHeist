@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://buluiwhhqs54" path="res://Assets/Sounds/win_coins.mp3" id="18_win_sound"]
 [ext_resource type="AudioStream" uid="uid://dloiteadljyu5" path="res://Assets/Sounds/catched_police_siren.mp3" id="19_lose_sound"]
 [ext_resource type="PackedScene" uid="uid://dmcigrmxode8h" path="res://Levels/All_Levels/coin.tscn" id="20_e3avg"]
+[ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="200_font"]
 
 [node name="Level2" type="Node3D" unique_id=1306728427]
 script = ExtResource("14_rendering")
@@ -43,16 +44,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.856869, 6.821719, 30.10509
 [node name="CloakroomCardTable" parent="." unique_id=72752433 instance=ExtResource("5_card_table")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 6.3882875, 18.054283)
 
-[node name="BankExit" parent="." unique_id=715095059 instance=ExtResource("7_exit")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3, 7, 31)
+[node name="BankExit" parent="." unique_id=715095059 node_paths=PackedStringArray("exit_sign") instance=ExtResource("7_exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9, 7.6, 31)
+exit_sign = NodePath("../ExitSign")
+zone_size = Vector3(3.6, 3, 5.6)
 
 [node name="ExitSign" type="Label3D" parent="." unique_id=72195006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 8.4, 31)
-pixel_size = 0.008
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9, 9.2, 31)
+pixel_size = 0.005
 billboard = 1
-modulate = Color(0.4, 1, 0.65, 1)
+modulate = Color(0.8980392, 0.6901961, 0.2901961, 1)
+outline_modulate = Color(0.035, 0.04, 0.05, 0.9)
 text = "ESCAPE"
-font_size = 64
+font = ExtResource("200_font")
+font_size = 96
+outline_size = 24
 
 [node name="BankExterior" parent="." unique_id=608148303 instance=ExtResource("9_exterior")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0957737, 0.667366, 0)
