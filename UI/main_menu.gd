@@ -20,10 +20,12 @@ const MUTED = Color("87909f")
 var selected_level := 0
 var canvas: Control
 var cards: Array[Button] = []
-var new_heist: Button
+var _starting_level := false
 var settings: AcceptDialog
 var title_font = preload("res://UI/Fonts/title.tres")
-var menu_font = preload("res://UI/Fonts/menu.tres")
+const MENU_BUTTON = preload("res://UI/menu_button.tscn")
+const MENU_THEME = preload("res://UI/Themes/ui_theme.tres")
+var overline_font = preload("res://UI/Fonts/overline.tres")
 
 func panel(color: Color, border: Color, width: int = 1) -> StyleBoxFlat:
  var s = StyleBoxFlat.new()
@@ -45,6 +47,7 @@ func label_at(text_value: String, pos: Vector2, font_size: int, color: Color, fo
  return l
 
 func _ready() -> void:
+ theme = MENU_THEME
  Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
  Sfx.stop_all()
  canvas = Control.new()
@@ -56,32 +59,19 @@ func _ready() -> void:
  bg.color = Color("080c10")
  bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
  canvas.add_child(bg)
- label_at("A  S T E A L T H  G A M E", Vector2(76,65), 15, MUTED)
+ label_at("A STEALTH GAME", Vector2(76,65), 14, MUTED, overline_font)
  label_at("THE HEIST", Vector2(72,86), 108, Color("eef0f3"), title_font)
- label_at("Stay in the dark.", Vector2(78,211), 20, MUTED)
- var titles = ["START HEIST", "SETTINGS", "CREDITS", "QUIT"]
- for i in range(4):
-  var b = Button.new()
-  b.name = titles[i].replace(" ", "")
+ label_at("SELECT A LEVEL", Vector2(78,211), 16, MUTED)
+ var titles = ["SETTINGS", "CREDITS", "QUIT"]
+ var actions = [_on_settings, _on_credits, _on_quit]
+ for i in range(titles.size()):
+  var b = MENU_BUTTON.instantiate()
+  b.name = titles[i].capitalize()
   b.text = titles[i]
-  b.position = Vector2(48,296+i*53)
-  b.size = Vector2(240,47)
-  b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-  b.add_theme_font_override("font",menu_font)
-  b.add_theme_font_size_override("font_size",29)
-  b.add_theme_color_override("font_color", Color("11171c") if i==0 else MUTED)
-  b.add_theme_color_override("font_hover_color", Color.WHITE if i>0 else Color("11171c"))
-  b.add_theme_color_override("font_focus_color", Color.WHITE if i>0 else Color("11171c"))
-  var normal=panel(GOLD if i==0 else Color.TRANSPARENT,Color.TRANSPARENT,0)
-  normal.content_margin_left=20
-  b.add_theme_stylebox_override("normal",normal)
-  b.add_theme_stylebox_override("hover",panel(Color("f9d58a") if i==0 else Color("161e27"),GOLD,1))
-  b.add_theme_stylebox_override("focus",panel(Color.TRANSPARENT,GOLD,2))
+  b.position = Vector2(80,316+i*60)
+  b.size = Vector2(220,54)
   canvas.add_child(b)
-  if i==0:new_heist=b;b.pressed.connect(_on_new_heist)
-  elif i==1:b.pressed.connect(_on_settings)
-  elif i==2:b.pressed.connect(_on_credits)
-  else:b.pressed.connect(_on_quit)
+  b.pressed.connect(actions[i])
  var subtitles=["THE BANK","THE GRAND BANK","THE ROOFTOP","THE VAULT"]
  for i in range(4):
   var unlocked=Progress.is_level_unlocked(i+1)
@@ -116,10 +106,10 @@ func _ready() -> void:
    var icon=LockIcon.new();icon.position=Vector2(84,130);icon.size=Vector2(48,64);icon.mouse_filter=Control.MOUSE_FILTER_IGNORE;b.add_child(icon)
    b.tooltip_text="Complete Level 1 to unlock" if i==1 else "Coming soon"
   else:
-   b.pressed.connect(_select_level.bind(i))
+   b.pressed.connect(_start_level.bind(i))
    b.focus_entered.connect(_select_level.bind(i))
  _select_level(0)
- new_heist.grab_focus()
+ cards[0].grab_focus()
  resized.connect(_resize)
  _resize()
  _build_settings()
@@ -144,13 +134,20 @@ func _select_level(index: int) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
  if settings.visible:return
  if event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
-  _select_level(1-selected_level)
+  var next_level = 1-selected_level
+  if Progress.is_level_unlocked(next_level+1): cards[next_level].grab_focus()
   get_viewport().set_input_as_handled()
 
-func _on_new_heist() -> void:
- if not Progress.is_level_unlocked(selected_level+1):return
- new_heist.disabled=true
- get_tree().change_scene_to_file(first_level if selected_level==0 else second_level)
+func _start_level(index: int) -> void:
+ if _starting_level or index < 0 or index > 1 or not Progress.is_level_unlocked(index+1): return
+ _starting_level = true
+ _select_level(index)
+ for card in cards: card.disabled = true
+ var error = get_tree().change_scene_to_file(first_level if index==0 else second_level)
+ if error != OK:
+  _starting_level = false
+  for i in range(cards.size()): cards[i].disabled = not Progress.is_level_unlocked(i+1)
+  push_error("Could not start level: " + error_string(error))
 
 func _build_settings() -> void:
  settings=AcceptDialog.new();settings.title="SETTINGS";settings.min_size=Vector2i(360,160);add_child(settings)

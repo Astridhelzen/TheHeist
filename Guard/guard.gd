@@ -175,7 +175,7 @@ func _state_chase(_delta: float) -> void:
 
 	_walk_to(agent.get_next_path_position(), speed_run)
 
-	if global_position.distance_to(target.global_position) < attack_range:
+	if global_position.distance_to(target.global_position) < attack_range and _has_line_of_sight():
 		_enter_state(State.ATTACK)
 	elif not _can_see_player():
 		_enter_state(State.PURSUE)
@@ -191,7 +191,7 @@ func _state_pursue(delta: float) -> void:
 		_enter_state(State.CHASE)
 		return
 
-	if global_position.distance_to(target.global_position) < attack_range:
+	if global_position.distance_to(target.global_position) < attack_range and _has_line_of_sight():
 		_enter_state(State.ATTACK)
 		return
 
@@ -209,6 +209,12 @@ func _state_attack(delta: float) -> void:
 		return
 
 	_face_target()
+	# A wall or closing door must also cancel an attack already in progress.
+	if not _has_line_of_sight():
+		attack_timer = 0.0
+		anim.play("Run")
+		_enter_state(State.PURSUE)
+		return
 
 	# Spelaren smet undan, jaga vidare
 	var distance := global_position.distance_to(target.global_position)
