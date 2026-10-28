@@ -1,18 +1,11 @@
 [gd_scene format=3 uid="uid://pbrv2rmr02d8"]
 
 [ext_resource type="PackedScene" uid="uid://0p53oshjju6y" path="res://Levels/Level_1/Level_1.tscn" id="1_level"]
-[ext_resource type="Script" uid="uid://b58u4lfsm5vvs" path="res://Levels/Level_1/bank_collision.gd" id="2_mc20k"]
 
 [node name="Level1" unique_id=1303768095 instance=ExtResource("1_level")]
 
 [node name="Player" parent="." index="1" unique_id=1592885850]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.549233, 0, 16.640564)
-
-[node name="@StaticBody3D@20701" type="StaticBody3D" parent="NavigationRegion3D/BANK" parent_id_path=PackedInt32Array(2103767356) index="1753" unique_id=1078498772]
-script = ExtResource("2_mc20k")
-
-[node name="TellerWallCollision" parent="NavigationRegion3D/BANK" parent_id_path=PackedInt32Array(2103767356) index="1755" unique_id=418001588]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89, 0.9, 0.12)
 
 [node name="HeistComplete" parent="." index="10" unique_id=11929283]
 points_per_coin = null
