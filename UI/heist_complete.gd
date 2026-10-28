@@ -46,6 +46,8 @@ var _skipping := false
 var _last_tick_ms := 0
 var _medal_just_filled := false
 var _skip_hint: Label
+var _previous_best := 0
+var _new_best: Label
 
 var _medals: Array[Medal] = []
 var _medal_labels: Array[Label] = []
@@ -76,6 +78,10 @@ func show_win() -> void:
 	Progress.complete_level(level_number)
 	read_results()
 	_calculate_score()
+	# Save the best result for the level cards in the main menu
+	if level_number > 0:
+		_previous_best = Progress.get_best_score(level_number)
+		Progress.save_best(level_number, total_score, _medals_for(total_score))
 	_build()
 	open()
 	if win_sound:
@@ -91,6 +97,15 @@ func _calculate_score() -> void:
 	# Round to tens so the numbers look tidy
 	time_points = int(round(max_time_bonus * t / 10.0)) * 10
 	total_score = coin_points + time_points
+
+
+## How many gold coins (0-3) a score gives.
+func _medals_for(score: int) -> int:
+	var count := 0
+	for needed in medal_scores.slice(0, 3):
+		if score >= needed:
+			count += 1
+	return count
 
 
 # --------------------
@@ -147,6 +162,12 @@ func _build() -> void:
 	var score_name := add_label(score_row, "SCORE", OVERLINE_FONT, 14, MUTED)
 	score_name.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	score_name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	# "NEW BEST" next to the score, shown at the end if the record was beaten
+	_new_best = add_label(score_row, "NEW BEST", OVERLINE_FONT, 14, GOLD)
+	_new_best.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_new_best.modulate.a = 0.0
+	add_spacer(score_row, 0)
+	score_row.get_child(score_row.get_child_count() - 1).custom_minimum_size = Vector2(18, 0)
 	_score_label = add_label(score_row, "0", TITLE_FONT, 64, TEXT, HORIZONTAL_ALIGNMENT_RIGHT)
 
 	add_buttons_row()
@@ -279,6 +300,10 @@ func _finish() -> void:
 	_add_score(total_score - _score)
 	if _skipping and _next_medal > had_medals:
 		play_sound(medal_sound, 1.0 + (_next_medal - 1) * 0.12)
+
+	if level_number > 0 and total_score > _previous_best:
+		_new_best.modulate.a = 1.0
+		_pop(_new_best, 1.4)
 
 	await wait(0.45)
 	create_tween().tween_property(buttons, "modulate:a", 1.0, 0.25)

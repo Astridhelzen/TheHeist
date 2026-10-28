@@ -11,6 +11,21 @@ class LockIcon extends Control:
   draw_circle(Vector2(24,40),4,Color("10151b"))
   draw_rect(Rect2(22,40,4,10),Color("10151b"))
 
+## Three small gold coins on a level card: the best result on that level.
+class MedalRow extends Control:
+ var medals := 0
+ func _draw() -> void:
+  for i in range(3):
+   _draw_coin(Vector2(10 + i * 26, size.y / 2), i < medals)
+ func _draw_coin(c: Vector2, filled: bool) -> void:
+  if not filled:
+   draw_circle(c, 10, Color(0.06, 0.075, 0.09, 0.9))
+   draw_arc(c, 10, 0, TAU, 32, Color("3a4048"), 1.5, true)
+   return
+  draw_circle(c, 10, Color(0.76, 0.53, 0.15))
+  draw_circle(c, 8, Color(1.0, 0.79, 0.32))
+  draw_arc(c, 5.5, 0, TAU, 24, Color(0.84, 0.6, 0.18), 1.5, true)
+
 @export_file("*.tscn") var first_level: String = "res://Levels/Level_1/Level_1.tscn"
 @export_file("*.tscn") var second_level: String = "res://Level2.tscn"
 @export_file("*.tscn") var credits: String = "res://UI/credits.tscn"
@@ -102,6 +117,7 @@ func _ready() -> void:
   fade.texture=texture;b.add_child(fade)
   label_at("LEVEL "+str(i+1),Vector2(20,249),34,Color.WHITE if unlocked else MUTED,title_font,b)
   label_at(subtitles[i],Vector2(21,295),15,Color("c0c5cd") if unlocked else MUTED,null,b)
+  if unlocked:_add_best_result(b,i+1)
   if not unlocked:
    var icon=LockIcon.new();icon.position=Vector2(84,130);icon.size=Vector2(48,64);icon.mouse_filter=Control.MOUSE_FILTER_IGNORE;b.add_child(icon)
    b.tooltip_text="Complete Level 1 to unlock" if i==1 else "Coming soon"
@@ -113,6 +129,15 @@ func _ready() -> void:
  resized.connect(_resize)
  _resize()
  _build_settings()
+
+## Best result on a level card: filled gold coins + best score (saved by the score screen)
+func _add_best_result(card: Button, level: int) -> void:
+ var row=MedalRow.new();row.medals=Progress.get_best_medals(level)
+ row.position=Vector2(20,322);row.size=Vector2(80,22);row.mouse_filter=Control.MOUSE_FILTER_IGNORE;card.add_child(row)
+ var best=Progress.get_best_score(level)
+ if best<=0:return
+ var best_label=label_at("BEST "+str(best),Vector2(96,322),13,GOLD,null,card)
+ best_label.size=Vector2(100,20);best_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
 
 func _resize() -> void:
  if not canvas:return
