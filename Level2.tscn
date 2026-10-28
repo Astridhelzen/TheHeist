@@ -6,21 +6,20 @@
 [ext_resource type="PackedScene" path="res://Levels/Level_2/StairRamps.tscn" id="4_stairs"]
 [ext_resource type="PackedScene" path="res://Levels/Level_2/CloakroomCardTable.tscn" id="5_card_table"]
 [ext_resource type="PackedScene" uid="uid://c74vhqcjf5jd4" path="res://Assets/Models/Money/money.tscn" id="6_money"]
-[ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://exit.tscn" id="7_exit"]
+[ext_resource type="PackedScene" uid="uid://bk0hmfk8wlawf" path="res://Levels/Level_1_Files/exit.tscn" id="7_exit"]
 [ext_resource type="PackedScene" uid="uid://dfjeu8qtcaar8" path="res://UI/heist_complete.tscn" id="8_complete"]
 [ext_resource type="PackedScene" path="res://Levels/Level_2/BankExterior.tscn" id="9_exterior"]
 [ext_resource type="PackedScene" uid="uid://cn7h3oj1bmap" path="res://Guard/guard.tscn" id="10_guard"]
 [ext_resource type="NavigationMesh" path="res://Levels/Level_2/GuardNavigation.tres" id="11_nav"]
 [ext_resource type="PackedScene" uid="uid://bxqos7s3bjrpk" path="res://UI/caught.tscn" id="12_caught"]
-[ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://alarm_lighting.tscn" id="13_alarm"]
+[ext_resource type="PackedScene" uid="uid://b065iq3wagl1m" path="res://Levels/Level_1_Files/alarm_lighting.tscn" id="13_alarm"]
+[ext_resource type="Script" uid="uid://d06uhspygay34" path="res://Levels/Level_2/level2_rendering.gd" id="14_rendering"]
+[ext_resource type="AudioStream" uid="uid://kgvmcp4uvo4x" path="res://Assets/Sounds/security_alarm.mp3" id="15_alarm_sound"]
+[ext_resource type="Script" uid="uid://ddf15g2k7p7o8" path="res://Levels/Level_1_Files/alarm_sound.gd" id="16_alarm_script"]
+[ext_resource type="AudioStream" uid="uid://bciqj7qb0p2ti" path="res://Assets/Sounds/ka_ching.mp3" id="17_money_sound"]
+[ext_resource type="AudioStream" uid="uid://buluiwhhqs54" path="res://Assets/Sounds/win_coins.mp3" id="18_win_sound"]
+[ext_resource type="AudioStream" uid="uid://dloiteadljyu5" path="res://Assets/Sounds/catched_police_siren.mp3" id="19_lose_sound"]
 
-[ext_resource type="Script" path="res://Levels/Level_2/level2_rendering.gd" id="14_rendering"]
-
-[ext_resource type="AudioStream" path="res://Assets/Sounds/security_alarm.mp3" id="15_alarm_sound"]
-[ext_resource type="Script" path="res://Levels/Level_1_Files/alarm_sound.gd" id="16_alarm_script"]
-[ext_resource type="AudioStream" path="res://Assets/Sounds/ka_ching.mp3" id="17_money_sound"]
-[ext_resource type="AudioStream" path="res://Assets/Sounds/win_coins.mp3" id="18_win_sound"]
-[ext_resource type="AudioStream" path="res://Assets/Sounds/catched_police_siren.mp3" id="19_lose_sound"]
 [node name="Level2" type="Node3D" unique_id=1306728427]
 script = ExtResource("14_rendering")
 
@@ -31,8 +30,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07299805, 0.5347786, -0.239
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.285, 1.3880231, -41.421547)
 
 [node name="VaultMoney" parent="BasementVault" unique_id=43519765 instance=ExtResource("6_money")]
-pickup_sound = ExtResource("17_money_sound")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011736, 1.17, -17.906353)
+pickup_sound = ExtResource("17_money_sound")
 
 [node name="Player" parent="." unique_id=1592885850 instance=ExtResource("3_s8dg4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.934248, 6.821719, 21.6)
@@ -54,7 +53,6 @@ text = "ESCAPE"
 font_size = 64
 
 [node name="HeistComplete" parent="." unique_id=1419619530 instance=ExtResource("8_complete")]
-level_number = 2
 win_sound = ExtResource("18_win_sound")
 
 [node name="BankExterior" parent="." unique_id=608148303 instance=ExtResource("9_exterior")]
@@ -103,6 +101,6 @@ patrol_wait_time = 2.0
 [node name="AlarmLighting" parent="." unique_id=120169043 node_paths=PackedStringArray("world_environment") instance=ExtResource("13_alarm")]
 world_environment = NodePath("../BankExterior/WorldEnvironment")
 
-[node name="AlarmSound" type="AudioStreamPlayer" parent="."]
+[node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=1329164841]
 stream = ExtResource("15_alarm_sound")
 script = ExtResource("16_alarm_script")
