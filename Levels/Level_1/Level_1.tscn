@@ -35,6 +35,7 @@ size = Vector3(3.78, 2.8, 0.24)
 [node name="AccessCard" parent="." unique_id=62530214 instance=ExtResource("1_tymuv")]
 player_path = NodePath("../Player")
 bank_path = NodePath("../NavigationRegion3D/BANK")
+open_angle = 90.0
 pickup_sound = ExtResource("2_e8tst")
 scan_sound = ExtResource("3_0h55w")
 vault_open_sound = ExtResource("4_14k1m")
