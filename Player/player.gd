@@ -22,6 +22,7 @@ var _model_rest_height := 0.0
 
 
 func _ready() -> void:
+	set_collision_mask_value(6, true) # Exterior edge barriers; camera keeps its own mask.
 	_model_rest_height = character_model.position.y
 	floor_snap_length = 0.35
 	floor_constant_speed = true
@@ -36,6 +37,7 @@ func _ready() -> void:
 	_add_animation(library, &"walking", $Walking/AnimationPlayer)
 	_add_animation(library, &"running", $Running/AnimationPlayer)
 	_add_animation(library, &"sneaking", $Sneaking/AnimationPlayer)
+	_add_crouch_idle(library)
 	animation_player.add_animation_library(&"movement", library)
 	animation_player.play(&"movement/idle")
 	$AudioListener3D.make_current()
@@ -65,6 +67,32 @@ func _add_animation(library: AnimationLibrary, anim_name: StringName, source: An
 	var animation := source.get_animation(&"mixamo_com").duplicate() as Animation
 	animation.loop_mode = Animation.LOOP_LINEAR
 	library.add_animation(anim_name, animation)
+
+
+func _add_crouch_idle(library: AnimationLibrary) -> void:
+	# Hold a crouched pose instead of playing footsteps while stationary.
+	# This can later be replaced by a dedicated crouch-idle animation.
+	var source := library.get_animation(&"sneaking")
+	var idle := Animation.new()
+	idle.length = 1.0
+	idle.loop_mode = Animation.LOOP_LINEAR
+	var sample_time := source.length * 0.253
+	for track in range(source.get_track_count()):
+		var kind := source.track_get_type(track)
+		var value: Variant
+		match kind:
+			Animation.TYPE_POSITION_3D:
+				value = source.position_track_interpolate(track, sample_time)
+			Animation.TYPE_ROTATION_3D:
+				value = source.rotation_track_interpolate(track, sample_time)
+			Animation.TYPE_SCALE_3D:
+				value = source.scale_track_interpolate(track, sample_time)
+			_:
+				continue
+		var idle_track := idle.add_track(kind)
+		idle.track_set_path(idle_track, source.track_get_path(track))
+		idle.track_insert_key(idle_track, 0.0, value)
+	library.add_animation(&"crouch_idle", idle)
 
 
 func _physics_process(delta: float) -> void:
@@ -122,7 +150,7 @@ func _physics_process(delta: float) -> void:
 	# Shift = springa, Ctrl eller C = smyga. Håller man båda vinner springet.
 	var is_moving := move_direction != Vector3.ZERO
 	var is_running := is_moving and Input.is_key_pressed(KEY_SHIFT)
-	is_sneaking = is_moving and not is_running \
+	is_sneaking = not is_running \
 			and (Input.is_key_pressed(KEY_CTRL) or Input.is_key_pressed(KEY_C))
 
 	var speed := walk_speed
@@ -153,6 +181,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		velocity.z = 0
+		if is_sneaking:
+			next_animation = &"movement/crouch_idle"
 
 	move_and_slide()
 	if not is_on_floor() and velocity.y <= 0.0:

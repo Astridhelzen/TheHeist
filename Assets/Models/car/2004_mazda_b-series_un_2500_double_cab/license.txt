@@ -1,0 +1,11 @@
+Model Information:
+* title:	2004 Mazda B-Series UN 2500 Double Cab
+* source:	https://sketchfab.com/3d-models/2004-mazda-b-series-un-2500-double-cab-e25bd7759aa5478b9ea3d0b1622bdcfc
+* author:	Res1n (https://sketchfab.com/Res1n)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "2004 Mazda B-Series UN 2500 Double Cab" (https://sketchfab.com/3d-models/2004-mazda-b-series-un-2500-double-cab-e25bd7759aa5478b9ea3d0b1622bdcfc) by Res1n (https://sketchfab.com/Res1n) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
