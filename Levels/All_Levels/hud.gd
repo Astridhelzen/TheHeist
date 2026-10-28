@@ -1,7 +1,7 @@
 extends Control
 ## The game's HUD. One HUD for all on-screen instructions:
 ## - the current objective (top right)
-## - short messages, e.g. the intro tips (top centre)
+## - short messages, e.g. the intro tips (bottom centre)
 ## - interaction prompts like "[E] Pick up access card" (bottom centre)
 ## - the coin counter (under the objective)
 ## - the level timer (top left)
@@ -12,7 +12,9 @@ extends Control
 
 ## Shown one after another when the level starts.
 @export var intro_messages: Array[String] = [
+ "Don't let the guard see you in the light",
  "Hold Shift to run",
+ "Don't let the guard hear you",
  "Hold Ctrl to sneak",
 ]
 ## Start the timer as soon as the level loads. Turn off if something else
@@ -121,7 +123,7 @@ func _draw() -> void:
  if coins_total > 0:
   _draw_coins(width)
  if not notice.is_empty():
-  _draw_notice(width)
+  _draw_notice(width, height)
  if not prompt.is_empty():
   _draw_prompt(width, height)
  draw_set_transform(Vector2.ZERO)
@@ -169,11 +171,13 @@ func _draw_coins(width: float) -> void:
  var color := ACCENT if coins_collected == coins_total else TEXT
  _draw_text(text, Vector2(center.x - 22 - text_width, rect.position.y + 32 + (grow - 1.0) * 8), size_px, color, _big())
 
-func _draw_notice(width: float) -> void:
+func _draw_notice(width: float, height: float) -> void:
  var text := notice.to_upper()
  var text_width := _big().get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 24).x
  # Same height on screen as the objective box (centred next to it)
- var rect := Rect2(width / 2 - (text_width + 64) / 2, 38, text_width + 64, 52)
+ # Bottom centre. If an [E] prompt is showing, the message sits just above it.
+ var y := height - 112 if prompt.is_empty() else height - 176
+ var rect := Rect2(width / 2 - (text_width + 64) / 2, y, text_width + 64, 52)
  _panel(rect)
  _triangle(rect.position + Vector2(20, 20))
  _draw_text(text, rect.position + Vector2(42, 35), 24, TEXT, _big())

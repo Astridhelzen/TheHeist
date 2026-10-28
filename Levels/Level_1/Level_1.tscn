@@ -41,7 +41,7 @@ scan_sound = ExtResource("3_0h55w")
 vault_open_sound = ExtResource("4_14k1m")
 
 [node name="Player" parent="." unique_id=1592885850 instance=ExtResource("5_mf06b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95959926, 0, 4.3273373)
+transform = Transform3D(0.2546548, 0, -0.967032, 0, 1, 0, 0.967032, 0, 0.2546548, -7.1106887, 0, 17.374138)
 
 [node name="Guard" parent="." unique_id=1780379191 node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_4ekfm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.485465, 0, 2.3672814)
@@ -140,5 +140,23 @@ transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14
 
 [node name="Coin6" parent="Coins" unique_id=1162116674 instance=ExtResource("23_t73ms")]
 transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 7.890221, -0.32249856, -0.70357585)
+
+[node name="Coin8" parent="Coins" unique_id=879656204 instance=ExtResource("23_t73ms")]
+transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.1725879, -0.32249856, 13.381559)
+
+[node name="Coin12" parent="Coins" unique_id=1707609200 instance=ExtResource("23_t73ms")]
+transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.1725879, -0.32249856, 9.913719)
+
+[node name="Coin13" parent="Coins" unique_id=94033978 instance=ExtResource("23_t73ms")]
+transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.1725879, -0.32249856, 5.9935036)
+
+[node name="Coin9" parent="Coins" unique_id=1404737427 instance=ExtResource("23_t73ms")]
+transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.0162659, -0.32249856, 16.939121)
+
+[node name="Coin10" parent="Coins" unique_id=974727929 instance=ExtResource("23_t73ms")]
+transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -1.6775887, -0.32249856, 16.939121)
+
+[node name="Coin11" parent="Coins" unique_id=555296530 instance=ExtResource("23_t73ms")]
+transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -5.1229925, -0.32249856, 16.939121)
 
 [editable path="Exit"]

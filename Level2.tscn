@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011736, 1.17, -17.906353)
 pickup_sound = ExtResource("17_money_sound")
 
 [node name="Player" parent="." unique_id=1592885850 instance=ExtResource("3_s8dg4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.934248, 6.821719, 21.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.856869, 6.821719, 30.105095)
 
 [node name="UpperStairRamps" parent="." unique_id=1006890989 instance=ExtResource("4_stairs")]
 
@@ -98,7 +98,16 @@ patrol_wait_time = 2.0
 world_environment = NodePath("../BankExterior/WorldEnvironment")
 
 [node name="HeistComplete" parent="." unique_id=1419619530 instance=ExtResource("8_complete")]
+next_level = null
 win_sound = ExtResource("18_win_sound")
+points_per_coin = null
+max_time_bonus = null
+par_time = null
+slow_time = null
+medal_scores = null
+medal_pause = null
+skippable = null
+tick_volume_db = null
 level_number = 2
 
 [node name="Caught" parent="." unique_id=1124289801 instance=ExtResource("12_caught")]
