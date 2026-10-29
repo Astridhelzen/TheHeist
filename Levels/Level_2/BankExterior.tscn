@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cd7ddp127yylh" path="res://Levels/exterior_boundaries.gd" id="edge_barriers"]
 
+[ext_resource type="PackedScene" path="res://Levels/All_Levels/StreetExtension.tscn" id="street_extension"]
+
 [sub_resource type="StandardMaterial3D" id="Road"]
 albedo_color = Color(0.1, 0.12, 0.15, 1)
 roughness = 0.88
@@ -1892,24 +1894,6 @@ mesh = SubResource("M169")
 [node name="Shape" type="CollisionShape3D" parent="Wheel32.0232.3/Body" unique_id=597877533]
 shape = SubResource("S169")
 
-[node name="NorthBlock" type="MeshInstance3D" parent="." unique_id=510419333]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 11, -46)
-mesh = SubResource("M170")
-
-[node name="Body" type="StaticBody3D" parent="NorthBlock" unique_id=1578342459]
-
-[node name="Shape" type="CollisionShape3D" parent="NorthBlock/Body" unique_id=364536322]
-shape = SubResource("S170")
-
-[node name="SouthBlock" type="MeshInstance3D" parent="." unique_id=1891936971]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 11, 56)
-mesh = SubResource("M171")
-
-[node name="Body" type="StaticBody3D" parent="SouthBlock" unique_id=643059004]
-
-[node name="Shape" type="CollisionShape3D" parent="SouthBlock/Body" unique_id=626163571]
-shape = SubResource("S171")
-
 [node name="EastBoundary" type="MeshInstance3D" parent="." unique_id=625731327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 10, 5)
 mesh = SubResource("M172")
@@ -1995,3 +1979,5 @@ light_color = Color(1, 0.76, 0.48, 1)
 light_energy = 3.5
 omni_range = 11.0
 omni_attenuation = 1.0
+
+[node name="StreetExtension" parent="." instance=ExtResource("street_extension")]

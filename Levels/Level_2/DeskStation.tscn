@@ -1,0 +1,200 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Guard/guard.tscn" id="guard"]
+[ext_resource type="Script" path="res://Guard/seated_guard.gd" id="seated"]
+
+[sub_resource type="StandardMaterial3D" id="Desk"]
+albedo_color = Color(0.22, 0.17, 0.12, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="Metal"]
+albedo_color = Color(0.08, 0.09, 0.1, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="Seat"]
+albedo_color = Color(0.12, 0.16, 0.2, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="Screen"]
+albedo_color = Color(0.05, 0.32, 0.5, 1)
+roughness = 0.85
+emission_enabled = true
+emission = Color(0.08, 0.5, 0.8, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="StandardMaterial3D" id="Text"]
+albedo_color = Color(0.2, 0.75, 0.8, 1)
+roughness = 0.85
+emission_enabled = true
+emission = Color(0.08, 0.5, 0.8, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="m1"]
+size = Vector3(0.58, 0.1, 0.58)
+material = SubResource("Seat")
+
+[sub_resource type="BoxMesh" id="m2"]
+size = Vector3(0.58, 0.65, 0.09)
+material = SubResource("Seat")
+
+[sub_resource type="BoxMesh" id="m3"]
+size = Vector3(0.05, 0.4, 0.05)
+material = SubResource("Metal")
+
+[sub_resource type="BoxMesh" id="m4"]
+size = Vector3(0.05, 0.4, 0.05)
+material = SubResource("Metal")
+
+[sub_resource type="BoxMesh" id="m5"]
+size = Vector3(0.05, 0.4, 0.05)
+material = SubResource("Metal")
+
+[sub_resource type="BoxMesh" id="m6"]
+size = Vector3(0.05, 0.4, 0.05)
+material = SubResource("Metal")
+
+[sub_resource type="BoxShape3D" id="s7"]
+size = Vector3(0.58, 0.6, 0.58)
+
+[sub_resource type="BoxMesh" id="m8"]
+size = Vector3(1.65, 0.1, 0.75)
+material = SubResource("Desk")
+
+[sub_resource type="BoxMesh" id="m9"]
+size = Vector3(0.1, 0.76, 0.6)
+material = SubResource("Metal")
+
+[sub_resource type="BoxMesh" id="m10"]
+size = Vector3(0.1, 0.76, 0.6)
+material = SubResource("Metal")
+
+[sub_resource type="BoxShape3D" id="s11"]
+size = Vector3(1.65, 0.8, 0.75)
+
+[sub_resource type="BoxMesh" id="m12"]
+size = Vector3(0.67, 0.44, 0.06)
+material = SubResource("Metal")
+
+[sub_resource type="BoxMesh" id="m13"]
+size = Vector3(0.6, 0.36, 0.012)
+material = SubResource("Screen")
+
+[sub_resource type="BoxMesh" id="m14"]
+size = Vector3(0.06, 0.18, 0.06)
+material = SubResource("Metal")
+
+[sub_resource type="BoxMesh" id="m15"]
+size = Vector3(0.55, 0.035, 0.18)
+material = SubResource("Metal")
+
+[sub_resource type="BoxMesh" id="m16"]
+size = Vector3(0.38, 0.012, 0.006)
+material = SubResource("Text")
+
+[sub_resource type="BoxMesh" id="m17"]
+size = Vector3(0.33, 0.012, 0.006)
+material = SubResource("Text")
+
+[sub_resource type="BoxMesh" id="m18"]
+size = Vector3(0.28, 0.012, 0.006)
+material = SubResource("Text")
+
+[sub_resource type="BoxMesh" id="m19"]
+size = Vector3(0.22999999999999998, 0.012, 0.006)
+material = SubResource("Text")
+
+[node name="DeskStation" type="Node3D"]
+
+[node name="Chair" type="Node3D" parent="."]
+
+[node name="Seat" type="MeshInstance3D" parent="Chair"]
+position = Vector3(0, 0.44, 0)
+mesh = SubResource("m1")
+
+[node name="Back" type="MeshInstance3D" parent="Chair"]
+position = Vector3(0, 0.78, 0.25)
+mesh = SubResource("m2")
+
+[node name="Leg2" type="MeshInstance3D" parent="Chair"]
+position = Vector3(-0.23, 0.2, -0.23)
+mesh = SubResource("m3")
+
+[node name="Leg3" type="MeshInstance3D" parent="Chair"]
+position = Vector3(-0.23, 0.2, 0.23)
+mesh = SubResource("m4")
+
+[node name="Leg4" type="MeshInstance3D" parent="Chair"]
+position = Vector3(0.23, 0.2, -0.23)
+mesh = SubResource("m5")
+
+[node name="Leg5" type="MeshInstance3D" parent="Chair"]
+position = Vector3(0.23, 0.2, 0.23)
+mesh = SubResource("m6")
+
+[node name="Body" type="StaticBody3D" parent="Chair"]
+
+[node name="Shape" type="CollisionShape3D" parent="Chair/Body"]
+position = Vector3(0, 0.3, 0)
+shape = SubResource("s7")
+
+[node name="Desk" type="Node3D" parent="."]
+
+[node name="Top" type="MeshInstance3D" parent="Desk"]
+position = Vector3(0, 0.78, -1.05)
+mesh = SubResource("m8")
+
+[node name="Leg8" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.7, 0.38, -1.05)
+mesh = SubResource("m9")
+
+[node name="Leg9" type="MeshInstance3D" parent="Desk"]
+position = Vector3(0.7, 0.38, -1.05)
+mesh = SubResource("m10")
+
+[node name="Body" type="StaticBody3D" parent="Desk"]
+
+[node name="Shape" type="CollisionShape3D" parent="Desk/Body"]
+position = Vector3(0, 0.4, -1.05)
+shape = SubResource("s11")
+
+[node name="Monitor" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.4, 1.16, -1.22)
+mesh = SubResource("m12")
+
+[node name="Display" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.4, 1.16, -1.185)
+mesh = SubResource("m13")
+
+[node name="Stand" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.4, 0.92, -1.22)
+mesh = SubResource("m14")
+
+[node name="Keyboard" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.25, 0.845, -0.88)
+mesh = SubResource("m15")
+
+[node name="DisplayLine0" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.44, 1.27, -1.176)
+mesh = SubResource("m16")
+
+[node name="DisplayLine1" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.44, 1.205, -1.176)
+mesh = SubResource("m17")
+
+[node name="DisplayLine2" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.44, 1.1400000000000001, -1.176)
+mesh = SubResource("m18")
+
+[node name="DisplayLine3" type="MeshInstance3D" parent="Desk"]
+position = Vector3(-0.44, 1.075, -1.176)
+mesh = SubResource("m19")
+
+[node name="ScreenGlow" type="OmniLight3D" parent="Desk"]
+position = Vector3(-0.4,1.25,-0.9)
+light_color = Color(0.25,0.65,1,1)
+light_energy = 1.1
+omni_range = 3.5
+shadow_enabled = true
+
+[node name="Guard" parent="." instance=ExtResource("guard")]
+script = ExtResource("seated")
