@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bw00ysdwnq7o7" path="res://Assets/Sounds/footstep_concrete_002.ogg" id="10_dkpta"]
 [ext_resource type="AudioStream" uid="uid://by53nmi6mct5i" path="res://Assets/Sounds/footstep_concrete_003.ogg" id="11_lfmf2"]
 [ext_resource type="AudioStream" uid="uid://c5kousnqjcjqg" path="res://Assets/Sounds/footstep_concrete_004.ogg" id="12_pisgm"]
+[ext_resource type="Script" uid="uid://bsa0pqfn4nssg" path="res://Player/player_outline.gd" id="50_outline"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mq8aq"]
 radius = 0.28
@@ -330,6 +331,15 @@ animation_player = NodePath("../Standing_Idle/AnimationPlayer")
 audio = NodePath("../FootstepSound")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=504938903]
+
+[node name="Outline" type="Node" parent="." unique_id=1879063814 node_paths=PackedStringArray("model")]
+script = ExtResource("50_outline")
+model = NodePath("../Standing_Idle")
+rim_color = Color(0.9999997, 0.9348585, 0.8382211, 1)
+rim_strength = 0.05
+rim_width = 3.0
+light_energy = 0.025
+light_range = 3.0
 
 [editable path="Standing_Idle"]
 [editable path="Sneaking"]
