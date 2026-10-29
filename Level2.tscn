@@ -132,16 +132,10 @@ patrol_points = [NodePath("../PatrolPoints/UpstairEast"), NodePath("../PatrolPoi
 world_environment = NodePath("../BankExterior/WorldEnvironment")
 
 [node name="HeistComplete" parent="." unique_id=1419619530 instance=ExtResource("8_complete")]
-next_level = null
 win_sound = ExtResource("18_win_sound")
-points_per_coin = null
-max_time_bonus = null
 par_time = 120.0
 slow_time = 180.0
 medal_scores = Array[int]([1800, 2800, 4000])
-medal_pause = null
-skippable = null
-tick_volume_db = null
 level_number = 2
 
 [node name="Caught" parent="." unique_id=1124289801 instance=ExtResource("12_caught")]
