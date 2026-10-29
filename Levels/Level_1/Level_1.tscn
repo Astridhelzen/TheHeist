@@ -124,7 +124,8 @@ level_number = 1
 [node name="HeistComplete" parent="." unique_id=11929283 instance=ExtResource("11_wjvmx")]
 next_level = "uid://db6k0tilc6tle"
 win_sound = ExtResource("18_0h55w")
-medal_scores = Array[int]([1000, 1600, 2300])
+par_time = 30.0
+slow_time = 120.0
 level_number = 1
 
 [node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=1336620955]
@@ -146,44 +147,38 @@ outline_size = 24
 
 [node name="Coins" type="Node" parent="." unique_id=1978939289]
 
-[node name="Coin" parent="Coins" unique_id=442464435 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -1.0511643, -0.32249856, 3.1068788)
+[node name="Coin1" parent="Coins" unique_id=2010697668 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.32, 17)
 
-[node name="Coin7" parent="Coins" unique_id=917269088 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.4967626, -0.32249856, 3.1068788)
+[node name="Coin2" parent="Coins" unique_id=1627573328 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, -0.32, 13.5)
 
-[node name="Coin2" parent="Coins" unique_id=929438558 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -3.888228, -0.32249856, 3.1068788)
+[node name="Coin3" parent="Coins" unique_id=283651421 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, -0.32, 9.8)
 
-[node name="Coin3" parent="Coins" unique_id=1624816951 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -7.29775, -0.32249856, 3.1068788)
+[node name="Coin5" parent="Coins" unique_id=29129212 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.32, 2.75)
 
-[node name="Coin4" parent="Coins" unique_id=227643989 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -7.242468, -0.32249856, -0.70357585)
+[node name="Coin6" parent="Coins" unique_id=618834706 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.32, 2.75)
 
-[node name="Coin5" parent="Coins" unique_id=1393010729 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 3.7596064, -0.32249856, -0.70357585)
+[node name="Coin7" parent="Coins" unique_id=937874346 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32, 2.75)
 
-[node name="Coin6" parent="Coins" unique_id=1162116674 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 7.890221, -0.32249856, -0.70357585)
+[node name="Coin8" parent="Coins" unique_id=794899768 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.32, 2.75)
 
-[node name="Coin8" parent="Coins" unique_id=879656204 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.1725879, -0.32249856, 13.381559)
+[node name="Coin9" parent="Coins" unique_id=1863272148 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.32, 2.75)
 
-[node name="Coin12" parent="Coins" unique_id=1707609200 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.1725879, -0.32249856, 9.913719)
+[node name="Coin10" parent="Coins" unique_id=1776480933 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7, -0.32, -0.6)
 
-[node name="Coin13" parent="Coins" unique_id=94033978 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.1725879, -0.32249856, 5.9935036)
+[node name="Coin11" parent="Coins" unique_id=628260225 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, -0.32, -0.6)
 
-[node name="Coin9" parent="Coins" unique_id=1404737427 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, 1.0162659, -0.32249856, 16.939121)
-
-[node name="Coin10" parent="Coins" unique_id=974727929 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -1.6775887, -0.32249856, 16.939121)
-
-[node name="Coin11" parent="Coins" unique_id=555296530 instance=ExtResource("23_t73ms")]
-transform = Transform3D(0.14377196, 0, 0.98961085, 0, 1, 0, -0.98961085, 0, 0.14377196, -5.1229925, -0.32249856, 16.939121)
+[node name="Coin12" parent="Coins" unique_id=265323704 instance=ExtResource("23_t73ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9, -0.32, -0.6)
 
 [node name="EntranceLamp" type="Node3D" parent="." unique_id=504032742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 2.75, 7.15)

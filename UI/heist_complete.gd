@@ -19,7 +19,11 @@ const Progress = preload("res://Managers/level_progress.gd")
 @export var par_time: float = 90.0
 ## Done in this many seconds or slower = no time bonus. In between it goes down evenly.
 @export var slow_time: float = 300.0
-## The score needed for coin 1, 2 and 3.
+## Work out the limits for the gold coins from the number of coins in the level:
+## 3 = every coin and done within Par Time, 2 = 70 % of that, 1 = 45 %.
+## Turn off to type your own limits in Medal Scores.
+@export var auto_medal_scores := true
+## The score needed for coin 1, 2 and 3 (only used when Auto Medal Scores is off).
 @export var medal_scores: Array[int] = [600, 1100, 1500]
 ## How long the counting stops when a gold coin fills in, so you see each one.
 @export var medal_pause: float = 0.6
@@ -77,6 +81,8 @@ func show_win() -> void:
 		return
 	Progress.complete_level(level_number)
 	read_results()
+	if auto_medal_scores:
+		_set_auto_medal_scores()
 	_calculate_score()
 	# Save the best result for the level cards in the main menu
 	if level_number > 0:
@@ -97,6 +103,17 @@ func _calculate_score() -> void:
 	# Round to tens so the numbers look tidy
 	time_points = int(round(max_time_bonus * t / 10.0)) * 10
 	total_score = coin_points + time_points
+
+
+## The best possible score is every coin plus the full time bonus.
+## Only that gives the third gold coin.
+func _set_auto_medal_scores() -> void:
+	var best := coins_total * points_per_coin + max_time_bonus
+	medal_scores = [_round_to_ten(best * 0.45), _round_to_ten(best * 0.7), best]
+
+
+func _round_to_ten(value: float) -> int:
+	return int(round(value / 10.0)) * 10
 
 
 ## How many gold coins (0-3) a score gives.
