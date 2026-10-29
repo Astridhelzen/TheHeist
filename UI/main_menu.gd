@@ -168,13 +168,8 @@ func _start_level(index: int) -> void:
  _starting_level = true
  _select_level(index)
  for card in cards: card.disabled = true
- get_tree().set_meta("arrival_level", first_level if index==0 else second_level)
- var error = get_tree().change_scene_to_file("res://Cinematics/arrival_intro.tscn")
- if error != OK:
-  get_tree().remove_meta("arrival_level")
-  _starting_level = false
-  for i in range(cards.size()): cards[i].disabled = not Progress.is_level_unlocked(i+1)
-  push_error("Could not start level: " + error_string(error))
+ # The loading screen loads the level in the background, then plays the arrival intro
+ LoadingScreen.open(get_tree(), first_level if index==0 else second_level, index+1)
 
 func _build_settings() -> void:
  settings=AcceptDialog.new();settings.title="SETTINGS";settings.min_size=Vector2i(360,160);add_child(settings)

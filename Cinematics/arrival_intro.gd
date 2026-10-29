@@ -20,6 +20,12 @@ var elapsed := 0.0
 var finished := false
 var stepping_out := false
 var wheel_axles: Array[Node3D] = []
+# Sound: engine that follows the car's speed, a tension drone, and the door
+var engine_sound: AudioStreamPlayer
+var tension_sound: AudioStreamPlayer
+var door_sound: AudioStreamPlayer
+# The coins are hidden while the car drives in, and pop up when the game starts
+var hidden_coins: Array[Node3D] = []
 
 func _ready() -> void:
  var path: String = get_tree().get_meta("arrival_level", DEFAULT_LEVEL)
@@ -50,6 +56,8 @@ func _ready() -> void:
  add_child(camera)
  camera.make_current()
  _build_overlay()
+ _build_audio()
+ _hide_coins()
  Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
  _update_shot(0.0)
 
@@ -116,6 +124,36 @@ func _build_overlay() -> void:
  fade.color = Color.BLACK
  fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
+func _build_audio() -> void:
+ engine_sound = _sound("res://Assets/Sounds/car_engine_loop.wav", -60.0, true)
+ tension_sound = _sound("res://Assets/Sounds/intro_tension.wav", -8.0, false)
+ door_sound = _sound("res://Assets/Sounds/car_door_close.wav", -6.0, false)
+ if engine_sound: engine_sound.play()
+ if tension_sound: tension_sound.play()
+
+func _sound(path: String, volume: float, loop: bool) -> AudioStreamPlayer:
+ if not ResourceLoader.exists(path): return null
+ var stream = load(path)
+ if loop and stream is AudioStreamWAV:
+  stream = stream.duplicate()
+  stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+  stream.loop_end = int(stream.get_length() * stream.mix_rate)
+ var sound := AudioStreamPlayer.new()
+ sound.stream = stream
+ sound.volume_db = volume
+ add_child(sound)
+ return sound
+
+## Engine: louder and higher while driving, settles into a low idle when parked.
+func _update_engine(time: float, progress: float) -> void:
+ if engine_sound == null: return
+ var speed := 1.0 - progress
+ var fade_in := clampf(time / 0.8, 0, 1)
+ var loudness := (0.35 + 0.65 * speed) * fade_in
+ if time >= EXIT_START: loudness = 0.22
+ engine_sound.pitch_scale = 0.78 + 0.6 * speed
+ engine_sound.volume_db = linear_to_db(maxf(loudness, 0.001)) - 4.0
+
 func _input(event: InputEvent) -> void:
  if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_SPACE, KEY_ENTER, KEY_ESCAPE]:
   get_viewport().set_input_as_handled()
@@ -133,6 +171,7 @@ func _update_shot(time: float) -> void:
  var progress := clampf(time / DRIVE_TIME, 0, 1)
  # Smooth braking as the pickup reaches the escape parking space.
  var eased := 1.0 - pow(1.0 - progress, 2.0)
+ _update_engine(time, progress)
  car.position = parked + Vector3(0, 0, lerpf(-17.0, 0.0, eased))
  for axle in wheel_axles:
   axle.rotation.x = 17.0 * eased / 0.3505
@@ -143,6 +182,7 @@ func _update_shot(time: float) -> void:
  else:
   if not stepping_out:
    stepping_out = true
+   if door_sound: door_sound.play()
    player.show()
    player.animation_player.play("movement/walking")
    var facing := (exterior.global_basis * Vector3(1.85, 0, -2.3)).normalized()
@@ -196,5 +236,36 @@ func _finish() -> void:
  level.reparent(get_tree().root)
  get_tree().current_scene = level
  level.process_mode = Node.PROCESS_MODE_INHERIT
+ _fade_out_sounds()
+ _show_coins()
  Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
  queue_free()
+
+## Let the engine and the drone fade out instead of cutting off.
+func _fade_out_sounds() -> void:
+ for sound in [engine_sound, tension_sound]:
+  if sound == null or not sound.playing: continue
+  sound.reparent(level)
+  var tween: Tween = sound.create_tween()
+  tween.tween_property(sound, "volume_db", -60.0, 1.5)
+  tween.tween_callback(sound.queue_free)
+
+func _hide_coins() -> void:
+ var parent := level.get_node_or_null("Coins")
+ if parent == null: return
+ for coin in parent.get_children():
+  if coin is Node3D:
+   coin.hide()
+   hidden_coins.append(coin)
+
+## The coins pop up one after another when the game starts.
+func _show_coins() -> void:
+ var index := 0
+ for coin in hidden_coins:
+  if not is_instance_valid(coin): continue
+  coin.show()
+  coin.scale = Vector3.ONE * 0.01
+  var tween: Tween = coin.create_tween()
+  tween.tween_interval(0.25 + index * 0.05)
+  tween.tween_property(coin, "scale", Vector3.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+  index += 1

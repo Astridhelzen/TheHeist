@@ -160,6 +160,12 @@ func go_to(scene_path: String) -> void:
 	get_tree().change_scene_to_file(scene_path)
 
 
+## Loads a level behind the loading screen (with tips) instead of freezing.
+func go_to_level(scene_path: String, number: int) -> void:
+	_leave()
+	LoadingScreen.open(get_tree(), scene_path, number, false)
+
+
 func main_menu() -> void:
 	go_to(MAIN_MENU)
 

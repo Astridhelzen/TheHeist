@@ -190,7 +190,7 @@ func _build() -> void:
 	add_buttons_row()
 	add_button("RETRY", retry)
 	if not next_level.is_empty() and ResourceLoader.exists(next_level):
-		add_button("NEXT LEVEL", go_to.bind(next_level))
+		add_button("NEXT LEVEL", go_to_level.bind(next_level, level_number + 1))
 	add_button("MAIN MENU", main_menu)
 	buttons.modulate.a = 0.0
 	_set_buttons_enabled(false)

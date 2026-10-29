@@ -134,16 +134,10 @@ patrol_points = [NodePath("../PatrolPoints/UpstairEast"), NodePath("../PatrolPoi
 world_environment = NodePath("../BankExterior/WorldEnvironment")
 
 [node name="HeistComplete" parent="." unique_id=1419619530 instance=ExtResource("8_complete")]
-next_level = null
 win_sound = ExtResource("18_win_sound")
-points_per_coin = null
-max_time_bonus = null
-par_time = null
-slow_time = null
+par_time = 120.0
+slow_time = 180.0
 medal_scores = Array[int]([1800, 2800, 4000])
-medal_pause = null
-skippable = null
-tick_volume_db = null
 level_number = 2
 
 [node name="Caught" parent="." unique_id=1124289801 instance=ExtResource("12_caught")]
@@ -192,10 +186,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 6.57, 26)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 6.57, 26)
 
 [node name="Coin9" parent="Coins" unique_id=406416892 instance=ExtResource("20_e3avg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6.57, 26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6.57, 27.750097)
 
 [node name="Coin10" parent="Coins" unique_id=548447491 instance=ExtResource("20_e3avg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2, 6.57, 22.5)
+
+[node name="Coin35" parent="Coins" unique_id=402229583 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2, 6.57, 29.633127)
+
+[node name="Coin36" parent="Coins" unique_id=1202624461 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.036024, 6.57, 29.633127)
 
 [node name="Coin11" parent="Coins" unique_id=1781367461 instance=ExtResource("20_e3avg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6.57, 11)
