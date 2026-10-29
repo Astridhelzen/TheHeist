@@ -1,0 +1,3702 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Brick"]
+albedo_color = Color(0.4, 0.24, 0.2, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Sand"]
+albedo_color = Color(0.58, 0.5, 0.39, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Sage"]
+albedo_color = Color(0.35, 0.41, 0.36, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Clay"]
+albedo_color = Color(0.48, 0.32, 0.26, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Stone"]
+albedo_color = Color(0.45, 0.46, 0.43, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Roof"]
+albedo_color = Color(0.18, 0.21, 0.23, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Trim"]
+albedo_color = Color(0.67, 0.65, 0.58, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Window"]
+albedo_color = Color(0.13, 0.23, 0.28, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Frame"]
+albedo_color = Color(0.23, 0.27, 0.28, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Ground"]
+albedo_color = Color(0.28, 0.29, 0.28, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Door"]
+albedo_color = Color(0.19, 0.2, 0.19, 1)
+roughness = 1.0
+
+[sub_resource type="BoxMesh" id="Mesh1"]
+material = SubResource("Ground")
+size = Vector3(124, 0.6, 44)
+
+[sub_resource type="BoxShape3D" id="Shape1"]
+size = Vector3(124, 0.6, 44)
+
+[sub_resource type="BoxMesh" id="Mesh2"]
+material = SubResource("Brick")
+size = Vector3(13, 9, 16)
+
+[sub_resource type="BoxShape3D" id="Shape2"]
+size = Vector3(13, 9, 16)
+
+[sub_resource type="BoxMesh" id="Mesh3"]
+material = SubResource("Stone")
+size = Vector3(13.12, 0.46, 16.12)
+
+[sub_resource type="BoxMesh" id="Mesh4"]
+material = SubResource("Trim")
+size = Vector3(13.32, 0.28, 16.32)
+
+[sub_resource type="BoxMesh" id="Mesh5"]
+material = SubResource("Roof")
+size = Vector3(13.1, 0.16, 16.1)
+
+[sub_resource type="BoxMesh" id="Mesh6"]
+material = SubResource("Stone")
+size = Vector3(2.3, 1.1, 2.1)
+
+[sub_resource type="BoxMesh" id="Mesh7"]
+material = SubResource("Brick")
+size = Vector3(0.7, 1.5, 0.8)
+
+[sub_resource type="BoxMesh" id="Mesh8"]
+material = SubResource("Frame")
+size = Vector3(1.35, 1.65, 0.08)
+
+[sub_resource type="BoxMesh" id="Mesh9"]
+material = SubResource("Window")
+size = Vector3(1.12, 1.4, 0.035)
+
+[sub_resource type="BoxMesh" id="Mesh10"]
+material = SubResource("Trim")
+size = Vector3(1.48, 0.12, 0.24)
+
+[sub_resource type="BoxMesh" id="Mesh20"]
+material = SubResource("Window")
+size = Vector3(0.06, 1.4, 1.12)
+
+[sub_resource type="BoxMesh" id="Mesh62"]
+material = SubResource("Door")
+size = Vector3(1.05, 2.0, 0.1)
+
+[sub_resource type="BoxMesh" id="Mesh63"]
+material = SubResource("Sand")
+size = Vector3(15, 12, 16)
+
+[sub_resource type="BoxShape3D" id="Shape63"]
+size = Vector3(15, 12, 16)
+
+[sub_resource type="BoxMesh" id="Mesh64"]
+material = SubResource("Stone")
+size = Vector3(15.12, 0.46, 16.12)
+
+[sub_resource type="BoxMesh" id="Mesh65"]
+material = SubResource("Trim")
+size = Vector3(15.32, 0.28, 16.32)
+
+[sub_resource type="BoxMesh" id="Mesh66"]
+material = SubResource("Roof")
+size = Vector3(15.1, 0.16, 16.1)
+
+[sub_resource type="BoxMesh" id="Mesh68"]
+material = SubResource("Sand")
+size = Vector3(0.7, 1.5, 0.8)
+
+[sub_resource type="BoxMesh" id="Mesh154"]
+material = SubResource("Sage")
+size = Vector3(15, 9.5, 16)
+
+[sub_resource type="BoxShape3D" id="Shape154"]
+size = Vector3(15, 9.5, 16)
+
+[sub_resource type="BoxMesh" id="Mesh159"]
+material = SubResource("Sage")
+size = Vector3(0.7, 1.5, 0.8)
+
+[sub_resource type="BoxMesh" id="Mesh224"]
+material = SubResource("Clay")
+size = Vector3(13, 13, 16)
+
+[sub_resource type="BoxShape3D" id="Shape224"]
+size = Vector3(13, 13, 16)
+
+[sub_resource type="BoxMesh" id="Mesh229"]
+material = SubResource("Clay")
+size = Vector3(0.7, 1.5, 0.8)
+
+[sub_resource type="BoxMesh" id="Mesh303"]
+material = SubResource("Stone")
+size = Vector3(15, 10.5, 16)
+
+[sub_resource type="BoxShape3D" id="Shape303"]
+size = Vector3(15, 10.5, 16)
+
+[sub_resource type="BoxMesh" id="Mesh308"]
+material = SubResource("Stone")
+size = Vector3(0.7, 1.5, 0.8)
+
+[sub_resource type="BoxMesh" id="Mesh373"]
+material = SubResource("Brick")
+size = Vector3(13, 8, 16)
+
+[sub_resource type="BoxShape3D" id="Shape373"]
+size = Vector3(13, 8, 16)
+
+[sub_resource type="BoxMesh" id="Mesh416"]
+material = SubResource("Clay")
+size = Vector3(14, 8, 13.2)
+
+[sub_resource type="BoxShape3D" id="Shape416"]
+size = Vector3(14, 8, 13.2)
+
+[sub_resource type="BoxMesh" id="Mesh417"]
+material = SubResource("Stone")
+size = Vector3(14.12, 0.46, 13.32)
+
+[sub_resource type="BoxMesh" id="Mesh418"]
+material = SubResource("Trim")
+size = Vector3(14.32, 0.28, 13.52)
+
+[sub_resource type="BoxMesh" id="Mesh419"]
+material = SubResource("Roof")
+size = Vector3(14.1, 0.16, 13.3)
+
+[sub_resource type="BoxMesh" id="Mesh465"]
+material = SubResource("Sand")
+size = Vector3(14, 9, 13.2)
+
+[sub_resource type="BoxShape3D" id="Shape465"]
+size = Vector3(14, 9, 13.2)
+
+[sub_resource type="BoxMesh" id="Mesh535"]
+material = SubResource("Sage")
+size = Vector3(14, 7.5, 13.2)
+
+[sub_resource type="BoxShape3D" id="Shape535"]
+size = Vector3(14, 7.5, 13.2)
+
+[sub_resource type="BoxMesh" id="Mesh584"]
+material = SubResource("Brick")
+size = Vector3(14, 10, 13.2)
+
+[sub_resource type="BoxShape3D" id="Shape584"]
+size = Vector3(14, 10, 13.2)
+
+[sub_resource type="BoxMesh" id="Mesh654"]
+material = SubResource("Stone")
+size = Vector3(14, 8.5, 13.2)
+
+[sub_resource type="BoxShape3D" id="Shape654"]
+size = Vector3(14, 8.5, 13.2)
+
+[sub_resource type="BoxMesh" id="Mesh724"]
+material = SubResource("Sand")
+size = Vector3(14, 10, 13.2)
+
+[sub_resource type="BoxShape3D" id="Shape724"]
+size = Vector3(14, 10, 13.2)
+
+[sub_resource type="BoxMesh" id="Mesh794"]
+material = SubResource("Sage")
+size = Vector3(14, 8, 13.2)
+
+[sub_resource type="BoxShape3D" id="Shape794"]
+size = Vector3(14, 8, 13.2)
+
+[node name="RearCityBlock" type="Node3D"]
+
+[node name="CityGround" type="MeshInstance3D" parent="."]
+position = Vector3(8, -0.7, -16)
+mesh = SubResource("Mesh1")
+
+[node name="Body" type="StaticBody3D" parent="CityGround"]
+
+[node name="Shape" type="CollisionShape3D" parent="CityGround/Body"]
+shape = SubResource("Shape1")
+
+[node name="House1" type="Node3D" parent="."]
+position = Vector3(-32, -0.4, -15)
+
+[node name="Facade" type="MeshInstance3D" parent="House1"]
+position = Vector3(0, 4.5, 0)
+mesh = SubResource("Mesh2")
+
+[node name="Body" type="StaticBody3D" parent="House1/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House1/Facade/Body"]
+shape = SubResource("Shape2")
+
+[node name="Plinth" type="MeshInstance3D" parent="House1"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Cornice" type="MeshInstance3D" parent="House1"]
+position = Vector3(0, 8.85, 0)
+mesh = SubResource("Mesh4")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House1"]
+position = Vector3(0, 9.06, 0)
+mesh = SubResource("Mesh5")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House1"]
+position = Vector3(2.6, 9.65, -2.4)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House1"]
+position = Vector3(-3.64, 9.8, -4.0)
+mesh = SubResource("Mesh7")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.2, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-1.4, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(1.4, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House1"]
+position = Vector3(4.2, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(-6.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House1"]
+position = Vector3(6.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House1"]
+position = Vector3(-4.55, 1.0, 8.06)
+mesh = SubResource("Mesh62")
+
+[node name="House2" type="Node3D" parent="."]
+position = Vector3(-18, -0.4, -15)
+
+[node name="Facade" type="MeshInstance3D" parent="House2"]
+position = Vector3(0, 6.0, 0)
+mesh = SubResource("Mesh63")
+
+[node name="Body" type="StaticBody3D" parent="House2/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House2/Facade/Body"]
+shape = SubResource("Shape63")
+
+[node name="Plinth" type="MeshInstance3D" parent="House2"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh64")
+
+[node name="Cornice" type="MeshInstance3D" parent="House2"]
+position = Vector3(0, 11.85, 0)
+mesh = SubResource("Mesh65")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House2"]
+position = Vector3(0, 12.06, 0)
+mesh = SubResource("Mesh66")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House2"]
+position = Vector3(3.0, 12.65, -2.4)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House2"]
+position = Vector3(-4.2, 12.8, -4.0)
+mesh = SubResource("Mesh68")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame3_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.6, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame3_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-2.8, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame3_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(0.0, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame3_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_3" type="MeshInstance3D" parent="House2"]
+position = Vector3(2.8, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame3_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_4" type="MeshInstance3D" parent="House2"]
+position = Vector3(5.6, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_3_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 9.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_3_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 9.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_3_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(-7.525, 9.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_3_0" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 9.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_3_1" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 9.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_3_2" type="MeshInstance3D" parent="House2"]
+position = Vector3(7.525, 9.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House2"]
+position = Vector3(-5.25, 1.0, 8.06)
+mesh = SubResource("Mesh62")
+
+[node name="House3" type="Node3D" parent="."]
+position = Vector3(-3, -0.4, -15)
+
+[node name="Facade" type="MeshInstance3D" parent="House3"]
+position = Vector3(0, 4.75, 0)
+mesh = SubResource("Mesh154")
+
+[node name="Body" type="StaticBody3D" parent="House3/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House3/Facade/Body"]
+shape = SubResource("Shape154")
+
+[node name="Plinth" type="MeshInstance3D" parent="House3"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh64")
+
+[node name="Cornice" type="MeshInstance3D" parent="House3"]
+position = Vector3(0, 9.35, 0)
+mesh = SubResource("Mesh65")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House3"]
+position = Vector3(0, 9.56, 0)
+mesh = SubResource("Mesh66")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House3"]
+position = Vector3(3.0, 10.15, -2.4)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House3"]
+position = Vector3(-4.2, 10.3, -4.0)
+mesh = SubResource("Mesh159")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.6, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-2.8, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(0.0, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House3"]
+position = Vector3(2.8, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_4" type="MeshInstance3D" parent="House3"]
+position = Vector3(5.6, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(-7.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House3"]
+position = Vector3(7.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House3"]
+position = Vector3(-5.25, 1.0, 8.06)
+mesh = SubResource("Mesh62")
+
+[node name="House4" type="Node3D" parent="."]
+position = Vector3(11, -0.4, -15)
+
+[node name="Facade" type="MeshInstance3D" parent="House4"]
+position = Vector3(0, 6.5, 0)
+mesh = SubResource("Mesh224")
+
+[node name="Body" type="StaticBody3D" parent="House4/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House4/Facade/Body"]
+shape = SubResource("Shape224")
+
+[node name="Plinth" type="MeshInstance3D" parent="House4"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Cornice" type="MeshInstance3D" parent="House4"]
+position = Vector3(0, 12.85, 0)
+mesh = SubResource("Mesh4")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House4"]
+position = Vector3(0, 13.06, 0)
+mesh = SubResource("Mesh5")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House4"]
+position = Vector3(2.6, 13.65, -2.4)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House4"]
+position = Vector3(-3.64, 13.8, -4.0)
+mesh = SubResource("Mesh229")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame3_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.2, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame3_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-1.4, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame3_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(1.4, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame3_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 9.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window3_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 9.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill3_3" type="MeshInstance3D" parent="House4"]
+position = Vector3(4.2, 8.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_3_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 9.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_3_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 9.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_3_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(-6.525, 9.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_3_0" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 9.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_3_1" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 9.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_3_2" type="MeshInstance3D" parent="House4"]
+position = Vector3(6.525, 9.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House4"]
+position = Vector3(-4.55, 1.0, 8.06)
+mesh = SubResource("Mesh62")
+
+[node name="House5" type="Node3D" parent="."]
+position = Vector3(25, -0.4, -15)
+
+[node name="Facade" type="MeshInstance3D" parent="House5"]
+position = Vector3(0, 5.25, 0)
+mesh = SubResource("Mesh303")
+
+[node name="Body" type="StaticBody3D" parent="House5/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House5/Facade/Body"]
+shape = SubResource("Shape303")
+
+[node name="Plinth" type="MeshInstance3D" parent="House5"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh64")
+
+[node name="Cornice" type="MeshInstance3D" parent="House5"]
+position = Vector3(0, 10.35, 0)
+mesh = SubResource("Mesh65")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House5"]
+position = Vector3(0, 10.56, 0)
+mesh = SubResource("Mesh66")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House5"]
+position = Vector3(3.0, 11.15, -2.4)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House5"]
+position = Vector3(-4.2, 11.3, -4.0)
+mesh = SubResource("Mesh308")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.6, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-2.8, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(0.0, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House5"]
+position = Vector3(2.8, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 6.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 6.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_4" type="MeshInstance3D" parent="House5"]
+position = Vector3(5.6, 5.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(-7.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House5"]
+position = Vector3(7.525, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House5"]
+position = Vector3(-5.25, 1.0, 8.06)
+mesh = SubResource("Mesh62")
+
+[node name="House6" type="Node3D" parent="."]
+position = Vector3(39, -0.4, -15)
+
+[node name="Facade" type="MeshInstance3D" parent="House6"]
+position = Vector3(0, 4.0, 0)
+mesh = SubResource("Mesh373")
+
+[node name="Body" type="StaticBody3D" parent="House6/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House6/Facade/Body"]
+shape = SubResource("Shape373")
+
+[node name="Plinth" type="MeshInstance3D" parent="House6"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh3")
+
+[node name="Cornice" type="MeshInstance3D" parent="House6"]
+position = Vector3(0, 7.85, 0)
+mesh = SubResource("Mesh4")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House6"]
+position = Vector3(0, 8.06, 0)
+mesh = SubResource("Mesh5")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House6"]
+position = Vector3(2.6, 8.65, -2.4)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House6"]
+position = Vector3(-3.64, 8.8, -4.0)
+mesh = SubResource("Mesh7")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(-4.2, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(-4.2, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(-4.2, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(-1.4, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(-1.4, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(-1.4, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(1.4, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(1.4, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(1.4, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House6"]
+position = Vector3(4.2, 1.65, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House6"]
+position = Vector3(4.2, 1.65, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House6"]
+position = Vector3(4.2, 0.81, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(-6.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(-6.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(-6.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(6.525, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(6.525, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(6.525, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(-4.2, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(-4.2, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(-4.2, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(-1.4, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(-1.4, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(-1.4, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(1.4, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(1.4, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(1.4, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House6"]
+position = Vector3(4.2, 4.15, 8.025)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House6"]
+position = Vector3(4.2, 4.15, 8.075)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House6"]
+position = Vector3(4.2, 3.31, 8.12)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(-6.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(-6.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(-6.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House6"]
+position = Vector3(6.525, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House6"]
+position = Vector3(6.525, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House6"]
+position = Vector3(6.525, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House6"]
+position = Vector3(-4.55, 1.0, 8.06)
+mesh = SubResource("Mesh62")
+
+[node name="House7" type="Node3D" parent="."]
+position = Vector3(-18, -0.4, -0.6)
+
+[node name="Facade" type="MeshInstance3D" parent="House7"]
+position = Vector3(0, 4.0, 0)
+mesh = SubResource("Mesh416")
+
+[node name="Body" type="StaticBody3D" parent="House7/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House7/Facade/Body"]
+shape = SubResource("Shape416")
+
+[node name="Plinth" type="MeshInstance3D" parent="House7"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh417")
+
+[node name="Cornice" type="MeshInstance3D" parent="House7"]
+position = Vector3(0, 7.85, 0)
+mesh = SubResource("Mesh418")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House7"]
+position = Vector3(0, 8.06, 0)
+mesh = SubResource("Mesh419")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House7"]
+position = Vector3(2.8, 8.65, -1.98)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House7"]
+position = Vector3(-3.92, 8.8, -3.3)
+mesh = SubResource("Mesh229")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(-5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(-5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(-5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(-2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(-2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(-2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(0.0, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(0.0, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(0.0, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House7"]
+position = Vector3(2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House7"]
+position = Vector3(2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House7"]
+position = Vector3(2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House7"]
+position = Vector3(5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House7"]
+position = Vector3(5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House7"]
+position = Vector3(5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(-7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(-7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(-7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(-5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(-5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(-5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(-2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(-2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(-2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(0.0, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(0.0, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(0.0, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House7"]
+position = Vector3(2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House7"]
+position = Vector3(2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House7"]
+position = Vector3(2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House7"]
+position = Vector3(5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House7"]
+position = Vector3(5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House7"]
+position = Vector3(5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(-7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(-7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(-7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House7"]
+position = Vector3(7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House7"]
+position = Vector3(7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House7"]
+position = Vector3(7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House7"]
+position = Vector3(-4.9, 1.0, 6.66)
+mesh = SubResource("Mesh62")
+
+[node name="House8" type="Node3D" parent="."]
+position = Vector3(19, -0.4, -0.6)
+
+[node name="Facade" type="MeshInstance3D" parent="House8"]
+position = Vector3(0, 4.5, 0)
+mesh = SubResource("Mesh465")
+
+[node name="Body" type="StaticBody3D" parent="House8/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House8/Facade/Body"]
+shape = SubResource("Shape465")
+
+[node name="Plinth" type="MeshInstance3D" parent="House8"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh417")
+
+[node name="Cornice" type="MeshInstance3D" parent="House8"]
+position = Vector3(0, 8.85, 0)
+mesh = SubResource("Mesh418")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House8"]
+position = Vector3(0, 9.06, 0)
+mesh = SubResource("Mesh419")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 9.65, -1.98)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House8"]
+position = Vector3(-3.92, 9.8, -3.3)
+mesh = SubResource("Mesh68")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-5.6, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-2.8, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(0.0, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House8"]
+position = Vector3(2.8, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_4" type="MeshInstance3D" parent="House8"]
+position = Vector3(5.6, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(-7.025, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House8"]
+position = Vector3(7.025, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House8"]
+position = Vector3(-4.9, 1.0, 6.66)
+mesh = SubResource("Mesh62")
+
+[node name="House9" type="Node3D" parent="."]
+position = Vector3(33, -0.4, -0.6)
+
+[node name="Facade" type="MeshInstance3D" parent="House9"]
+position = Vector3(0, 3.75, 0)
+mesh = SubResource("Mesh535")
+
+[node name="Body" type="StaticBody3D" parent="House9/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House9/Facade/Body"]
+shape = SubResource("Shape535")
+
+[node name="Plinth" type="MeshInstance3D" parent="House9"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh417")
+
+[node name="Cornice" type="MeshInstance3D" parent="House9"]
+position = Vector3(0, 7.35, 0)
+mesh = SubResource("Mesh418")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House9"]
+position = Vector3(0, 7.56, 0)
+mesh = SubResource("Mesh419")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House9"]
+position = Vector3(2.8, 8.15, -1.98)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House9"]
+position = Vector3(-3.92, 8.3, -3.3)
+mesh = SubResource("Mesh159")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(-5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(-5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(-5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(-2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(-2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(-2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(0.0, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(0.0, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(0.0, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House9"]
+position = Vector3(2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House9"]
+position = Vector3(2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House9"]
+position = Vector3(2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House9"]
+position = Vector3(5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House9"]
+position = Vector3(5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House9"]
+position = Vector3(5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(-7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(-7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(-7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(-5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(-5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(-5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(-2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(-2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(-2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(0.0, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(0.0, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(0.0, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House9"]
+position = Vector3(2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House9"]
+position = Vector3(2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House9"]
+position = Vector3(2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House9"]
+position = Vector3(5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House9"]
+position = Vector3(5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House9"]
+position = Vector3(5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(-7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(-7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(-7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House9"]
+position = Vector3(7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House9"]
+position = Vector3(7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House9"]
+position = Vector3(7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House9"]
+position = Vector3(-4.9, 1.0, 6.66)
+mesh = SubResource("Mesh62")
+
+[node name="House10" type="Node3D" parent="."]
+position = Vector3(47, -0.4, -0.6)
+
+[node name="Facade" type="MeshInstance3D" parent="House10"]
+position = Vector3(0, 5.0, 0)
+mesh = SubResource("Mesh584")
+
+[node name="Body" type="StaticBody3D" parent="House10/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House10/Facade/Body"]
+shape = SubResource("Shape584")
+
+[node name="Plinth" type="MeshInstance3D" parent="House10"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh417")
+
+[node name="Cornice" type="MeshInstance3D" parent="House10"]
+position = Vector3(0, 9.85, 0)
+mesh = SubResource("Mesh418")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House10"]
+position = Vector3(0, 10.06, 0)
+mesh = SubResource("Mesh419")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 10.65, -1.98)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House10"]
+position = Vector3(-3.92, 10.8, -3.3)
+mesh = SubResource("Mesh7")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-5.6, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-2.8, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(0.0, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House10"]
+position = Vector3(2.8, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_4" type="MeshInstance3D" parent="House10"]
+position = Vector3(5.6, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(-7.025, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House10"]
+position = Vector3(7.025, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House10"]
+position = Vector3(-4.9, 1.0, 6.66)
+mesh = SubResource("Mesh62")
+
+[node name="House11" type="Node3D" parent="."]
+position = Vector3(61, -0.4, -0.6)
+
+[node name="Facade" type="MeshInstance3D" parent="House11"]
+position = Vector3(0, 4.25, 0)
+mesh = SubResource("Mesh654")
+
+[node name="Body" type="StaticBody3D" parent="House11/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House11/Facade/Body"]
+shape = SubResource("Shape654")
+
+[node name="Plinth" type="MeshInstance3D" parent="House11"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh417")
+
+[node name="Cornice" type="MeshInstance3D" parent="House11"]
+position = Vector3(0, 8.35, 0)
+mesh = SubResource("Mesh418")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House11"]
+position = Vector3(0, 8.56, 0)
+mesh = SubResource("Mesh419")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 9.15, -1.98)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House11"]
+position = Vector3(-3.92, 9.3, -3.3)
+mesh = SubResource("Mesh308")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-5.6, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-2.8, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(0.0, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House11"]
+position = Vector3(2.8, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_4" type="MeshInstance3D" parent="House11"]
+position = Vector3(5.6, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(-7.025, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House11"]
+position = Vector3(7.025, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House11"]
+position = Vector3(-4.9, 1.0, 6.66)
+mesh = SubResource("Mesh62")
+
+[node name="House12" type="Node3D" parent="."]
+position = Vector3(-32, -0.4, -0.6)
+
+[node name="Facade" type="MeshInstance3D" parent="House12"]
+position = Vector3(0, 5.0, 0)
+mesh = SubResource("Mesh724")
+
+[node name="Body" type="StaticBody3D" parent="House12/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House12/Facade/Body"]
+shape = SubResource("Shape724")
+
+[node name="Plinth" type="MeshInstance3D" parent="House12"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh417")
+
+[node name="Cornice" type="MeshInstance3D" parent="House12"]
+position = Vector3(0, 9.85, 0)
+mesh = SubResource("Mesh418")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House12"]
+position = Vector3(0, 10.06, 0)
+mesh = SubResource("Mesh419")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 10.65, -1.98)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House12"]
+position = Vector3(-3.92, 10.8, -3.3)
+mesh = SubResource("Mesh68")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame2_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-5.6, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-2.8, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(0.0, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_3" type="MeshInstance3D" parent="House12"]
+position = Vector3(2.8, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame2_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 6.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window2_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 6.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill2_4" type="MeshInstance3D" parent="House12"]
+position = Vector3(5.6, 5.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_2_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_2_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(-7.025, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_0" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 6.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_1" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 6.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_2_2" type="MeshInstance3D" parent="House12"]
+position = Vector3(7.025, 6.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House12"]
+position = Vector3(-4.9, 1.0, 6.66)
+mesh = SubResource("Mesh62")
+
+[node name="House13" type="Node3D" parent="."]
+position = Vector3(-46, -0.4, -0.6)
+
+[node name="Facade" type="MeshInstance3D" parent="House13"]
+position = Vector3(0, 4.0, 0)
+mesh = SubResource("Mesh794")
+
+[node name="Body" type="StaticBody3D" parent="House13/Facade"]
+
+[node name="Shape" type="CollisionShape3D" parent="House13/Facade/Body"]
+shape = SubResource("Shape794")
+
+[node name="Plinth" type="MeshInstance3D" parent="House13"]
+position = Vector3(0, 0.23, 0)
+mesh = SubResource("Mesh417")
+
+[node name="Cornice" type="MeshInstance3D" parent="House13"]
+position = Vector3(0, 7.85, 0)
+mesh = SubResource("Mesh418")
+
+[node name="FlatRoof" type="MeshInstance3D" parent="House13"]
+position = Vector3(0, 8.06, 0)
+mesh = SubResource("Mesh419")
+
+[node name="RoofHousing" type="MeshInstance3D" parent="House13"]
+position = Vector3(2.8, 8.65, -1.98)
+mesh = SubResource("Mesh6")
+
+[node name="Chimney" type="MeshInstance3D" parent="House13"]
+position = Vector3(-3.92, 8.8, -3.3)
+mesh = SubResource("Mesh159")
+
+[node name="Frame0_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(-5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(-5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(-5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(-2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(-2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(-2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(0.0, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(0.0, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(0.0, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_3" type="MeshInstance3D" parent="House13"]
+position = Vector3(2.8, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_3" type="MeshInstance3D" parent="House13"]
+position = Vector3(2.8, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_3" type="MeshInstance3D" parent="House13"]
+position = Vector3(2.8, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame0_4" type="MeshInstance3D" parent="House13"]
+position = Vector3(5.6, 1.65, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window0_4" type="MeshInstance3D" parent="House13"]
+position = Vector3(5.6, 1.65, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill0_4" type="MeshInstance3D" parent="House13"]
+position = Vector3(5.6, 0.81, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_0_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(-7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(-7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_0_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(-7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(7.025, 1.65, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(7.025, 1.65, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_0_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(7.025, 1.65, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="Frame1_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(-5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(-5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(-5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(-2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(-2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(-2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(0.0, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(0.0, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(0.0, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_3" type="MeshInstance3D" parent="House13"]
+position = Vector3(2.8, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_3" type="MeshInstance3D" parent="House13"]
+position = Vector3(2.8, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_3" type="MeshInstance3D" parent="House13"]
+position = Vector3(2.8, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="Frame1_4" type="MeshInstance3D" parent="House13"]
+position = Vector3(5.6, 4.15, 6.625)
+mesh = SubResource("Mesh8")
+
+[node name="Window1_4" type="MeshInstance3D" parent="House13"]
+position = Vector3(5.6, 4.15, 6.675)
+mesh = SubResource("Mesh9")
+
+[node name="Sill1_4" type="MeshInstance3D" parent="House13"]
+position = Vector3(5.6, 3.31, 6.72)
+mesh = SubResource("Mesh10")
+
+[node name="SideWindow-1_1_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(-7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(-7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow-1_1_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(-7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_0" type="MeshInstance3D" parent="House13"]
+position = Vector3(7.025, 4.15, -3.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_1" type="MeshInstance3D" parent="House13"]
+position = Vector3(7.025, 4.15, 0.0)
+mesh = SubResource("Mesh20")
+
+[node name="SideWindow1_1_2" type="MeshInstance3D" parent="House13"]
+position = Vector3(7.025, 4.15, 3.0)
+mesh = SubResource("Mesh20")
+
+[node name="ClosedDoor" type="MeshInstance3D" parent="House13"]
+position = Vector3(-4.9, 1.0, 6.66)
+mesh = SubResource("Mesh62")

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cd7ddp127yylh" path="res://Levels/exterior_boundaries.gd" id="edge_barriers"]
 
+[ext_resource type="Script" path="res://Levels/Level_1/street_distance.gd" id="street_distance"]
+
 [sub_resource type="StandardMaterial3D" id="Road"]
 albedo_color = Color(0.1, 0.12, 0.15, 1)
 roughness = 0.88
@@ -870,15 +872,20 @@ size = Vector3(0.2, 0.65, 0.65)
 [sub_resource type="BoxShape3D" id="S169"]
 size = Vector3(0.2, 0.65, 0.65)
 
+[sub_resource type="StandardMaterial3D" id="BoundaryBlack"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+roughness = 1.0
+
 [sub_resource type="BoxMesh" id="M170"]
-material = SubResource("Brick")
+material = SubResource("BoundaryBlack")
 size = Vector3(46, 10, 2)
 
 [sub_resource type="BoxShape3D" id="S170"]
 size = Vector3(46, 10, 2)
 
 [sub_resource type="BoxMesh" id="M171"]
-material = SubResource("Cream")
+material = SubResource("BoundaryBlack")
 size = Vector3(46, 10, 2)
 
 [sub_resource type="BoxShape3D" id="S171"]
@@ -1844,24 +1851,6 @@ mesh = SubResource("M169")
 [node name="Shape" type="CollisionShape3D" parent="Wheel32.0232.3/Body" unique_id=1189562818]
 shape = SubResource("S169")
 
-[node name="NorthBlock" type="MeshInstance3D" parent="." unique_id=282817129]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 11, -46)
-mesh = SubResource("M170")
-
-[node name="Body" type="StaticBody3D" parent="NorthBlock" unique_id=15792609]
-
-[node name="Shape" type="CollisionShape3D" parent="NorthBlock/Body" unique_id=713628093]
-shape = SubResource("S170")
-
-[node name="SouthBlock" type="MeshInstance3D" parent="." unique_id=1870366808]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 11, 56)
-mesh = SubResource("M171")
-
-[node name="Body" type="StaticBody3D" parent="SouthBlock" unique_id=2012558723]
-
-[node name="Shape" type="CollisionShape3D" parent="SouthBlock/Body" unique_id=903347928]
-shape = SubResource("S171")
-
 [node name="EastBoundary" type="MeshInstance3D" parent="." unique_id=1055835031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 10, 5)
 mesh = SubResource("M172")
@@ -1944,3 +1933,6 @@ light_color = Color(1, 0.76, 0.48, 1)
 light_energy = 3.5
 omni_range = 11.0
 omni_attenuation = 1.0
+
+[node name="StreetDistance" type="Node3D" parent="."]
+script = ExtResource("street_distance")

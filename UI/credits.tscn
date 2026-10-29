@@ -77,6 +77,11 @@ text = "\"Money\" by Dakta.Grower.Nzl, licensed under CC BY 4.0 (sketchfab.com)"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
+[node name="PickupModel" type="Label" parent="Root/Margin/Layout/CreditContainer"]
+layout_mode = 2
+text = "2004 Mazda B-Series UN 2500 Double Cab — Res1n / Sketchfab, CC BY 4.0
+sketchfab.com/3d-models/e25bd7759aa5478b9ea3d0b1622bdcfc"
+
 [node name="MenuMusic" type="Label" parent="Root/Margin/Layout/CreditContainer" unique_id=1175651933]
 layout_mode = 2
 text = "Menu Music:
