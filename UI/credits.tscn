@@ -77,7 +77,7 @@ text = "\"Money\" by Dakta.Grower.Nzl, licensed under CC BY 4.0 (sketchfab.com)"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="PickupModel" type="Label" parent="Root/Margin/Layout/CreditContainer"]
+[node name="PickupModel" type="Label" parent="Root/Margin/Layout/CreditContainer" unique_id=1463324632]
 layout_mode = 2
 text = "2004 Mazda B-Series UN 2500 Double Cab — Res1n / Sketchfab, CC BY 4.0
 sketchfab.com/3d-models/e25bd7759aa5478b9ea3d0b1622bdcfc"
@@ -95,11 +95,6 @@ layout_mode = 2
 
 [node name="GameMusic" type="Label" parent="Root/Margin/Layout/CreditContainer" unique_id=689669557]
 layout_mode = 2
-text = "Game music:
-Music track: Case File Open by Zolvi
-Source: https://freetouse.com/music
-Music for Videos (Free Download)
-Free Background Music for Videos"
 
 [node name="Spacer4" type="Control" parent="Root/Margin/Layout/CreditContainer" unique_id=1915610490]
 custom_minimum_size = Vector2(0, 20)

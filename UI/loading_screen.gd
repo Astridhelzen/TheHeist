@@ -48,6 +48,8 @@ static var _with_intro := true
 static var _loaded: Array[Resource] = []
 
 var _paths: Array[String] = []
+var _current := 0          # which of _paths is loading now
+var _real_progress := 0.0  # how far the loading really is (0-1)
 var _elapsed := 0.0
 var _shown_progress := 0.0
 var _tip_index := 0
@@ -76,8 +78,10 @@ func _ready() -> void:
 	_paths = [_target]
 	if _with_intro and ResourceLoader.exists(INTRO_SCENE):
 		_paths.append(INTRO_SCENE)
-	for path in _paths:
-		ResourceLoader.load_threaded_request(path, "", true)
+	# One file at a time and without extra threads. Loading the level and the
+	# intro at the same time on several threads could make Godot lock up when
+	# both needed the same file (the bar then got stuck at ~27 %).
+	ResourceLoader.load_threaded_request(_paths[0], "", false)
 	_tip_index = randi() % TIPS.size()
 	_show_tip(false)
 
@@ -88,26 +92,36 @@ func _process(delta: float) -> void:
 	if _done:
 		return
 
-	# Average progress over everything that is loading
-	var total := 0.0
-	var all_loaded := true
-	for path in _paths:
+	var part := 0.0
+	if _current < _paths.size():
+		var path := _paths[_current]
 		var progress := []
 		var status := ResourceLoader.load_threaded_get_status(path, progress)
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
-			total += 1.0
+			_loaded.append(ResourceLoader.load_threaded_get(path))
+			_current += 1
+			if _current < _paths.size():
+				ResourceLoader.load_threaded_request(_paths[_current], "", false)
 		elif status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-			total += progress[0] if not progress.is_empty() else 0.0
-			all_loaded = false
+			part = progress[0] if not progress.is_empty() else 0.0
 		else:
-			# Failed or unknown: go back to the menu instead of hanging here
+			# Failed: go back to the menu instead of waiting forever
 			push_error("Could not load " + path)
 			_done = true
 			get_tree().change_scene_to_file("res://UI/main_menu.tscn")
 			return
-	var target := total / _paths.size()
-	# Move the bar smoothly, and never fill the last bit before everything is loaded
-	_shown_progress = move_toward(_shown_progress, target if all_loaded else minf(target, 0.95), delta * 1.5)
+
+	var all_loaded := _current >= _paths.size()
+	_real_progress = maxf(_real_progress, (_current + part) / _paths.size())
+	if all_loaded:
+		_shown_progress = move_toward(_shown_progress, 1.0, delta * 1.5)
+	elif _shown_progress < _real_progress:
+		_shown_progress = move_toward(_shown_progress, _real_progress, delta * 1.5)
+	else:
+		# Big files (like the Level 2 bank) report no progress while they load.
+		# Let the bar creep on slowly so it is clear the game hasn't frozen.
+		var limit := minf(_real_progress + 0.15, 0.95)
+		_shown_progress = minf(_shown_progress + delta * 0.015, limit)
 	_set_progress(_shown_progress)
 
 	if all_loaded and _elapsed >= MIN_TIME and _shown_progress >= 0.999:
@@ -116,9 +130,7 @@ func _process(delta: float) -> void:
 
 func _start() -> void:
 	_done = true
-	for path in _paths:
-		_loaded.append(ResourceLoader.load_threaded_get(path))
-	if _with_intro and _paths.size() > 1:
+	if _with_intro and _loaded.size() > 1:
 		# The intro instantiates the level itself; it is already in memory now
 		get_tree().set_meta("arrival_level", _target)
 		get_tree().change_scene_to_packed(_loaded[1])
