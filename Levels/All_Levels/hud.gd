@@ -12,10 +12,8 @@ extends Control
 
 ## Shown one after another when the level starts.
 @export var intro_messages: Array[String] = [
- "Don't let the guard see you in the light",
- "Hold Shift to run",
- "Don't let the guard hear you",
  "Hold Ctrl to sneak",
+ "Hold Shift to run"
 ]
 ## Start the timer as soon as the level loads. Turn off if something else
 ## (e.g. an intro) should start it with start_timer().
