@@ -6,6 +6,7 @@ const MAIN_MENU := "res://UI/main_menu.tscn"
 @onready var retry_button: Button = %Retry
 @onready var settings_button: Button = %Settings
 @onready var quit_button: Button = %Quit
+var settings_screen: SettingsScreen
 
 func _ready() -> void:
 	visible = false
@@ -13,6 +14,9 @@ func _ready() -> void:
 	retry_button.pressed.connect(_on_retry)
 	settings_button.pressed.connect(_on_settings)
 	quit_button.pressed.connect(_on_quit)
+	settings_screen = SettingsScreen.new()
+	add_child(settings_screen)
+	settings_screen.closed.connect(_on_settings_closed)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -51,7 +55,12 @@ func _on_retry() -> void:
 	get_tree().reload_current_scene()
 
 func _on_settings() -> void:
-	pass   # bygg senare
+	$Root.hide()
+	settings_screen.open()
+
+func _on_settings_closed() -> void:
+	$Root.show()
+	settings_button.grab_focus()
 
 func _on_quit() -> void:
 	get_tree().paused = false

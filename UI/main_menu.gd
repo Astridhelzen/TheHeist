@@ -36,7 +36,7 @@ var selected_level := 0
 var canvas: Control
 var cards: Array[Button] = []
 var _starting_level := false
-var settings: AcceptDialog
+var settings: SettingsScreen
 var title_font = preload("res://UI/Fonts/title.tres")
 const MENU_BUTTON = preload("res://UI/menu_button.tscn")
 const MENU_THEME = preload("res://UI/Themes/ui_theme.tres")
@@ -171,15 +171,11 @@ func _start_level(index: int) -> void:
  # The loading screen loads the level in the background, then plays the arrival intro
  LoadingScreen.open(get_tree(), first_level if index==0 else second_level, index+1)
 
+## The settings page (volume and mouse sensitivity), see UI/settings_screen.gd
 func _build_settings() -> void:
- settings=AcceptDialog.new();settings.title="SETTINGS";settings.min_size=Vector2i(360,160);add_child(settings)
- var box=VBoxContainer.new();settings.add_child(box)
- var heading=Label.new();heading.text="Master volume";box.add_child(heading)
- var volume=HSlider.new();volume.max_value=100;volume.value=AudioServer.get_bus_volume_linear(0)*100;box.add_child(volume)
- volume.value_changed.connect(func(value):AudioServer.set_bus_volume_linear(0,value/100.0))
- var fullscreen=CheckButton.new();fullscreen.text="Fullscreen";fullscreen.button_pressed=DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN;box.add_child(fullscreen)
- fullscreen.toggled.connect(func(enabled):DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if enabled else DisplayServer.WINDOW_MODE_WINDOWED))
+ settings=SettingsScreen.new();add_child(settings)
+ settings.closed.connect(func():cards[selected_level].grab_focus())
 
-func _on_settings() -> void:settings.popup_centered()
+func _on_settings() -> void:settings.open()
 func _on_credits() -> void:get_tree().change_scene_to_file(credits)
 func _on_quit() -> void:get_tree().quit()
