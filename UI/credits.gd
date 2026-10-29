@@ -12,28 +12,31 @@ const GOLD := Color("efc260")
 const TEXT := Color("e8ecef")
 const MUTED := Color("87909f")
 
-## [heading, column (0 = left, 1 = right), [[title, details], ...]]
 ## Shown above the big CREDITS title.
 const MADE_BY := "THE HEIST  ·  MADE BY ASTRID HELZÉN & ELLA BERGSTRÖM"
 
+const CC_BY := "[url=https://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url]"
+const OFL := "[url=https://openfontlicense.org]SIL OFL 1.1[/url]"
+
+## [heading, column (0 = left, 1 = right), [[title, details], ...]]
+## Details can have clickable links: [url=https://...]text[/url]
 const CREDITS := [
 	["3D MODELS", 0, [
-		["\"The Bank Hall\" by Veterock", "Sketchfab · CC BY 4.0 · modified · Level 2 bank"],
-		["\"Money\" by Dakta.Grower.Nzl", "Sketchfab · CC BY 4.0"],
-		["\"2004 Mazda B-Series UN 2500 Double Cab\" by Res1n", "Sketchfab · CC BY 4.0 · getaway car"],
-		["Guard character and all animations", "Mixamo by Adobe"],
+		["\"The Bank Hall\" by Veterock", "[url=https://sketchfab.com/3d-models/the-bank-hall-7ff86c154ac843c48c4b0ec0149d4321]Sketchfab[/url] · " + CC_BY + " · modified · Level 2 bank"],
+		["\"Money\" by Dakta.Grower.Nzl", "[url=https://sketchfab.com/3d-models/money-c8ea0b52ff1b4c7a8dadaba6f16319d7]Sketchfab[/url] · " + CC_BY + " · modified"],
+		["\"2004 Mazda B-Series UN 2500 Double Cab\" by Res1n", "[url=https://sketchfab.com/3d-models/2004-mazda-b-series-un-2500-double-cab-e25bd7759aa5478b9ea3d0b1622bdcfc]Sketchfab[/url] · " + CC_BY + " · modified · getaway car"],
+		["Guard character and all animations", "[url=https://www.mixamo.com]Mixamo[/url] by Adobe"],
 	]],
 	["MUSIC", 1, [
-		["\"Heist\" by Zambolino", "Menu music · freetouse.com/music"],
-		["\"Case File Open\" by Zolvi", "Game music · freetouse.com/music"],
+		["\"Heist\" by Zambolino", "Menu music · [url=https://freetouse.com/music]freetouse.com/music[/url]"],
 	]],
 	["SOUND", 1, [
-		["Sound effects by Kenney", "kenney.nl · CC0"],
+		["Sound effects by Kenney", "[url=https://kenney.nl]kenney.nl[/url] · CC0"],
 		["Car engine, intro drone and car door", "Made for The Heist"],
 	]],
 	["FONTS", 1, [
-		["Big Shoulders", "The Big Shoulders Project Authors · SIL OFL 1.1"],
-		["IBM Plex Mono", "IBM Corp. · SIL OFL 1.1"],
+		["Big Shoulders", "The Big Shoulders Project Authors · " + OFL],
+		["IBM Plex Mono", "IBM Corp. · " + OFL],
 	]],
 ]
 
@@ -78,7 +81,7 @@ func _build_credits() -> void:
 		for entry in section[2]:
 			_label(column, entry[0], MENU_FONT, 21, TEXT)
 			if entry[1] != "":
-				_label(column, entry[1], null, 13, MUTED)
+				_details(column, entry[1])
 
 
 func _label(parent: Node, text: String, font: Font, font_size: int, color: Color) -> void:
@@ -92,6 +95,20 @@ func _label(parent: Node, text: String, font: Font, font_size: int, color: Color
 	# Less space between a title and its details line
 	label.add_theme_constant_override("line_spacing", -2)
 	parent.add_child(label)
+
+
+## The small grey line under a title. Links in it are amber and open in the browser.
+func _details(parent: Node, bbcode: String) -> void:
+	var text := RichTextLabel.new()
+	text.bbcode_enabled = true
+	text.fit_content = true
+	text.scroll_active = false
+	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	text.add_theme_font_size_override("normal_font_size", 13)
+	text.add_theme_color_override("default_color", MUTED)
+	text.text = bbcode.replace("[url=", "[color=#efc260][url=").replace("[/url]", "[/url][/color]")
+	text.meta_clicked.connect(func(link): OS.shell_open(str(link)))
+	parent.add_child(text)
 
 
 func _spacer(parent: Node, height: float) -> void:

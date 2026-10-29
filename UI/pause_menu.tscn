@@ -75,6 +75,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "RESUME"
 
+[node name="Retry" parent="Root/Margin/Layout/MenuMargin/Menu" instance=ExtResource("4_xv4gp")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RETRY"
+
 [node name="Settings" parent="Root/Margin/Layout/MenuMargin/Menu" unique_id=1901655965 instance=ExtResource("4_xv4gp")]
 unique_name_in_owner = true
 layout_mode = 2

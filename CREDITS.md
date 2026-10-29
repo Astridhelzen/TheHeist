@@ -31,7 +31,6 @@ Credit lines as requested by the CC BY licence:
 | Track | Artist | Source | Used for |
 |---|---|---|---|
 | "Heist" | Zambolino | [freetouse.com/music](https://freetouse.com/music) – Free Background Music for Videos | Main menu |
-| "Case File Open" | Zolvi | [freetouse.com/music](https://freetouse.com/music) – Free Background Music for Videos | In game |
 
 ## Fonts
 
