@@ -168,8 +168,10 @@ func _start_level(index: int) -> void:
  _starting_level = true
  _select_level(index)
  for card in cards: card.disabled = true
- var error = get_tree().change_scene_to_file(first_level if index==0 else second_level)
+ get_tree().set_meta("arrival_level", first_level if index==0 else second_level)
+ var error = get_tree().change_scene_to_file("res://Cinematics/arrival_intro.tscn")
  if error != OK:
+  get_tree().remove_meta("arrival_level")
   _starting_level = false
   for i in range(cards.size()): cards[i].disabled = not Progress.is_level_unlocked(i+1)
   push_error("Could not start level: " + error_string(error))

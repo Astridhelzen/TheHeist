@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bf683p31x36ev"
-valid=false
+path="res://.godot/imported/BANK.fbx-97f36e98e8e372e3d131db895663ca29.scn"
 
 [deps]
 
 source_file="res://Assets/Bulidnings/Bank_LowPoly/BANK.fbx"
+dest_files=["res://.godot/imported/BANK.fbx-97f36e98e8e372e3d131db895663ca29.scn"]
 
 [params]
 
