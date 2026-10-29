@@ -41,6 +41,8 @@ var title_font = preload("res://UI/Fonts/title.tres")
 const MENU_BUTTON = preload("res://UI/menu_button.tscn")
 const MENU_THEME = preload("res://UI/Themes/ui_theme.tres")
 var overline_font = preload("res://UI/Fonts/overline.tres")
+## Shown under the lock on a level card that can't be played yet
+const LOCK_TEXTS = ["", "FINISH LEVEL 1", "COMING SOON", "UNDER CONSTRUCTION"]
 
 func panel(color: Color, border: Color, width: int = 1) -> StyleBoxFlat:
  var s = StyleBoxFlat.new()
@@ -120,6 +122,10 @@ func _ready() -> void:
   if unlocked:_add_best_result(b,i+1)
   if not unlocked:
    var icon=LockIcon.new();icon.position=Vector2(84,130);icon.size=Vector2(48,64);icon.mouse_filter=Control.MOUSE_FILTER_IGNORE;b.add_child(icon)
+   # Small text under the lock, so it is clear why the level can't be played
+   var tight_font=overline_font.duplicate();tight_font.spacing_glyph=2
+   var note=label_at(LOCK_TEXTS[i],Vector2(0,208),13,Color("929aa7"),tight_font,b)
+   note.size=Vector2(216,20);note.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
    b.tooltip_text="Complete Level 1 to unlock" if i==1 else "Coming soon"
   else:
    b.pressed.connect(_start_level.bind(i))

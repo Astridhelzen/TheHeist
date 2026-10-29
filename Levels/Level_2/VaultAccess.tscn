@@ -32,6 +32,9 @@ outline_size = 20
 
 [node name="CanvasLayer" parent="." unique_id=1284845649 instance=ExtResource("3")]
 
+[node name="HUD" parent="CanvasLayer" index="0"]
+intro_messages = Array[String]([])
+
 [node name="DeskGlow" type="OmniLight3D" parent="." unique_id=1092364747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.715, 6.51, 59.42)
 light_color = Color(0.8980392, 0.6901961, 0.2901961, 1)
