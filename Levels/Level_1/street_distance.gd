@@ -31,9 +31,9 @@ func _strip(x: float, width: float, height: float, edge: float, direction: float
 	shader.code = """shader_type spatial;
 uniform vec4 road_color : source_color;
 void fragment() {
- ALBEDO = mix(road_color.rgb, vec3(0.001, 0.001, 0.002), smoothstep(0.0, 0.75, 1.0 - UV.y));
- ROUGHNESS = 1.0;
- SPECULAR = 0.0;
+ ALBEDO = mix(road_color.rgb, vec3(0.001, 0.001, 0.002), smoothstep(0.15, 0.9, UV.y));
+ ROUGHNESS = 0.88;
+ SPECULAR = 0.5;
 }
 """
 	var material := ShaderMaterial.new()
@@ -41,4 +41,3 @@ void fragment() {
 	material.set_shader_parameter("road_color", color)
 	surface.material_override = material
 	add_child(surface)
-

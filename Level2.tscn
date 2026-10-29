@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://dmcigrmxode8h" path="res://Levels/All_Levels/coin.tscn" id="20_e3avg"]
 [ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="200_font"]
 
+[ext_resource type="PackedScene" path="res://Levels/Level_2/DeskStation.tscn" id="desk_station"]
+
 [sub_resource type="StandardMaterial3D" id="EntranceLampMetal"]
 albedo_color = Color(0.08, 0.085, 0.09, 1)
 metallic = 0.7
@@ -294,3 +296,24 @@ light_color = Color(0.6666667, 0.72156864, 0.8509804, 1)
 light_energy = 0.6
 omni_range = 20.0
 omni_attenuation = 0.3
+
+[node name="DeskStation" parent="." instance=ExtResource("desk_station")]
+position = Vector3(-4, 6.605, 0)
+
+[node name="OfficeCoin1" parent="Coins" instance=ExtResource("20_e3avg")]
+position = Vector3(-6, 6.61, 4)
+
+[node name="OfficeCoin2" parent="Coins" instance=ExtResource("20_e3avg")]
+position = Vector3(-1, 6.61, 4)
+
+[node name="OfficeCoin3" parent="Coins" instance=ExtResource("20_e3avg")]
+position = Vector3(2, 6.61, 0)
+
+[node name="OfficeCoin4" parent="Coins" instance=ExtResource("20_e3avg")]
+position = Vector3(1, 6.61, -6)
+
+[node name="OfficeCoin5" parent="Coins" instance=ExtResource("20_e3avg")]
+position = Vector3(-4, 6.61, -8)
+
+[node name="OfficeCoin6" parent="Coins" instance=ExtResource("20_e3avg")]
+position = Vector3(-6, 6.61, -4)
