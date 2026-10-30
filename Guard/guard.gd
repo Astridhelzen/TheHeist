@@ -84,6 +84,9 @@ func _ready() -> void:
 	vision_ray.target_position = Vector3(0, 0, -flashlight.spot_range)
 	# Kom ihåg ficklampans vanliga färg
 	_normal_light_color = flashlight.light_color
+	# The flashlight is held in the left hand, and the light comes from it
+	# (see guard_flashlight.gd). Which way the light points is not changed.
+	GuardFlashlight.attach(self, flashlight)
 	# _enter_state byter själv till IDLE om det inte finns patrullpunkter
 	_enter_state(State.PATROL)
 	_connect_loot.call_deferred()
