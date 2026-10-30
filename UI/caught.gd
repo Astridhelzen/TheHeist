@@ -34,7 +34,8 @@ func show_caught() -> void:
 	create_tween().tween_property(buttons, "modulate:a", 1.0, 0.25)
 	for button: Button in buttons.get_children():
 		button.disabled = false
-	buttons.get_child(0).grab_focus()
+	# Retry is selected from the start (the last button, on the right)
+	buttons.get_child(buttons.get_child_count() - 1).grab_focus()
 
 
 func _build() -> void:
@@ -53,8 +54,9 @@ func _build() -> void:
 	_add_row(grid, "TIME", format_time(elapsed_time))
 
 	add_buttons_row()
-	add_button("RETRY", retry).disabled = true
+	# Main menu on the left, Retry on the right
 	add_button("MAIN MENU", main_menu).disabled = true
+	add_button("RETRY", retry).disabled = true
 
 
 func _add_row(grid: GridContainer, row_name: String, value: String) -> void:

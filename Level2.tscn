@@ -22,7 +22,6 @@
 [ext_resource type="AudioStream" uid="uid://dloiteadljyu5" path="res://Assets/Sounds/catched_police_siren.mp3" id="19_lose_sound"]
 [ext_resource type="PackedScene" uid="uid://dmcigrmxode8h" path="res://Levels/All_Levels/coin.tscn" id="20_e3avg"]
 [ext_resource type="FontVariation" uid="uid://b651qwiplj1vj" path="res://UI/Fonts/menu.tres" id="200_font"]
-
 [ext_resource type="PackedScene" path="res://Levels/Level_2/DeskStation.tscn" id="desk_station"]
 
 [sub_resource type="StandardMaterial3D" id="EntranceLampMetal"]
@@ -192,10 +191,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6.57, 27.750097)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2, 6.57, 22.5)
 
 [node name="Coin35" parent="Coins" unique_id=402229583 instance=ExtResource("20_e3avg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2, 6.57, 29.633127)
-
-[node name="Coin36" parent="Coins" unique_id=1202624461 instance=ExtResource("20_e3avg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.036024, 6.57, 29.633127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.135162, 6.57, 29.633127)
 
 [node name="Coin11" parent="Coins" unique_id=1781367461 instance=ExtResource("20_e3avg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6.57, 11)
@@ -245,9 +241,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 1.39, -41.5)
 [node name="Coin26" parent="Coins" unique_id=186438962 instance=ExtResource("20_e3avg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.39, -48.5)
 
-[node name="Coin27" parent="Coins" unique_id=1563675462 instance=ExtResource("20_e3avg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.39, -58)
-
 [node name="Coin28" parent="Coins" unique_id=89328967 instance=ExtResource("20_e3avg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 10.87, -42.4)
 
@@ -256,6 +249,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 10.87, -42.4)
 
 [node name="Coin30" parent="Coins" unique_id=97010743 instance=ExtResource("20_e3avg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 10.87, -42.4)
+
+[node name="OfficeCoin1" parent="Coins" unique_id=2029846423 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 6.61, 4)
+
+[node name="OfficeCoin2" parent="Coins" unique_id=1647113403 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 6.61, 4)
+
+[node name="OfficeCoin3" parent="Coins" unique_id=1721850917 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.61, 0)
+
+[node name="OfficeCoin4" parent="Coins" unique_id=1260388117 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 6.61, -6)
+
+[node name="OfficeCoin5" parent="Coins" unique_id=878030088 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 6.61, -8)
+
+[node name="OfficeCoin6" parent="Coins" unique_id=500136100 instance=ExtResource("20_e3avg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 6.61, -4)
 
 [node name="EntranceLamp" type="Node3D" parent="." unique_id=1298819950]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 21.45, 9.5, 21.36)
@@ -279,41 +290,23 @@ omni_attenuation = 1.4
 [node name="BankFillLight" type="OmniLight3D" parent="." unique_id=1047333462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.661988, 22.747974, 27.77934)
 light_color = Color(0.6666667, 0.72156864, 0.8509804, 1)
-light_energy = 0.6
+light_energy = 0.2
 omni_range = 20.0
 omni_attenuation = 0.3
 
 [node name="BankFillLight2" type="OmniLight3D" parent="." unique_id=2039015943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.661988, 22.747974, 1.766161)
 light_color = Color(0.6666667, 0.72156864, 0.8509804, 1)
-light_energy = 0.6
+light_energy = 0.2
 omni_range = 20.0
 omni_attenuation = 0.3
 
 [node name="BankFillLight3" type="OmniLight3D" parent="." unique_id=141457605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.661988, 22.747974, -32.845764)
 light_color = Color(0.6666667, 0.72156864, 0.8509804, 1)
-light_energy = 0.6
+light_energy = 0.2
 omni_range = 20.0
 omni_attenuation = 0.3
 
-[node name="DeskStation" parent="." instance=ExtResource("desk_station")]
-position = Vector3(-4, 6.605, 0)
-
-[node name="OfficeCoin1" parent="Coins" instance=ExtResource("20_e3avg")]
-position = Vector3(-6, 6.61, 4)
-
-[node name="OfficeCoin2" parent="Coins" instance=ExtResource("20_e3avg")]
-position = Vector3(-1, 6.61, 4)
-
-[node name="OfficeCoin3" parent="Coins" instance=ExtResource("20_e3avg")]
-position = Vector3(2, 6.61, 0)
-
-[node name="OfficeCoin4" parent="Coins" instance=ExtResource("20_e3avg")]
-position = Vector3(1, 6.61, -6)
-
-[node name="OfficeCoin5" parent="Coins" instance=ExtResource("20_e3avg")]
-position = Vector3(-4, 6.61, -8)
-
-[node name="OfficeCoin6" parent="Coins" instance=ExtResource("20_e3avg")]
-position = Vector3(-6, 6.61, -4)
+[node name="DeskStation" parent="." unique_id=899161643 instance=ExtResource("desk_station")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 6.605, 0)

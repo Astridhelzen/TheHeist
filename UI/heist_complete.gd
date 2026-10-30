@@ -188,10 +188,11 @@ func _build() -> void:
 	_score_label = add_label(score_row, "0", TITLE_FONT, 64, TEXT, HORIZONTAL_ALIGNMENT_RIGHT)
 
 	add_buttons_row()
+	# Same order as on the caught screen: back on the left, onwards on the right
+	add_button("MAIN MENU", main_menu)
 	add_button("RETRY", retry)
 	if not next_level.is_empty() and ResourceLoader.exists(next_level):
 		add_button("NEXT LEVEL", go_to_level.bind(next_level, level_number + 1))
-	add_button("MAIN MENU", main_menu)
 	buttons.modulate.a = 0.0
 	_set_buttons_enabled(false)
 
@@ -326,7 +327,8 @@ func _finish() -> void:
 	create_tween().tween_property(buttons, "modulate:a", 1.0, 0.25)
 	_set_buttons_enabled(true)
 	# Next level if there is one, otherwise Retry
-	var first: Button = buttons.get_child(1) if buttons.get_child_count() == 3 else buttons.get_child(0)
+	# The button on the right is selected: NEXT LEVEL, or RETRY on the last level
+	var first: Button = buttons.get_child(buttons.get_child_count() - 1)
 	first.grab_focus()
 
 
