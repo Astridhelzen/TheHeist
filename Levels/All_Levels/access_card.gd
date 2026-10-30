@@ -23,7 +23,7 @@ var _door_body: AnimatableBody3D
 @onready var _marker: Label3D = $Marker
 
 func _ready() -> void:
- # Replace the old paper and numeric keypad visually; retain the bank source asset.
+ # Byt ut lappen och knappsatsen mot kort och läsare.
  _bank.get_node("CodePaper_Interactable").hide()
  for node in _bank.find_children("Vault_Keypad*", "Node3D", true, false):
   node.hide()
@@ -39,7 +39,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
  _elapsed += delta
- # The label stands still above the floating card
+ # Håll texten stilla ovanför kortet.
  _marker.position = _card.position + Vector3(0, 0.78, 0)
  _marker.visible = not has_card
  _hud.has_card = has_card
@@ -100,7 +100,7 @@ func _unlock() -> void:
  _notify("Access granted — opening vault")
  _hud.set_objective("Grab the money")
  Sfx.play(scan_sound)
- # Brief scan animation at the reader; the card remains in inventory.
+ # Visa kortet vid läsaren under skanningen.
  _card.show()
  _card.scale = Vector3.ONE
  _card.global_position = _reader.global_position + Vector3(0, -0.03, 0.12)
@@ -108,7 +108,7 @@ func _unlock() -> void:
  var tween := create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
  tween.tween_property(_card, "position:y", _card.position.y + 0.13, 0.35)
  tween.tween_callback(_card.hide)
- # The door starts swinging here, so the vault sound starts with it
+ # Spela dörrljudet när dörren börjar öppnas.
  tween.tween_callback(func(): Sfx.play(vault_open_sound))
  tween.tween_property(_hinge, "rotation:y", deg_to_rad(open_angle), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
  tween.tween_callback(func():

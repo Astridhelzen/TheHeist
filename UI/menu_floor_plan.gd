@@ -1,47 +1,35 @@
 class_name MenuFloorPlan
 extends Control
-## The main menu background: the Level 1 bank seen from above, at night.
-## A guard stands in the bank and points his flashlight at the selected
-## menu option. Only what the light hits is lit up.
-##
-##     var plan := MenuFloorPlan.new()
-##     home.add_child(plan)
-##     plan.aim_at(Vector2(170, 367))       # sweeps the light there
-## For a page without the guard, set with_guard = false (and dim) before adding it.
-##
-## The picture (UI/menu_bank.png) is a render of the Level 1 bank model
-## (Assets/Bulidnings/Bank_LowPoly/BANK.blend) without its roof.
-## Everything is placed in 1280 x 720 menu coordinates.
+## Menybakgrund med banken ovanifrån. Renderad från BANK.blend, layout i 1280 × 720.
 
 const BANK_PICTURE := preload("res://UI/menu_bank.png")
-## Where the guard stands (centre of his shoulders)
+## Vaktens position i menyn, vid axlarnas mitt.
 const GUARD_POSITION := Vector2(630, 470)
-## How big the guard picture is drawn (it is rendered at double size)
+## Vaktbildens visningsstorlek.
 const GUARD_SCALE := 0.5
-## Where the flashlight is, from the middle of the guard (when facing right)
-## How dark the guard is (he stands in the dark, like the bank around him)
+## Lampans läge relativt vakten och vaktens ljusstyrka.
 const GUARD_SHADE := Color(0.3, 0.33, 0.4)
 const LAMP_OFFSET := Vector2(185, 67) * GUARD_SCALE
-## How long the light takes to sweep to a new option (seconds)
+## Tid för ljusets förflyttning i sekunder.
 const SWEEP_TIME := 0.35
 
 const LIGHT_SHADER := """
 shader_type canvas_item;
-// Where the flashlight is, and the point it shines at (menu coordinates)
+// Lampans position och mål i menykoordinater.
 uniform vec2 origin;
 uniform vec2 target;
-// Half the opening angle of the beam (radians)
+// Ljuskäglans halvvinkel i radianer.
 uniform float spread = 0.2;
-// How bright the bank is outside the light (0-1)
+// Ljusstyrka utanför ljuskäglan (0–1).
 uniform float ambient = 0.13;
-// How bright the bank is in the middle of the light (0-1)
+// Ljusstyrka mitt i ljuskäglan (0–1).
 uniform float lit = 0.62;
 uniform vec3 light_color : source_color = vec3(1.0, 0.84, 0.6);
-// Size of the bright spot where the beam lands
+// Storlek på ljusfläcken vid målet.
 uniform float spot_radius = 50.0;
-// 0 = flashlight off
+// 0 stänger av ficklampan.
 uniform float strength = 1.0;
-// Night colour: the dark parts get a cold blue tint
+// Blå ton i mörka områden.
 uniform vec3 night_tint : source_color = vec3(0.55, 0.65, 0.85);
 varying vec2 local;
 
@@ -55,15 +43,15 @@ void fragment() {
 	float dist = length(to_point);
 	float reach = length(target - origin) * 1.2;
 	float angle = dot(to_point / max(dist, 0.001), dir);
-	// The beam: soft at the sides, fading out a little past the target
+	// Mjuka kanter och uttoning för ljuskäglan.
 	float beam = smoothstep(cos(spread), cos(spread * 0.4), angle);
 	beam *= 1.0 - smoothstep(reach * 0.7, reach, dist);
-	// The bright spot where it lands, stretched along the beam
+	// Ljusfläck utdragen längs strålen.
 	vec2 d = local - target;
 	vec2 across_dir = vec2(-dir.y, dir.x);
 	float spot = length(vec2(dot(d, dir) / (spot_radius * 2.0), dot(d, across_dir) / spot_radius));
 	spot = 1.0 - smoothstep(0.15, 1.0, spot);
-	// A little glow around the lamp itself
+	// Glöd runt lampan.
 	float lamp = 1.0 - smoothstep(0.0, 55.0, dist);
 	float light = clamp(beam * 0.45 + spot + lamp * 0.4, 0.0, 1.0) * strength;
 	vec3 dark = COLOR.rgb * night_tint * ambient;
@@ -72,9 +60,9 @@ void fragment() {
 }
 """
 
-## Off: just the dark bank, no guard and no flashlight (for the other menu pages)
+## Dölj vakt och ficklampa på övriga menysidor.
 var with_guard := true
-## Extra darkness on top (0-1), so text on the other menu pages is easy to read
+## Extra mörker bakom texten (0–1).
 var dim := 0.0
 
 var _guard: Guard
@@ -84,20 +72,18 @@ var _time := 0.0
 var _material: ShaderMaterial
 
 
-## The guard seen from above: a render of the real guard model
-## (Assets/Characters/Guard/Idle.fbx) holding out a flashlight.
-## The picture faces right (+x); facing turns him.
+## Vaktbild från Idle.fbx, riktad åt höger. facing styr rotationen.
 class Guard extends Control:
 	const PICTURE := preload("res://UI/menu_guard.png")
 	var facing := 0.0
 	func _draw() -> void:
 		draw_set_transform(Vector2.ZERO, facing, Vector2.ONE * GUARD_SCALE)
-		# Soft shadow on the floor
+		# Mjuk golvskugga.
 		for i in 4:
 			draw_circle(Vector2(6, 8), 52 - i * 10, Color(0, 0, 0, 0.12))
-		# Dark like the rest of the bank: only the flashlight is bright
+		# Mörk vakt med lysande lampa.
 		draw_texture(PICTURE, -PICTURE.get_size() / 2.0, GUARD_SHADE)
-		# The lamp glows a little
+		# Svag glöd vid lampan.
 		draw_circle(LAMP_OFFSET / GUARD_SCALE, 10, Color(1.0, 0.9, 0.65, 0.25))
 		draw_circle(LAMP_OFFSET / GUARD_SCALE, 5, Color(1.0, 0.93, 0.75, 0.9))
 		draw_set_transform(Vector2.ZERO)
@@ -118,7 +104,7 @@ func _ready() -> void:
 	_material.shader = shader
 	picture.material = _material
 	add_child(picture)
-	# Darker at the top left, so the title is easy to read
+	# Mörkare bakom rubriken.
 	var shade := TextureRect.new()
 	var gradient := Gradient.new()
 	gradient.colors = PackedColorArray([Color(0.03, 0.045, 0.06, 0.75), Color(0.03, 0.045, 0.06, 0.0)])
@@ -148,7 +134,7 @@ func _ready() -> void:
 	add_child(_guard)
 
 
-## Points the flashlight at a spot. With animate = false it jumps there.
+## Rikta lampan mot en punkt. animate=false flyttar den direkt.
 func aim_at(point: Vector2, animate := true) -> void:
 	if _tween:
 		_tween.kill()
@@ -161,7 +147,7 @@ func aim_at(point: Vector2, animate := true) -> void:
 
 func _process(delta: float) -> void:
 	_time += delta
-	# The hand moves a tiny bit, so the light feels alive
+	# Liten handrörelse för ljuset.
 	var sway := Vector2(sin(_time * 1.3) * 4.0, sin(_time * 0.9 + 1.0) * 3.0)
 	var target := _aim + sway
 	_guard.facing = (target - GUARD_POSITION).angle()
@@ -171,7 +157,7 @@ func _process(delta: float) -> void:
 	_material.set_shader_parameter("target", target)
 
 
-## The dark bank without the guard, as the background of a menu page.
+## Mörk bankbakgrund utan vakt.
 static func page_background(darkness := 0.45) -> MenuFloorPlan:
 	var plan := MenuFloorPlan.new()
 	plan.with_guard = false

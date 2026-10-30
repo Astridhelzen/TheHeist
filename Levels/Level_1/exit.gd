@@ -1,14 +1,12 @@
 extends Area3D
-## The getaway car. Becomes active when the loot is taken: shows the ESCAPE
-## sign above the car and tells the HUD. Touching the car anywhere then wins.
+## Aktiverar flykten vid bilen när bytet har tagits.
 
 signal escaped
 
 @export var hint_text := "Get to the car"
-## The ESCAPE text above the car. Hidden until the loot is taken.
+## Flykttexten visas efter stölden.
 @export var exit_sign: Label3D
-## Size of the zone that counts as "at the car" (meters). Make it a bit bigger
-## than the car so touching it from any side counts. Zero = use the shape in exit.tscn.
+## Flyktzonens storlek i meter. Noll använder scenens befintliga form.
 @export var zone_size := Vector3.ZERO
 
 var active := false
@@ -39,7 +37,7 @@ func _activate() -> void:
 func _show_sign() -> void:
 	if not exit_sign:
 		return
-	# Pops up above the car
+	# Visa skylten ovanför bilen.
 	exit_sign.show()
 	var full_size := exit_sign.scale
 	exit_sign.scale = full_size * 0.2

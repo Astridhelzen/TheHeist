@@ -1,23 +1,12 @@
 class_name GuardFlashlight
 extends SkeletonModifier3D
-## Makes a guard hold a flashlight in his left hand, and makes the light
-## come from it.
-##
-## Added by guard.gd:  GuardFlashlight.attach(self, flashlight)
-##
-## - The left arm is bent with the flashlight forward (on top of the walk/run/idle animations),
-##   and turns with the upper body. The fingers are curled around the lamp.
-## - The SpotLight3D is moved to the front of the lamp every frame. Its
-##   DIRECTION is not changed, so what the guard can see works as before.
+## Fäster lampan i vänster hand och justerar armen ovanpå animationen.
 
-## Where the arm points, in the model's own space (+z = forward, +x = his left).
-## Measured from the chest, so the arm follows when the upper body turns.
-## The upper arm hangs down by the side and the forearm points forward,
-## so the elbow is bent almost 90 degrees.
+## Armriktningar relativt bröstet. Modellens +Z är framåt och +X åt vänster.
 const UPPER_ARM := Vector3(0.22, -1.0, 0.25)
 const FOREARM := Vector3(-0.05, -0.08, 1.0)
 const HAND := Vector3(0.0, -0.1, 1.0)
-## The flashlight lies just under the fingers
+## Lampans läge under fingrarna.
 const UNDER_HAND := 0.05
 const LAMP_LENGTH := 0.22
 
@@ -28,7 +17,7 @@ var _chest := -1
 var _chest_rest := Basis()
 
 
-## Gives the guard a flashlight. Does nothing if the model has no skeleton.
+## Lägg till lampan om modellen har ett skelett.
 static func attach(guard: Node3D, spot: SpotLight3D) -> void:
 	var model := guard.get_node_or_null("Model")
 	if model == null:
@@ -69,7 +58,7 @@ func _build_torch() -> void:
 	body.mesh = tube
 	body.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_torch.add_child(body)
-	# The glowing glass at the front
+	# Lampans lysande glas.
 	_lens = MeshInstance3D.new()
 	var glass := CylinderMesh.new()
 	glass.top_radius = 0.034
@@ -91,14 +80,14 @@ func _process_modification() -> void:
 	var skeleton := get_skeleton()
 	if skeleton == null or _torch == null:
 		return
-	# How much the upper body has turned from its rest pose
+	# Överkroppens rotation från viloposen.
 	var turn := Basis()
 	if _chest != -1:
 		turn = skeleton.get_bone_global_pose(_chest).basis.orthonormalized() * _chest_rest.inverse()
 	_point(skeleton, "mixamorig_LeftArm", "mixamorig_LeftForeArm", turn * UPPER_ARM)
 	_point(skeleton, "mixamorig_LeftForeArm", "mixamorig_LeftHand", turn * FOREARM)
 	_point(skeleton, "mixamorig_LeftHand", "mixamorig_LeftHandMiddle1", turn * HAND)
-	# Fingers around the lamp: forward, then down, then back under it
+	# Böj fingrarna runt lampan.
 	for finger in ["Index", "Middle", "Ring", "Pinky"]:
 		var bone: String = "mixamorig_LeftHand" + finger
 		_point(skeleton, bone + "1", bone + "2", turn * Vector3(0, -0.6, 1))
@@ -108,7 +97,7 @@ func _process_modification() -> void:
 	_point(skeleton, "mixamorig_LeftHandThumb2", "mixamorig_LeftHandThumb3", turn * Vector3(-0.1, -1, 0.5))
 	_point(skeleton, "mixamorig_LeftHandThumb3", "mixamorig_LeftHandThumb4", turn * Vector3(0.2, -0.6, 1))
 
-	# Put the flashlight under the fingers, pointing the way the hand points
+	# Placera lampan under handen och följ handens riktning.
 	var grip_bone := skeleton.find_bone("mixamorig_LeftHandMiddle1")
 	if grip_bone == -1:
 		return
@@ -122,7 +111,7 @@ func _process_modification() -> void:
 		light.global_position = skeleton.global_transform * (center + forward * (LAMP_LENGTH / 2.0 + 0.03))
 
 
-## Turns a bone so that it points from itself towards `direction`.
+## Vrid benet mot den angivna riktningen.
 func _point(skeleton: Skeleton3D, bone_name: String, child_name: String, direction: Vector3) -> void:
 	var bone := skeleton.find_bone(bone_name)
 	var child := skeleton.find_bone(child_name)

@@ -21,17 +21,17 @@ for name,z,width,length in [('Landing',-2,8,4),('Corridor',-8,6,8),('Vault',-17,
  box(name+'Floor',(0,-.15,z),(width,.3,length),'Floor')
  box(name+'Ceiling',(0,3.65,z),(width,.3,length),'Concrete')
  for side in [-1,1]:box(name+('LeftWall' if side<0 else 'RightWall'),(side*(width/2+.15),1.75,z),(.3,3.5,length),'Concrete')
- # Narrow gold band along the floor assists navigation.
+ # Gul kant längs golvet.
  for side in [-1,1]:box(name+('LeftTrim' if side<0 else 'RightTrim'),(side*(width/2-.035),.15,z),(.06,.12,length),'Steel',False)
 for side in [-1,1]:box('LandingEnd'+str(side),(side*3.5,1.75,-4),(1,3.5,.3),'Concrete')
 box('VaultBackWall',(0,1.75,-22),(10.6,3.5,.3),'Concrete')
-# Opening is 2.6 m wide and 2.85 m tall, matching the original Level1 door.
+# Dörröppning: 2,6 m bred och 2,85 m hög.
 for side in [-1,1]:
  box('VaultFront'+str(side),(side*3.15,1.75,-12),(3.7,3.5,.5),'Concrete')
  box('DoorFrame'+str(side),(side*1.38,1.48,-11.97),(.16,2.96,.65),'Steel')
 box('VaultLintel',(0,3.18,-12),(2.6,.64,.5),'Concrete');box('DoorFrameTop',(0,2.92,-11.97),(2.92,.16,.65),'Steel')
 nodes.append('[node name="VaultDoor" parent="." instance=ExtResource("1_door")]\nposition = Vector3(-1.25, 0, -12)\nrotation = Vector3(0, 0, 0)\n')
-# Door details all move with the hinge; collision is built by the access-card controller.
+# Dörrdelarna följer gångjärnet. Kortskriptet bygger kollisionen.
 box('ReinforcedDoor',(1.25,1.43,0),(2.5,2.8,.42),'DarkSteel',False,'VaultDoor')
 def cylinder(name,pos,radius,depth,material,parent='VaultDoor'):
  global seq
@@ -47,7 +47,7 @@ for i in range(12):
 for y in [.5,1.43,2.35]:
  box('LockBolt'+str(y),(2.43,y,.04),(.38,.16,.3),'Steel',False,'VaultDoor')
  box('HeavyHinge'+str(y),(.04,y,.03),(.24,.3,.5),'Steel',False,'VaultDoor')
-# Keep the original wheel visible in front of the new armour.
+# Behåll dörrhjulet framför den nya ytan.
 nodes.append('[node name="Wheel" type="Node3D" parent="VaultDoor"]\nposition = Vector3(1.25, 1.43, 0.53)\n')
 cylinder('WheelHub',(0,0,.0),.13,.18,'Gold','VaultDoor/Wheel')
 for i in range(6):
@@ -58,8 +58,7 @@ for side in [-1,1]:
  box('StairSide'+str(side),(side*4.15,4.25,4.15),(.3,8.5,8.6),'Concrete')
 box('StairBackWall',(0,2.4,8.45),(8.6,5.0,.3),'Concrete')
 box('StairUnderfloor',(0,-.15,4.25),(8,.3,8.3),'Floor')
-# Close the exposed foundation beside the stairwell up to the bank floor.
-# The central stair and the corridor doorway stay open.
+# Täck grunden bredvid trappan utan att blockera passagen.
 for side in [-1,1]:
  box('FoundationWing'+str(side),(side*15,2.4,-4.05),(26,5.0,.4),'Concrete')
  box('FoundationReturn'+str(side),(side*28,2.4,2.15),(.4,5.0,12.8),'Concrete')
@@ -76,14 +75,14 @@ for side in [-1,1]:
 box('CountingTable',(0,.85,-18),(2.4,.15,1.5),'Steel')
 for x in [-1,1]:
  for z in [-18.55,-17.45]:box('TableLeg'+str(x)+str(z),(x,.4,z),(.1,.8,.1),'DarkSteel')
-# Collectible money is instanced by Level2.tscn on this table.
+# Level2.tscn placerar bytet på bordet.
 for i,z in enumerate([-2,-7,-10,-15,-20]):
  box('CeilingFixture'+str(i),(0,3.43,z),(1.8,.12,.4),'DarkSteel',False)
  box('LightPanel'+str(i),(0,3.35,z),(1.6,.035,.3),'Light',False)
  nodes.append(f'[node name="Light{i}" type="OmniLight3D" parent="."]\nposition = Vector3(0, 2.9, {z})\nlight_color = Color(0.83, 0.9, 1, 1)\nlight_energy = 1.3\nomni_range = 6.0\nshadow_enabled = true\n')
 nodes.append('[node name="VaultSign" type="Label3D" parent="."]\nposition = Vector3(0, 3.17, -11.7)\ntext = "VAULT  /  B2"\nfont_size = 64\npixel_size = 0.006\n')
 nodes.append('[node name="Arrival" type="Marker3D" parent="."]\nposition = Vector3(0, 0.1, -1.5)\n')
-# A smooth invisible ramp supports the existing stair geometry.
+# Osynlig ramp under trappan.
 points=[(x,y,z) for x in [-3.75,3.75] for y,z in [(-.2,-.45),(.015,-.45),(4.8,7.2),(5.115,7.2)]]
 res.append('[sub_resource type="ConvexPolygonShape3D" id="StairRamp"]\npoints = PackedVector3Array('+', '.join(str(c) for p in points for c in p)+')\n')
 res.append('[sub_resource type="BoxShape3D" id="StairTopLanding"]\nsize = Vector3(7.5, 0.2, 1.1)\n')

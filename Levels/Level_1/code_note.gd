@@ -1,6 +1,6 @@
 extends Node3D
 
-## Lappen öppnas automatiskt nära skrivbordet. Rörelse och kamera fortsätter fungera.
+## Visa lappen på nära håll utan att stoppa rörelsen.
 @export var vault_code: String = "1234"
 @export var note_path: NodePath
 @export var player_path: NodePath

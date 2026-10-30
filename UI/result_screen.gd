@@ -1,8 +1,5 @@
 extends CanvasLayer
-## Shared base for the end-of-level screens (heist_complete.gd and caught.gd).
-## Builds the dark overlay, the title and the row of buttons in the same style
-## as the pause menu and the HUD, and handles Retry / Next level / Main menu.
-## The screen keeps running while the game is paused (process_mode = Always).
+## Gemensam bas för vinst- och förlustskärmar. Körs även när spelet är pausat.
 
 const MAIN_MENU := "res://UI/main_menu.tscn"
 const MenuButtonScene := preload("res://UI/menu_button.tscn")
@@ -17,14 +14,14 @@ const MUTED := Color("7d848c")
 const EDGE := Color("262b32")
 const DIM := Color(0.027, 0.035, 0.047, 0.86)
 
-## Shown above the title, e.g. "LEVEL 1". 0 = just "THE HEIST".
+## Bannummer ovanför rubriken. 0 visar bara THE HEIST.
 @export var level_number: int = 0
 
 var root: Control
 var content: VBoxContainer
 var buttons: HBoxContainer
 
-## Read from the HUD when the screen opens.
+## Hämtas från HUD när skärmen öppnas.
 var coins_collected := 0
 var coins_total := 0
 var elapsed_time := 0.0
@@ -35,7 +32,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
-## Copies coins and time from the HUD. A level without a HUD gives 0 / 0 and 00:00:00.
+## Läs mynt och tid från HUD. Saknas HUD används nollvärden.
 func read_results() -> void:
 	var hud := get_tree().get_first_node_in_group("hud")
 	if hud == null:
@@ -52,9 +49,7 @@ func format_time(seconds: float) -> String:
 	return "00:00:00"
 
 
-# --------------------
-# BUILDING THE SCREEN
-# --------------------
+# Layout
 func build_base(title: String, title_color: Color) -> void:
 	root = Control.new()
 	root.name = "Root"
@@ -86,7 +81,7 @@ func build_base(title: String, title_color: Color) -> void:
 	buttons.add_theme_constant_override("separation", 36)
 
 
-## Adds the row of buttons at the bottom. Call after the rest of the content.
+## Lägg till knappraden efter övrigt innehåll.
 func add_buttons_row() -> void:
 	add_spacer(content, 26)
 	content.add_child(buttons)
@@ -121,31 +116,29 @@ func add_divider(parent: Node, width: float) -> void:
 	parent.add_child(line)
 
 
-## A button in the same style as the pause menu (amber ▶ when selected).
+## Knapp i samma stil som pausmenyn.
 func add_button(text: String, on_pressed: Callable) -> Button:
 	var button: Button = MenuButtonScene.instantiate()
 	button.text = text
-	# Fixed width, so the row doesn't jump when the selected button grows
+	# Fast bredd så att raden inte flyttar sig.
 	button.custom_minimum_size = Vector2(180, 56)
 	button.pressed.connect(on_pressed)
 	buttons.add_child(button)
 	return button
 
 
-# --------------------
-# OPEN / LEAVE
-# --------------------
+# Öppna och lämna
 func open() -> void:
 	visible = true
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	# Hide the HUD so its boxes don't show through behind the title
+	# Dölj HUD bakom resultatskärmen.
 	get_tree().call_group("hud", "hide")
 	root.modulate.a = 0.0
 	create_tween().tween_property(root, "modulate:a", 1.0, 0.3)
 
 
-## Waits that also work while the game is paused.
+## Vänta även när spelet är pausat.
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds, true).timeout
 
@@ -160,7 +153,7 @@ func go_to(scene_path: String) -> void:
 	get_tree().change_scene_to_file(scene_path)
 
 
-## Loads a level behind the loading screen (with tips) instead of freezing.
+## Ladda banan via laddskärmen.
 func go_to_level(scene_path: String, number: int) -> void:
 	_leave()
 	LoadingScreen.open(get_tree(), scene_path, number, false)
@@ -171,11 +164,9 @@ func main_menu() -> void:
 
 
 func _leave() -> void:
-	# Stops the siren / alarm sounds that Sfx is still playing
+	# Stoppa effekter som spelas via Sfx.
 	Sfx.stop_all()
-	# Stop every sound in the level (alarm, music, footsteps) BEFORE unpausing.
-	# Otherwise the paused alarm starts again and keeps howling while the next
-	# level loads, which can take a few seconds.
+	# Stoppa banans ljud före avpausning, annars återupptas larmet under laddningen.
 	var level := get_tree().current_scene
 	if level:
 		for sound in level.find_children("*", "AudioStreamPlayer", true, false):

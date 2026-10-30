@@ -16,14 +16,14 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _process(delta: float) -> void:
-	# Svävar och snurrar sakta, så att det syns att man kan ta den
+	# Sväva och snurra för att markera bytet.
 	time += delta
 	model.position.y = base_y + sin(time * 2.0) * 0.05
 
 func _on_body_entered(body: Node3D) -> void:
 	if body == PlayerManager.player and not is_taken:
 		is_taken = true
-		# Sfx spelar klart ljudet även fast pengarna tas bort direkt
+		# Ljudet spelas klart efter att bytet tagits bort.
 		Sfx.play(pickup_sound)
 		taken.emit()
 		queue_free()

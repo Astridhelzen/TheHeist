@@ -1,9 +1,5 @@
 extends Control
-## The main menu, in two views:
-## - HOME: START HEIST, SETTINGS, CREDITS, QUIT
-## - LEVELS: the level cards (opened with START HEIST)
-## Everything works with the keyboard: arrows to move, Enter to choose,
-## Esc to go back. The mouse works too.
+## Huvudmeny och banval med mus- och tangentbordsstyrning.
 
 class LockIcon extends Control:
 	func _draw() -> void:
@@ -18,7 +14,7 @@ class LockIcon extends Control:
 		draw_circle(Vector2(24, 40), 4, Color("10151b"))
 		draw_rect(Rect2(22, 40, 4, 10), Color("10151b"))
 
-## Three small gold coins on a level card: the best result on that level.
+## Visa bästa medaljantal på bankortet.
 class MedalRow extends Control:
 	var medals := 0
 	func _draw() -> void:
@@ -46,16 +42,15 @@ const MENU_THEME = preload("res://UI/Themes/ui_theme.tres")
 var title_font = preload("res://UI/Fonts/title.tres")
 var overline_font = preload("res://UI/Fonts/overline.tres")
 
-## Shown under the lock on a level card that can't be played yet
+## Förklaring under låsta banor.
 const LOCK_TEXTS = ["", "FINISH LEVEL 1", "COMING SOON", "UNDER CONSTRUCTION"]
 const SUBTITLES = ["THE BANK", "THE GRAND BANK", "THE ROOFTOP", "THE VAULT"]
 const CARD_SIZE := Vector2(262, 355)
 const CARD_GAP := 24.0
 
-## Where the menu opens next time: "levels" after playing a level,
-## or the name of a home button (e.g. "Credits") to select it.
+## Vilken menyvy eller knapp som ska väljas nästa gång.
 static var _return_to := ""
-## The level card that was played last
+## Senast spelade bana.
 static var _last_level := 0
 
 var selected_level := 0
@@ -112,20 +107,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if levels.visible:
 		_show_home(true, "StartHeist")
 	elif home_buttons["Quit"].has_focus():
-		# Esc twice (or Esc on QUIT) quits the game
+		# Esc två gånger, eller Esc på Quit, avslutar.
 		_on_quit()
 	else:
-		# The first Esc points the light at QUIT, so you don't quit by mistake
+		# Första Esc väljer Quit utan att avsluta.
 		home_buttons["Quit"].grab_focus()
 
 
-# --------------------
-# HOME
-# --------------------
+# Huvudmeny
 func _build_home() -> void:
 	home = _view("Home")
-	# A bank seen from above, with a guard pointing his flashlight at the
-	# selected option (see UI/menu_floor_plan.gd)
+	# Vakten i bakgrunden riktar lampan mot vald knapp.
 	floor_plan = MenuFloorPlan.new()
 	home.add_child(floor_plan)
 	label_at("A STEALTH GAME", Vector2(76, 150), 14, MUTED, overline_font, home)
@@ -145,12 +137,12 @@ func _build_home() -> void:
 	_hint(home, "↑↓  MOVE     ENTER  SELECT     ESC  QUIT")
 
 
-## Points the guard's flashlight at the middle of a button's text.
+## Rikta ljuset mot knapptextens mitt.
 func _aim_light(button: Button) -> void:
 	var font := button.get_theme_font("font")
 	var text_width := font.get_string_size(button.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 38).x
 	var point := button.position + Vector2(text_width / 2.0, button.size.y / 2.0)
-	# Jump straight there when the menu has just opened
+	# Sätt riktningen direkt när menyn öppnas.
 	floor_plan.aim_at(point, home.visible and is_node_ready())
 
 
@@ -159,9 +151,7 @@ func _show_home(animate := true, focus := "StartHeist") -> void:
 	home_buttons[focus].grab_focus()
 
 
-# --------------------
-# LEVELS
-# --------------------
+# Banval
 func _build_levels() -> void:
 	levels = _view("Levels")
 	levels.add_child(MenuFloorPlan.page_background())
@@ -223,7 +213,7 @@ func _build_card(i: int) -> void:
 	icon.size = Vector2(48, 64)
 	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	card.add_child(icon)
-	# Small text under the lock, so it is clear why the level can't be played
+	# Förklara varför banan är låst.
 	var tight_font: FontVariation = overline_font.duplicate()
 	tight_font.spacing_glyph = 2
 	var note := label_at(LOCK_TEXTS[i], Vector2(0, 208), 13, Color("929aa7"), tight_font, card)
@@ -231,7 +221,7 @@ func _build_card(i: int) -> void:
 	note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
 
-## Left/right jumps between the levels that can be played; down goes to BACK.
+## Vänster/höger byter bana, ned väljer Back.
 func _link_cards() -> void:
 	var playable: Array[Button] = []
 	for card in cards:
@@ -245,7 +235,7 @@ func _link_cards() -> void:
 		card.focus_neighbor_bottom = card.get_path_to(back_button)
 
 
-## Best result on a level card: filled gold coins + best score (saved by the score screen)
+## Visa sparade medaljer och bästa poäng.
 func _add_best_result(card: Button, level: int) -> void:
 	var row := MedalRow.new()
 	row.medals = Progress.get_best_medals(level)
@@ -291,17 +281,14 @@ func _start_level(index: int) -> void:
 	for card in cards:
 		card.disabled = true
 	_stop_music()
-	# Come back to the level cards after playing
+	# Återvänd till banvalet efter spel.
 	_return_to = "levels"
 	_last_level = index
-	# The loading screen loads the level in the background, then plays the arrival intro
+	# Ladda banan före bilintrot.
 	LoadingScreen.open(get_tree(), first_level if index == 0 else second_level, index + 1)
 
 
-# --------------------
-# SETTINGS, CREDITS, QUIT
-# --------------------
-## The settings page (volume and mouse sensitivity), see UI/settings_screen.gd
+# Inställningssidan
 func _build_settings() -> void:
 	settings = SettingsScreen.new()
 	settings.menu_background = true
@@ -309,11 +296,7 @@ func _build_settings() -> void:
 	settings.closed.connect(func(): home_buttons["Settings"].grab_focus())
 
 
-# --------------------
-# MUSIC
-# The menu music is moved out of this scene, so it keeps playing on the
-# credits page too. It stops when a level starts.
-# --------------------
+# Behåll menymusiken mellan menysidor. Stoppa den vid banstart.
 const MUSIC_PLAYER := "MenuMusicPlayer"
 
 func _keep_music_playing() -> void:
@@ -357,10 +340,7 @@ func _on_quit() -> void:
 	get_tree().quit()
 
 
-# --------------------
-# HELPERS
-# --------------------
-## An empty full-screen layer for one view (home or levels).
+# Skapa ett lager för en menyvy.
 func _view(view_name: String) -> Control:
 	var view := Control.new()
 	view.name = view_name
@@ -370,7 +350,7 @@ func _view(view_name: String) -> Control:
 	return view
 
 
-## Hides one view and shows the other, sliding in from the side.
+## Byt vy med en kort glidning.
 func _switch(from: Control, to: Control, animate: bool, direction: float) -> void:
 	from.hide()
 	to.show()
@@ -387,7 +367,7 @@ func _switch(from: Control, to: Control, animate: bool, direction: float) -> voi
 	_tween.tween_property(to, "position:x", 0.0, 0.3)
 
 
-## Small key hints in the bottom right corner.
+## Tangenttips nere till höger.
 func _hint(parent: Control, text: String) -> void:
 	var tight_font: FontVariation = overline_font.duplicate()
 	tight_font.spacing_glyph = 2
@@ -396,7 +376,7 @@ func _hint(parent: Control, text: String) -> void:
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 
 
-## A gradient from the background colour (alpha 0-1 at each offset) over a rect.
+## Rita en övertoning över rektangeln.
 func _fade(parent: Control, at: Vector2, area: Vector2, direction: Vector2, alphas: Array, offsets: Array) -> void:
 	var gradient := Gradient.new()
 	var colors := PackedColorArray()

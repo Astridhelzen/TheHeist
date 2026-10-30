@@ -37,12 +37,12 @@ for j,z in enumerate([-8,39]):
  box(f'BenchSeat{j}',(24,6.5,z),(.7,.13,2.3),'Trunk')
  box(f'BenchBack{j}',(23.65,7,z),(.12,.9,2.3),'Trunk')
  for a in [-.8,.8]:box(f'BenchLeg{j}_{a}',(24,6.25,z+a),(.5,.5,.09),'Steel')
-# Parked getaway car doubles as a readable escape destination.
+# Bilen markerar flyktplatsen.
 box('GetawayBody',(31,6.6,31),(2,.8,4),'Blue')
 box('GetawayCabin',(31,7.25,31),(1.8,.65,2.2),'Glass')
 for x in [29.98,32.02]:
  for z in [29.7,32.3]:box('Wheel'+str(x)+str(z),(x,6.35,z),(.2,.65,.65),'Steel')
-# Solid street ends and background blocks keep the playable area bounded.
+# Avgränsa gatan med byggnader och ändväggar.
 box('NorthBlock',(44,11,-46),(46,10,2),'Brick')
 box('SouthBlock',(44,11,56),(46,10,2),'Cream')
 box('EastBoundary',(66,10,5),(1,8,100),'Stone')

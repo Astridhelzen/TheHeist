@@ -27,7 +27,7 @@ func run():
    var safe=hit!=null and p.x>=west and p.x<=67 and p.z>=-45 and p.z<=55
    if not safe: failures+=1
    print(path," edge ",c[0]," stopped ",safe," position ",p)
-  # Check barriers alone leave an opening for the entrance and ignore camera rays.
+  # Kontrollera entréöppningen och att kamerans strålar inte blockeras.
   var mid=(barrier.entrance_start+barrier.entrance_end)/2
   var space=level.get_world_3d().direct_space_state
   var query=PhysicsRayQueryParameters3D.create(exterior.to_global(Vector3(west+2,7,mid)),exterior.to_global(Vector3(west-2,7,mid)),32)

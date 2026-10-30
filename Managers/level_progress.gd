@@ -1,6 +1,6 @@
 extends RefCounted
 
-# Separate from scene state so progress survives returning to the menu.
+# Spara framsteg mellan banor och menybesök.
 static var save_path := "user://progress.cfg"
 
 static func is_level_unlocked(level: int) -> bool:
@@ -24,12 +24,7 @@ static func complete_level(level: int) -> Error:
   push_error("Could not save level progress: " + error_string(error))
  return error
 
-# --------------------
-# BEST RESULTS
-# Saved per level by the score screen (heist_complete.gd) and shown on the
-# level cards in the main menu.
-# --------------------
-## Keeps the highest score and the most gold coins (0-3) ever reached on a level.
+# Spara bästa poäng och medaljantal per bana.
 static func save_best(level: int, score: int, medals: int) -> Error:
  var save := ConfigFile.new()
  save.load(save_path)

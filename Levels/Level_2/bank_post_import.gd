@@ -1,8 +1,7 @@
 @tool
 extends EditorScenePostImport
 
-# Static bank geometry gets collision again whenever the Blender file changes.
-# The animated vault door belongs to BasementVault and is not part of this import.
+# Bygg om bankens statiska kollision vid import. Valvdörren hanteras separat.
 func _post_import(scene: Node) -> Object:
 	_add_collisions(scene, scene, false)
 	return scene
@@ -12,14 +11,13 @@ func _add_collisions(node: Node, scene: Node, inside_body: bool) -> void:
 	var children := node.get_children()
 	if node is MeshInstance3D and not inside_body:
 		var instance := node as MeshInstance3D
-		# Preserve detail without shimmering at grazing viewing angles.
+		# Minska flimmer vid sneda betraktningsvinklar.
 		if instance.mesh != null:
 			for surface in range(instance.mesh.get_surface_count()):
 				var material := instance.get_active_material(surface)
 				if material is BaseMaterial3D:
 					material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
-		# The source's invisible helper material became opaque during conversion.
-		# Keep its useful collision, but never draw it over the textured surfaces.
+		# Dölj hjälpmaterialet men behåll kollisionen.
 		if "Invisible_M" in instance.name:
 			instance.visible = false
 		var already_has_collision := false

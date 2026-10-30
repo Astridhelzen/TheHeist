@@ -1,17 +1,11 @@
 extends RefCounted
-## Shared collision-tested stepping for small kerbs, floor thresholds and the
-## edges of raised floors. Used by the player and the guards:
-##     preload("res://Movement/ground_motion.gd").move(self, delta)
+## Gemensam rörelse över låga kanter för spelare och vakter.
 
-## The highest edge a character steps up onto by itself (metres). In practice
-## a little more (about 0.3 m), as the rounded capsule first rides up the edge.
+## Steghöjd i meter. Den rundade kapseln kan nå något högre.
 const MAX_STEP_HEIGHT := 0.25
-## How far ahead to look for an edge. A walking guard only moves ~3 cm per
-## frame, so without looking ahead the rounded bottom of the capsule rides up
-## onto the edge first and then hangs on it, off the floor, and never steps.
+## Sök en bit framåt så att kapseln inte fastnar på kanten.
 const LOOK_AHEAD := 0.12
-## Counts as standing when the ground is this close below (also when the
-## capsule is hanging on an edge a few centimetres above the floor).
+## Tillåt steg även när kroppen är strax ovanför golvet.
 const GROUND_PROBE := 0.15
 
 
@@ -28,25 +22,22 @@ static func _near_ground(body: CharacterBody3D) -> bool:
 	return body.is_on_floor() or body.test_move(body.global_transform, Vector3.DOWN * GROUND_PROBE)
 
 
-## Lifts the body onto an edge in front of it, if the edge is low enough and
-## there is room to stand on top of it.
+## Kliv upp om kanten är låg och det finns plats.
 static func _step_up(body: CharacterBody3D, motion: Vector3) -> void:
 	var start := body.global_transform
 	var ahead := motion.normalized() * maxf(motion.length(), LOOK_AHEAD)
 	var hit := KinematicCollision3D.new()
 	if not body.test_move(start, ahead, hit):
-		return   # nothing in the way
+		return   # Fri väg.
 	if hit.get_normal().y > 0.95:
-		return   # only the flat floor itself
+		return   # Bara golvet.
 	var lift := Vector3.UP * MAX_STEP_HEIGHT
 	if body.test_move(start, lift):
-		return   # no headroom
+		return   # För lågt i tak.
 	var raised := start.translated(lift)
 	if body.test_move(raised, ahead):
-		return   # still blocked when raised: a wall or something tall
-	# Look down from above the edge for something to stand on.
-	# At an edge Jolt reports the capsule's rounded contact normal rather than
-	# the flat top's normal, so any upward support is accepted here.
+		return   # Hindret är för högt.
+	# Sök stöd på kanten. Jolt kan ge en rundad kontaktnormal från kapseln.
 	var landing := raised.translated(ahead)
 	var support := KinematicCollision3D.new()
 	if not body.test_move(landing, -lift, support) or support.get_normal().y < 0.01:

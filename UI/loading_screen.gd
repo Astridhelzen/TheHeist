@@ -1,12 +1,6 @@
 class_name LoadingScreen
 extends Control
-## Loading screen shown while a level loads in the background.
-## Shows the level name, a thin amber progress bar and gameplay tips that change
-## every few seconds. Same look as the menu and the end-of-level screens.
-##
-## Start a level through it from anywhere:
-##     LoadingScreen.open(get_tree(), "res://Levels/Level_1/Level_1.tscn", 1)
-## With with_intro = true the level starts with the car arrival intro.
+## Laddar banan i bakgrunden och visar tips. Kan starta med bilintrot.
 
 const LOADING_SCENE := "res://UI/loading_screen.tscn"
 const INTRO_SCENE := "res://Cinematics/arrival_intro.tscn"
@@ -35,21 +29,21 @@ const TIPS := [
 	"Hide in the dark and let the guard walk past.",
 ]
 
-## How long each tip is shown (seconds).
+## Tid per tips i sekunder.
 const TIP_TIME := 3.5
-## Stay at least this long, so there is time to read a tip even on a fast computer.
+## Minsta visningstid för laddskärmen.
 const MIN_TIME := 2.0
 
-# Set by open() before the scene changes
+# Sätts av open() före scenbytet.
 static var _target := ""
 static var _level_number := 0
 static var _with_intro := true
-# Keeps the loaded level in memory until the intro has picked it up
+# Behåll banan i minnet tills introt tar över.
 static var _loaded: Array[Resource] = []
 
 var _paths: Array[String] = []
-var _current := 0          # which of _paths is loading now
-var _real_progress := 0.0  # how far the loading really is (0-1)
+var _current := 0          # Filen som laddas nu.
+var _real_progress := 0.0  # Rapporterad laddning (0–1).
 var _elapsed := 0.0
 var _shown_progress := 0.0
 var _tip_index := 0
@@ -62,7 +56,7 @@ var _percent: Label
 var _tip: Label
 
 
-## Shows the loading screen and loads `level_path` in the background.
+## Öppna laddskärmen och börja ladda banan.
 static func open(tree: SceneTree, level_path: String, level_number := 0, with_intro := true) -> void:
 	_target = level_path
 	_level_number = level_number
@@ -78,9 +72,7 @@ func _ready() -> void:
 	_paths = [_target]
 	if _with_intro and ResourceLoader.exists(INTRO_SCENE):
 		_paths.append(INTRO_SCENE)
-	# One file at a time and without extra threads. Loading the level and the
-	# intro at the same time on several threads could make Godot lock up when
-	# both needed the same file (the bar then got stuck at ~27 %).
+	# Ladda bana och intro i turordning för att undvika låsning på gemensamma resurser.
 	ResourceLoader.load_threaded_request(_paths[0], "", false)
 	_tip_index = randi() % TIPS.size()
 	_show_tip(false)
@@ -105,7 +97,7 @@ func _process(delta: float) -> void:
 		elif status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			part = progress[0] if not progress.is_empty() else 0.0
 		else:
-			# Failed: go back to the menu instead of waiting forever
+			# Återgå till menyn om laddningen misslyckas.
 			push_error("Could not load " + path)
 			_done = true
 			get_tree().change_scene_to_file("res://UI/main_menu.tscn")
@@ -118,8 +110,7 @@ func _process(delta: float) -> void:
 	elif _shown_progress < _real_progress:
 		_shown_progress = move_toward(_shown_progress, _real_progress, delta * 1.5)
 	else:
-		# Big files (like the Level 2 bank) report no progress while they load.
-		# Let the bar creep on slowly so it is clear the game hasn't frozen.
+		# Låt stapeln röra sig även när en stor fil inte rapporterar framsteg.
 		var limit := minf(_real_progress + 0.15, 0.95)
 		_shown_progress = minf(_shown_progress + delta * 0.015, limit)
 	_set_progress(_shown_progress)
@@ -131,16 +122,14 @@ func _process(delta: float) -> void:
 func _start() -> void:
 	_done = true
 	if _with_intro and _loaded.size() > 1:
-		# The intro instantiates the level itself; it is already in memory now
+		# Introt instansierar den redan laddade banan.
 		get_tree().set_meta("arrival_level", _target)
 		get_tree().change_scene_to_packed(_loaded[1])
 	else:
 		get_tree().change_scene_to_packed(_loaded[0])
 
 
-# --------------------
-# LAYOUT
-# --------------------
+# Layout
 func _build() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	var background := ColorRect.new()
@@ -163,7 +152,7 @@ func _build() -> void:
 	_label(column, overline, OVERLINE_FONT, 14, MUTED)
 	_label(column, "LOADING", TITLE_FONT, 96, TEXT)
 
-	# Thin amber bar with the percentage to the right of it
+	# Laddningsstapel med procenttal.
 	var bar_row := HBoxContainer.new()
 	bar_row.add_theme_constant_override("separation", 16)
 	column.add_child(bar_row)
@@ -185,7 +174,7 @@ func _build() -> void:
 	gap.custom_minimum_size = Vector2(0, 36)
 	column.add_child(gap)
 
-	# The tip, with a small amber arrow like the menu buttons
+	# Tips med gul pil.
 	var tip_row := HBoxContainer.new()
 	tip_row.add_theme_constant_override("separation", 14)
 	column.add_child(tip_row)
@@ -217,9 +206,7 @@ func _set_progress(value: float) -> void:
 	_percent.text = "%d %%" % int(round(value * 100.0))
 
 
-# --------------------
-# TIPS
-# --------------------
+# Tips
 func _update_tip(delta: float) -> void:
 	_tip_time += delta
 	if _tip_time >= TIP_TIME:

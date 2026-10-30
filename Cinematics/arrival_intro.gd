@@ -1,5 +1,5 @@
 extends Node3D
-## Menu-only arrival sequence. The level is frozen until control is handed over.
+## Bilintro från menyn. Banan väntar tills spelaren får kontroll.
 const CAR = preload("res://Assets/Models/car/2004_mazda_b-series_un_2500_double_cab/scene.gltf")
 const DEFAULT_LEVEL := "res://Levels/Level_1/Level_1.tscn"
 const DRIVE_TIME := 4.2
@@ -20,11 +20,11 @@ var elapsed := 0.0
 var finished := false
 var stepping_out := false
 var wheel_axles: Array[Node3D] = []
-# Sound: engine that follows the car's speed, a tension drone, and the door
+# Motorljud, bakgrundsljud och bildörr.
 var engine_sound: AudioStreamPlayer
 var tension_sound: AudioStreamPlayer
 var door_sound: AudioStreamPlayer
-# The coins are hidden while the car drives in, and pop up when the game starts
+# Visa mynten först när introt är klart.
 var hidden_coins: Array[Node3D] = []
 
 func _ready() -> void:
@@ -62,7 +62,7 @@ func _ready() -> void:
  _update_shot(0.0)
 
 func _build_car() -> void:
- # Replace the old blockout car at the existing escape location.
+ # Ersätt den gamla bilen vid flyktplatsen.
  for child in exterior.get_children():
   if child.name.begins_with("Getaway") or child.name.begins_with("Wheel"):
    exterior.remove_child(child)
@@ -72,10 +72,10 @@ func _build_car() -> void:
  exterior.add_child(car)
  var model = CAR.instantiate()
  car.add_child(model)
- # Source units are centimetres; rotate its +X nose along the arrival road (+Z).
+ # Skala från centimeter och vrid bilens +X mot gatans +Z.
  model.scale = Vector3.ONE * (5.2 / 513.4083)
  model.rotation.y = -PI / 2
- # The source groups each axle's tyres/rims into these four mesh parts.
+ # Samla däck och fälgar per axel.
  for front in [true, false]:
   var axle := Node3D.new()
   car.add_child(axle)
@@ -102,7 +102,7 @@ func _build_overlay() -> void:
   bar.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE if bottom else Control.PRESET_TOP_WIDE)
   bar.offset_top = -64 if bottom else 0
   bar.offset_bottom = 0 if bottom else 64
- # "SPACE  SKIP" in the bottom bar, in the same style as the key hints in the menu
+ # Tangenttips i nederkanten.
  var hint_font: FontVariation = preload("res://UI/Fonts/overline.tres").duplicate()
  hint_font.spacing_glyph = 2
  var hint := Label.new()
@@ -145,7 +145,7 @@ func _sound(path: String, volume: float, loop: bool) -> AudioStreamPlayer:
  add_child(sound)
  return sound
 
-## Engine: louder and higher while driving, settles into a low idle when parked.
+## Motorljudet följer farten och går ned på tomgång.
 func _update_engine(time: float, progress: float) -> void:
  if engine_sound == null: return
  var speed := 1.0 - progress
@@ -170,7 +170,7 @@ func _process(delta: float) -> void:
 
 func _update_shot(time: float) -> void:
  var progress := clampf(time / DRIVE_TIME, 0, 1)
- # Smooth braking as the pickup reaches the escape parking space.
+ # Bromsa mjukt in vid parkeringen.
  var eased := 1.0 - pow(1.0 - progress, 2.0)
  _update_engine(time, progress)
  car.position = parked + Vector3(0, 0, lerpf(-17.0, 0.0, eased))
@@ -200,7 +200,7 @@ func _finish() -> void:
  if finished or not is_instance_valid(level): return
  finished = true
  car.position = parked
- # Only the parked car blocks movement; no animated collider pushes actors.
+ # Aktivera bilens kollision först när den står still.
  var body := StaticBody3D.new()
  body.name = "ParkedCollision"
  car.add_child(body)
@@ -215,7 +215,7 @@ func _finish() -> void:
  player.show()
  player.camera_input_enabled = true
  var towards_bank := -exterior.global_basis.x.normalized()
- # Face the first nearby coin so the arrival naturally leads into the route.
+ # Vänd spelaren mot närmaste mynt.
  var coins := level.get_node_or_null("Coins")
  var nearest_distance := INF
  if coins != null:
@@ -242,7 +242,7 @@ func _finish() -> void:
  Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
  queue_free()
 
-## Let the engine and the drone fade out instead of cutting off.
+## Tona ut motor- och bakgrundsljudet.
 func _fade_out_sounds() -> void:
  for sound in [engine_sound, tension_sound]:
   if sound == null or not sound.playing: continue
@@ -259,7 +259,7 @@ func _hide_coins() -> void:
    coin.hide()
    hidden_coins.append(coin)
 
-## The coins pop up one after another when the game starts.
+## Visa mynten ett i taget.
 func _show_coins() -> void:
  var index := 0
  for coin in hidden_coins:

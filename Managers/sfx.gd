@@ -1,11 +1,5 @@
 extends Node
-## Autoload named "Sfx". Plays one-shot sound effects from anywhere:
-##     Sfx.play(my_sound)
-## The sounds keep playing even if the node that triggered them is removed
-## (e.g. a picked-up item that calls queue_free) or the scene changes.
-##
-## It also gives EVERY button in the game a hover sound and a click sound
-## automatically, in all menus. Put the sound files at the paths below.
+## Spelar ljudeffekter även efter scenbyte och kopplar knappljud.
 
 const HOVER_SOUND_PATH := "res://Assets/Sounds/ui_hover.ogg"
 const CLICK_SOUND_PATH := "res://Assets/Sounds/ui_click.ogg"
@@ -18,13 +12,13 @@ var _last_button_added_frame := -100
 
 
 func _ready() -> void:
-	# Keep playing even when the game is paused (e.g. in the pause menu)
+	# Ljud ska fungera även i pausmenyn.
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 	_hover_sound = _load_if_exists(HOVER_SOUND_PATH)
 	_click_sound = _load_if_exists(CLICK_SOUND_PATH)
 
-	# Hook up every button that appears in the game, now and later
+	# Koppla ljud till befintliga och nya knappar.
 	get_tree().node_added.connect(_on_node_added)
 	for node in get_tree().root.find_children("*", "BaseButton", true, false):
 		_hook_button(node)
@@ -40,13 +34,12 @@ func play(stream: AudioStream, volume_db: float = 0.0, is_ui: bool = false) -> v
 	if is_ui:
 		player.set_meta("ui", true)
 	add_child(player)
-	# Remove the player when the sound is done
+	# Ta bort ljudspelaren när ljudet är klart.
 	player.finished.connect(player.queue_free)
 	player.play()
 
 
-## Stops every sound that Sfx is playing right now, except menu clicks
-## (so the click on "Main menu" isn't cut off when the menu opens).
+## Stoppa effekter men låt menyklick spelas klart.
 func stop_all() -> void:
 	for player in get_children():
 		if player.has_meta("ui"):
@@ -55,9 +48,7 @@ func stop_all() -> void:
 		player.queue_free()
 
 
-# --------------------
-# BUTTON SOUNDS
-# --------------------
+# Knappljud
 func _on_node_added(node: Node) -> void:
 	if node is BaseButton:
 		_hook_button(node)
@@ -81,17 +72,17 @@ func _on_hover(button: BaseButton) -> void:
 
 
 func _on_mouse_left(button: BaseButton) -> void:
-	# So hovering the same button again makes a sound again
+	# Tillåt nytt ljud när musen återvänder till knappen.
 	if _last_hovered == button:
 		_last_hovered = null
 
 
 func _on_focus(button: BaseButton) -> void:
-	# A menu that just opened and selects its first button shouldn't click
+	# Spela inte klick när menyn väljer första knappen.
 	if Engine.get_process_frames() - _last_button_added_frame < 5:
 		_last_hovered = button
 		return
-	# Clicking with the mouse also gives focus; the hover already made a sound
+	# Undvik dubbla ljud vid musklick som också ger fokus.
 	if button == _last_hovered:
 		return
 	_on_hover(button)

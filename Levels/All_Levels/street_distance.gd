@@ -1,6 +1,6 @@
 @tool
 extends Node3D
-## Scenery beyond the playable street: continuous paving fades into darkness.
+## Gatans bakgrund tonar ut i mörkret.
 
 func _ready() -> void:
 	for direction in [-1.0, 1.0]:

@@ -1,24 +1,19 @@
 extends Node
-## Gives the player a soft bright edge (rim light) so she stands out against
-## dark backgrounds, plus an optional very faint light that follows her.
-## The edge is drawn on top of the model's own materials, so her textures
-## and colours stay the same. Put this node under the Player.
+## Kantljus som gör spelaren synlig mot mörka bakgrunder.
 
-## The visible character model.
+## Karaktärens synliga modell.
 @export var model: Node3D
 @export var rim_color := Color(0.78, 0.86, 1.0)
-## How bright the edge is. 0 = no edge.
+## Kantljusets styrka. 0 stänger av det.
 @export_range(0.0, 2.0, 0.05) var rim_strength := 1.1
-## Higher = thinner edge, lower = the glow reaches further in over the body.
+## Högre värde ger en smalare ljuskant.
 @export_range(1.0, 8.0, 0.1) var rim_width := 2.2
-## A very faint light on her. 0 = off.
+## Svagt ljus på spelaren. 0 stänger av det.
 @export var light_energy := 0.15
 @export var light_range := 2.5
-## Where the light sits, relative to the camera's pivot: up, and a bit towards
-## the camera. It turns with the camera, so it always lights the side you see,
-## softly from above (never from below like a torch under the chin).
+## Ljusets position relativt kamerans pivot.
 @export var light_offset := Vector3(0, 0.9, 1.0)
-## Lower = more even light over her whole body.
+## Lägre värde ger jämnare belysning.
 @export var light_attenuation := 0.7
 
 const RIM_SHADER := """
@@ -59,7 +54,7 @@ func _ready() -> void:
 		light.omni_attenuation = light_attenuation
 		light.shadow_enabled = false
 		light.position = light_offset
-		# Follow the camera's turning if there is a CameraPivot, otherwise sit above her
+		# Låt ljuset följa kameran om det finns en pivot.
 		var pivot := get_parent().get_node_or_null("CameraPivot")
 		if pivot == null:
 			pivot = get_parent()
@@ -73,7 +68,7 @@ func _update_rim() -> void:
 	_rim_material.set_shader_parameter("width", rim_width)
 
 
-## Draws the edge as an extra pass on top of each of the model's materials.
+## Rita kantljuset ovanpå modellens material.
 func _add_rim(mesh: MeshInstance3D) -> void:
 	if mesh.mesh == null:
 		return

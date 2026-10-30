@@ -1,10 +1,9 @@
 extends "res://UI/result_screen.gd"
-## The screen when a guard catches the player. Same look as the score screen,
-## but without points: it shows how far you got, then Retry / Main menu.
+## Visar mynt och tid när spelaren fångas.
 
 @export var lose_sound: AudioStream
 
-## A dull red for the title, so it doesn't look like a win.
+## Röd rubrik vid förlust.
 const RED := Color(0.86, 0.32, 0.28)
 
 
@@ -27,14 +26,13 @@ func show_caught() -> void:
 	if lose_sound:
 		Sfx.play(lose_sound)
 
-	# Wait a moment before the buttons can be used, so a key the player
-	# is still holding doesn't press Retry by accident
+	# Vänta kort så att kvarhållen inmatning inte startar om banan.
 	buttons.modulate.a = 0.0
 	await wait(0.8)
 	create_tween().tween_property(buttons, "modulate:a", 1.0, 0.25)
 	for button: Button in buttons.get_children():
 		button.disabled = false
-	# Retry is selected from the start (the last button, on the right)
+	# Välj Retry från början.
 	buttons.get_child(buttons.get_child_count() - 1).grab_focus()
 
 
@@ -43,7 +41,7 @@ func _build() -> void:
 	add_label(content, "The guard got you.", OVERLINE_FONT, 16, MUTED, HORIZONTAL_ALIGNMENT_CENTER)
 	add_spacer(content, 22)
 
-	# The same rows as on the score screen, without points
+	# Visa resultat utan poäng.
 	var grid := GridContainer.new()
 	grid.columns = 2
 	grid.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -54,7 +52,7 @@ func _build() -> void:
 	_add_row(grid, "TIME", format_time(elapsed_time))
 
 	add_buttons_row()
-	# Main menu on the left, Retry on the right
+	# Meny till vänster, Retry till höger.
 	add_button("MAIN MENU", main_menu).disabled = true
 	add_button("RETRY", retry).disabled = true
 

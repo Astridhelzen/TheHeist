@@ -22,7 +22,7 @@ var _model_rest_height := 0.0
 
 
 func _ready() -> void:
-	set_collision_mask_value(6, true) # Exterior edge barriers; camera keeps its own mask.
+	set_collision_mask_value(6, true) # Bangräns för spelaren, inte kameran.
 	_model_rest_height = character_model.position.y
 	floor_snap_length = 0.35
 	floor_constant_speed = true
@@ -70,8 +70,7 @@ func _add_animation(library: AnimationLibrary, anim_name: StringName, source: An
 
 
 func _add_crouch_idle(library: AnimationLibrary) -> void:
-	# Hold a crouched pose instead of playing footsteps while stationary.
-	# This can later be replaced by a dedicated crouch-idle animation.
+	# Stillastående hukpose från smyganimationen.
 	var source := library.get_animation(&"sneaking")
 	var idle := Animation.new()
 	idle.length = 1.0
@@ -96,15 +95,13 @@ func _add_crouch_idle(library: AnimationLibrary) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Gravity
+	# Gravitation
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
 		velocity.y = 0.0
 
-	# -------------------------
-	# PILTANGENTER = VRID KAMERAN
-	# -------------------------
+	# Vrid kameran med piltangenterna.
 
 	if camera_input_enabled and Input.is_key_pressed(KEY_LEFT):
 		camera_pivot.rotation.y += ROTATION_SPEED * delta
@@ -113,9 +110,7 @@ func _physics_process(delta: float) -> void:
 		camera_pivot.rotation.y -= ROTATION_SPEED * delta
 
 
-	# -------------------------
-	# WASD = MOVEMENT
-	# -------------------------
+	# Rörelse med WASD.
 
 	var move_direction := Vector3.ZERO
 	# Styr relativt kameran, oberoende av vilket håll modellen tittar åt.
@@ -143,11 +138,9 @@ func _physics_process(delta: float) -> void:
 		move_direction += camera_right
 
 
-	# -------------------------
-	# FLYTTA SPELAREN
-	# -------------------------
+	# Flytta spelaren.
 
-	# Shift = springa, Ctrl eller C = smyga. Håller man båda vinner springet.
+	# Shift springer, Ctrl/C smyger. Shift har företräde.
 	var is_moving := move_direction != Vector3.ZERO
 	var is_running := is_moving and Input.is_key_pressed(KEY_SHIFT)
 	is_sneaking = not is_running \
@@ -187,15 +180,13 @@ func _physics_process(delta: float) -> void:
 	preload("res://Movement/ground_motion.gd").move(self, delta)
 	_update_slope_visuals(delta)
 
-	# Byt bara när tillståndet ändras så att klippet inte startar om varje bildruta.
+	# Byt bara animation när rörelseläget ändras.
 	if animation_player.current_animation != next_animation:
 		animation_player.play(next_animation, ANIMATION_BLEND)
 
 
 func _update_slope_visuals(delta: float) -> void:
-	# A capsule touches a ramp uphill from its centre. Its bottom therefore
-	# floats above the surface directly below the character's feet. Compensate
-	# visually without moving the collision body or tilting the camera.
+	# Sänk modellen på ramper så att fötterna når golvet. Kollision och kamera påverkas inte.
 	var offset := 0.0
 	if is_on_floor() and body_collision.shape is CapsuleShape3D:
 		var normal_up := get_floor_normal().dot(up_direction)

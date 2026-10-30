@@ -1,5 +1,5 @@
 extends "res://Guard/guard.gd"
-## A desk guard uses the ordinary senses and state machine after standing up.
+## Sittande vakt med samma syn, hörsel och jakt som övriga vakter.
 var seated := true
 var stand_time := 0.0
 

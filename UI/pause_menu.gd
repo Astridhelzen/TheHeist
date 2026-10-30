@@ -40,10 +40,10 @@ func resume() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-## Starts the level again from the beginning.
+## Starta om banan.
 func _on_retry() -> void:
 	visible = false
-	# Stop the alarm, music and other sounds first, so nothing plays on while the level reloads
+	# Stoppa banans ljud före omladdning.
 	Sfx.stop_all()
 	var level := get_tree().current_scene
 	if level:

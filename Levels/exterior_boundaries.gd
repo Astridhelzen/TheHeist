@@ -1,6 +1,5 @@
 extends StaticBody3D
-## Player-only perimeter in BankExterior's local coordinates.
-## Layer 6 deliberately stays outside camera and guard sight-ray masks.
+## Bangräns för spelaren. Lager 6 används inte av kameran eller vaktens syn.
 @export var west_edge := 23.296
 @export var entrance_start := 12.0
 @export var entrance_end := 32.0
@@ -8,7 +7,7 @@ extends StaticBody3D
 func _ready() -> void:
 	collision_layer = 32
 	collision_mask = 0
-	# Keep the inner face on solid ground, before the pavement's outer edge.
+	# Placera gränsen innan marken tar slut.
 	_wall("North", Vector2((west_edge + 67.0) / 2.0, -44.85), Vector2(67.0 - west_edge + 0.6, 0.3))
 	_wall("South", Vector2((west_edge + 67.0) / 2.0, 54.85), Vector2(67.0 - west_edge + 0.6, 0.3))
 	_wall("East", Vector2(66.85, 5.0), Vector2(0.3, 100.0))

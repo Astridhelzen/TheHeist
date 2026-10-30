@@ -1,25 +1,23 @@
 extends Button
-## A menu button. The selected one gets bigger, brighter text and a thin
-## amber line in front of it, the same kind of line as on the HUD boxes.
-## The line grows from the middle and is always centred on the text.
+## Markerar vald knapp med ljus text och en gul linje.
 
 const SIZE_SELECTED := 38
 const SIZE_NORMAL := 30
 const LINE_COLOR := Color("efc260")
 const LINE_WIDTH := 3.0
-## How far in front of the text the line sits (pixels)
+## Avstånd mellan linje och text i pixlar.
 const LINE_GAP := 16.0
-## Height of a capital letter compared to the font size (measured for the menu font)
+## Versalhöjd som andel av teckenstorleken.
 const CAP_HEIGHT := 0.7
 
 @onready var arrow: Label = $Arrow
 
-var _shown := 0.0   # 0 = line hidden, 1 = line fully shown
+var _shown := 0.0   # 0 = dold linje, 1 = fullt synlig.
 var _tween: Tween
 
 
 func _ready() -> void:
-	# The old "▶" text arrow is kept in the scene but not used any more
+	# Den gamla pilen finns kvar i scenen men döljs.
 	arrow.visible = false
 	focus_entered.connect(_on_focus_entered)
 	focus_exited.connect(_on_focus_exited)
@@ -30,8 +28,7 @@ func _ready() -> void:
 
 func _on_focus_entered() -> void:
 	add_theme_font_size_override("font_size", SIZE_SELECTED)
-	# Light text only on the selected button. Without this, a button the mouse
-	# rests on stays light after the keys have selected another one.
+	# Lys bara upp vald knapp, även när mus och tangentbord används samtidigt.
 	add_theme_color_override("font_hover_color", get_theme_color("font_focus_color"))
 	_animate_line(1.0, 0.18)
 
@@ -63,10 +60,7 @@ func _draw() -> void:
 	draw_rect(Rect2(-LINE_GAP - LINE_WIDTH, middle - height / 2.0, LINE_WIDTH, height), Color(LINE_COLOR, _shown))
 
 
-## The height of the middle of the capital letters, measured from the top of
-## the button. The button centres the whole text line (with room for accents
-## above and for letters like "g" below), so the middle of the line is a bit
-## lower than the middle of the capitals.
+## Centrera markeringen mot versalerna, inte hela textradens höjd.
 func _text_middle() -> float:
 	var font := get_theme_font("font")
 	var font_size := get_theme_font_size("font_size")

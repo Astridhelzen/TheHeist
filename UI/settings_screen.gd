@@ -1,11 +1,6 @@
 class_name SettingsScreen
 extends CanvasLayer
-## The settings page, in the same style as the pause menu.
-## Used by both the main menu and the pause menu:
-##     var screen := SettingsScreen.new()
-##     add_child(screen)
-##     screen.open()
-## Emits `closed` when the player goes back (BACK button or Esc).
+## Gemensam inställningssida för huvudmeny och pausmeny. Skickar closed vid återgång.
 
 signal closed
 
@@ -20,7 +15,7 @@ const MUTED := Color("87909f")
 const EDGE := Color("2e343c")
 const DIM := Color(0.027, 0.035, 0.047, 0.94)
 
-## [label, setting in the Settings autoload, min, max, shown as]
+## Format: etikett, inställningsnamn, min, max, visningsformat.
 const ROWS := [
 	["MASTER VOLUME", "master_volume", 0.0, 1.0, "percent"],
 	["MUSIC VOLUME", "music_volume", 0.0, 1.0, "percent"],
@@ -28,9 +23,7 @@ const ROWS := [
 	["MOUSE SENSITIVITY", "mouse_sensitivity", 0.25, 2.0, "times"],
 ]
 
-## On (main menu): the dark bank behind the page, with the same heading
-## placement as the other menu pages. Off (pause menu): a dark see-through
-## layer over the game. Set before adding the page.
+## Välj bankbakgrund i huvudmenyn eller genomskinligt lager vid paus, före add_child().
 var menu_background := false
 
 var _sliders: Array[HSlider] = []
@@ -61,15 +54,13 @@ func close() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	# Esc goes back here, instead of closing the pause menu behind
+	# Esc lämnar inställningarna utan att stänga pausmenyn.
 	if visible and event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
 		close()
 
 
-# --------------------
-# LAYOUT
-# --------------------
+# Layout
 func _build() -> void:
 	var root := Control.new()
 	root.theme = UI_THEME
@@ -83,7 +74,7 @@ func _build() -> void:
 		dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 		root.add_child(dim)
 
-	# Main menu: same heading place as the level page. Pause menu: same as the pause menu.
+	# Anpassa rubriken efter menytypen.
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	var left := 76 if menu_background else 110
@@ -102,7 +93,7 @@ func _build() -> void:
 	gap.custom_minimum_size = Vector2(0, 30)
 	layout.add_child(gap)
 
-	# The settings, with a small reset arrow in the top right corner above them
+	# Inställningar med återställningsknapp.
 	var block := VBoxContainer.new()
 	block.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	block.add_theme_constant_override("separation", 6)
@@ -134,7 +125,7 @@ func _build() -> void:
 	back_margin.add_child(_back)
 
 
-## Small key hints in the bottom right corner, like on the other menu pages.
+## Tangenttips nere till höger.
 func _hint(parent: Control, text: String) -> void:
 	var font: FontVariation = OVERLINE_FONT.duplicate()
 	font.spacing_glyph = 2
@@ -144,7 +135,7 @@ func _hint(parent: Control, text: String) -> void:
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 
 
-## A small round arrow that puts everything back to the default values.
+## Knapp som återställer standardvärdena.
 func _build_reset_button() -> Button:
 	var button := Button.new()
 	button.flat = true
@@ -153,7 +144,7 @@ func _build_reset_button() -> Button:
 	button.custom_minimum_size = Vector2(40, 40)
 	button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	button.focus_mode = Control.FOCUS_ALL
-	# Grey, amber when the mouse is over it or it is selected with the keys
+	# Gul markering vid muspekare eller tangentbordsfokus.
 	button.add_theme_color_override("icon_normal_color", MUTED)
 	for state in ["hover", "focus", "pressed", "hover_pressed"]:
 		button.add_theme_color_override("icon_%s_color" % state, GOLD)
@@ -162,7 +153,7 @@ func _build_reset_button() -> Button:
 	button.mouse_entered.connect(button.grab_focus)
 	button.pressed.connect(func():
 		_reset()
-		# One quick turn backwards, like the arrow
+		# Vrid pilen kort bakåt.
 		button.pivot_offset = button.size / 2.0
 		button.rotation = 0.0
 		var tween := create_tween()
@@ -170,7 +161,7 @@ func _build_reset_button() -> Button:
 	return button
 
 
-## Puts all sliders back to the normal values.
+## Återställ alla reglage.
 func _reset() -> void:
 	Settings.reset_to_defaults()
 	for i in _sliders.size():
@@ -178,16 +169,15 @@ func _reset() -> void:
 		_update_value_label(i)
 
 
-## Draws a white "↺" arrow (a ring with a gap and an arrow head).
-## White so the button can colour it grey or amber.
+## Vit återställningspil som färgas av knappen.
 func _reset_icon() -> ImageTexture:
 	var size := 34
 	var center := Vector2(size, size) / 2.0
 	var radius := size * 0.3
 	var thickness := size * 0.07
-	var gap_start := deg_to_rad(-165.0)   # the gap is in the top left
+	var gap_start := deg_to_rad(-165.0)   # Öppningen är uppe till vänster.
 	var gap_end := deg_to_rad(-105.0)
-	# The arrow head sits where the ring ends at the top, pointing left into the gap
+	# Placera pilspetsen vid ringens öppning.
 	var tip_point := center + Vector2.from_angle(gap_end) * radius
 	var along := Vector2.from_angle(gap_end - PI / 2.0)
 	var outward := Vector2.from_angle(gap_end)
@@ -199,7 +189,7 @@ func _reset_icon() -> ImageTexture:
 	var image := Image.create(size, size, false, Image.FORMAT_RGBA8)
 	for y in size:
 		for x in size:
-			# 4 x 4 samples per pixel for smooth edges
+			# 4 × 4 prover per pixel för jämna kanter.
 			var hits := 0
 			for sy in 4:
 				for sx in 4:
@@ -234,7 +224,7 @@ func _add_row(grid: GridContainer, index: int) -> void:
 	slider.value_changed.connect(func(value: float):
 		Settings.set_setting(row[1], value)
 		_update_value_label(index))
-	# The selected row lights up amber, like the menu buttons
+	# Markera vald rad i gult.
 	slider.focus_entered.connect(func(): name_label.add_theme_color_override("font_color", GOLD))
 	slider.focus_exited.connect(func(): name_label.add_theme_color_override("font_color", MUTED))
 	slider.mouse_entered.connect(slider.grab_focus)
@@ -264,7 +254,7 @@ func _style_slider(slider: HSlider) -> void:
 	slider.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
 
 
-## A small round handle for the sliders.
+## Runt reglagehandtag.
 func _dot(color: Color) -> ImageTexture:
 	var size := 18
 	var image := Image.create(size, size, false, Image.FORMAT_RGBA8)

@@ -1,17 +1,14 @@
 extends Area3D
-## A coin that spins and bobs, with a warm light, a soft glow and a glowing ring
-## on the floor (same style as the access card and the coins on the score screen).
-## The player takes it by walking into it: it pops, sparkles and fades out.
-## The HUD counts the coins by itself.
+## Roterande mynt med ljus och upplockningseffekt.
 
 @export var pickup_sound: AudioStream
 @export var pickup_volume_db := -4.0
 @export var spin_speed := 2.5
 @export var bob_height := 0.08
 @export var bob_speed := 2.2
-## How strong the coin's own light is. 0 = no light.
+## Myntets ljusstyrka. 0 stänger av ljuset.
 @export var light_energy := 0.45
-## How visible the soft glow around the coin is (0-1). 0 = no glow.
+## Glödens synlighet (0–1).
 @export var glow_strength := 0.15
 
 var _taken := false
@@ -27,12 +24,12 @@ var _rest_height := 0.0
 func _ready() -> void:
 	add_to_group("coins")
 	_rest_height = _model.position.y
-	# Start at a random point so the coins don't bob in sync
+	# Slumpa startläget så att mynten rör sig olika.
 	_time = randf() * TAU
 	_model.rotation.y = randf() * TAU
 	_light.light_energy = light_energy
 	_light.visible = light_energy > 0.0
-	# Own copies of the materials, so fading one coin doesn't fade all of them
+	# Egna material så att bara det upplockade myntet tonas ut.
 	_glow.material_override = _glow.material_override.duplicate()
 	_ring.material_override = _ring.material_override.duplicate()
 	body_entered.connect(_on_body_entered)
@@ -46,7 +43,7 @@ func _process(delta: float) -> void:
 	var wave := sin(_time * bob_speed)
 	_model.position.y = _rest_height + wave * bob_height
 	_glow.position.y = _model.position.y
-	# Light, glow and ring breathe in time with the bobbing
+	# Låt ljuset pulsera med rörelsen.
 	var breathe := 0.5 + 0.5 * wave
 	_light.light_energy = light_energy * (0.8 + 0.4 * breathe)
 	_set_alpha(glow_strength * (0.75 + 0.25 * breathe), _glow)
@@ -65,7 +62,7 @@ func _on_body_entered(body: Node3D) -> void:
 		Sfx.play(pickup_sound, pickup_volume_db)
 	_sparkle()
 
-	# Jump up, spin, shrink away. The light flashes and the glow fades.
+	# Låt myntet hoppa upp och krympa bort.
 	var tween := create_tween().set_parallel(true)
 	tween.tween_property(_model, "position:y", _model.position.y + 0.45, 0.25) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
@@ -76,12 +73,12 @@ func _on_body_entered(body: Node3D) -> void:
 	tween.tween_property(_glow, "scale", Vector3.ONE * 1.8, 0.3)
 	tween.tween_method(_set_alpha.bind(_glow), glow_strength * 2.0, 0.0, 0.3)
 	tween.tween_method(_set_alpha.bind(_ring), 0.6, 0.0, 0.3)
-	# Wait for the sparkles to finish before removing the coin
+	# Vänta tills partiklarna är klara.
 	tween.chain().tween_interval(0.6)
 	tween.chain().tween_callback(queue_free)
 
 
-## A short burst of small golden sparks where the coin was.
+## Korta guldgnistor vid upplockning.
 func _sparkle() -> void:
 	var sparks := CPUParticles3D.new()
 	sparks.one_shot = true

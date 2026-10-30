@@ -1,6 +1,5 @@
 extends Control
-## Shows the exit instruction in the same style as the access card HUD
-## (same panel, colours, font and scaling as access_card_hud.gd).
+## Flyktinstruktion med samma utseende som kortets HUD.
 
 @export var text := "Get to the exit!"
 
@@ -12,12 +11,12 @@ func _ready() -> void:
 
 
 func _draw() -> void:
-	# Same scaling as access_card_hud.gd, so it looks the same on every screen size
+	# Anpassa storleken till fönstret.
 	var s := minf(size.x / 1280.0, size.y / 720.0)
 	draw_set_transform(Vector2.ZERO, 0, Vector2.ONE * s)
 	var width := size.x / s
 
-	# Same place and look as the access card notices ("Access card collected" etc.)
+	# Samma placering som kortets meddelanden.
 	_panel(Rect2(width / 2 - 230, 110, 460, 54), Color("183c3d"))
 	draw_string(ThemeDB.fallback_font, Vector2(width / 2 - 220, 144), text,
 			HORIZONTAL_ALIGNMENT_CENTER, 440, 20, Color("baf2dd"))

@@ -1,39 +1,33 @@
 extends "res://UI/result_screen.gd"
-## The score screen when the player escapes.
-## Coins and time give points that count up one by one, with a coin "clink"
-## for each step. Every time the score passes a limit, one of the three
-## gold coins at the top fills in. Then: Retry / Next level / Main menu.
-## Press any key or click while it counts to skip to the end.
+## Resultatskärm med myntpoäng, tidsbonus och medaljer. Space hoppar över uppräkningen.
 
 const Progress = preload("res://Managers/level_progress.gd")
 
-## The level the "Next level" button loads. Empty = no button (last level).
+## Nästa bana. Tom sökväg döljer knappen.
 @export_file("*.tscn") var next_level: String = ""
 @export var win_sound: AudioStream
 
 @export_group("Score")
 @export var points_per_coin: int = 100
-## The most points you can get for time.
+## Högsta tidsbonus.
 @export var max_time_bonus: int = 1000
-## Done in this many seconds or faster = the full time bonus.
+## Full tidsbonus upp till denna tid.
 @export var par_time: float = 90.0
-## Done in this many seconds or slower = no time bonus. In between it goes down evenly.
+## Ingen tidsbonus från denna tid. Linjär minskning fram till dess.
 @export var slow_time: float = 300.0
-## Work out the limits for the gold coins from the number of coins in the level:
-## 3 = every coin and done within Par Time, 2 = 70 % of that, 1 = 45 %.
-## Turn off to type your own limits in Medal Scores.
+## Automatiska medaljgränser: 45 %, 70 % och maxpoäng. Stäng av för egna gränser.
 @export var auto_medal_scores := true
-## The score needed for coin 1, 2 and 3 (only used when Auto Medal Scores is off).
+## Egna medaljgränser när automatiken är av.
 @export var medal_scores: Array[int] = [600, 1100, 1500]
-## How long the counting stops when a gold coin fills in, so you see each one.
+## Paus vid varje ny medalj, i sekunder.
 @export var medal_pause: float = 0.6
-## Let the player skip the counting with Space ("PRESS SPACE TO SKIP" is shown).
+## Tillåt Space för att hoppa över uppräkningen.
 @export var skippable: bool = true
 
 @export_group("Sounds")
-## The clink while the points count. Empty = Assets/Sounds/coin_collected.ogg
+## Ljud per mynt. Standard: coin_collected.ogg.
 @export var tick_sound: AudioStream
-## Plays when a gold coin fills in. Empty = Assets/Sounds/ka_ching.mp3
+## Ljud vid medalj. Standard: ka_ching.mp3.
 @export var medal_sound: AudioStream
 @export var tick_volume_db: float = -6.0
 
@@ -84,7 +78,7 @@ func show_win() -> void:
 	if auto_medal_scores:
 		_set_auto_medal_scores()
 	_calculate_score()
-	# Save the best result for the level cards in the main menu
+	# Spara bästa resultat till menyn.
 	if level_number > 0:
 		_previous_best = Progress.get_best_score(level_number)
 		Progress.save_best(level_number, total_score, _medals_for(total_score))
@@ -100,13 +94,12 @@ func _calculate_score() -> void:
 	var t := 1.0
 	if slow_time > par_time:
 		t = clampf((slow_time - elapsed_time) / (slow_time - par_time), 0.0, 1.0)
-	# Round to tens so the numbers look tidy
+	# Avrunda till tiotal.
 	time_points = int(round(max_time_bonus * t / 10.0)) * 10
 	total_score = coin_points + time_points
 
 
-## The best possible score is every coin plus the full time bonus.
-## Only that gives the third gold coin.
+## Alla mynt och full tidsbonus krävs för tredje medaljen.
 func _set_auto_medal_scores() -> void:
 	var best := coins_total * points_per_coin + max_time_bonus
 	medal_scores = [_round_to_ten(best * 0.45), _round_to_ten(best * 0.7), best]
@@ -116,7 +109,7 @@ func _round_to_ten(value: float) -> int:
 	return int(round(value / 10.0)) * 10
 
 
-## How many gold coins (0-3) a score gives.
+## Antal medaljer för poängen (0–3).
 func _medals_for(score: int) -> int:
 	var count := 0
 	for needed in medal_scores.slice(0, 3):
@@ -125,13 +118,11 @@ func _medals_for(score: int) -> int:
 	return count
 
 
-# --------------------
-# LAYOUT
-# --------------------
+# Layout
 func _build() -> void:
 	build_base("HEIST COMPLETE", GOLD)
 
-	# The three gold coins, with the score each one needs under it
+	# Visa medaljer och poänggränser.
 	add_spacer(content, 8)
 	var medal_row := HBoxContainer.new()
 	medal_row.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -150,8 +141,7 @@ func _build() -> void:
 		_medal_labels.append(add_label(column, str(needed), OVERLINE_FONT, 14, MUTED, HORIZONTAL_ALIGNMENT_CENTER))
 	add_spacer(content, 18)
 
-	# COINS   6 / 8      +600
-	# TIME    01:12:40   +480
+	# Resultatrader för mynt och tid.
 	var grid := GridContainer.new()
 	grid.columns = 3
 	grid.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -164,14 +154,13 @@ func _build() -> void:
 	_add_row_name(grid, "TIME")
 	_time_value = _add_row_value(grid, format_time(elapsed_time))
 	_time_points = _add_row_points(grid)
-	# The rows fade in one at a time
+	# Tona in raderna i turordning.
 	for child in grid.get_children():
 		child.modulate.a = 0.0
 
 	add_spacer(content, 4)
 	add_divider(content, 460)
 
-	# SCORE   1080
 	var score_row := HBoxContainer.new()
 	score_row.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	score_row.custom_minimum_size = Vector2(460, 0)
@@ -179,7 +168,7 @@ func _build() -> void:
 	var score_name := add_label(score_row, "SCORE", OVERLINE_FONT, 14, MUTED)
 	score_name.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	score_name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	# "NEW BEST" next to the score, shown at the end if the record was beaten
+	# Visa NEW BEST när rekordet slås.
 	_new_best = add_label(score_row, "NEW BEST", OVERLINE_FONT, 14, GOLD)
 	_new_best.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	_new_best.modulate.a = 0.0
@@ -188,7 +177,7 @@ func _build() -> void:
 	_score_label = add_label(score_row, "0", TITLE_FONT, 64, TEXT, HORIZONTAL_ALIGNMENT_RIGHT)
 
 	add_buttons_row()
-	# Same order as on the caught screen: back on the left, onwards on the right
+	# Tillbaka till vänster, vidare till höger.
 	add_button("MAIN MENU", main_menu)
 	add_button("RETRY", retry)
 	if not next_level.is_empty() and ResourceLoader.exists(next_level):
@@ -215,16 +204,14 @@ func _add_row_points(grid: GridContainer) -> Label:
 	return label
 
 
-# --------------------
-# COUNTING UP
-# --------------------
+# Poänguppräkning
 func _count_up() -> void:
 	_counting = true
 	if skippable:
 		_add_skip_hint()
 	await _pause(0.7)
 
-	# Coins: one clink per coin, a little higher each time
+	# Ett ljud per mynt med stigande tonhöjd.
 	_show_row(0)
 	await _pause(0.3)
 	var step := clampf(1.0 / maxf(coins_collected, 1), 0.08, 0.18)
@@ -237,12 +224,12 @@ func _count_up() -> void:
 		_pop(_coins_points)
 		play_sound(tick_sound, 1.0 + i * 0.06, tick_volume_db)
 		await _pause(step)
-		# A gold coin filled in: hold for a moment so the player sees it
+		# Pausa kort vid en ny medalj.
 		if _medal_just_filled:
 			_medal_just_filled = false
 			await _pause(medal_pause)
 
-	# Time: the bonus runs up fast and slows down at the end
+	# Tidsbonusen räknas upp med avtagande fart.
 	await _pause(0.35)
 	_show_row(1)
 	await _pause(0.3)
@@ -254,7 +241,7 @@ func _count_up() -> void:
 		while tween.is_running() and not _skipping:
 			await get_tree().process_frame
 			if _medal_just_filled and tween.is_running():
-				# Stop the count for a moment while the gold coin pops
+				# Pausa medan medaljen visas.
 				_medal_just_filled = false
 				tween.pause()
 				await _pause(medal_pause)
@@ -264,7 +251,7 @@ func _count_up() -> void:
 	_finish()
 
 
-## Like wait(), but returns right away once the player has skipped.
+## Vänta, men avbryt om spelaren hoppar över.
 func _pause(seconds: float) -> void:
 	if not _skipping:
 		await wait(seconds)
@@ -274,7 +261,7 @@ func _set_time_shown(value: float) -> void:
 	_add_score(value - _time_shown)
 	_time_shown = value
 	_time_points.text = "+%d" % int(value)
-	# A clink about every 55 ms, rising in pitch as the bonus fills up
+	# Ljud ungefär var 55:e ms med stigande tonhöjd.
 	var now := Time.get_ticks_msec()
 	if now - _last_tick_ms > 55:
 		_last_tick_ms = now
@@ -288,7 +275,7 @@ func _add_score(amount: float) -> void:
 			and int(round(_score)) >= medal_scores[_next_medal]:
 		_fill_medal(_next_medal, not _skipping)
 		_next_medal += 1
-		# One gold coin at a time while counting. The next one fills on the next step.
+		# Visa en medalj i taget.
 		if not _skipping and _counting:
 			_medal_just_filled = true
 			break
@@ -307,7 +294,7 @@ func _fill_medal(index: int, with_sound: bool) -> void:
 
 
 func _finish() -> void:
-	# Jump to the final numbers (only changes anything if the player skipped)
+	# Visa slutresultatet direkt vid överhoppning.
 	_show_row(0)
 	_show_row(1)
 	_coins_points.text = "+%d" % coin_points
@@ -326,8 +313,7 @@ func _finish() -> void:
 	await wait(0.45)
 	create_tween().tween_property(buttons, "modulate:a", 1.0, 0.25)
 	_set_buttons_enabled(true)
-	# Next level if there is one, otherwise Retry
-	# The button on the right is selected: NEXT LEVEL, or RETRY on the last level
+	# Välj Next level, eller Retry på sista banan.
 	var first: Button = buttons.get_child(buttons.get_child_count() - 1)
 	first.grab_focus()
 
@@ -354,8 +340,7 @@ func _set_buttons_enabled(enabled: bool) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	# Only Space skips. Other keys (W, Shift...) are ignored: the player is
-	# usually still holding them when running through the exit.
+	# Bara Space hoppar över, så att kvarhållen rörelseinmatning inte gör det.
 	if not skippable or not _counting or _skipping:
 		return
 	if event is InputEventKey and event.pressed and not event.echo \
@@ -373,14 +358,14 @@ func _add_skip_hint() -> void:
 	_skip_hint.add_theme_font_size_override("font_size", 13)
 	_skip_hint.add_theme_color_override("font_color", MUTED)
 	_skip_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	# Bottom centre of the screen, below where the buttons appear
+	# Tangenttips längst ned.
 	_skip_hint.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
 	_skip_hint.offset_left = -300
 	_skip_hint.offset_right = 300
 	_skip_hint.offset_top = -48
 	_skip_hint.offset_bottom = -24
 	root.add_child(_skip_hint)
-	# Slow blink, so it is noticed but doesn't steal attention
+	# Långsam blinkning.
 	_skip_hint.modulate.a = 0.0
 	var blink := _skip_hint.create_tween().set_loops()
 	blink.tween_property(_skip_hint, "modulate:a", 1.0, 0.7)
@@ -393,9 +378,7 @@ func _hide_skip_hint() -> void:
 		_skip_hint = null
 
 
-# --------------------
-# THE GOLD COIN
-# --------------------
+# Medalj
 class Medal extends Control:
 	const RIM := Color(0.76, 0.53, 0.15)
 	const FACE := Color(1.0, 0.79, 0.32)
@@ -410,7 +393,7 @@ class Medal extends Control:
 		set(value):
 			filled = value
 			queue_redraw()
-	## 1 right when it fills in, then falls to 0 (grow, glow and rays).
+	## 1 vid utdelning, sedan avtagande glöd och storlek.
 	var pop := 0.0:
 		set(value):
 			pop = value
@@ -437,7 +420,7 @@ class Medal extends Control:
 		draw_circle(Vector2.ZERO, r, RIM)
 		draw_circle(Vector2.ZERO, r - 4.0, FACE)
 		draw_arc(Vector2.ZERO, r * 0.68, 0.0, TAU, 48, LINE, 3.0, true)
-		# Shine in the top left
+		# Glans uppe till vänster.
 		draw_arc(Vector2.ZERO, r - 8.0, deg_to_rad(195.0), deg_to_rad(265.0), 16,
 				Color(1.0, 0.96, 0.8, 0.85), 3.0, true)
 		if font:

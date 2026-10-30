@@ -1,4 +1,4 @@
-# Run headless from the project root after changing bank/exterior collision geometry.
+# Kör headless från projektroten efter ändrad kollisionsgeometri.
 extends SceneTree
 func _initialize(): call_deferred("run")
 func run():
@@ -12,9 +12,9 @@ func run():
   var mesh=region.navigation_mesh.duplicate()
   mesh.cell_size=0.1
   mesh.cell_height=0.1
-  # Leave clearance around the 0.28 m actor capsule, including narrow desk aisles.
+  # Lämna marginal runt figurernas kapslar med radien 0,28 m.
   mesh.agent_radius=0.3
-  # Ramp joins need the original bake tolerance; actual steps remain collision-tested.
+  # Behåll toleransen vid rampanslutningar. Steg kontrolleras i rörelsekoden.
   mesh.agent_max_climb=0.5
   if "Level_1" in scene: mesh.filter_baking_aabb=AABB(Vector3(-20,-2,-15),Vector3(40,10,45))
   var data=NavigationMeshSourceGeometryData3D.new()

@@ -1,7 +1,5 @@
 extends Control
-## The credits page. The list below is drawn as two columns of headed sections.
-## To add something: add a line to CREDITS ([title, details]) under the right heading.
-## The same list is in CREDITS.md in the project folder.
+## Visar upphovspersoner och licenser. Uppdatera även CREDITS.md vid ändringar.
 
 @onready var go_back: Button = %MainMenu
 @export_file("*.tscn") var main_menu: String = "res://UI/main_menu.tscn"
@@ -12,14 +10,13 @@ const GOLD := Color("efc260")
 const TEXT := Color("e8ecef")
 const MUTED := Color("87909f")
 
-## Shown above the big CREDITS title.
+## Text ovanför rubriken.
 const MADE_BY := "THE HEIST  ·  MADE BY ASTRID HELZÉN & ELLA BERGSTRÖM"
 
 const CC_BY := "[url=https://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url]"
 const OFL := "[url=https://openfontlicense.org]SIL OFL 1.1[/url]"
 
-## [heading, column (0 = left, 1 = right), [[title, details], ...]]
-## Details can have clickable links: [url=https://...]text[/url]
+## Format: rubrik, kolumn (0/1), lista med titel och beskrivning. Beskrivningar stöder URL-taggar.
 const CREDITS := [
 	["3D MODELS", 0, [
 		["\"The Bank Hall\" by Veterock", "[url=https://sketchfab.com/3d-models/the-bank-hall-7ff86c154ac843c48c4b0ec0149d4321]Sketchfab[/url] · " + CC_BY + " · modified · Level 2 bank"],
@@ -53,15 +50,14 @@ func _on_main_menu() -> void:
 	get_tree().change_scene_to_file(main_menu)
 
 
-## Esc goes back to the menu too
+## Esc återgår till menyn.
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
 		_on_main_menu()
 
 
-## Same look as the other menu pages: the dark bank behind, the heading in
-## the same place and size, and key hints in the bottom right corner.
+## Gemensam menybakgrund och tangenttips.
 func _match_menu_pages() -> void:
 	var root: Control = $Root
 	root.add_child(MenuFloorPlan.page_background())
@@ -92,7 +88,7 @@ func _match_menu_pages() -> void:
 
 func _build_credits() -> void:
 	var container: VBoxContainer = $Root/Margin/Layout/CreditContainer
-	# Less empty space under the big title, so everything fits above the button
+	# Minska avståndet så att allt får plats.
 	var spacer := get_node_or_null("Root/Margin/Layout/Spacer") as Control
 	if spacer:
 		spacer.custom_minimum_size.y = 12
@@ -130,12 +126,12 @@ func _label(parent: Node, text: String, font: Font, font_size: int, color: Color
 		label.add_theme_font_override("font", font)
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
-	# Less space between a title and its details line
+	# Mindre avstånd till beskrivningen.
 	label.add_theme_constant_override("line_spacing", -2)
 	parent.add_child(label)
 
 
-## The small grey line under a title. Links in it are amber and open in the browser.
+## Beskrivning med klickbara länkar.
 func _details(parent: Node, bbcode: String) -> void:
 	var text := RichTextLabel.new()
 	text.bbcode_enabled = true

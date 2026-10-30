@@ -26,7 +26,7 @@ func run():
  check(guard.position.distance_to(start)>1.0,"leaves chair and moves around desk")
  print("GUARD position=",guard.global_position," state=",guard.state)
  guard.set_physics_process(false)
- # Force an opaque obstacle directly across the ray; attacks must still respect it.
+ # En vägg ska blockera sikt även för skrivbordsvakten.
  var wall=StaticBody3D.new()
  level.add_child(wall)
  var shape=CollisionShape3D.new()

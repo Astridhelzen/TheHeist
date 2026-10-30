@@ -1,19 +1,11 @@
 extends Node
-## Autoload named "Settings". Keeps the player's settings, saves them to
-## user://settings.cfg and applies them everywhere:
-## - Master, Music and Effects volume (three audio buses)
-## - Mouse sensitivity for the camera
-## It also makes the big heading fonts sharp at every size (see FONTS below).
-##
-## Sounds are sorted onto the buses automatically: a sound player with
-## "music" in its name goes to the Music bus, every other sound to SFX.
+## Sparar ljudvolym och muskänslighet. Ljud med music i namnet använder musikbussen, övriga SFX.
 
 const SAVE_PATH := "user://settings.cfg"
 const MUSIC_BUS := &"Music"
 const SFX_BUS := &"SFX"
 
-## The "normal" values, used the first time and by the RESET button.
-## Volumes are 0-1. Mouse sensitivity 1 = the camera speed set on the Player (0.25-2.0).
+## Standardvärden. Volym 0–1, muskänslighet som faktor.
 const DEFAULTS := {
 	"master_volume": 0.8,
 	"music_volume": 0.7,
@@ -35,19 +27,19 @@ func _ready() -> void:
 	_load()
 	apply()
 	get_tree().node_added.connect(_on_node_added)
-	# Sounds and players that already exist (e.g. the main menu music)
+	# Använd inställningarna även på befintliga noder.
 	for node in get_tree().root.find_children("*", "", true, false):
 		_on_node_added(node)
 
 
-## Changes one setting, applies it and saves.
+## Ändra, tillämpa och spara en inställning.
 func set_setting(setting: String, value: float) -> void:
 	set(setting, value)
 	apply()
 	save()
 
 
-## Puts every setting back to its default value, applies it and saves.
+## Återställ och spara standardvärdena.
 func reset_to_defaults() -> void:
 	for setting in DEFAULTS:
 		set(setting, DEFAULTS[setting])
@@ -108,25 +100,19 @@ func _on_node_added(node: Node) -> void:
 
 
 func _apply_mouse(player: Node) -> void:
-	# Remember the speed set on the Player once, then scale it
+	# Skala från spelarens ursprungliga kamerakänslighet.
 	if not player.has_meta("base_mouse_sensitivity"):
 		player.set_meta("base_mouse_sensitivity", player.mouse_sensitivity)
 	player.mouse_sensitivity = player.get_meta("base_mouse_sensitivity") * mouse_sensitivity
 
 
-# --------------------
-# FONTS
-# --------------------
-## The big heading fonts. They are drawn in many sizes (and scaled with the
-## window), and Godot could then sometimes draw letters with black boxes in
-## them. With MSDF each letter is made once and scaled sharply to every size.
+# MSDF håller rubrikerna skarpa när de skalas.
 const SHARP_FONTS := [
 	"res://UI/Fonts/Big_Shoulders/static/BigShoulders-Black.ttf",
 	"res://UI/Fonts/Big_Shoulders/static/BigShoulders-Bold.ttf",
 ]
 
-# Kept here so the changed fonts stay in memory (otherwise they are unloaded
-# and loaded again later without the change)
+# Behåll fontresurserna så att inställningarna inte tappas.
 var _sharp_fonts: Array[FontFile] = []
 
 func _use_sharp_fonts() -> void:

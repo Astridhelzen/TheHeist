@@ -29,7 +29,7 @@ func run():
 		else:
 			for x in [-5.0, -2.285, 0.0]:
 				routes.append(["stairs %s" % x, Vector3(x, 1.7, -42), Vector3(x, 6.7, -31.5)])
-		# Sweep actual actor bodies in both directions through the visible passages.
+		# Testa spelare och vakter genom passagerna i båda riktningarna.
 		for route in routes:
 			for actor in [player, guard]:
 				for backwards in [false, true]:
@@ -57,7 +57,7 @@ func run():
 						for c in range(actor.get_slide_collision_count()):
 							print("BLOCK ", actor.get_slide_collision(c).get_collider().get_path())
 					actor.position = Vector3(100, 30, 100)
-		# Exercise the actual guard state machine and navigation, not just collision.
+		# Testa även vaktens tillstånd och navigation.
 		if "Level_1" in scene:
 			level.get_node("AccessCard")._unlock()
 			await create_timer(2.3).timeout

@@ -2,8 +2,7 @@ extends StaticBody3D
 
 
 func _ready() -> void:
-	# Bygg från den aktuella Blender-modellen varje gång banan startas.
-	# Då följer kollisionerna med när väggar och möbler ändras i Blender.
+	# Bygg kollision från den aktuella bankmodellen vid banstart.
 	var bank := get_parent() as Node3D
 	var door := bank.get_node_or_null("Vault_Door_Hinge")
 	$CollisionShape3D.shape = build_shape(bank, self, door)

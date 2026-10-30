@@ -23,8 +23,8 @@ var _door_body: AnimatableBody3D
 @onready var _marker: Label3D = $Marker
 
 func _ready() -> void:
- # Replace the old paper and numeric keypad visually; retain the bank source asset.
- pass # Level2 uses its own vault layout.
+ # Byt till kort och läsare utan att ändra originalmodellen.
+ pass # Level 2 har ett eget valv.
  for node in _bank.find_children("Vault_Keypad*", "Node3D", true, false):
   node.hide()
  _hinge.rotation.y = 0.0
@@ -38,7 +38,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
  _elapsed += delta
- # The label stands still above the floating card
+ # Håll texten stilla ovanför kortet.
  _marker.position = _card.position + Vector3(0, 0.78, 0)
  _marker.visible = not has_card
  _hud.has_card = has_card
@@ -100,7 +100,7 @@ func _unlock() -> void:
  _notify("Access granted — opening vault")
  _hud.set_objective("Grab the money")
  Sfx.play(scan_sound)
- # Brief scan animation at the reader; the card remains in inventory.
+ # Visa kortet vid läsaren under skanningen.
  _card.show()
  _card.scale = Vector3.ONE
  _card.global_position = _reader.global_position + Vector3(0, -0.03, 0.12)
@@ -111,8 +111,7 @@ func _unlock() -> void:
  tween.tween_callback(func(): Sfx.play(vault_open_sound))
  tween.tween_property(_hinge, "rotation:y", deg_to_rad(open_angle), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
  tween.tween_callback(func():
-  # Both meshes include the entrance and street. Swap only once the physical
-  # door is open so the vault route also matches the current collision layout.
+  # Byt navigation när valvdörren är öppen.
   _bank.get_parent().get_node("GuardNavigation").navigation_mesh = preload("res://Levels/Level_2/GuardNavigationOpenVault.tres")
   _busy = false
  )

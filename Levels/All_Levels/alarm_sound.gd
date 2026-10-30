@@ -1,9 +1,7 @@
 extends AudioStreamPlayer
-## Put this on an AudioStreamPlayer in the level.
-## Starts the alarm when the loot is taken and keeps it going, just like the
-## alarm lights, until the level ends. Call stop_alarm() to fade it out.
+## Loopar larmet efter stölden. stop_alarm() tonar ut ljudet.
 
-## How long the fade-out takes (seconds) when stop_alarm() is called.
+## Tid för uttoning i sekunder.
 @export var fade_time: float = 1.5
 
 var _active := false
@@ -12,7 +10,7 @@ var _start_volume := 0.0
 
 func _ready() -> void:
 	_start_volume = volume_db
-	# Restart the sound when it ends, so it loops even if the file doesn't
+	# Starta om ljudet när det tar slut.
 	finished.connect(_on_finished)
 	_connect_loot.call_deferred()
 
