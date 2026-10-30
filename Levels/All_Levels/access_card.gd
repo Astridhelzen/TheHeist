@@ -97,7 +97,7 @@ func _pick_up() -> void:
 func _unlock() -> void:
  is_unlocked = true
  _busy = true
- _notify("Access granted — opening vault")
+ _notify("Access granted")
  _hud.set_objective("Grab the money")
  Sfx.play(scan_sound)
  # Visa kortet vid läsaren under skanningen.
