@@ -1,5 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
+.godot_backup/
 .nomedia
 
 # Godot-specific ignores
@@ -17,10 +18,4 @@ mono_crash.*.json
 
 # Local originals retained before fixing bank material compatibility.
 /Bank_original_backup/
-"*.blend1" 
-"*.blend1" 
 *.blend1
-.godot/
-.godot_backup/
-.godot/
-.godot_backup/
