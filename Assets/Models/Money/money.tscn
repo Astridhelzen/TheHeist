@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cdl2o2ihmxtyt" path="res://Assets/Models/Money/scene.gltf" id="1_x5fk7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vmrj7"]
-radius = 0.8
+radius = 1.0
 
 [node name="Money" type="Area3D" unique_id=1050703515]
 script = ExtResource("1_bsece")
