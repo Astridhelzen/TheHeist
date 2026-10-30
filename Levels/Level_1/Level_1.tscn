@@ -206,6 +206,6 @@ light_energy = 0.1
 omni_range = 12.0
 omni_attenuation = 0.3
 
-[node name="RearCityBlock" parent="." instance=ExtResource("201_rear_city")]
+[node name="RearCityBlock" parent="." unique_id=55361134 instance=ExtResource("201_rear_city")]
 
 [editable path="Exit"]

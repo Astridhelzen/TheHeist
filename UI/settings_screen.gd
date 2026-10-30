@@ -28,6 +28,11 @@ const ROWS := [
 	["MOUSE SENSITIVITY", "mouse_sensitivity", 0.25, 2.0, "times"],
 ]
 
+## On (main menu): the dark bank behind the page, with the same heading
+## placement as the other menu pages. Off (pause menu): a dark see-through
+## layer over the game. Set before adding the page.
+var menu_background := false
+
 var _sliders: Array[HSlider] = []
 var _back: Button
 
@@ -70,21 +75,29 @@ func _build() -> void:
 	root.theme = UI_THEME
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(root)
-	var dim := ColorRect.new()
-	dim.color = DIM
-	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.add_child(dim)
+	if menu_background:
+		root.add_child(MenuFloorPlan.page_background())
+	else:
+		var dim := ColorRect.new()
+		dim.color = DIM
+		dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+		root.add_child(dim)
 
-	# Same margins and heading as the pause menu
+	# Main menu: same heading place as the level page. Pause menu: same as the pause menu.
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
-	for side in ["left", "top", "right", "bottom"]:
-		margin.add_theme_constant_override("margin_" + side, 40 if side == "bottom" else 110)
+	var left := 76 if menu_background else 110
+	var top := 65 if menu_background else 110
+	margin.add_theme_constant_override("margin_left", left)
+	margin.add_theme_constant_override("margin_top", top)
+	margin.add_theme_constant_override("margin_right", left)
+	margin.add_theme_constant_override("margin_bottom", 40)
 	root.add_child(margin)
 	var layout := VBoxContainer.new()
 	margin.add_child(layout)
 	_label(layout, "THE HEIST", OVERLINE_FONT, 14, MUTED)
-	_label(layout, "SETTINGS", TITLE_FONT, 110, TEXT)
+	_label(layout, "SETTINGS", TITLE_FONT, 96 if menu_background else 110, TEXT)
+	_hint(root, "↑↓  CHOOSE     ←→  ADJUST     ESC  BACK")
 	var gap := Control.new()
 	gap.custom_minimum_size = Vector2(0, 30)
 	layout.add_child(gap)
@@ -119,6 +132,16 @@ func _build() -> void:
 	_back.text = "BACK"
 	_back.pressed.connect(close)
 	back_margin.add_child(_back)
+
+
+## Small key hints in the bottom right corner, like on the other menu pages.
+func _hint(parent: Control, text: String) -> void:
+	var font: FontVariation = OVERLINE_FONT.duplicate()
+	font.spacing_glyph = 2
+	var hint := _label(parent, text, font, 13, Color("5d646e"))
+	hint.position = Vector2(600, 652)
+	hint.size = Vector2(600, 20)
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 
 
 ## A small round arrow that puts everything back to the default values.

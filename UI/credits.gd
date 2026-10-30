@@ -43,6 +43,7 @@ const CREDITS := [
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_match_menu_pages()
 	_build_credits()
 	go_back.grab_focus()
 	%MainMenu.pressed.connect(_on_main_menu)
@@ -50,6 +51,43 @@ func _ready() -> void:
 
 func _on_main_menu() -> void:
 	get_tree().change_scene_to_file(main_menu)
+
+
+## Esc goes back to the menu too
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
+		_on_main_menu()
+
+
+## Same look as the other menu pages: the dark bank behind, the heading in
+## the same place and size, and key hints in the bottom right corner.
+func _match_menu_pages() -> void:
+	var root: Control = $Root
+	root.add_child(MenuFloorPlan.page_background())
+	root.move_child(root.get_child(-1), 0)
+	var dim := get_node_or_null("Root/Dim") as ColorRect
+	if dim:
+		dim.color.a = 0.0
+	var margin := get_node_or_null("Root/Margin") as MarginContainer
+	if margin:
+		margin.add_theme_constant_override("margin_left", 76)
+		margin.add_theme_constant_override("margin_top", 65)
+	var title := get_node_or_null("Root/Margin/Layout/Title") as Label
+	if title:
+		title.add_theme_font_size_override("font_size", 96)
+	var hint_font: FontVariation = OVERLINE_FONT.duplicate()
+	hint_font.spacing_glyph = 2
+	var hint := Label.new()
+	hint.text = "ESC  BACK"
+	hint.position = Vector2(600, 652)
+	hint.size = Vector2(600, 20)
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	hint.add_theme_font_override("font", hint_font)
+	hint.add_theme_font_size_override("font_size", 13)
+	hint.add_theme_color_override("font_color", Color("5d646e"))
+	hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(hint)
 
 
 func _build_credits() -> void:

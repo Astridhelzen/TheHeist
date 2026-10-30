@@ -3,6 +3,7 @@ extends Node
 ## user://settings.cfg and applies them everywhere:
 ## - Master, Music and Effects volume (three audio buses)
 ## - Mouse sensitivity for the camera
+## It also makes the big heading fonts sharp at every size (see FONTS below).
 ##
 ## Sounds are sorted onto the buses automatically: a sound player with
 ## "music" in its name goes to the Music bus, every other sound to SFX.
@@ -28,6 +29,7 @@ var mouse_sensitivity: float = DEFAULTS.mouse_sensitivity
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_use_sharp_fonts()
 	_create_bus(MUSIC_BUS)
 	_create_bus(SFX_BUS)
 	_load()
@@ -110,3 +112,31 @@ func _apply_mouse(player: Node) -> void:
 	if not player.has_meta("base_mouse_sensitivity"):
 		player.set_meta("base_mouse_sensitivity", player.mouse_sensitivity)
 	player.mouse_sensitivity = player.get_meta("base_mouse_sensitivity") * mouse_sensitivity
+
+
+# --------------------
+# FONTS
+# --------------------
+## The big heading fonts. They are drawn in many sizes (and scaled with the
+## window), and Godot could then sometimes draw letters with black boxes in
+## them. With MSDF each letter is made once and scaled sharply to every size.
+const SHARP_FONTS := [
+	"res://UI/Fonts/Big_Shoulders/static/BigShoulders-Black.ttf",
+	"res://UI/Fonts/Big_Shoulders/static/BigShoulders-Bold.ttf",
+]
+
+# Kept here so the changed fonts stay in memory (otherwise they are unloaded
+# and loaded again later without the change)
+var _sharp_fonts: Array[FontFile] = []
+
+func _use_sharp_fonts() -> void:
+	for path in SHARP_FONTS:
+		var font := load(path) as FontFile
+		if font == null:
+			continue
+		_sharp_fonts.append(font)
+		if font.multichannel_signed_distance_field:
+			continue
+		font.msdf_pixel_range = 16
+		font.msdf_size = 64
+		font.multichannel_signed_distance_field = true

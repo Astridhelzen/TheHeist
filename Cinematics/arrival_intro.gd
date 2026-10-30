@@ -102,22 +102,23 @@ func _build_overlay() -> void:
   bar.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE if bottom else Control.PRESET_TOP_WIDE)
   bar.offset_top = -64 if bottom else 0
   bar.offset_bottom = 0 if bottom else 64
- var label := Label.new()
- ui.add_child(label)
- label.position = Vector2(32, 19)
- label.text = "THE HEIST  /  ARRIVAL"
- label.add_theme_font_override("font", preload("res://UI/Fonts/overline.tres"))
- label.add_theme_color_override("font_color", Color("efc260"))
- var skip := Button.new()
- ui.add_child(skip)
- skip.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
- skip.offset_left = -255
- skip.offset_top = -52
- skip.offset_right = -24
- skip.offset_bottom = -12
- skip.text = "SKIP INTRO  [SPACE]"
- skip.theme = preload("res://UI/Themes/ui_theme.tres")
- skip.pressed.connect(_finish)
+ # "SPACE  SKIP" in the bottom bar, in the same style as the key hints in the menu
+ var hint_font: FontVariation = preload("res://UI/Fonts/overline.tres").duplicate()
+ hint_font.spacing_glyph = 2
+ var hint := Label.new()
+ ui.add_child(hint)
+ hint.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+ hint.offset_left = -400
+ hint.offset_top = -42
+ hint.offset_right = -80
+ hint.offset_bottom = -22
+ hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+ hint.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+ hint.text = "SPACE  SKIP"
+ hint.add_theme_font_override("font", hint_font)
+ hint.add_theme_font_size_override("font_size", 13)
+ hint.add_theme_color_override("font_color", Color("5d646e"))
+ hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
  fade = ColorRect.new()
  ui.add_child(fade)
  fade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
